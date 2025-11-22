@@ -1,0 +1,25 @@
+﻿using Domain.Model;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Application.Interfaces
+{
+    public interface ICoursesDbContext
+    {
+        DbSet<User> Users { get; set; }
+        DbSet<Role> Roles { get; set; }
+        DbSet<ProgressUser> ProgressUsers { get; set; }
+        DbSet<Reviews> Reviews { get; set; }
+        DbSet<Course> Courses { get; set; }
+        DbSet<Module> Modules { get; set; }
+        DbSet<Matherial> Matherials { get; set; }
+        DbSet<Test> Tests { get; set; }
+        DbSet<Question> Questions { get; set; }
+        DbSet<Answer> Answers { get; set; }
+        DbSet<AnswersUser> AnswersUsers { get; set; }
+
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+    }
+}

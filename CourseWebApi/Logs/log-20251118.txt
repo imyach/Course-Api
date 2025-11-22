@@ -1,0 +1,60 @@
+[00:03:36 INF] Инициализация базы данных...
+[00:03:37 INF] Executed DbCommand (90ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+[00:03:37 INF] Executed DbCommand (3ms) [Parameters=[@__nameRole_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Roles" AS "r"
+    WHERE "r"."RoleName" = @__nameRole_0)
+[00:03:37 INF] Executed DbCommand (0ms) [Parameters=[@__nameRole_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Roles" AS "r"
+    WHERE "r"."RoleName" = @__nameRole_0)
+[00:03:37 INF] Executed DbCommand (0ms) [Parameters=[@__nameRole_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Roles" AS "r"
+    WHERE "r"."RoleName" = @__nameRole_0)
+[00:03:37 INF] База данных успешно инициализирована
+[00:03:37 WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[00:03:37 INF] Controller RoleController зарегистрирован
+[00:03:37 INF] Swagger включен
+[00:03:37 INF] Приложение запущено
+[00:03:37 INF] Now listening on: https://localhost:7000
+[00:03:37 INF] Now listening on: http://localhost:5038
+[00:03:37 INF] Application started. Press Ctrl+C to shut down.
+[00:03:37 INF] Hosting environment: Development
+[00:03:37 INF] Content root path: E:\proj\CourseWebApiTwo\CourseWebApi
+[00:03:58 INF] Request starting HTTP/1.1 GET https://localhost:7000/roleAll - null null
+[00:03:58 INF] Executing endpoint 'HTTP: GET /roleAll => GetAll'
+[00:05:27 INF] Инициализация базы данных...
+[00:05:27 INF] Executed DbCommand (96ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+[00:05:28 INF] Executed DbCommand (3ms) [Parameters=[@__nameRole_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Roles" AS "r"
+    WHERE "r"."RoleName" = @__nameRole_0)
+[00:05:28 INF] Executed DbCommand (0ms) [Parameters=[@__nameRole_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Roles" AS "r"
+    WHERE "r"."RoleName" = @__nameRole_0)
+[00:05:28 INF] Executed DbCommand (0ms) [Parameters=[@__nameRole_0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Roles" AS "r"
+    WHERE "r"."RoleName" = @__nameRole_0)
+[00:05:28 INF] База данных успешно инициализирована
+[00:05:28 WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[00:05:28 INF] Controller RoleController зарегистрирован
+[00:05:28 INF] Swagger включен
+[00:05:28 INF] Приложение запущено
+[00:05:28 INF] Now listening on: https://localhost:7000
+[00:05:28 INF] Now listening on: http://localhost:5038
+[00:05:28 INF] Application started. Press Ctrl+C to shut down.
+[00:05:28 INF] Hosting environment: Development
+[00:05:28 INF] Content root path: E:\proj\CourseWebApiTwo\CourseWebApi
+[00:05:35 INF] Request starting HTTP/1.1 GET https://localhost:7000/roleAll - null null
+[00:05:35 INF] Executing endpoint 'HTTP: GET /roleAll => GetAll'

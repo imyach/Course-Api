@@ -1,0 +1,15 @@
+﻿using Domain.Model.Base;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Domain.Model
+{
+    public class Role : BaseModel
+    {
+        public string RoleName { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        public ICollection<User> Users { get; set; }
+    }
+}
