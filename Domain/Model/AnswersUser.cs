@@ -11,8 +11,8 @@ namespace Domain.Model
         public Guid IdQuestion { get; set; }
         public Guid IdAnswer { get; set; }
 
-        public Question Question { get; set; }
-        public Answer Answer { get; set; }
-        public User User { get; set; }
+        public Question? Question { get; set; }
+        public Answer? Answer { get; set; }
+        public User? User { get; set; }
     }
 }

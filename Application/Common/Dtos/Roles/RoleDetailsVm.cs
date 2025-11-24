@@ -10,7 +10,7 @@ namespace Application.Common.Dtos.Roles
     public class RoleDetailsVm :IMapWith<Role>
     {
         public Guid Id { get; set; }
-        public string RoleName { get; set; }
+        public string RoleName { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
 
         public void Mapping(Profile profile)

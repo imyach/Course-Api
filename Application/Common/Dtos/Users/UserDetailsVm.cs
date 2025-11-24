@@ -10,9 +10,9 @@ namespace Application.Common.Dtos.Users
     public class UserDetailsVm : IMapWith<User>
     {
         public Guid Id { get; set; }
-        public string NameUser { get; set; }
-        public string RoleId { get; set; }
-        public string HashPassword { get; set; }
+        public string NameUser { get; set; } = string.Empty;
+        public string RoleId { get; set; } = string.Empty;
+        public string HashPassword { get; set; } = string.Empty;
         public string? Email { get; set; }
         public DateTime CreatedAt { get; set; }
         public string? PhoneNumber { get; set; }

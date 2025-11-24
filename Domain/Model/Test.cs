@@ -9,12 +9,12 @@ namespace Domain.Model
     {
         public Guid? IdMatherial { get; set; }
         public Guid? IdCousre { get; set; }
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
 
-        public Course Course { get; set; }
-        public Matherial Matherial { get; set; }
+        public Course? Course { get; set; } 
+        public Matherial? Matherial { get; set; }
 
-        public IEnumerable<Question> Questions { get; set; }
+        public IEnumerable<Question>? Questions { get; set; }
     }
 }

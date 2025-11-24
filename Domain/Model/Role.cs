@@ -7,9 +7,9 @@ namespace Domain.Model
 {
     public class Role : BaseModel
     {
-        public string RoleName { get; set; }
+        public string RoleName { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
 
-        public ICollection<User> Users { get; set; }
+        public ICollection<User> Users { get; set; } = [];
     }
 }

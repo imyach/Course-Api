@@ -9,6 +9,6 @@ namespace Application.Common.Queries.Users.GetUser
     public class GetDetailsUserQuery : IRequest<UserDetailsVm>
     {
         public Guid Id { get; set; }
-        public Guid RoleId { get; set; }
+        public Guid UserId { get; set; }
     }
 }

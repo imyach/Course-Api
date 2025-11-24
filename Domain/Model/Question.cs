@@ -8,11 +8,11 @@ namespace Domain.Model
     public class Question : BaseModel
     {
         public Guid IdTest { get; set; }
-        public string Text { get; set; }
+        public string Text { get; set; } = string.Empty;
 
-        public Test Test { get; set; }
+        public Test? Test { get; set; }
 
-        public IEnumerable<Answer> Answers { get; set; }
-        public IEnumerable<AnswersUser> AnswersUsers { get; set; }
+        public IEnumerable<Answer>? Answers { get; set; }
+        public IEnumerable<AnswersUser>? AnswersUsers { get; set; }
     }
 }

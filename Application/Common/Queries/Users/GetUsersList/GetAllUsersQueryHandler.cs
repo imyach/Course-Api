@@ -19,7 +19,7 @@ namespace Application.Common.Queries.Users.GetUsersList
                 .ProjectTo<UserLooupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
-            return new UsersListVm { UsersListDto =  usersQuery };
+            return new UsersListVm { Users =  usersQuery };
         }
     }
 }

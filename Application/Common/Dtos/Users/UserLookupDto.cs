@@ -10,8 +10,8 @@ namespace Application.Common.Dtos.Users
     public class UserLooupDto : IMapWith<User>
     {
         public Guid Id { get; set; }
-        public string NameUser { get; set; }
-        public string RoleId{ get; set; }
+        public string NameUser { get; set; } = string.Empty;
+        public string RoleId{ get; set; } = string.Empty;
         public string? Email{ get; set; }
         public string? PhoneNumber { get; set; }
 
@@ -24,11 +24,9 @@ namespace Application.Common.Dtos.Users
                 .ForMember(userVm => userVm.NameUser,
                  opt => opt.MapFrom(user => user.NameUser))
                 .ForMember(userVm => userVm.RoleId,
-                 opt => opt.MapFrom(user => user.RoleId))
+                 opt => opt.MapFrom(user => user.Role.Id))
                 .ForMember(userVm => userVm.Email,
                  opt => opt.MapFrom(user => user.Email))
-                .ForMember(userVm => userVm.RoleId,
-                 opt => opt.MapFrom(user => user.RoleId))
                  .ForMember(userVm => userVm.PhoneNumber,
                  opt => opt.MapFrom(user => user.PhoneNumber));
         }

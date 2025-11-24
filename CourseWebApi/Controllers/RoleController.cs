@@ -9,9 +9,9 @@ using System.Security.Claims;
 namespace CourseWebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class RoleController(IMapper mapper) : BaseController
+    public class RoleController : BaseController
     {
-        [HttpGet("roleAll")]
+        [HttpGet("All")]
         public async Task<ActionResult<RoleListVm>> GetAll()
         {
             var query = new GetAllRolesQuery()
@@ -23,7 +23,7 @@ namespace CourseWebApi.Controllers
         }
     
 
-        [HttpGet("roleById/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<RoleDetailsVm>> GetById(Guid id)
         {
             var query = new GetDetailsRoleQuery()

@@ -822,23 +822,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User9\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Artem\\.nuget\\packages\\": {},
+    "F:\\VS\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\proj\\CourseApi\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\Artem\\Desktop\\CourseApi\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "E:\\proj\\CourseApi\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\User9\\.nuget\\packages\\",
-      "outputPath": "E:\\proj\\CourseApi\\Application\\obj\\",
+      "projectPath": "C:\\Users\\Artem\\Desktop\\CourseApi\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Artem\\Desktop\\CourseApi\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "F:\\VS\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\User9\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -853,8 +853,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "E:\\proj\\CourseApi\\Domain\\Domain.csproj": {
-              "projectPath": "E:\\proj\\CourseApi\\Domain\\Domain.csproj"
+            "C:\\Users\\Artem\\Desktop\\CourseApi\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Artem\\Desktop\\CourseApi\\Domain\\Domain.csproj"
             }
           }
         }

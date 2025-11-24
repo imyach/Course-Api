@@ -16,8 +16,8 @@ namespace Application.Common.Queries.Users.GetUser
         public async Task<UserDetailsVm> Handle(GetDetailsUserQuery request, CancellationToken cancellationToken)
         {
             var entity = await context.Users.
-                FirstOrDefaultAsync(x => x.Id == request.Id);
-            if (entity == null || entity.UserId != request.Id) 
+                FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
+            if (entity == null || entity.UserId != request.Id ) 
             {
                 throw new NotFoundException(nameof(User), request.Id);
             }

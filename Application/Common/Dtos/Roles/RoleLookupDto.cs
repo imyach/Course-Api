@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Application.Common.Dtos.Roles
 {
-    public class RoleLookupDto () : IMapWith<Role>
+    public class RoleLookupDto : IMapWith<Role>
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
 
         public void Mapping(Profile profile)=>

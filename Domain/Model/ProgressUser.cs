@@ -9,11 +9,11 @@ namespace Domain.Model
     {
         public Guid IdCourse { get; set; }
         public Guid IdUser { get; set; }
-        public string Status { get; set; }
+        public string Status { get; set; } = string.Empty;
         public DateTime StartedAt { get; set; }
         public DateTime? FineshedAt { get; set; }
 
-        public Course Course { get; set; }
-        public User User { get; set; }
+        public Course? Course { get; set; } 
+        public User? User { get; set; }
     }
 }

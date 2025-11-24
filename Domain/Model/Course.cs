@@ -7,19 +7,18 @@ namespace Domain.Model
 {
     public class Course : BaseModel
     {
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
-        public Guid UserId { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdateAt { get; set; }
         public decimal? Rait { get; set; }
 
-        public User User { get; set; }
+        public User? User { get; set; }
 
-        public IEnumerable<ProgressUser> ProgressUsers { get; set; }
-        public IEnumerable<Reviews> Reviews { get; set; }
-        public IEnumerable<Module> Modules { get; set; }
-        public IEnumerable<Test> Tests { get; set; }
+        public IEnumerable<ProgressUser> ProgressUsers { get; set; } = [];
+        public IEnumerable<Reviews> Reviews { get; set; } = [];
+        public IEnumerable<Module> Modules { get; set; } = [];
+        public IEnumerable<Test> Tests { get; set; } = [];
 
     }
 }
