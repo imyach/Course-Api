@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\User9\\Desktop\\Course-Api-server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api-server\\application\\common\\dtos\\roles\\roledetailsvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\dtos\\roles\\roledetailsvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api-server\\application\\common\\queries\\roles\\getrole\\getdetailsrolequeryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\roles\\getrole\\getdetailsrolequeryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api-server\\coursewebapi\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api-server\\application\\common\\queries\\roles\\getrolelist\\getallrolesqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\roles\\getrolelist\\getallrolesqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api-server\\application\\common\\queries\\roles\\getrole\\getdetailsrolequeryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\roles\\getrole\\getdetailsrolequeryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api-server\\application\\common\\queries\\roles\\getrolelist\\getallrolesquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\roles\\getrolelist\\getallrolesquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api-server\\coursewebapi\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api-server\\application\\common\\dtos\\roles\\roledetailsvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\dtos\\roles\\roledetailsvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api-server\\coursewebapi\\global\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,21 +42,8 @@
       "DocumentGroups": [
         {
           "DockedHeight": 107,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 12,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RoleDetailsVm.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api-server\\Application\\Common\\Dtos\\Roles\\RoleDetailsVm.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Dtos\\Roles\\RoleDetailsVm.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api-server\\Application\\Common\\Dtos\\Roles\\RoleDetailsVm.cs",
-              "RelativeToolTip": "Application\\Common\\Dtos\\Roles\\RoleDetailsVm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T08:43:42.767Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
@@ -79,12 +66,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
+              "Title": "RoleDetailsVm.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api-server\\Application\\Common\\Dtos\\Roles\\RoleDetailsVm.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Dtos\\Roles\\RoleDetailsVm.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api-server\\Application\\Common\\Dtos\\Roles\\RoleDetailsVm.cs",
+              "RelativeToolTip": "Application\\Common\\Dtos\\Roles\\RoleDetailsVm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T08:43:42.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "GetAllRolesQueryHandler.cs",
               "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api-server\\Application\\Common\\Queries\\Roles\\GetRoleList\\GetAllRolesQueryHandler.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Queries\\Roles\\GetRoleList\\GetAllRolesQueryHandler.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api-server\\Application\\Common\\Queries\\Roles\\GetRoleList\\GetAllRolesQueryHandler.cs*",
-              "RelativeToolTip": "Application\\Common\\Queries\\Roles\\GetRoleList\\GetAllRolesQueryHandler.cs*",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api-server\\Application\\Common\\Queries\\Roles\\GetRoleList\\GetAllRolesQueryHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\Roles\\GetRoleList\\GetAllRolesQueryHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-22T08:43:26.608Z",
@@ -131,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GetDetailsRoleQueryHandler.cs",
               "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api-server\\Application\\Common\\Queries\\Roles\\GetRole\\GetDetailsRoleQueryHandler.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Queries\\Roles\\GetRole\\GetDetailsRoleQueryHandler.cs",
@@ -157,13 +157,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "RoleController.cs",
               "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api-server\\CourseWebApi\\Controllers\\RoleController.cs",
               "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\RoleController.cs",
               "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api-server\\CourseWebApi\\Controllers\\RoleController.cs",
               "RelativeToolTip": "CourseWebApi\\Controllers\\RoleController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBQAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-22T07:55:12.017Z",
               "EditorCaption": ""

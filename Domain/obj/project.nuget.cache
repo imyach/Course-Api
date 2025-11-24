@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2uraQcxkGjo=",
+  "dgSpecHash": "wBoUGFKGnNs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\User9\\Desktop\\Course-Api-server\\Domain\\Domain.csproj",
+  "projectFilePath": "E:\\proj\\CourseApi\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User9\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.20\\microsoft.entityframeworkcore.7.0.20.nupkg.sha512",
     "C:\\Users\\User9\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.20\\microsoft.entityframeworkcore.abstractions.7.0.20.nupkg.sha512",
