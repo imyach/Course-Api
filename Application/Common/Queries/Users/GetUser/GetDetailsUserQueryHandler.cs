@@ -11,17 +11,18 @@ using System.Text;
 
 namespace Application.Common.Queries.Users.GetUser
 {
-    public class GetDetailsUserQueryHandler(ICoursesDbContext context, IMapper mapper) : IRequestHandler<GetDetailsUserQuery, UserDetailsVm>
+    public class GetDetailsUserQueryHandler(ICoursesDbContext context, IMapper mapper) : IRequestHandler<GetDetailsUserQuery, UserLooupDto>
     {
-        public async Task<UserDetailsVm> Handle(GetDetailsUserQuery request, CancellationToken cancellationToken)
+        public async Task<UserLooupDto> Handle(GetDetailsUserQuery request, CancellationToken cancellationToken)
         {
-            var entity = await context.Users.
-                FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
-            if (entity == null || entity.UserId != request.Id ) 
+            var entity = await context.Users
+                .Include(u => u.Role)
+                .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
+            if (entity == null || entity.CurrentUserId != request.UserId ) 
             {
                 throw new NotFoundException(nameof(User), request.Id);
             }
-            return mapper.Map<UserDetailsVm>(entity);
+            return mapper.Map<UserLooupDto>(entity);
         }
     }
 }

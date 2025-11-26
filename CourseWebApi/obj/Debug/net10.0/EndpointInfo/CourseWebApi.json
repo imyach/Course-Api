@@ -56,17 +56,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/RoleDetailsVm"
+                  "$ref": "#/components/schemas/RoleLookupDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RoleDetailsVm"
+                  "$ref": "#/components/schemas/RoleLookupDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RoleDetailsVm"
+                  "$ref": "#/components/schemas/RoleLookupDto"
                 }
               }
             }
@@ -125,76 +125,23 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserDetailsVm"
+                  "$ref": "#/components/schemas/UserLooupDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserDetailsVm"
+                  "$ref": "#/components/schemas/UserLooupDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserDetailsVm"
+                  "$ref": "#/components/schemas/UserLooupDto"
                 }
               }
             }
           }
         }
-      }
-    },
-    "/api/User/Create": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateUserCommand"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateUserCommand"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateUserCommand"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/User/Delete/{id}": {
+      },
       "delete": {
         "tags": [
           "User"
@@ -237,7 +184,56 @@
         }
       }
     },
-    "/api/User/Update": {
+    "/api/User": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        }
+      },
       "put": {
         "tags": [
           "User"
@@ -246,17 +242,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateUserCommand"
+                "$ref": "#/components/schemas/UpdateUserDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateUserCommand"
+                "$ref": "#/components/schemas/UpdateUserDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateUserCommand"
+                "$ref": "#/components/schemas/UpdateUserDto"
               }
             }
           }
@@ -291,32 +287,34 @@
   },
   "components": {
     "schemas": {
-      "CreateUserCommand": {
+      "CreateUserDto": {
+        "required": [
+          "hashPassword",
+          "login",
+          "nameUser",
+          "roleId"
+        ],
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
           "nameUser": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "login": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "hashPassword": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "roleId": {
             "type": "string",
             "format": "uuid"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
           },
           "phoneNumber": {
             "type": "string",
@@ -325,28 +323,10 @@
         },
         "additionalProperties": false
       },
-      "RoleDetailsVm": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "roleName": {
-            "type": "string",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
       "RoleListVm": {
         "type": "object",
         "properties": {
-          "roleListDto": {
+          "roles": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/RoleLookupDto"
@@ -359,6 +339,10 @@
       "RoleLookupDto": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
           "name": {
             "type": "string",
             "nullable": true
@@ -370,7 +354,10 @@
         },
         "additionalProperties": false
       },
-      "UpdateUserCommand": {
+      "UpdateUserDto": {
+        "required": [
+          "id"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -385,10 +372,6 @@
             "type": "string",
             "nullable": true
           },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
           "hashPassword": {
             "type": "string",
             "nullable": true
@@ -397,39 +380,9 @@
             "type": "string",
             "format": "uuid"
           },
-          "phoneNumber": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserDetailsVm": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "nameUser": {
-            "type": "string",
-            "nullable": true
-          },
-          "roleId": {
-            "type": "string",
-            "nullable": true
-          },
-          "hashPassword": {
-            "type": "string",
-            "nullable": true
-          },
           "email": {
             "type": "string",
             "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
           },
           "phoneNumber": {
             "type": "string",
@@ -449,17 +402,28 @@
             "type": "string",
             "nullable": true
           },
-          "roleId": {
+          "role": {
+            "$ref": "#/components/schemas/RoleLookupDto"
+          },
+          "email": {
             "type": "string",
             "nullable": true
           },
-          "email": {
+          "hashPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
             "type": "string",
             "nullable": true
           },
           "phoneNumber": {
             "type": "string",
             "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false

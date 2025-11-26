@@ -15,7 +15,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.Common.Dtos.Roles.RoleDetailsVm",
+        "Type": "Application.Common.Dtos.Roles.RoleLookupDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -47,6 +47,58 @@
   },
   {
     "ContainingType": "CourseWebApi.Controllers.UserController",
+    "Method": "Create",
+    "RelativePath": "api/User",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createUserCommand",
+        "Type": "CourseWebApi.Models.User.CreateUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.UserController",
+    "Method": "Update",
+    "RelativePath": "api/User",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateUserCommand",
+        "Type": "CourseWebApi.Models.User.UpdateUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.UserController",
     "Method": "Get",
     "RelativePath": "api/User/{id}",
     "HttpMethod": "GET",
@@ -61,53 +113,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.Common.Dtos.Users.UserDetailsVm",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "CourseWebApi.Controllers.UserController",
-    "Method": "GetAll",
-    "RelativePath": "api/User/All",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "Application.Common.Dtos.Users.UsersListVm",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "CourseWebApi.Controllers.UserController",
-    "Method": "Create",
-    "RelativePath": "api/User/Create",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "createUserCommand",
-        "Type": "Application.Common.Commands.Users.CreateUser.CreateUserCommand",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Guid",
+        "Type": "Application.Common.Dtos.Users.UserLooupDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -120,7 +126,7 @@
   {
     "ContainingType": "CourseWebApi.Controllers.UserController",
     "Method": "Delete",
-    "RelativePath": "api/User/Delete/{id}",
+    "RelativePath": "api/User/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -145,21 +151,15 @@
   },
   {
     "ContainingType": "CourseWebApi.Controllers.UserController",
-    "Method": "Update",
-    "RelativePath": "api/User/Update",
-    "HttpMethod": "PUT",
+    "Method": "GetAll",
+    "RelativePath": "api/User/All",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "updateUserCommand",
-        "Type": "Application.Common.Commands.Users.UpdateUser.UpdateUserCommand",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Guid",
+        "Type": "Application.Common.Dtos.Users.UsersListVm",
         "MediaTypes": [
           "text/plain",
           "application/json",

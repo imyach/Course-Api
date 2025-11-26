@@ -15,7 +15,8 @@ namespace Application.Common.Queries.Users.GetUsersList
         public async Task<UsersListVm> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
         {
             var usersQuery = await context.Users
-                .Where(u => u.UserId == request.UserId)
+                .Include(u => u.Role)
+                .Where(u => u.CurrentUserId == request.UserId)
                 .ProjectTo<UserLooupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

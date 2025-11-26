@@ -5,6 +5,7 @@ using Application.Common.Dtos.Users;
 using Application.Common.Queries.Users.GetUser;
 using Application.Common.Queries.Users.GetUsersList;
 using AutoMapper;
+using CourseWebApi.Models.User;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseWebApi.Controllers
@@ -25,7 +26,7 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserDetailsVm>> Get(Guid id)
+        public async Task<ActionResult<UserLooupDto>> Get(Guid id)
         {
             var query = new GetDetailsUserQuery()
             {
@@ -37,31 +38,38 @@ namespace CourseWebApi.Controllers
             return Ok(vm);
         }
 
-        [HttpPost("Create")]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateUserCommand createUserCommand)
+        [HttpPost]
+        public async Task<ActionResult<Guid>> Create([FromBody] CreateUserDto createUserCommand)
+
         {
             var command = mapper.Map<CreateUserCommand>(createUserCommand);
-            command.Id = UserId;
-            var userId = await Mediator.Send(command);    
-            return Ok(userId);    
+            command.UserId = UserId;
+            var userId = await Mediator.Send(command);
+            return Ok(userId);
         }
 
-        [HttpDelete("Delete/{id}")]
+
+        [HttpDelete("{id}")]
+
         public async Task<ActionResult<Guid>> Delete(Guid id)
         {
             var command = new DeleteUserCommand()
             {
-                Id = id
+
+                Id = id,
+                UserId = UserId
             };
-            await Mediator.Send(command);   
+            await Mediator.Send(command);
             return NoContent();
         }
 
-        [HttpPut("Update")]
-        public async Task<ActionResult<Guid>> Update([FromBody] UpdateUserCommand updateUserCommand)
+        [HttpPut]
+
+        public async Task<ActionResult<Guid>> Update([FromBody] UpdateUserDto updateUserCommand)
         {
             var command = mapper.Map<UpdateUserCommand>(updateUserCommand);
-            command.Id = UserId;
+            command.UserId = UserId;
+
             await Mediator.Send(command);
             return NoContent();
         }

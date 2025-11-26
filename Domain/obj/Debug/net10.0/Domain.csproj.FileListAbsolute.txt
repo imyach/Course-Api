@@ -42,7 +42,6 @@ C:\Users\Artem\Desktop\CourseApi\Domain\obj\Debug\net10.0\Domain.GeneratedMSBuil
 C:\Users\Artem\Desktop\CourseApi\Domain\obj\Debug\net10.0\Domain.AssemblyInfoInputs.cache
 C:\Users\Artem\Desktop\CourseApi\Domain\obj\Debug\net10.0\Domain.AssemblyInfo.cs
 C:\Users\Artem\Desktop\CourseApi\Domain\obj\Debug\net10.0\Domain.csproj.CoreCompileInputs.cache
-C:\Users\Artem\Desktop\CourseApi\Domain\obj\Debug\net10.0\Domain.sourcelink.json
 C:\Users\Artem\Desktop\CourseApi\Domain\obj\Debug\net10.0\Domain.dll
 C:\Users\Artem\Desktop\CourseApi\Domain\obj\Debug\net10.0\refint\Domain.dll
 C:\Users\Artem\Desktop\CourseApi\Domain\obj\Debug\net10.0\Domain.pdb

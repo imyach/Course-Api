@@ -15,11 +15,11 @@ namespace Application.Common.Queries.Roles.GetRoleList
         public async Task<RoleListVm> Handle(GetAllRolesQuery request, CancellationToken cancellationToken)
         {
             var rolesQuery = await context.Roles
-                .Where(r=> r.UserId == request.UserId)
+                .Where(r=> r.CurrentUserId == request.UserId)
                 .ProjectTo<RoleLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
-            return new RoleListVm { RoleListDto = rolesQuery };
+            return new RoleListVm { Roles = rolesQuery };
         }
     }
 }

@@ -12,18 +12,18 @@ using System.Text;
 namespace Application.Common.Queries.Roles.GetRole
 {
     public class GetDetailsRoleQueryHandler(ICoursesDbContext context, IMapper mapper) 
-        : IRequestHandler<GetDetailsRoleQuery, RoleDetailsVm>
+        : IRequestHandler<GetDetailsRoleQuery, RoleLookupDto>
     {
-        public async Task<RoleDetailsVm> Handle(GetDetailsRoleQuery request, CancellationToken cancellationToken)
+        public async Task<RoleLookupDto> Handle(GetDetailsRoleQuery request, CancellationToken cancellationToken)
         {
             var entity = await context.Roles
                 .FirstOrDefaultAsync(e => e.Id == request.Id, cancellationToken);
-            if (entity == null || entity.UserId != request.UserId )
+            if (entity == null || entity.CurrentUserId != request.UserId )
             {
                 throw new NotFoundException(nameof(Role), request.Id);
             }
 
-            return mapper.Map<RoleDetailsVm>(entity);
+            return mapper.Map<RoleLookupDto>(entity);
         }
     }
 }

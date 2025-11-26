@@ -7,6 +7,6 @@ namespace Domain.Model.Base
     public abstract class BaseModel
     {
         public Guid Id { get; set; }
-        public Guid UserId { get; set; }
+        public Guid CurrentUserId { get; set; }
     }
 }

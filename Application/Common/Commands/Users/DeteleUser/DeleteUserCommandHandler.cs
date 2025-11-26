@@ -13,7 +13,7 @@ namespace Application.Common.Commands.Users.DeteleUser
         public async Task<Unit> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
             var entity = await context.Users.FindAsync([request.Id], cancellationToken);
-            if (entity == null || request.Id != entity.UserId) 
+            if (entity == null || request.UserId != entity.CurrentUserId) 
             {
                 throw new NotFoundException(nameof(User), request.Id);
             }

@@ -6,6 +6,6 @@ namespace Application.Common.Dtos.Roles
 {
     public class RoleListVm
     {
-        public IList<RoleLookupDto>? RoleListDto { get; set; }
+        public IList<RoleLookupDto> Roles { get; set; } = [];
     }
 }

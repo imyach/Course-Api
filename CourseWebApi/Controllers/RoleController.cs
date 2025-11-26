@@ -24,7 +24,7 @@ namespace CourseWebApi.Controllers
     
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<RoleDetailsVm>> GetById(Guid id)
+        public async Task<ActionResult<RoleLookupDto>> GetById(Guid id)
         {
             var query = new GetDetailsRoleQuery()
             {

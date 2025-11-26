@@ -12,6 +12,7 @@ namespace Domain.Model
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdateAt { get; set; }
         public decimal? Rait { get; set; }
+        public Guid UserId { get; set; }
 
         public User? User { get; set; }
 
