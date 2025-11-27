@@ -8,6 +8,6 @@ namespace Application.Common.Queries.Users.GetUsersList
 {
     public class GetAllUsersQuery : IRequest<UsersListVm>
     {
-        public Guid UserId { get; set; }
+        public Guid CurrentUserId { get; set; }
     }
 }

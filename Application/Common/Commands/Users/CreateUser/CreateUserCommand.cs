@@ -8,9 +8,7 @@ namespace Application.Common.Commands.Users.CreateUser
 {
     public class CreateUserCommand : IRequest<Guid>
     {
-        public Guid Id { get; set; }
-        public Guid UserId { get; set; }
-        public Role? Role { get; set; }
+        public Guid CurrentUserId { get; set; }
         
         public string NameUser { get; set; } = string.Empty;
         public string Login { get; set; } = string.Empty;

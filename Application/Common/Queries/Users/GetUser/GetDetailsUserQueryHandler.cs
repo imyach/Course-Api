@@ -18,7 +18,7 @@ namespace Application.Common.Queries.Users.GetUser
             var entity = await context.Users
                 .Include(u => u.Role)
                 .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
-            if (entity == null || entity.CurrentUserId != request.UserId ) 
+            if (entity == null || entity.CurrentUserId != request.CurrentUserId ) 
             {
                 throw new NotFoundException(nameof(User), request.Id);
             }

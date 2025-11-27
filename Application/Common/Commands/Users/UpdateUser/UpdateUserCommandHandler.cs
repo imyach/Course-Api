@@ -13,11 +13,11 @@ namespace Application.Common.Commands.Users.UpdateUser
         public async Task<Unit> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
             var entity = await context.Users.FindAsync([request.Id], cancellationToken);
-            if (entity == null || request.UserId != entity.CurrentUserId) 
+            if (entity == null || request.CurrentUserId != entity.CurrentUserId) 
             {
                 throw new NotFoundException(nameof(User), request.Id);
             }
-             
+
             entity.RoleId = request.RoleId;
             entity.NameUser = request.NameUser;
             entity.Login = request.Login;

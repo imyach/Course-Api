@@ -15,7 +15,7 @@ namespace Application.Common.Queries.Roles.GetRoleList
         public async Task<RoleListVm> Handle(GetAllRolesQuery request, CancellationToken cancellationToken)
         {
             var rolesQuery = await context.Roles
-                .Where(r=> r.CurrentUserId == request.UserId)
+                .Where(r=> r.CurrentUserId == request.CurrentUserId)
                 .ProjectTo<RoleLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

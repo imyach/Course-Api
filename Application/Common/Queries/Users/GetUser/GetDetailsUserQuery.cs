@@ -9,6 +9,6 @@ namespace Application.Common.Queries.Users.GetUser
     public class GetDetailsUserQuery : IRequest<UserLooupDto>
     {
         public Guid Id { get; set; }
-        public Guid UserId { get; set; }
+        public Guid CurrentUserId { get; set; }
     }
 }

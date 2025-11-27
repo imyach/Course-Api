@@ -9,5 +9,7 @@ namespace Application.Common.Queries.Courses.GetCourse
 {
     public class GetDetailsCourseQuery : IRequest<CourseLookupDto>
     {
+        public Guid Id { get; set; }
+        public Guid CurrentUserId { get; set; }
     }
 }

@@ -5,6 +5,178 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Course/All": {
+      "get": {
+        "tags": [
+          "Course"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseListVm"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseListVm"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseListVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Course/{id}": {
+      "get": {
+        "tags": [
+          "Course"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseLookupDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseLookupDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseLookupDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Course": {
+      "post": {
+        "tags": [
+          "Course"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCourseDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCourseDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCourseDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Course"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCourseDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCourseDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCourseDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Course/{Id}": {
+      "delete": {
+        "tags": [
+          "Course"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Role/All": {
       "get": {
         "tags": [
@@ -159,27 +331,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -259,27 +411,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -287,6 +419,79 @@
   },
   "components": {
     "schemas": {
+      "CourseListVm": {
+        "type": "object",
+        "properties": {
+          "courses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CourseLookupDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CourseLookupDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updateAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "rait": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserLooupDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCourseDto": {
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "rait": {
+            "type": "number",
+            "format": "double"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateUserDto": {
         "required": [
           "hashPassword",
@@ -354,9 +559,40 @@
         },
         "additionalProperties": false
       },
+      "UpdateCourseDto": {
+        "required": [
+          "id",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "rait": {
+            "type": "number",
+            "format": "double"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateUserDto": {
         "required": [
-          "id"
+          "id",
+          "roleId"
         ],
         "type": "object",
         "properties": {
@@ -444,6 +680,9 @@
     }
   },
   "tags": [
+    {
+      "name": "Course"
+    },
     {
       "name": "Role"
     },

@@ -524,11 +524,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Artem\\Desktop\\CourseApi\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\Artem\\Desktop\\CourseApi\\Domain\\Domain.csproj",
+      "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Artem\\Desktop\\CourseApi\\Domain\\obj\\",
+      "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "F:\\VS\\Shared\\NuGetPackages"

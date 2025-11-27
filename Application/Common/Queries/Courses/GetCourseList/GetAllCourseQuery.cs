@@ -8,5 +8,6 @@ namespace Application.Common.Queries.Courses.GetCourseList
 {
     public class GetAllCourseQuery : IRequest<CourseListVm>
     {
+        public Guid CurrentUserId { get; set; }
     }
 }

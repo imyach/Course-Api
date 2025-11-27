@@ -8,6 +8,6 @@ namespace Application.Common.Queries.Roles.GetRoleList
 {
     public class GetAllRolesQuery : IRequest<RoleListVm>
     {
-        public Guid UserId { get; set; }
+        public Guid CurrentUserId { get; set; }
     }
 }

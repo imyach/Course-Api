@@ -16,7 +16,7 @@ namespace CourseWebApi.Controllers
         {
             var query = new GetAllRolesQuery()
             {
-                UserId = UserId,
+                CurrentUserId = UserId,
             };
             var vm = await Mediator.Send(query);
             return Ok(vm);
@@ -28,7 +28,7 @@ namespace CourseWebApi.Controllers
         {
             var query = new GetDetailsRoleQuery()
             {
-                UserId = UserId,
+                CurrentUserId = UserId,
                 Id = id
                 
             };

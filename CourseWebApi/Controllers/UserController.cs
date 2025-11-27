@@ -18,7 +18,7 @@ namespace CourseWebApi.Controllers
         {
             var query = new GetAllUsersQuery()
             {
-                UserId = UserId
+                CurrentUserId = UserId
             };
 
             var vm = await Mediator.Send(query);
@@ -31,7 +31,7 @@ namespace CourseWebApi.Controllers
             var query = new GetDetailsUserQuery()
             {
                 Id = id,
-                UserId = UserId
+                CurrentUserId = UserId
             };
 
             var vm = await Mediator.Send(query);
@@ -43,7 +43,7 @@ namespace CourseWebApi.Controllers
 
         {
             var command = mapper.Map<CreateUserCommand>(createUserCommand);
-            command.UserId = UserId;
+            command.CurrentUserId = UserId;
             var userId = await Mediator.Send(command);
             return Ok(userId);
         }
@@ -51,13 +51,13 @@ namespace CourseWebApi.Controllers
 
         [HttpDelete("{id}")]
 
-        public async Task<ActionResult<Guid>> Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteUserCommand()
             {
 
                 Id = id,
-                UserId = UserId
+                CurrentUserId = UserId
             };
             await Mediator.Send(command);
             return NoContent();
@@ -65,10 +65,10 @@ namespace CourseWebApi.Controllers
 
         [HttpPut]
 
-        public async Task<ActionResult<Guid>> Update([FromBody] UpdateUserDto updateUserCommand)
+        public async Task<IActionResult> Update([FromBody] UpdateUserDto updateUserCommand)
         {
             var command = mapper.Map<UpdateUserCommand>(updateUserCommand);
-            command.UserId = UserId;
+            command.CurrentUserId = UserId;
 
             await Mediator.Send(command);
             return NoContent();

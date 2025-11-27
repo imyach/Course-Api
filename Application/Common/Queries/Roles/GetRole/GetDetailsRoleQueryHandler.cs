@@ -18,7 +18,7 @@ namespace Application.Common.Queries.Roles.GetRole
         {
             var entity = await context.Roles
                 .FirstOrDefaultAsync(e => e.Id == request.Id, cancellationToken);
-            if (entity == null || entity.CurrentUserId != request.UserId )
+            if (entity == null || entity.CurrentUserId != request.CurrentUserId )
             {
                 throw new NotFoundException(nameof(Role), request.Id);
             }

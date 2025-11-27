@@ -12,6 +12,7 @@ namespace CourseWebApi.Models.User
         public string NameUser { get; set; } = string.Empty;
         public string Login { get; set; } = string.Empty;
         public string HashPassword { get; set; } = string.Empty;
+        [Required]
         public Guid RoleId { get; set; }
         public string? Email { get; set; }
         public string? PhoneNumber { get; set; }

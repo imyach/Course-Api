@@ -1,16 +1,27 @@
 ﻿using Application.Common.Dtos.Courses;
+using Application.Interfaces;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Domain.Model;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Application.Common.Queries.Courses.GetCourseList
 {
-    public class GetAllCourseQueryHandler : IRequestHandler<GetAllCourseQuery, CourseListVm>
+    public class GetAllCourseQueryHandler(ICoursesDbContext context, IMapper mapper) : IRequestHandler<GetAllCourseQuery, CourseListVm>
     {
-        public Task<CourseListVm> Handle(GetAllCourseQuery request, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
+        public async Task<CourseListVm> Handle(GetAllCourseQuery request, CancellationToken cancellationToken)
+        { 
+            var courseQuery = await context.Courses
+                .Include(c => c.User)
+                .Where(c=>c.CurrentUserId == request.CurrentUserId)
+                .ProjectTo<CourseLookupDto>(mapper.ConfigurationProvider)
+                .ToListAsync(cancellationToken);
+
+            return new CourseListVm { Courses = courseQuery };
         }
     }
 }
