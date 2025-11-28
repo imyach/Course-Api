@@ -11,7 +11,6 @@ namespace CourseWebApi.Models.Course
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
         public decimal Rait { get; set; } = 0;
-        [Required]
         public Guid UserId { get; set; }
 
         public void Mapping(Profile profile)

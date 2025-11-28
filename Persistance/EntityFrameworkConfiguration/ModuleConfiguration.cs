@@ -14,13 +14,13 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.HasKey(mod => mod.Id);
             builder.HasIndex(mod => mod.Id).IsUnique();
             builder.Property(mod => mod.Id).HasMaxLength(250);
-            builder.Property(mod => mod.IdCourse).IsRequired();
+            builder.Property(mod => mod.CourseId).IsRequired();
             builder.Property(mod => mod.Title).IsRequired().HasMaxLength(50);
             builder.Property(mod => mod.Order).IsRequired();
 
             builder.HasOne(course => course.Course)
                 .WithMany(modules => modules.Modules)
-                .HasForeignKey(k => k.IdCourse);
+                .HasForeignKey(k => k.CourseId);
 
         }
     }

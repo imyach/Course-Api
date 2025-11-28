@@ -10,6 +10,6 @@ namespace Domain.Model
         public string RoleName { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
 
-        public ICollection<User> Users { get; set; } = [];
+        public ICollection<User>? Users { get; set; }
     }
 }

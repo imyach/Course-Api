@@ -822,23 +822,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Artem\\.nuget\\packages\\": {},
-    "F:\\VS\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Student.DESKTOP-QKGSV6O\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\obj\\",
+      "projectPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "F:\\VS\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Student.DESKTOP-QKGSV6O\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -847,14 +847,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj"
+            "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Domain\\Domain.csproj"
             }
           }
         }

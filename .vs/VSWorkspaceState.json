@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Application",
+    "\\Application\\Common\\Queries",
+    "\\Application\\Common\\Queries\\Users",
+    "\\Application\\Common\\Queries\\Users\\GetUsersList",
+    "\\Application\\Interfaces",
+    "\\Domain",
+    "\\Domain\\Model",
+    "\\Domain\\Model\\Base",
+    "\\Persistance"
+  ],
+  "SelectedNode": "\\CourseWebApi\\Models\\User\\CreateUserDto.cs",
+  "PreviewInSolutionExplorer": false
+}

@@ -16,10 +16,10 @@ namespace Domain.Model
 
         public User? User { get; set; }
 
-        public IEnumerable<ProgressUser> ProgressUsers { get; set; } = [];
-        public IEnumerable<Reviews> Reviews { get; set; } = [];
-        public IEnumerable<Module> Modules { get; set; } = [];
-        public IEnumerable<Test> Tests { get; set; } = [];
+        public IEnumerable<ProgressUser>? ProgressUsers { get; set; }
+        public IEnumerable<Reviews>? Reviews { get; set; }
+        public IEnumerable<Module>? Modules { get; set; }
+        public IEnumerable<Test>? Tests { get; set; }
 
     }
 }

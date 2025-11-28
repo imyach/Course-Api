@@ -1,0 +1,33 @@
+﻿using Application.Common.Commands.Modules.CreateModule;
+using Application.Common.Dtos.Courses;
+using Application.Common.Dtos.Modules;
+using AutoMapper;
+using System.ComponentModel.DataAnnotations;
+
+namespace CourseWebApi.Models.Module
+{
+    public class CreateModuleDto : IMapWith<CreateModuleCommand>
+    {
+        [Required]
+        public string Title { get; set; } = string.Empty;
+        public string? Description { get; set; }
+        [Required]
+        public int Order { get; set; }
+        [Required]
+        public Guid CourseId { get; set; }
+
+        public void Mapping(Profile profile)
+        {
+            profile.CreateMap<CreateModuleDto, CreateModuleCommand>()
+                .ForMember(moduleVm => moduleVm.Title,
+                opt => opt.MapFrom(module => module.Title))
+                .ForMember(moduleVm => moduleVm.Description,
+                opt => opt.MapFrom(module => module.Description))
+                .ForMember(moduleVm => moduleVm.Order,
+                opt => opt.MapFrom(module => module.Order))
+                .ForMember(moduleVm => moduleVm.CourseId,
+                opt => opt.MapFrom(module => module.CourseId));
+
+        }
+    }
+}

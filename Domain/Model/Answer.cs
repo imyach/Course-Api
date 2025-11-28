@@ -13,6 +13,6 @@ namespace Domain.Model
 
         public Question? Question { get; set; }
 
-        public IEnumerable<AnswersUser> AnswersUsers { get; set; } = [];
+        public IEnumerable<AnswersUser>? AnswersUsers { get; set; }
     }
 }

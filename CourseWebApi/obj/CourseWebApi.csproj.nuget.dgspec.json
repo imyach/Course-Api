@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj": {}
+    "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\CourseWebApi\\CourseWebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj": {
+    "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\obj\\",
+        "projectPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "F:\\VS\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Student.DESKTOP-QKGSV6O\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj"
+              "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Domain\\Domain.csproj"
               }
             }
           }
@@ -361,20 +362,20 @@
         }
       }
     },
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj": {
+    "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\CourseWebApi\\CourseWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\CourseWebApi\\CourseWebApi.csproj",
         "projectName": "CourseWebApi",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj",
-        "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\obj\\",
+        "projectPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\CourseWebApi\\CourseWebApi.csproj",
+        "packagesPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\CourseWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "F:\\VS\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Student.DESKTOP-QKGSV6O\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -383,17 +384,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj"
+              "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Application\\Application.csproj"
               },
-              "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj": {
-                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj"
+              "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Persistance\\Persistance.csproj": {
+                "projectPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Persistance\\Persistance.csproj"
               }
             }
           }
@@ -864,20 +866,20 @@
         }
       }
     },
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj": {
+    "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "F:\\VS\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Student.DESKTOP-QKGSV6O\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -886,6 +888,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -1209,20 +1212,20 @@
         }
       }
     },
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj": {
+    "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Persistance\\Persistance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj",
+        "projectUniqueName": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Persistance\\Persistance.csproj",
         "projectName": "Persistance",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj",
-        "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\obj\\",
+        "projectPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Persistance\\Persistance.csproj",
+        "packagesPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Persistance\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "F:\\VS\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Student.DESKTOP-QKGSV6O\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -1231,14 +1234,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj"
+              "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Application\\Application.csproj"
               }
             }
           }

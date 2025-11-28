@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj": {}
+    "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj": {
+    "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Student.DESKTOP-QKGSV6O\\Desktop\\course-api\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "F:\\VS\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Student.DESKTOP-QKGSV6O\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
