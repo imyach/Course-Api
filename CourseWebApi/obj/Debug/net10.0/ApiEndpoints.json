@@ -104,8 +104,112 @@
     ]
   },
   {
-    "ContainingType": "CourseWebApi.Controllers.ModuleController",
+    "ContainingType": "CourseWebApi.Controllers.MatherialController",
+    "Method": "Create",
+    "RelativePath": "api/Matherial",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createMatherialDto",
+        "Type": "CourseWebApi.Models.Matherial.CreateMatherialDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.MatherialController",
+    "Method": "Update",
+    "RelativePath": "api/Matherial",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateMatherialDto",
+        "Type": "CourseWebApi.Models.Matherial.UpdateMatherialDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.MatherialController",
+    "Method": "Get",
+    "RelativePath": "api/Matherial/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Common.Dtos.Matherials.MatherialLookupDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.MatherialController",
     "Method": "Delete",
+    "RelativePath": "api/Matherial/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.MatherialController",
+    "Method": "GetAll",
+    "RelativePath": "api/Matherial/All",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Common.Dtos.Matherials.MatherialListVm",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.ModuleController",
+    "Method": "Create",
     "RelativePath": "api/Module",
     "HttpMethod": "POST",
     "IsController": true,

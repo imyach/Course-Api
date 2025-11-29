@@ -1,5 +1,6 @@
 ﻿using Application.Common.Commands.Users.CreateUser;
 using AutoMapper;
+using Domain.Model;
 using System.ComponentModel.DataAnnotations;
 
 namespace CourseWebApi.Models.User
@@ -20,17 +21,17 @@ namespace CourseWebApi.Models.User
         public void Mapping(Profile profile)
         {
             profile.CreateMap<CreateUserDto, CreateUserCommand>()
-                .ForMember(userCommand => userCommand.Login,
+                .ForMember(userCm => userCm.Login,
                 opt => opt.MapFrom(userDto => userDto.Login))
-                .ForMember(userCommand => userCommand.NameUser,
+                .ForMember(userCm => userCm.NameUser,
                 opt => opt.MapFrom(userDto => userDto.NameUser))
-                .ForMember(userCommand => userCommand.Email,
+                .ForMember(userCm => userCm.Email,
                 opt => opt.MapFrom(userDto => userDto.Email))
-                .ForMember(userCommand => userCommand.HashPassword,
+                .ForMember(userCm => userCm.HashPassword,
                 opt => opt.MapFrom(userDto => userDto.HashPassword))
-                .ForMember(userCommand => userCommand.RoleId,
+                .ForMember(userCm => userCm.RoleId,
                 opt => opt.MapFrom(userDto => userDto.RoleId))
-                .ForMember(userCommand => userCommand.PhoneNumber,
+                .ForMember(userCm => userCm.PhoneNumber,
                 opt => opt.MapFrom(userDto => userDto.PhoneNumber));
         }
     }

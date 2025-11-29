@@ -8,9 +8,12 @@ namespace CourseWebApi.Models.Course
     {
         [Required]
         public Guid Id { get; set; }
+        [Required]
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
+        [Required]
         public decimal Rait { get; set; } = 0;
+        [Required]
         public Guid UserId { get; set; }
 
         public void Mapping(Profile profile)

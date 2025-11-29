@@ -9,8 +9,11 @@ namespace CourseWebApi.Models.User
     {
         [Required]
         public Guid Id { get; set; }
+        [Required]
         public string NameUser { get; set; } = string.Empty;
+        [Required]
         public string Login { get; set; } = string.Empty;
+        [Required]
         public string HashPassword { get; set; } = string.Empty;
         [Required]
         public Guid RoleId { get; set; }

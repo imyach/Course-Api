@@ -19,13 +19,13 @@ namespace CourseWebApi.Models.Module
         public void Mapping(Profile profile)
         {
             profile.CreateMap<CreateModuleDto, CreateModuleCommand>()
-                .ForMember(moduleVm => moduleVm.Title,
+                .ForMember(moduleCm => moduleCm.Title,
                 opt => opt.MapFrom(module => module.Title))
-                .ForMember(moduleVm => moduleVm.Description,
+                .ForMember(moduleCm => moduleCm.Description,
                 opt => opt.MapFrom(module => module.Description))
-                .ForMember(moduleVm => moduleVm.Order,
+                .ForMember(moduleCm => moduleCm.Order,
                 opt => opt.MapFrom(module => module.Order))
-                .ForMember(moduleVm => moduleVm.CourseId,
+                .ForMember(moduleCm => moduleCm.CourseId,
                 opt => opt.MapFrom(module => module.CourseId));
 
         }

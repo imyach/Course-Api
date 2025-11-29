@@ -12,7 +12,7 @@ namespace Application.Common.Commands.Modules.CreateModule
 
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
-        public int Order { get; set; }
+        public int Order { get; set; } = 0;
         public Guid CourseId { get; set; }
     }
 }

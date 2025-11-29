@@ -9,9 +9,12 @@ namespace CourseWebApi.Models.Module
     {
         [Required]
         public Guid Id { get; set; }
+        [Required]
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
+        [Required]
         public int Order { get; set; }
+        [Required]
         public Guid CourseId { get; set; }
 
         public void Mapping(Profile profile)

@@ -1,5 +1,6 @@
 ﻿using Application.Common.Commands.Courses.CreateCourse;
 using AutoMapper;
+using Domain.Model;
 using System.ComponentModel.DataAnnotations;
 
 namespace CourseWebApi.Models.Course
@@ -16,13 +17,13 @@ namespace CourseWebApi.Models.Course
         public void Mapping(Profile profile)
         {
             profile.CreateMap<CreateCourseDto, CreateCourseCommand>()
-                .ForMember(courseVm => courseVm.Title,
+                .ForMember(courseCm => courseCm.Title,
                 opt => opt.MapFrom(courseCr => courseCr.Title))
-                .ForMember(courseVm => courseVm.Description,
+                .ForMember(courseCm => courseCm.Description,
                 opt => opt.MapFrom(courseCr => courseCr.Description))
-                .ForMember(courseVm => courseVm.Rait,
+                .ForMember(courseCm => courseCm.Rait,
                 opt => opt.MapFrom(courseCr => courseCr.Rait))
-                .ForMember(courseVm => courseVm.UserId,
+                .ForMember(courseCm => courseCm.UserId,
                 opt => opt.MapFrom(courseCr => courseCr.UserId));
         }
     }

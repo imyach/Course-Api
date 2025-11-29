@@ -9,13 +9,10 @@ namespace Application.Common.Commands.Courses.CreateCourse
 {
     public class CreateCourseCommand : IRequest<Guid>
     {
-        public Guid Id { get; set; }
         public Guid CurrentUserId { get; set; }
 
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime? UpdateAt { get; set; }
         public decimal Rait { get; set; } = 0;
         public Guid UserId { get; set; }
 

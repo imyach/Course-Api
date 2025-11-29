@@ -49,7 +49,7 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Guid>> Delete([FromBody] CreateModuleDto createModuleDto)
+        public async Task<ActionResult<Guid>> Create([FromBody] CreateModuleDto createModuleDto)
         {
             var command = mapper.Map<CreateModuleCommand>(createModuleDto);
             command.CurrentUserId = UserId;

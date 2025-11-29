@@ -177,6 +177,176 @@
         }
       }
     },
+    "/api/Matherial/All": {
+      "get": {
+        "tags": [
+          "Matherial"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatherialListVm"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatherialListVm"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatherialListVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Matherial/{id}": {
+      "get": {
+        "tags": [
+          "Matherial"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatherialLookupDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatherialLookupDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatherialLookupDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Matherial"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Matherial": {
+      "post": {
+        "tags": [
+          "Matherial"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMatherialDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMatherialDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMatherialDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Matherial"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMatherialDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMatherialDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMatherialDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Module/All": {
       "get": {
         "tags": [
@@ -663,6 +833,33 @@
         },
         "additionalProperties": false
       },
+      "CreateMatherialDto": {
+        "required": [
+          "idModule",
+          "order",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "idModule": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateModuleDto": {
         "required": [
           "courseId",
@@ -722,6 +919,44 @@
           "phoneNumber": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MatherialListVm": {
+        "type": "object",
+        "properties": {
+          "matherials": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MatherialLookupDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MatherialLookupDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "module": {
+            "$ref": "#/components/schemas/ModuleLookupDto"
           }
         },
         "additionalProperties": false
@@ -797,7 +1032,10 @@
       },
       "UpdateCourseDto": {
         "required": [
-          "id"
+          "id",
+          "rait",
+          "title",
+          "userId"
         ],
         "type": "object",
         "properties": {
@@ -806,8 +1044,8 @@
             "format": "uuid"
           },
           "title": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "description": {
             "type": "string",
@@ -824,9 +1062,44 @@
         },
         "additionalProperties": false
       },
+      "UpdateMatherialDto": {
+        "required": [
+          "id",
+          "idModule",
+          "order",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "idModule": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateModuleDto": {
         "required": [
-          "id"
+          "courseId",
+          "id",
+          "order",
+          "title"
         ],
         "type": "object",
         "properties": {
@@ -835,8 +1108,8 @@
             "format": "uuid"
           },
           "title": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "description": {
             "type": "string",
@@ -855,7 +1128,10 @@
       },
       "UpdateUserDto": {
         "required": [
+          "hashPassword",
           "id",
+          "login",
+          "nameUser",
           "roleId"
         ],
         "type": "object",
@@ -865,16 +1141,16 @@
             "format": "uuid"
           },
           "nameUser": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "login": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "hashPassword": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "roleId": {
             "type": "string",
@@ -946,6 +1222,9 @@
   "tags": [
     {
       "name": "Course"
+    },
+    {
+      "name": "Matherial"
     },
     {
       "name": "Module"
