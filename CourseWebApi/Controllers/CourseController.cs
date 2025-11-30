@@ -40,8 +40,8 @@ namespace CourseWebApi.Controllers
         {
             var command = mapper.Map<CreateCourseCommand>(createCourseDto);
             command.CurrentUserId = UserId;
-            var userid = await Mediator.Send(command);
-            return Ok(userid);
+            var commandId = await Mediator.Send(command);
+            return Ok(commandId);
         }
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdateCourseDto updateCourseDto )

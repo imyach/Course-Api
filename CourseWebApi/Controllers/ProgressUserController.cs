@@ -56,8 +56,8 @@ namespace CourseWebApi.Controllers
         {
             var command = mapper.Map<CreateProgressUserCommand>(createProgressUserDto);
             command.CurrentUserId = UserId;
-            var progressUserID = await Mediator.Send(command);
-            return Ok(progressUserID);
+            var progressUserId = await Mediator.Send(command);
+            return Ok(progressUserId);
         }
 
         [HttpPut]
