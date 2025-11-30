@@ -26,7 +26,7 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserLooupDto>> Get(Guid id)
+        public async Task<ActionResult<UserLookupDto>> Get(Guid id)
         {
             var query = new GetDetailsUserQuery()
             {

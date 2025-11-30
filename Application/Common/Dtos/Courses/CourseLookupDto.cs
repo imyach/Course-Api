@@ -17,7 +17,7 @@ namespace Application.Common.Dtos.Courses
         public DateTime? UpdateAt { get; set; }
         public decimal? Rait { get; set; }
 
-        public UserLooupDto? User { get; set; }
+        public UserLookupDto? User { get; set; }
 
         public void Mapping(Profile profile)
         {

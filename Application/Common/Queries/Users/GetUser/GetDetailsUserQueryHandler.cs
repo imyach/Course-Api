@@ -11,9 +11,9 @@ using System.Text;
 
 namespace Application.Common.Queries.Users.GetUser
 {
-    public class GetDetailsUserQueryHandler(ICoursesDbContext context, IMapper mapper) : IRequestHandler<GetDetailsUserQuery, UserLooupDto>
+    public class GetDetailsUserQueryHandler(ICoursesDbContext context, IMapper mapper) : IRequestHandler<GetDetailsUserQuery, UserLookupDto>
     {
-        public async Task<UserLooupDto> Handle(GetDetailsUserQuery request, CancellationToken cancellationToken)
+        public async Task<UserLookupDto> Handle(GetDetailsUserQuery request, CancellationToken cancellationToken)
         {
             var entity = await context.Users
                 .Include(u => u.Role)
@@ -22,7 +22,7 @@ namespace Application.Common.Queries.Users.GetUser
             {
                 throw new NotFoundException(nameof(User), request.Id);
             }
-            return mapper.Map<UserLooupDto>(entity);
+            return mapper.Map<UserLookupDto>(entity);
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Application.Common.Dtos.Users
 {
-    public class UserLooupDto : IMapWith<User>
+    public class UserLookupDto : IMapWith<User>
     {
         public Guid Id { get; set; }
         public string NameUser { get; set; } = string.Empty;
@@ -21,7 +21,7 @@ namespace Application.Common.Dtos.Users
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<User, UserLooupDto>()
+            profile.CreateMap<User, UserLookupDto>()
                 .ForMember(userVm => userVm.Id,
                  opt => opt.MapFrom(user => user.Id))
                 .ForMember(userVm => userVm.NameUser,

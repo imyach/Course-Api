@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Application.Common.Queries.Users.GetUser
 {
-    public class GetDetailsUserQuery : IRequest<UserLooupDto>
+    public class GetDetailsUserQuery : IRequest<UserLookupDto>
     {
         public Guid Id { get; set; }
         public Guid CurrentUserId { get; set; }

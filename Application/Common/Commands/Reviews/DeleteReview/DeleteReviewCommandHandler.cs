@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Application.Common.Commands.Rewies.DeleteReview
 {
-    internal class DeleteReviewCommandHandler(ICoursesDbContext context) : IRequestHandler<DeleteReviewCommand>
+    public class DeleteReviewCommandHandler(ICoursesDbContext context) : IRequestHandler<DeleteReviewCommand>
     {
         public async Task<Unit> Handle(DeleteReviewCommand request, CancellationToken cancellationToken)
         {

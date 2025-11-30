@@ -312,6 +312,110 @@
     ]
   },
   {
+    "ContainingType": "CourseWebApi.Controllers.ProgressUserController",
+    "Method": "Create",
+    "RelativePath": "api/ProgressUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createProgressUserDto",
+        "Type": "CourseWebApi.Models.ProgressUser.CreateProgressUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.ProgressUserController",
+    "Method": "Update",
+    "RelativePath": "api/ProgressUser",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateProgressUserDto",
+        "Type": "CourseWebApi.Models.ProgressUser.UpdateProgressUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.ProgressUserController",
+    "Method": "Get",
+    "RelativePath": "api/ProgressUser/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Common.Dtos.ProgressUsers.ProgressUserLookupDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.ProgressUserController",
+    "Method": "Delete",
+    "RelativePath": "api/ProgressUser/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.ProgressUserController",
+    "Method": "GetAll",
+    "RelativePath": "api/ProgressUser/All",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Common.Dtos.ProgressUsers.ProgressUserListVm",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "CourseWebApi.Controllers.ReviewController",
     "Method": "Create",
     "RelativePath": "api/Review",
@@ -503,7 +607,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.Common.Dtos.Users.UserLooupDto",
+        "Type": "Application.Common.Dtos.Users.UserLookupDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

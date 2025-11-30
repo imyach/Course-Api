@@ -6,6 +6,6 @@ namespace Application.Common.Dtos.Users
 {
     public class UsersListVm
     {
-        public IList<UserLooupDto> Users { get; set; } = [];
+        public IList<UserLookupDto> Users { get; set; } = [];
     }
 }

@@ -17,7 +17,7 @@ namespace Application.Common.Queries.Users.GetUsersList
             var usersQuery = await context.Users
                 .Include(u => u.Role)
                 .Where(u => u.CurrentUserId == request.CurrentUserId)
-                .ProjectTo<UserLooupDto>(mapper.ConfigurationProvider)
+                .ProjectTo<UserLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
             return new UsersListVm { Users =  usersQuery };

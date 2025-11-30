@@ -16,7 +16,7 @@ namespace Application.Common.Dtos.Reviews
         public string Text {  get; set; } = string.Empty;
         public DateTime CreatedAt {  get; set; }
 
-        public UserLooupDto? User { get; set; }
+        public UserLookupDto? User { get; set; }
         public CourseLookupDto? Course { get; set; }
 
         public void Mapping(Profile profile)

@@ -517,6 +517,176 @@
         }
       }
     },
+    "/api/ProgressUser/All": {
+      "get": {
+        "tags": [
+          "ProgressUser"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressUserListVm"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressUserListVm"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressUserListVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ProgressUser/{id}": {
+      "get": {
+        "tags": [
+          "ProgressUser"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressUserLookupDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressUserLookupDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressUserLookupDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ProgressUser"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ProgressUser": {
+      "post": {
+        "tags": [
+          "ProgressUser"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProgressUserDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProgressUserDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProgressUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ProgressUser"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProgressUserDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProgressUserDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProgressUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Review/All": {
       "get": {
         "tags": [
@@ -778,17 +948,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserLooupDto"
+                  "$ref": "#/components/schemas/UserLookupDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserLooupDto"
+                  "$ref": "#/components/schemas/UserLookupDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserLooupDto"
+                  "$ref": "#/components/schemas/UserLookupDto"
                 }
               }
             }
@@ -943,7 +1113,7 @@
             "nullable": true
           },
           "user": {
-            "$ref": "#/components/schemas/UserLooupDto"
+            "$ref": "#/components/schemas/UserLookupDto"
           }
         },
         "additionalProperties": false
@@ -1020,6 +1190,24 @@
           "order": {
             "type": "integer",
             "format": "int32"
+          },
+          "courseId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateProgressUserDto": {
+        "required": [
+          "courseId",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "format": "uuid"
           },
           "courseId": {
             "type": "string",
@@ -1168,6 +1356,48 @@
         },
         "additionalProperties": false
       },
+      "ProgressUserListVm": {
+        "type": "object",
+        "properties": {
+          "progressUsers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgressUserLookupDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProgressUserLookupDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fineshedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "course": {
+            "$ref": "#/components/schemas/CourseLookupDto"
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserLookupDto"
+          }
+        },
+        "additionalProperties": false
+      },
       "ReviewListVm": {
         "type": "object",
         "properties": {
@@ -1201,7 +1431,7 @@
             "format": "date-time"
           },
           "user": {
-            "$ref": "#/components/schemas/UserLooupDto"
+            "$ref": "#/components/schemas/UserLookupDto"
           },
           "course": {
             "$ref": "#/components/schemas/CourseLookupDto"
@@ -1336,6 +1566,24 @@
         },
         "additionalProperties": false
       },
+      "UpdateProgressUserDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "finishedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateUserDto": {
         "required": [
           "hashPassword",
@@ -1377,7 +1625,7 @@
         },
         "additionalProperties": false
       },
-      "UserLooupDto": {
+      "UserLookupDto": {
         "type": "object",
         "properties": {
           "id": {
@@ -1420,7 +1668,7 @@
           "users": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/UserLooupDto"
+              "$ref": "#/components/schemas/UserLookupDto"
             },
             "nullable": true
           }
@@ -1438,6 +1686,9 @@
     },
     {
       "name": "Module"
+    },
+    {
+      "name": "ProgressUser"
     },
     {
       "name": "Review"
