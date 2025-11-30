@@ -11,7 +11,7 @@ namespace Application.Interfaces
         DbSet<User> Users { get; set; }
         DbSet<Role> Roles { get; set; }
         DbSet<ProgressUser> ProgressUsers { get; set; }
-        DbSet<Reviews> Reviews { get; set; }
+        DbSet<Review> Reviews { get; set; }
         DbSet<Course> Courses { get; set; }
         DbSet<Module> Modules { get; set; }
         DbSet<Matherial> Matherials { get; set; }

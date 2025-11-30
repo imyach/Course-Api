@@ -15,7 +15,7 @@ namespace Persistance
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<ProgressUser> ProgressUsers { get; set; }
-        public DbSet<Reviews> Reviews { get; set; }
+        public DbSet<Review> Reviews { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Module> Modules { get; set; }
         public DbSet<Matherial> Matherials { get; set; }

@@ -7,7 +7,7 @@ namespace Domain.Model
 {
     public class Answer : BaseModel
     {
-        public Guid IdQuestion { get; set; }
+        public Guid QuestionId { get; set; }
         public string Text { get; set; } = string.Empty;
         public bool IsCorrect { get; set; }
 

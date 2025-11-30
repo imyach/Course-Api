@@ -7,8 +7,8 @@ namespace Domain.Model
 {
     public class ProgressUser : BaseModel
     {
-        public Guid IdCourse { get; set; }
-        public Guid IdUser { get; set; }
+        public Guid CourseId { get; set; }
+        public Guid UserId { get; set; }
         public string Status { get; set; } = string.Empty;
         public DateTime StartedAt { get; set; }
         public DateTime? FineshedAt { get; set; }

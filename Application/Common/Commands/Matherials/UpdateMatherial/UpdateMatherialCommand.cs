@@ -9,7 +9,7 @@ namespace Application.Common.Commands.Matherials.UpdateMatherial
     {
         public Guid Id { get; set; }
         public Guid CurrentUserId { get; set; }
-        public Guid IdModule { get; set; }
+        public Guid ModuleId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
         public int Order { get; set; }

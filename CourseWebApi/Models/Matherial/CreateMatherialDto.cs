@@ -7,7 +7,7 @@ namespace CourseWebApi.Models.Matherial
     public class CreateMatherialDto : IMapWith<CreateMatherialCommand>
     {
         [Required]
-        public Guid IdModule { get; set; }
+        public Guid ModuleId { get; set; }
         [Required]
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
@@ -17,8 +17,8 @@ namespace CourseWebApi.Models.Matherial
         public void Mapping(Profile profile)
         {
             profile.CreateMap<CreateMatherialDto, CreateMatherialCommand>()
-                .ForMember(matherialCm => matherialCm.IdModule,
-                opt => opt.MapFrom(matherial => matherial.IdModule))
+                .ForMember(matherialCm => matherialCm.ModuleId,
+                opt => opt.MapFrom(matherial => matherial.ModuleId))
                 .ForMember(matherialCm => matherialCm.Title,
                 opt => opt.MapFrom(matherial => matherial.Title))
                 .ForMember(matherialCm => matherialCm.Description,

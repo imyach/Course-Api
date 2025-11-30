@@ -16,15 +16,15 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.Property(prog => prog.Id).HasMaxLength(250);
             builder.Property(prop => prop.Status).HasMaxLength(20).IsRequired();
             builder.Property(prog => prog.StartedAt).IsRequired();
-            builder.Property(prog => prog.IdCourse).IsRequired();
-            builder.Property(prog => prog.IdUser).IsRequired();
+            builder.Property(prog => prog.CourseId).IsRequired();
+            builder.Property(prog => prog.UserId).IsRequired();
 
             builder.HasOne(user => user.User)
                 .WithMany(progs => progs.ProgressUsers)
-                .HasForeignKey(k => k.IdUser);
+                .HasForeignKey(k => k.UserId);
             builder.HasOne(course => course.Course)
                 .WithMany(progs => progs.ProgressUsers)
-                .HasForeignKey(k => k.IdCourse);
+                .HasForeignKey(k => k.CourseId);
         }
     }
 }

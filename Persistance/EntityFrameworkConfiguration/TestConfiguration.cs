@@ -18,11 +18,11 @@ namespace Persistance.EntityFrameworkConfiguration
 
             builder.HasOne(math => math.Matherial)
                 .WithMany(tests => tests.Tests)
-                .HasForeignKey(k => k.IdMatherial);
+                .HasForeignKey(k => k.MatherialId);
 
             builder.HasOne(course => course.Course)
                 .WithMany(tests => tests.Tests)
-                .HasForeignKey(k => k.IdCousre);
+                .HasForeignKey(k => k.CousreId);
         }
     }
 }

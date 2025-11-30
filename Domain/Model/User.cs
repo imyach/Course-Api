@@ -20,7 +20,7 @@ namespace Domain.Model
 
         public IEnumerable<Course>? Courses { get; set; }
         public IEnumerable<ProgressUser>? ProgressUsers { get; set; }
-        public IEnumerable<Reviews>? Reviews { get; set; }
+        public IEnumerable<Review>? Reviews { get; set; }
         public IEnumerable<AnswersUser>? AnswersUsers { get; set; }
     }
 }

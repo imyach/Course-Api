@@ -20,7 +20,7 @@ namespace Application.Common.Commands.Matherials.UpdateMatherial
             entity.Description = request.Description;
             entity.Order = request.Order;
             entity.Title = request.Title;   
-            entity.IdModule = request.IdModule;
+            entity.ModuleId = request.ModuleId;
 
             await context.SaveChangesAsync(cancellationToken);
             return Unit.Value;

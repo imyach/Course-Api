@@ -517,6 +517,147 @@
         }
       }
     },
+    "/api/Review/All": {
+      "get": {
+        "tags": [
+          "Review"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewListVm"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewListVm"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewListVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Review/{id}": {
+      "get": {
+        "tags": [
+          "Review"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewLookupDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewLookupDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewLookupDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Review"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Review": {
+      "post": {
+        "tags": [
+          "Review"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReviewsDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReviewsDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReviewsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Role/All": {
       "get": {
         "tags": [
@@ -835,13 +976,13 @@
       },
       "CreateMatherialDto": {
         "required": [
-          "idModule",
+          "moduleId",
           "order",
           "title"
         ],
         "type": "object",
         "properties": {
-          "idModule": {
+          "moduleId": {
             "type": "string",
             "format": "uuid"
           },
@@ -883,6 +1024,34 @@
           "courseId": {
             "type": "string",
             "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateReviewsDto": {
+        "required": [
+          "courseId",
+          "rait",
+          "text",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "courseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "rait": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "text": {
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -999,6 +1168,47 @@
         },
         "additionalProperties": false
       },
+      "ReviewListVm": {
+        "type": "object",
+        "properties": {
+          "reviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReviewLookupDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReviewLookupDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "rait": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserLooupDto"
+          },
+          "course": {
+            "$ref": "#/components/schemas/CourseLookupDto"
+          }
+        },
+        "additionalProperties": false
+      },
       "RoleListVm": {
         "type": "object",
         "properties": {
@@ -1065,7 +1275,7 @@
       "UpdateMatherialDto": {
         "required": [
           "id",
-          "idModule",
+          "moduleId",
           "order",
           "title"
         ],
@@ -1075,7 +1285,7 @@
             "type": "string",
             "format": "uuid"
           },
-          "idModule": {
+          "moduleId": {
             "type": "string",
             "format": "uuid"
           },
@@ -1228,6 +1438,9 @@
     },
     {
       "name": "Module"
+    },
+    {
+      "name": "Review"
     },
     {
       "name": "Role"

@@ -3,60 +3,124 @@
   "WorkspaceRootPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\controllers\\matherialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\matherialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\dtos\\reviews\\reviewlookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\dtos\\reviews\\reviewlookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\controllers\\modulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\modulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\queries\\reviews\\getreview\\getdetailsreviewqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\reviews\\getreview\\getdetailsreviewqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\models\\matherial\\creatematherialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\matherial\\creatematherialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\queries\\reviews\\getreview\\getdetailsreviewquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\reviews\\getreview\\getdetailsreviewquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\models\\module\\createmoduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\module\\createmoduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\dtos\\reviews\\reviewlistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\dtos\\reviews\\reviewlistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\models\\matherial\\updatematherialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\matherial\\updatematherialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\dtos\\modules\\modulelistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\dtos\\modules\\modulelistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\queries\\modules\\getmodule\\getdetailsmodulequeryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\modules\\getmodule\\getdetailsmodulequeryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\models\\module\\updatemoduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\module\\updatemoduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\queries\\modules\\getmodule\\getdetailsmodulequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\modules\\getmodule\\getdetailsmodulequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\commands\\matherials\\creatematherial\\creatematherialcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\matherials\\creatematherial\\creatematherialcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\queries\\reviews\\getreviewlist\\getallreviewqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\reviews\\getreviewlist\\getallreviewqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\commands\\courses\\createcourse\\createcoursecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\courses\\createcourse\\createcoursecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\models\\reviews\\createreviewsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\reviews\\createreviewsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\commands\\courses\\createcourse\\createcoursecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\courses\\createcourse\\createcoursecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\models\\course\\createcoursedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\course\\createcoursedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\queries\\modules\\getmodulelist\\getallmodulequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\modules\\getmodulelist\\getallmodulequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\models\\user\\createuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\user\\createuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\dtos\\modules\\modulelookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\dtos\\modules\\modulelookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EB4AED25-FAA5-7186-AA9A-19D001621A8E}|Persistance\\Persistance.csproj|c:\\users\\artem\\desktop\\course-api\\persistance\\entityframeworkconfiguration\\reviewsconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB4AED25-FAA5-7186-AA9A-19D001621A8E}|Persistance\\Persistance.csproj|solutionrelative:persistance\\entityframeworkconfiguration\\reviewsconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\queries\\modules\\getmodulelist\\getallmodulequeryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\modules\\getmodulelist\\getallmodulequeryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\models\\module\\updatemoduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\module\\updatemoduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\models\\matherial\\updatematherialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\matherial\\updatematherialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\models\\matherial\\creatematherialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\matherial\\creatematherialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\commands\\reviews\\deletereview\\deletereviewcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\reviews\\deletereview\\deletereviewcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\commands\\reviews\\deletereview\\deletereviewcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\reviews\\deletereview\\deletereviewcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\commands\\reviews\\createreview\\createreviewcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\reviews\\createreview\\createreviewcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\commands\\reviews\\createreview\\createreviewcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\reviews\\createreview\\createreviewcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|c:\\users\\artem\\desktop\\course-api\\domain\\model\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|solutionrelative:domain\\model\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|c:\\users\\artem\\desktop\\course-api\\domain\\model\\progressuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|solutionrelative:domain\\model\\progressuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|c:\\users\\artem\\desktop\\course-api\\domain\\model\\matherial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|solutionrelative:domain\\model\\matherial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|c:\\users\\artem\\desktop\\course-api\\domain\\model\\answersuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|solutionrelative:domain\\model\\answersuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|c:\\users\\artem\\desktop\\course-api\\domain\\model\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|solutionrelative:domain\\model\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|c:\\users\\artem\\desktop\\course-api\\domain\\model\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|solutionrelative:domain\\model\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\commands\\matherials\\creatematherial\\creatematherialcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\matherials\\creatematherial\\creatematherialcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\queries\\reviews\\getreviewlist\\getallreviewquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\reviews\\getreviewlist\\getallreviewquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\controllers\\matherialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\matherialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\commands\\courses\\createcourse\\createcoursecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\courses\\createcourse\\createcoursecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,7 +130,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 107,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,7 +154,124 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GetAllReviewQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:17:45.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GetDetailsReviewQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Reviews\\GetReview\\GetDetailsReviewQueryHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Reviews\\GetReview\\GetDetailsReviewQueryHandler.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Reviews\\GetReview\\GetDetailsReviewQueryHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\Reviews\\GetReview\\GetDetailsReviewQueryHandler.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAcwB4AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:11:02.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReviewController.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\ReviewController.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\ReviewController.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\ReviewController.cs",
+              "RelativeToolTip": "CourseWebApi\\Controllers\\ReviewController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAACMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:44:39.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GetDetailsReviewQuery.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Reviews\\GetReview\\GetDetailsReviewQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Reviews\\GetReview\\GetDetailsReviewQuery.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Reviews\\GetReview\\GetDetailsReviewQuery.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\Reviews\\GetReview\\GetDetailsReviewQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:10:44.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReviewListVm.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Reviews\\ReviewListVm.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Dtos\\Reviews\\ReviewListVm.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Reviews\\ReviewListVm.cs",
+              "RelativeToolTip": "Application\\Common\\Dtos\\Reviews\\ReviewListVm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:00:11.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReviewLookupDto.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Reviews\\ReviewLookupDto.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Dtos\\Reviews\\ReviewLookupDto.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Reviews\\ReviewLookupDto.cs",
+              "RelativeToolTip": "Application\\Common\\Dtos\\Reviews\\ReviewLookupDto.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwBgAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T06:58:31.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ReviewsConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\EntityFrameworkConfiguration\\ReviewsConfiguration.cs",
+              "RelativeDocumentMoniker": "Persistance\\EntityFrameworkConfiguration\\ReviewsConfiguration.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\EntityFrameworkConfiguration\\ReviewsConfiguration.cs",
+              "RelativeToolTip": "Persistance\\EntityFrameworkConfiguration\\ReviewsConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:48:46.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "GetDetailsModuleQuery.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Modules\\GetModule\\GetDetailsModuleQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Modules\\GetModule\\GetDetailsModuleQuery.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Modules\\GetModule\\GetDetailsModuleQuery.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\Modules\\GetModule\\GetDetailsModuleQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T08:16:40.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CourseController.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\CourseController.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\CourseController.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\CourseController.cs",
+              "RelativeToolTip": "CourseWebApi\\Controllers\\CourseController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAewCcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:49:20.953Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "UpdateModuleDto.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\Module\\UpdateModuleDto.cs",
               "RelativeDocumentMoniker": "CourseWebApi\\Models\\Module\\UpdateModuleDto.cs",
@@ -103,20 +284,189 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 17,
+              "Title": "DeleteReviewCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Commands\\Reviews\\DeleteReview\\DeleteReviewCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Reviews\\DeleteReview\\DeleteReviewCommand.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Commands\\Reviews\\DeleteReview\\DeleteReviewCommand.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Reviews\\DeleteReview\\DeleteReviewCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:22:41.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UpdateMatherialDto.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\Matherial\\UpdateMatherialDto.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Matherial\\UpdateMatherialDto.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\Matherial\\UpdateMatherialDto.cs",
+              "RelativeToolTip": "CourseWebApi\\Models\\Matherial\\UpdateMatherialDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBgAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T12:14:51.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CreateMatherialDto.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\Matherial\\CreateMatherialDto.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Matherial\\CreateMatherialDto.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\Matherial\\CreateMatherialDto.cs",
+              "RelativeToolTip": "CourseWebApi\\Models\\Matherial\\CreateMatherialDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T12:14:24.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CreateReviewCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Commands\\Reviews\\CreateReview\\CreateReviewCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Reviews\\CreateReview\\CreateReviewCommand.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Commands\\Reviews\\CreateReview\\CreateReviewCommand.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Reviews\\CreateReview\\CreateReviewCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:22:04.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "CreateReviewCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Commands\\Reviews\\CreateReview\\CreateReviewCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Reviews\\CreateReview\\CreateReviewCommandHandler.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Commands\\Reviews\\CreateReview\\CreateReviewCommandHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Reviews\\CreateReview\\CreateReviewCommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:22:11.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Answer.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Model\\Answer.cs",
+              "RelativeDocumentMoniker": "Domain\\Model\\Answer.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Model\\Answer.cs",
+              "RelativeToolTip": "Domain\\Model\\Answer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:37:39.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DeleteReviewCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Commands\\Reviews\\DeleteReview\\DeleteReviewCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Reviews\\DeleteReview\\DeleteReviewCommandHandler.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Commands\\Reviews\\DeleteReview\\DeleteReviewCommandHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Reviews\\DeleteReview\\DeleteReviewCommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:22:49.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ProgressUser.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Model\\ProgressUser.cs",
+              "RelativeDocumentMoniker": "Domain\\Model\\ProgressUser.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Model\\ProgressUser.cs",
+              "RelativeToolTip": "Domain\\Model\\ProgressUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:38:23.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Matherial.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Model\\Matherial.cs",
+              "RelativeDocumentMoniker": "Domain\\Model\\Matherial.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Model\\Matherial.cs",
+              "RelativeToolTip": "Domain\\Model\\Matherial.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:38:07.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AnswersUser.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Model\\AnswersUser.cs",
+              "RelativeDocumentMoniker": "Domain\\Model\\AnswersUser.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Model\\AnswersUser.cs",
+              "RelativeToolTip": "Domain\\Model\\AnswersUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:37:48.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Test.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Model\\Test.cs",
+              "RelativeDocumentMoniker": "Domain\\Model\\Test.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Model\\Test.cs",
+              "RelativeToolTip": "Domain\\Model\\Test.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:39:12.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Question.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Model\\Question.cs",
+              "RelativeDocumentMoniker": "Domain\\Model\\Question.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Model\\Question.cs",
+              "RelativeToolTip": "Domain\\Model\\Question.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:38:39.848Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
               "Title": "CreateMatherialCommandHandler.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Commands\\Matherials\\CreateMatherial\\CreateMatherialCommandHandler.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Commands\\Matherials\\CreateMatherial\\CreateMatherialCommandHandler.cs",
               "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Commands\\Matherials\\CreateMatherial\\CreateMatherialCommandHandler.cs",
               "RelativeToolTip": "Application\\Common\\Commands\\Matherials\\CreateMatherial\\CreateMatherialCommandHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-29T12:07:57.35Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 27,
+              "Title": "GetAllReviewQuery.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQuery.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQuery.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T07:17:32.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
               "Title": "CreateCourseCommandHandler.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Commands\\Courses\\CreateCourse\\CreateCourseCommandHandler.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Commands\\Courses\\CreateCourse\\CreateCourseCommandHandler.cs",
@@ -124,47 +474,19 @@
               "RelativeToolTip": "Application\\Common\\Commands\\Courses\\CreateCourse\\CreateCourseCommandHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T12:12:22.599Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-29T12:12:22.599Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 28,
               "Title": "MatherialController.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\MatherialController.cs",
               "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\MatherialController.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\MatherialController.cs*",
-              "RelativeToolTip": "CourseWebApi\\Controllers\\MatherialController.cs*",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAowCUAAAAYAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\MatherialController.cs",
+              "RelativeToolTip": "CourseWebApi\\Controllers\\MatherialController.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAmwDsAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T12:07:47.29Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CreateMatherialDto.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\Matherial\\CreateMatherialDto.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Matherial\\CreateMatherialDto.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\Matherial\\CreateMatherialDto.cs",
-              "RelativeToolTip": "CourseWebApi\\Models\\Matherial\\CreateMatherialDto.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAIwBoAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T12:14:24.364Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UpdateMatherialDto.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\Matherial\\UpdateMatherialDto.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Matherial\\UpdateMatherialDto.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\Matherial\\UpdateMatherialDto.cs",
-              "RelativeToolTip": "CourseWebApi\\Models\\Matherial\\UpdateMatherialDto.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA1wB4AAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T12:14:51.271Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-29T12:07:47.29Z"
             }
           ]
         }
@@ -174,69 +496,56 @@
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "FloatingWindowState": {
-        "Id": "de2a79fb-1a40-4f64-8c42-5bebf818b5cd",
+        "Id": "e98f6cb1-c48e-41ff-a205-077329548edc",
         "Display": 1,
-        "X": 363,
-        "Y": 23,
-        "Width": 1563,
-        "Height": 795,
+        "X": 100,
+        "Y": 335,
+        "Width": 1592,
+        "Height": 636,
         "WindowState": 2
       },
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "GetAllModuleQuery.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Modules\\GetModuleList\\GetAllModuleQuery.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Modules\\GetModuleList\\GetAllModuleQuery.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Modules\\GetModuleList\\GetAllModuleQuery.cs",
-              "RelativeToolTip": "Application\\Common\\Queries\\Modules\\GetModuleList\\GetAllModuleQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAuAAAAAAAAAA==",
+              "Title": "CreateUserDto.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\User\\CreateUserDto.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Models\\User\\CreateUserDto.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\User\\CreateUserDto.cs",
+              "RelativeToolTip": "CourseWebApi\\Models\\User\\CreateUserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T11:54:57.569Z",
+              "WhenOpened": "2025-11-30T07:52:35.835Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ModuleLookupDto.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Modules\\ModuleLookupDto.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Dtos\\Modules\\ModuleLookupDto.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Modules\\ModuleLookupDto.cs",
-              "RelativeToolTip": "Application\\Common\\Dtos\\Modules\\ModuleLookupDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAARAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "CreateCourseDto.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\Course\\CreateCourseDto.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Course\\CreateCourseDto.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\Course\\CreateCourseDto.cs",
+              "RelativeToolTip": "CourseWebApi\\Models\\Course\\CreateCourseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T11:53:52.285Z",
+              "WhenOpened": "2025-11-30T07:42:43.511Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "GetAllModuleQueryHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Modules\\GetModuleList\\GetAllModuleQueryHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Modules\\GetModuleList\\GetAllModuleQueryHandler.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Modules\\GetModuleList\\GetAllModuleQueryHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Queries\\Modules\\GetModuleList\\GetAllModuleQueryHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "CreateReviewsDto.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\Reviews\\CreateReviewsDto.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Reviews\\CreateReviewsDto.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\Reviews\\CreateReviewsDto.cs",
+              "RelativeToolTip": "CourseWebApi\\Models\\Reviews\\CreateReviewsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T11:54:03.905Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ModuleListVm.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Modules\\ModuleListVm.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Dtos\\Modules\\ModuleListVm.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Modules\\ModuleListVm.cs",
-              "RelativeToolTip": "Application\\Common\\Dtos\\Modules\\ModuleListVm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T11:53:53.123Z",
+              "WhenOpened": "2025-11-30T07:30:52.284Z",
               "EditorCaption": ""
             }
           ]
@@ -247,58 +556,11 @@
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "FloatingWindowState": {
-        "Id": "177f87f3-f906-41e8-8cc0-60fc36ee4f26",
+        "Id": "aaff214c-3f50-489d-a52e-7c538649cdca",
         "Display": 1,
-        "X": 693,
-        "Y": 79,
-        "Width": 1563,
-        "Height": 769,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CreateModuleDto.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\Module\\CreateModuleDto.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Module\\CreateModuleDto.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Models\\Module\\CreateModuleDto.cs",
-              "RelativeToolTip": "CourseWebApi\\Models\\Module\\CreateModuleDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T12:06:59.784Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ModuleController.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\ModuleController.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\ModuleController.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\ModuleController.cs",
-              "RelativeToolTip": "CourseWebApi\\Controllers\\ModuleController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowDUAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T12:06:21.079Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "7e9837a1-364d-4337-be8b-8485a8ab1d0b",
-        "Display": 1,
-        "X": 662,
-        "Y": -50,
-        "Width": 1563,
+        "X": -491,
+        "Y": 361,
+        "Width": 1326,
         "Height": 795,
         "WindowState": 2
       },
@@ -309,28 +571,15 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CreateCourseCommand.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Commands\\Courses\\CreateCourse\\CreateCourseCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Courses\\CreateCourse\\CreateCourseCommand.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Commands\\Courses\\CreateCourse\\CreateCourseCommand.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Courses\\CreateCourse\\CreateCourseCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "GetDetailsModuleQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Modules\\GetModule\\GetDetailsModuleQueryHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Modules\\GetModule\\GetDetailsModuleQueryHandler.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Queries\\Modules\\GetModule\\GetDetailsModuleQueryHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\Modules\\GetModule\\GetDetailsModuleQueryHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T12:09:59.88Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CourseController.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\CourseController.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\CourseController.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\CourseController.cs",
-              "RelativeToolTip": "CourseWebApi\\Controllers\\CourseController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAA1wCgAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T12:08:36.082Z",
+              "WhenOpened": "2025-11-30T08:16:49.817Z",
               "EditorCaption": ""
             }
           ]

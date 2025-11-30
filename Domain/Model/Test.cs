@@ -7,8 +7,8 @@ namespace Domain.Model
 {
     public class Test : BaseModel
     {
-        public Guid? IdMatherial { get; set; }
-        public Guid? IdCousre { get; set; }
+        public Guid? MatherialId { get; set; }
+        public Guid? CousreId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
 

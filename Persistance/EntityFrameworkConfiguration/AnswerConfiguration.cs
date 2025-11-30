@@ -14,14 +14,14 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.HasKey(ans => ans.Id);
             builder.HasIndex(ans => ans.Id).IsUnique();
             builder.Property(ans => ans.Id).HasMaxLength(250);
-            builder.Property(ans => ans.IdQuestion).IsRequired();
+            builder.Property(ans => ans.QuestionId).IsRequired();
             builder.Property(ans => ans.Text).IsRequired();
             builder.Property(ans => ans.IsCorrect).IsRequired();
 
 
             builder.HasOne(quest => quest.Question)
                 .WithMany(ans => ans.Answers)
-                .HasForeignKey(k => k.IdQuestion);
+                .HasForeignKey(k => k.QuestionId);
         }
     }
 }

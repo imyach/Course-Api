@@ -7,7 +7,7 @@ namespace Domain.Model
 {
     public class Matherial : BaseModel
     {
-        public Guid IdModule { get; set; }
+        public Guid ModuleId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
         public int Order { get; set; }

@@ -14,7 +14,7 @@ namespace Application.Common.Commands.Matherials.CreateMatherial
             var matherial = new Matherial
             {
                 Id = Guid.NewGuid(),
-                IdModule = request.IdModule,
+                ModuleId = request.ModuleId,
                 Title = request.Title,
                 Description = request.Description,
                 Order = request.Order,

@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Domain.Model
 {
-    public class Reviews : BaseModel
+    public class Review : BaseModel
     {
-        public Guid IdUser { get; set; }
-        public Guid IdCourse { get; set; }
+        public Guid UserId { get; set; }
+        public Guid CourseId { get; set; }
         public int Rait { get; set; }
         public string Text { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
