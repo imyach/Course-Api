@@ -3,180 +3,136 @@
   "WorkspaceRootPath": "C:\\Users\\User9\\Desktop\\Course-Api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\models\\questions\\updatequestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\questions\\updatequestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\models\\answersusers\\createanswersuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\answersusers\\createanswersuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\questions\\updatequestion\\updatequestioncommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\questions\\updatequestion\\updatequestioncommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\questions\\getquestions\\getdetailsquestionqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\questions\\getquestions\\getdetailsquestionqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\controllers\\questioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\questioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\models\\answers\\createanswerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\answers\\createanswerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\models\\questions\\createquestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\questions\\createquestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\questions\\createquestion\\createquestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\questions\\createquestion\\createquestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\questions\\createquestion\\createquestioncommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\questions\\createquestion\\createquestioncommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\dtos\\questions\\questionlookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\dtos\\questions\\questionlookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\questions\\deletequestion\\deletequestioncommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\questions\\deletequestion\\deletequestioncommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\courses\\updatecourse\\updatecoursecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\courses\\updatecourse\\updatecoursecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\courses\\createcourse\\createcoursecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\courses\\createcourse\\createcoursecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\courses\\createcourse\\createcoursecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\courses\\createcourse\\createcoursecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\questions\\deletequestion\\deletequestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\questions\\deletequestion\\deletequestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\questions\\getquestionlist\\getallquestionqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\questions\\getquestionlist\\getallquestionqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\questions\\getquestionlist\\getallquestionquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\questions\\getquestionlist\\getallquestionquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\reviews\\getreviewlist\\getallreviewqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\reviews\\getreviewlist\\getallreviewqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\questions\\getquestions\\getdetailsquestionquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\questions\\getquestions\\getdetailsquestionquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\dtos\\questions\\questionlistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\dtos\\questions\\questionlistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\tests\\updatetest\\updatetestcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\tests\\updatetest\\updatetestcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\tests\\updatetest\\updatetestcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\tests\\updatetest\\updatetestcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\models\\tests\\updatetestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\tests\\updatetestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\models\\tests\\createtestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\tests\\createtestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\tests\\createtest\\createtestcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\tests\\createtest\\createtestcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\controllers\\modulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\modulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\models\\tests\\updatetestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\tests\\updatetestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\controllers\\matherialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\matherialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\models\\course\\createcoursedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\course\\createcoursedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\dtos\\tests\\testlookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\dtos\\tests\\testlookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\controllers\\answersusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\answersusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\dtos\\tests\\testlistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\dtos\\tests\\testlistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\controllers\\answercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\answercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\tests\\deletetest\\deletetestcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\tests\\deletetest\\deletetestcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\models\\questions\\updatequestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\questions\\updatequestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\models\\progressuser\\createprogressuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\progressuser\\createprogressuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\models\\answers\\updateanswerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\answers\\updateanswerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\tests\\deletetest\\deletetestcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\tests\\deletetest\\deletetestcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\answersusers\\deleteanswersuser\\deleteanswersusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\answersusers\\deleteanswersuser\\deleteanswersusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\tests\\createtest\\createtestcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\tests\\createtest\\createtestcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\answersusers\\deleteanswersuser\\deleteanswersusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\answersusers\\deleteanswersuser\\deleteanswersusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\tests\\gettestlist\\getalltestqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\tests\\gettestlist\\getalltestqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\answersusers\\createanswersuser\\createanswersusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\answersusers\\createanswersuser\\createanswersusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\tests\\gettest\\getdetailstestqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\tests\\gettest\\getdetailstestqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\matherials\\deletematherial\\deletematherialcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\matherials\\deletematherial\\deletematherialcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\tests\\gettest\\getdetailstestquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\tests\\gettest\\getdetailstestquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\matherials\\deletematherial\\deletematherialcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\matherials\\deletematherial\\deletematherialcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\tests\\gettestlist\\getalltestquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\tests\\gettestlist\\getalltestquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\answersusers\\createanswersuser\\createanswersusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\answersusers\\createanswersuser\\createanswersusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\user9\\desktop\\course-api\\coursewebapi\\models\\progressuser\\updateprogressuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\progressuser\\updateprogressuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\answers\\updateanswer\\updateanswercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\answers\\updateanswer\\updateanswercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\dtos\\progressusers\\progressuserlookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\dtos\\progressusers\\progressuserlookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\answers\\deleteanswer\\deleteanswercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\answers\\deleteanswer\\deleteanswercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\progressusers\\updateprogressuser\\updateprogressusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\progressusers\\updateprogressuser\\updateprogressusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|c:\\users\\user9\\desktop\\course-api\\domain\\model\\answersuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|solutionrelative:domain\\model\\answersuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\dtos\\users\\userlookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\dtos\\users\\userlookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\answers\\deleteanswer\\deleteanswercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\answers\\deleteanswer\\deleteanswercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\progressusers\\createprogressuser\\createprogressusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\progressusers\\createprogressuser\\createprogressusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\answers\\createanswer\\createanswercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\answers\\createanswer\\createanswercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\progressusers\\createprogressuser\\createprogressusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\progressusers\\createprogressuser\\createprogressusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\answersusers\\getanswersuser\\getdetailsanswersuserqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\answersusers\\getanswersuser\\getdetailsanswersuserqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\commands\\matherials\\creatematherial\\creatematherialcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\matherials\\creatematherial\\creatematherialcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\answersusers\\getanswersuserlist\\getallanswersuserqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\answersusers\\getanswersuserlist\\getallanswersuserqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\answers\\getanswer\\getdetailsanswerqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\answers\\getanswer\\getdetailsanswerqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\answersusers\\getanswersuser\\getdetailsanswersuserquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\answersusers\\getanswersuser\\getdetailsanswersuserquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\answers\\getanswer\\getdetailsanswerquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\answers\\getanswer\\getdetailsanswerquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\answersusers\\getanswersuserlist\\getallanswersuserquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\answersusers\\getanswersuserlist\\getallanswersuserquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\answers\\getanswerlist\\getallanswerqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\answers\\getanswerlist\\getallanswerqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\answers\\getanswerlist\\getallanswerquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\answers\\getanswerlist\\getallanswerquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\dtos\\answersusers\\answersuserlookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\dtos\\answersusers\\answersuserlookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\dtos\\answersusers\\answersuserlistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\dtos\\answersusers\\answersuserlistvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\user9\\desktop\\course-api\\application\\common\\queries\\courses\\getcourselist\\getallcoursequeryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\courses\\getcourselist\\getallcoursequeryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -186,8 +142,22 @@
       "DocumentGroups": [
         {
           "DockedHeight": 107,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 11,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UpdateAnswerCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Answers\\UpdateAnswer\\UpdateAnswerCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Answers\\UpdateAnswer\\UpdateAnswerCommandHandler.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Answers\\UpdateAnswer\\UpdateAnswerCommandHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Answers\\UpdateAnswer\\UpdateAnswerCommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:42:46.632Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
@@ -210,550 +180,419 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CreateQuestionCommand.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Questions\\CreateQuestion\\CreateQuestionCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Questions\\CreateQuestion\\CreateQuestionCommand.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Questions\\CreateQuestion\\CreateQuestionCommand.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Questions\\CreateQuestion\\CreateQuestionCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T10:07:05.824Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CreateQuestionCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Questions\\CreateQuestion\\CreateQuestionCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Questions\\CreateQuestion\\CreateQuestionCommandHandler.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Questions\\CreateQuestion\\CreateQuestionCommandHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Questions\\CreateQuestion\\CreateQuestionCommandHandler.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T10:07:41.51Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UpdateQuestionCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Questions\\UpdateQuestion\\UpdateQuestionCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Questions\\UpdateQuestion\\UpdateQuestionCommandHandler.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Questions\\UpdateQuestion\\UpdateQuestionCommandHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Questions\\UpdateQuestion\\UpdateQuestionCommandHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T10:09:10.105Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UpdateCourseCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Courses\\UpdateCourse\\UpdateCourseCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Courses\\UpdateCourse\\UpdateCourseCommandHandler.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Courses\\UpdateCourse\\UpdateCourseCommandHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Courses\\UpdateCourse\\UpdateCourseCommandHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T20:21:53.938Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GetDetailsQuestionQueryHandler.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Questions\\GetQuestions\\GetDetailsQuestionQueryHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Questions\\GetQuestions\\GetDetailsQuestionQueryHandler.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Questions\\GetQuestions\\GetDetailsQuestionQueryHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Queries\\Questions\\GetQuestions\\GetDetailsQuestionQueryHandler.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAtwBUAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T09:53:25.615Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UpdateQuestionDto.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Questions\\UpdateQuestionDto.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Questions\\UpdateQuestionDto.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Questions\\UpdateQuestionDto.cs",
-              "RelativeToolTip": "CourseWebApi\\Models\\Questions\\UpdateQuestionDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T10:19:44.316Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CreateQuestionDto.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Questions\\CreateQuestionDto.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Questions\\CreateQuestionDto.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Questions\\CreateQuestionDto.cs",
-              "RelativeToolTip": "CourseWebApi\\Models\\Questions\\CreateQuestionDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T10:19:36.124Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "QuestionController.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\QuestionController.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\QuestionController.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\QuestionController.cs",
-              "RelativeToolTip": "CourseWebApi\\Controllers\\QuestionController.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAowDIAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T10:26:27.769Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "QuestionLookupDto.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Questions\\QuestionLookupDto.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Dtos\\Questions\\QuestionLookupDto.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Questions\\QuestionLookupDto.cs",
-              "RelativeToolTip": "Application\\Common\\Dtos\\Questions\\QuestionLookupDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T09:41:43.067Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CreateCourseCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Courses\\CreateCourse\\CreateCourseCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Courses\\CreateCourse\\CreateCourseCommandHandler.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Courses\\CreateCourse\\CreateCourseCommandHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Courses\\CreateCourse\\CreateCourseCommandHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:39:44.642Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CreateCourseCommand.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Courses\\CreateCourse\\CreateCourseCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Courses\\CreateCourse\\CreateCourseCommand.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Courses\\CreateCourse\\CreateCourseCommand.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Courses\\CreateCourse\\CreateCourseCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T11:34:58.532Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DeleteQuestionCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Questions\\DeleteQuestion\\DeleteQuestionCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Questions\\DeleteQuestion\\DeleteQuestionCommandHandler.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Questions\\DeleteQuestion\\DeleteQuestionCommandHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Questions\\DeleteQuestion\\DeleteQuestionCommandHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T10:08:26.215Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "DeleteQuestionCommand.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Questions\\DeleteQuestion\\DeleteQuestionCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Questions\\DeleteQuestion\\DeleteQuestionCommand.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Questions\\DeleteQuestion\\DeleteQuestionCommand.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Questions\\DeleteQuestion\\DeleteQuestionCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T10:08:17.004Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "GetAllReviewQueryHandler.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T10:04:11.058Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "GetAllQuestionQueryHandler.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Questions\\GetQuestionList\\GetAllQuestionQueryHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Questions\\GetQuestionList\\GetAllQuestionQueryHandler.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Questions\\GetQuestionList\\GetAllQuestionQueryHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Queries\\Questions\\GetQuestionList\\GetAllQuestionQueryHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T10:02:56.187Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "GetAllQuestionQuery.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Questions\\GetQuestionList\\GetAllQuestionQuery.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Questions\\GetQuestionList\\GetAllQuestionQuery.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Questions\\GetQuestionList\\GetAllQuestionQuery.cs",
-              "RelativeToolTip": "Application\\Common\\Queries\\Questions\\GetQuestionList\\GetAllQuestionQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T10:02:47.579Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "GetDetailsQuestionQuery.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Questions\\GetQuestions\\GetDetailsQuestionQuery.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Questions\\GetQuestions\\GetDetailsQuestionQuery.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Questions\\GetQuestions\\GetDetailsQuestionQuery.cs",
-              "RelativeToolTip": "Application\\Common\\Queries\\Questions\\GetQuestions\\GetDetailsQuestionQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T09:53:07.488Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "QuestionListVm.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Questions\\QuestionListVm.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Dtos\\Questions\\QuestionListVm.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Questions\\QuestionListVm.cs",
-              "RelativeToolTip": "Application\\Common\\Dtos\\Questions\\QuestionListVm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T09:42:08.347Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "UpdateTestCommand.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Tests\\UpdateTest\\UpdateTestCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Tests\\UpdateTest\\UpdateTestCommand.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Tests\\UpdateTest\\UpdateTestCommand.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Tests\\UpdateTest\\UpdateTestCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:32:16.082Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "TestController.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\TestController.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\TestController.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\TestController.cs",
-              "RelativeToolTip": "CourseWebApi\\Controllers\\TestController.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAgwDcAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:58:09.994Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "UpdateTestDto.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Tests\\UpdateTestDto.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Tests\\UpdateTestDto.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Tests\\UpdateTestDto.cs",
-              "RelativeToolTip": "CourseWebApi\\Models\\Tests\\UpdateTestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:55:30.584Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "CreateTestCommand.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Tests\\CreateTest\\CreateTestCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Tests\\CreateTest\\CreateTestCommand.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Tests\\CreateTest\\CreateTestCommand.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Tests\\CreateTest\\CreateTestCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:31:41.975Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "UpdateTestCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Tests\\UpdateTest\\UpdateTestCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Tests\\UpdateTest\\UpdateTestCommandHandler.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Tests\\UpdateTest\\UpdateTestCommandHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Tests\\UpdateTest\\UpdateTestCommandHandler.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAqwBYAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:32:30.785Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "CourseController.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\CourseController.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\CourseController.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\CourseController.cs",
-              "RelativeToolTip": "CourseWebApi\\Controllers\\CourseController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAowCoAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:40:35.986Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
               "Title": "CreateTestDto.cs",
               "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Tests\\CreateTestDto.cs",
               "RelativeDocumentMoniker": "CourseWebApi\\Models\\Tests\\CreateTestDto.cs",
               "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Tests\\CreateTestDto.cs",
               "RelativeToolTip": "CourseWebApi\\Models\\Tests\\CreateTestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:48:23.819Z"
+              "WhenOpened": "2025-12-01T12:25:45.769Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "MatherialController.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\MatherialController.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\MatherialController.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\MatherialController.cs",
-              "RelativeToolTip": "CourseWebApi\\Controllers\\MatherialController.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAIAxwA8AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "CreateCourseDto.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Course\\CreateCourseDto.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Course\\CreateCourseDto.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Course\\CreateCourseDto.cs",
+              "RelativeToolTip": "CourseWebApi\\Models\\Course\\CreateCourseDto.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAASwA4AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T11:34:46.878Z"
+              "WhenOpened": "2025-12-01T12:02:33.809Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 10,
+              "Title": "UpdateAnswerDto.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Answers\\UpdateAnswerDto.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Answers\\UpdateAnswerDto.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Answers\\UpdateAnswerDto.cs",
+              "RelativeToolTip": "CourseWebApi\\Models\\Answers\\UpdateAnswerDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T12:00:55.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreateQuestionDto.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Questions\\CreateQuestionDto.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Questions\\CreateQuestionDto.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Questions\\CreateQuestionDto.cs",
+              "RelativeToolTip": "CourseWebApi\\Models\\Questions\\CreateQuestionDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:50:29.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateAnswerDto.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Answers\\CreateAnswerDto.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Answers\\CreateAnswerDto.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Answers\\CreateAnswerDto.cs",
+              "RelativeToolTip": "CourseWebApi\\Models\\Answers\\CreateAnswerDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T12:00:45.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateAnswersUserDto.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\AnswersUsers\\CreateAnswersUserDto.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Models\\AnswersUsers\\CreateAnswersUserDto.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\AnswersUsers\\CreateAnswersUserDto.cs",
+              "RelativeToolTip": "CourseWebApi\\Models\\AnswersUsers\\CreateAnswersUserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T12:00:15.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ModuleController.cs",
               "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\ModuleController.cs",
               "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\ModuleController.cs",
               "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\ModuleController.cs",
               "RelativeToolTip": "CourseWebApi\\Controllers\\ModuleController.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T20:02:40.464Z"
+              "WhenOpened": "2025-12-01T12:26:53.215Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "DeleteTestCommand.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Tests\\DeleteTest\\DeleteTestCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Tests\\DeleteTest\\DeleteTestCommand.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Tests\\DeleteTest\\DeleteTestCommand.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Tests\\DeleteTest\\DeleteTestCommand.cs",
+              "DocumentIndex": 7,
+              "Title": "AnswersUserController.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\AnswersUserController.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\AnswersUserController.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\AnswersUserController.cs",
+              "RelativeToolTip": "CourseWebApi\\Controllers\\AnswersUserController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowCQAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T12:10:49.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AnswerController.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\AnswerController.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\AnswerController.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Controllers\\AnswerController.cs",
+              "RelativeToolTip": "CourseWebApi\\Controllers\\AnswerController.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAgwEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T12:16:02.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UpdateTestDto.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Tests\\UpdateTestDto.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Tests\\UpdateTestDto.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Tests\\UpdateTestDto.cs",
+              "RelativeToolTip": "CourseWebApi\\Models\\Tests\\UpdateTestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T12:26:41.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UpdateQuestionDto.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Questions\\UpdateQuestionDto.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Models\\Questions\\UpdateQuestionDto.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\Questions\\UpdateQuestionDto.cs",
+              "RelativeToolTip": "CourseWebApi\\Models\\Questions\\UpdateQuestionDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:50:40.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DeleteAnswersUserCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\AnswersUsers\\DeleteAnswersUser\\DeleteAnswersUserCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\AnswersUsers\\DeleteAnswersUser\\DeleteAnswersUserCommandHandler.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\AnswersUsers\\DeleteAnswersUser\\DeleteAnswersUserCommandHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\AnswersUsers\\DeleteAnswersUser\\DeleteAnswersUserCommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:40:00.587Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DeleteAnswersUserCommand.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\AnswersUsers\\DeleteAnswersUser\\DeleteAnswersUserCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\AnswersUsers\\DeleteAnswersUser\\DeleteAnswersUserCommand.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\AnswersUsers\\DeleteAnswersUser\\DeleteAnswersUserCommand.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\AnswersUsers\\DeleteAnswersUser\\DeleteAnswersUserCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:33:07.001Z"
+              "WhenOpened": "2025-12-01T11:39:44.112Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "TestListVm.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Tests\\TestListVm.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Dtos\\Tests\\TestListVm.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Tests\\TestListVm.cs",
-              "RelativeToolTip": "Application\\Common\\Dtos\\Tests\\TestListVm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA9AAAAAAAAAA==",
+              "DocumentIndex": 14,
+              "Title": "DeleteMatherialCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Matherials\\DeleteMatherial\\DeleteMatherialCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Matherials\\DeleteMatherial\\DeleteMatherialCommandHandler.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Matherials\\DeleteMatherial\\DeleteMatherialCommandHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Matherials\\DeleteMatherial\\DeleteMatherialCommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:07:45.374Z"
+              "WhenOpened": "2025-12-01T11:48:04.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CreateAnswersUserCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\AnswersUsers\\CreateAnswersUser\\CreateAnswersUserCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\AnswersUsers\\CreateAnswersUser\\CreateAnswersUserCommandHandler.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\AnswersUsers\\CreateAnswersUser\\CreateAnswersUserCommandHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\AnswersUsers\\CreateAnswersUser\\CreateAnswersUserCommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:39:14.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DeleteMatherialCommand.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Matherials\\DeleteMatherial\\DeleteMatherialCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Matherials\\DeleteMatherial\\DeleteMatherialCommand.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Matherials\\DeleteMatherial\\DeleteMatherialCommand.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Matherials\\DeleteMatherial\\DeleteMatherialCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:48:03.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CreateAnswersUserCommand.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\AnswersUsers\\CreateAnswersUser\\CreateAnswersUserCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\AnswersUsers\\CreateAnswersUser\\CreateAnswersUserCommand.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\AnswersUsers\\CreateAnswersUser\\CreateAnswersUserCommand.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\AnswersUsers\\CreateAnswersUser\\CreateAnswersUserCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:38:41.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "DeleteAnswerCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Answers\\DeleteAnswer\\DeleteAnswerCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Answers\\DeleteAnswer\\DeleteAnswerCommandHandler.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Answers\\DeleteAnswer\\DeleteAnswerCommandHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Answers\\DeleteAnswer\\DeleteAnswerCommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:42:19.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AnswersUser.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Domain\\Model\\AnswersUser.cs",
+              "RelativeDocumentMoniker": "Domain\\Model\\AnswersUser.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Domain\\Model\\AnswersUser.cs",
+              "RelativeToolTip": "Domain\\Model\\AnswersUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:56:23.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "DeleteAnswerCommand.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Answers\\DeleteAnswer\\DeleteAnswerCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Answers\\DeleteAnswer\\DeleteAnswerCommand.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Answers\\DeleteAnswer\\DeleteAnswerCommand.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Answers\\DeleteAnswer\\DeleteAnswerCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:41:57.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CreateAnswerCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Answers\\CreateAnswer\\CreateAnswerCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Answers\\CreateAnswer\\CreateAnswerCommandHandler.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Answers\\CreateAnswer\\CreateAnswerCommandHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Answers\\CreateAnswer\\CreateAnswerCommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:41:10.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "GetDetailsAnswersUserQuery.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\AnswersUsers\\GetAnswersUser\\GetDetailsAnswersUserQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\AnswersUsers\\GetAnswersUser\\GetDetailsAnswersUserQuery.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\AnswersUsers\\GetAnswersUser\\GetDetailsAnswersUserQuery.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\AnswersUsers\\GetAnswersUser\\GetDetailsAnswersUserQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:29:38.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "GetAllAnswersUserQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\AnswersUsers\\GetAnswersUserList\\GetAllAnswersUserQueryHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\AnswersUsers\\GetAnswersUserList\\GetAllAnswersUserQueryHandler.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\AnswersUsers\\GetAnswersUserList\\GetAllAnswersUserQueryHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\AnswersUsers\\GetAnswersUserList\\GetAllAnswersUserQueryHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:28:24.774Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 27,
-              "Title": "TestLookupDto.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Tests\\TestLookupDto.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Dtos\\Tests\\TestLookupDto.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Tests\\TestLookupDto.cs",
-              "RelativeToolTip": "Application\\Common\\Dtos\\Tests\\TestLookupDto.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwBAAAAAWAAAAAAAAAA==",
+              "Title": "GetAllAnswersUserQuery.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\AnswersUsers\\GetAnswersUserList\\GetAllAnswersUserQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\AnswersUsers\\GetAnswersUserList\\GetAllAnswersUserQuery.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\AnswersUsers\\GetAnswersUserList\\GetAllAnswersUserQuery.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\AnswersUsers\\GetAnswersUserList\\GetAllAnswersUserQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:07:54.942Z"
+              "WhenOpened": "2025-12-01T11:28:16.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "GetDetailsAnswerQuery.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Answers\\GetAnswer\\GetDetailsAnswerQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Answers\\GetAnswer\\GetDetailsAnswerQuery.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Answers\\GetAnswer\\GetDetailsAnswerQuery.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\Answers\\GetAnswer\\GetDetailsAnswerQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:07:25.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "GetDetailsAnswerQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Answers\\GetAnswer\\GetDetailsAnswerQueryHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Answers\\GetAnswer\\GetDetailsAnswerQueryHandler.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Answers\\GetAnswer\\GetDetailsAnswerQueryHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\Answers\\GetAnswer\\GetDetailsAnswerQueryHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:07:34.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "GetDetailsAnswersUserQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\AnswersUsers\\GetAnswersUser\\GetDetailsAnswersUserQueryHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\AnswersUsers\\GetAnswersUser\\GetDetailsAnswersUserQueryHandler.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\AnswersUsers\\GetAnswersUser\\GetDetailsAnswersUserQueryHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\AnswersUsers\\GetAnswersUser\\GetDetailsAnswersUserQueryHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:29:54.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "GetAllAnswerQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Answers\\GetAnswerList\\GetAllAnswerQueryHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Answers\\GetAnswerList\\GetAllAnswerQueryHandler.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Answers\\GetAnswerList\\GetAllAnswerQueryHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\Answers\\GetAnswerList\\GetAllAnswerQueryHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:08:23.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "GetAllAnswerQuery.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Answers\\GetAnswerList\\GetAllAnswerQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Answers\\GetAnswerList\\GetAllAnswerQuery.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Answers\\GetAnswerList\\GetAllAnswerQuery.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\Answers\\GetAnswerList\\GetAllAnswerQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T11:08:12.608Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 30,
-              "Title": "CreateProgressUserDto.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\ProgressUser\\CreateProgressUserDto.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Models\\ProgressUser\\CreateProgressUserDto.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\ProgressUser\\CreateProgressUserDto.cs",
-              "RelativeToolTip": "CourseWebApi\\Models\\ProgressUser\\CreateProgressUserDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBUAAAAyAAAAAAAAAA==",
+              "Title": "AnswersUserLookupDto.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\AnswersUsers\\AnswersUserLookupDto.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Dtos\\AnswersUsers\\AnswersUserLookupDto.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\AnswersUsers\\AnswersUserLookupDto.cs",
+              "RelativeToolTip": "Application\\Common\\Dtos\\AnswersUsers\\AnswersUserLookupDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T11:31:02.099Z"
+              "WhenOpened": "2025-12-01T11:17:21.917Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 31,
-              "Title": "DeleteTestCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Tests\\DeleteTest\\DeleteTestCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Tests\\DeleteTest\\DeleteTestCommandHandler.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Tests\\DeleteTest\\DeleteTestCommandHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Tests\\DeleteTest\\DeleteTestCommandHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAANAAAAAAAAAA==",
+              "Title": "AnswersUserListVm.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\AnswersUsers\\AnswersUserListVm.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Dtos\\AnswersUsers\\AnswersUserListVm.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\AnswersUsers\\AnswersUserListVm.cs",
+              "RelativeToolTip": "Application\\Common\\Dtos\\AnswersUsers\\AnswersUserListVm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:33:02.294Z"
+              "WhenOpened": "2025-12-01T11:17:11.961Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 32,
-              "Title": "CreateTestCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Tests\\CreateTest\\CreateTestCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Tests\\CreateTest\\CreateTestCommandHandler.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Tests\\CreateTest\\CreateTestCommandHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Tests\\CreateTest\\CreateTestCommandHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAaAAAAAAAAAA==",
+              "Title": "GetAllCourseQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Courses\\GetCourseList\\GetAllCourseQueryHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Courses\\GetCourseList\\GetAllCourseQueryHandler.cs",
+              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Courses\\GetCourseList\\GetAllCourseQueryHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\Courses\\GetCourseList\\GetAllCourseQueryHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:31:54.684Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "GetAllTestQueryHandler.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Tests\\GetTestList\\GetAllTestQueryHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Tests\\GetTestList\\GetAllTestQueryHandler.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Tests\\GetTestList\\GetAllTestQueryHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Queries\\Tests\\GetTestList\\GetAllTestQueryHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:16:34.414Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "GetAllTestQuery.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Tests\\GetTestList\\GetAllTestQuery.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Tests\\GetTestList\\GetAllTestQuery.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Tests\\GetTestList\\GetAllTestQuery.cs",
-              "RelativeToolTip": "Application\\Common\\Queries\\Tests\\GetTestList\\GetAllTestQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:16:22.454Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "GetDetailsTestQueryHandler.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Tests\\GetTest\\GetDetailsTestQueryHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Tests\\GetTest\\GetDetailsTestQueryHandler.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Tests\\GetTest\\GetDetailsTestQueryHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Queries\\Tests\\GetTest\\GetDetailsTestQueryHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:16:00.156Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "GetDetailsTestQuery.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Tests\\GetTest\\GetDetailsTestQuery.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Tests\\GetTest\\GetDetailsTestQuery.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Queries\\Tests\\GetTest\\GetDetailsTestQuery.cs",
-              "RelativeToolTip": "Application\\Common\\Queries\\Tests\\GetTest\\GetDetailsTestQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T19:15:52.916Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "UpdateProgressUserCommand.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\ProgressUsers\\UpdateProgressUser\\UpdateProgressUserCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\ProgressUsers\\UpdateProgressUser\\UpdateProgressUserCommand.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\ProgressUsers\\UpdateProgressUser\\UpdateProgressUserCommand.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\ProgressUsers\\UpdateProgressUser\\UpdateProgressUserCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T11:34:50.492Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "CreateProgressUserCommand.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\ProgressUsers\\CreateProgressUser\\CreateProgressUserCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\ProgressUsers\\CreateProgressUser\\CreateProgressUserCommand.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\ProgressUsers\\CreateProgressUser\\CreateProgressUserCommand.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\ProgressUsers\\CreateProgressUser\\CreateProgressUserCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T11:33:53.375Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "ProgressUserLookupDto.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\ProgressUsers\\ProgressUserLookupDto.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Dtos\\ProgressUsers\\ProgressUserLookupDto.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\ProgressUsers\\ProgressUserLookupDto.cs",
-              "RelativeToolTip": "Application\\Common\\Dtos\\ProgressUsers\\ProgressUserLookupDto.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAAA0AAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T11:45:15.174Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "UpdateProgressUserDto.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\ProgressUser\\UpdateProgressUserDto.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Models\\ProgressUser\\UpdateProgressUserDto.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\Models\\ProgressUser\\UpdateProgressUserDto.cs",
-              "RelativeToolTip": "CourseWebApi\\Models\\ProgressUser\\UpdateProgressUserDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T11:31:16.169Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "CreateProgressUserCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\ProgressUsers\\CreateProgressUser\\CreateProgressUserCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\ProgressUsers\\CreateProgressUser\\CreateProgressUserCommandHandler.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\ProgressUsers\\CreateProgressUser\\CreateProgressUserCommandHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\ProgressUsers\\CreateProgressUser\\CreateProgressUserCommandHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T11:36:39.556Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "UserLookupDto.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Users\\UserLookupDto.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Dtos\\Users\\UserLookupDto.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Dtos\\Users\\UserLookupDto.cs",
-              "RelativeToolTip": "Application\\Common\\Dtos\\Users\\UserLookupDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T11:46:20.399Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "CreateMatherialCommand.cs",
-              "DocumentMoniker": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Matherials\\CreateMatherial\\CreateMatherialCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Matherials\\CreateMatherial\\CreateMatherialCommand.cs",
-              "ToolTip": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Common\\Commands\\Matherials\\CreateMatherial\\CreateMatherialCommand.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Matherials\\CreateMatherial\\CreateMatherialCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T11:34:40.83Z"
+              "WhenOpened": "2025-12-01T11:13:24.763Z",
+              "EditorCaption": ""
             }
           ]
         }

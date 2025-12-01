@@ -18,13 +18,13 @@ namespace CourseWebApi.Models.Course
         {
             profile.CreateMap<CreateCourseDto, CreateCourseCommand>()
                 .ForMember(courseCm => courseCm.Title,
-                opt => opt.MapFrom(courseCr => courseCr.Title))
+                opt => opt.MapFrom(course => course.Title))
                 .ForMember(courseCm => courseCm.Description,
-                opt => opt.MapFrom(courseCr => courseCr.Description))
+                opt => opt.MapFrom(course => course.Description))
                 .ForMember(courseCm => courseCm.Rait,
-                opt => opt.MapFrom(courseCr => courseCr.Rait))
+                opt => opt.MapFrom(course => course.Rait))
                 .ForMember(courseCm => courseCm.UserId,
-                opt => opt.MapFrom(courseCr => courseCr.UserId));
+                opt => opt.MapFrom(course => course.UserId));
         }
     }
 }

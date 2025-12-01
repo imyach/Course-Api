@@ -1,11 +1,13 @@
 ﻿using Application.Common.Commands.Questions.CreateQuestion;
 using Application.Common.Commands.Questions.UpdateQuestion;
 using AutoMapper;
+using System.ComponentModel.DataAnnotations;
 
 namespace CourseWebApi.Models.Questions
 {
     public class UpdateQuestionDto : IMapWith<UpdateQuestionCommand>
     {
+        [Required]
         public Guid Id { get; set; }
         public string Text { get; set; } = string.Empty;
 
