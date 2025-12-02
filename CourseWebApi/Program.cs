@@ -1,3 +1,4 @@
+using CourseWebApi.Middleware;
 using CourseWebApi.Servises;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,7 +6,6 @@ RegisterServices(builder.Services);
 
 var app = builder.Build();
 await Configure(app);
-
 
 
 app.Run();
@@ -62,11 +62,11 @@ async Task Configure(WebApplication build)
         app.UseSwagger();
         app.UseSwaggerUI();
     }
-
+    app.UseCustomExceptionHandler();
     app.UseRouting();
     app.UseHttpsRedirection();
     app.UseAuthorization();
-    app.UseEndpoints(endpoints  =>
+    app.UseEndpoints(endpoints =>
     {
         app.MapControllers();
     });
