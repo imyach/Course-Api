@@ -1,0 +1,28 @@
+﻿using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Application.Common.Commands.Users.UpdateUser
+{
+    public class UpdateUserCommandValidator : AbstractValidator<UpdateUserCommand>
+    {
+        public UpdateUserCommandValidator()
+        {
+            RuleFor(updateUserCommand => updateUserCommand.Id)
+               .NotNull().NotEqual(Guid.Empty);
+            RuleFor(updateUserCommand => updateUserCommand.RoleId)
+               .NotNull().NotEqual(Guid.Empty);
+            RuleFor(updateUserCommand => updateUserCommand.NameUser)
+               .NotNull().NotEmpty().MaximumLength(30);
+            RuleFor(updateUserCommand => updateUserCommand.Login)
+              .NotNull().NotEmpty().MaximumLength(30);
+            RuleFor(updateUserCommand => updateUserCommand.Email)
+              .MaximumLength(50);
+            RuleFor(updateUserCommand => updateUserCommand.PhoneNumber)
+              .MaximumLength(12);
+            RuleFor(updateUserCommand => updateUserCommand.HashPassword)
+              .NotNull().NotEmpty().MaximumLength(60);
+        }
+    }
+}

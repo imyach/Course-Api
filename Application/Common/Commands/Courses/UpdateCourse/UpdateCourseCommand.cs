@@ -12,8 +12,6 @@ namespace Application.Common.Commands.Courses.UpdateCourse
 
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime? UpdateAt { get; set; }
         public decimal Rait { get; set; } = 0;
         public Guid UserId { get; set; }
     }

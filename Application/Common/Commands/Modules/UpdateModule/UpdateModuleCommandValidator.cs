@@ -1,0 +1,24 @@
+﻿using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Application.Common.Commands.Modules.UpdateModule
+{
+    public class UpdateModuleCommandValidator : AbstractValidator<UpdateModuleCommand>
+    {
+        public UpdateModuleCommandValidator()
+        {
+            RuleFor(updateModuleCommand => updateModuleCommand.Id)
+                .NotNull().NotEqual(Guid.Empty);
+            RuleFor(updateModuleCommand => updateModuleCommand.CourseId)
+                .NotNull().NotEqual(Guid.Empty);
+            RuleFor(updateModuleCommand => updateModuleCommand.Title)
+                .NotEmpty().NotNull().MaximumLength(100);
+            RuleFor(updateModuleCommand => updateModuleCommand.Order)
+                .NotEmpty().NotNull();
+            RuleFor(updateModuleCommand => updateModuleCommand.Description)
+                .MaximumLength(1000);
+        }
+    }
+}
