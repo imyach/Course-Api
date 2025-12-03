@@ -884,23 +884,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Artem\\.nuget\\packages\\": {},
-    "F:\\VS\\Shared\\NuGetPackages": {}
+    "C:\\Users\\User9\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Artem\\Desktop\\course-api\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\Artem\\Desktop\\course-api\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Artem\\Desktop\\course-api\\Application\\obj\\",
+      "projectPath": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\User9\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "F:\\VS\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User9\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -915,8 +915,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\Artem\\Desktop\\course-api\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Artem\\Desktop\\course-api\\Domain\\Domain.csproj"
+            "C:\\Users\\User9\\Desktop\\Course-Api\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\User9\\Desktop\\Course-Api\\Domain\\Domain.csproj"
             }
           }
         }
