@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="CourseDesktopClient.View.AllCoursePage"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CourseDesktopClient.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid Grid.Row="1" >
+            <Canvas Background="#FFCCCCCC"/>
+            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding GetCourses}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Title" Binding="{Binding Title}"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                    <DataGridTextColumn Header="CreatedAt" Binding="{Binding CreatedAt}"/>
+                    <DataGridTextColumn Header="UpdateAt" Binding="{Binding UpdateAt}"/>
+                    <DataGridTextColumn Header="Rait" Binding="{Binding Rait}"/>
+                    <DataGridTextColumn Header="USer" Binding="{Binding User.NameUser}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

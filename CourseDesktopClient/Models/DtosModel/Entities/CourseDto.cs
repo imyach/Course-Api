@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.Json.Serialization;
+
+namespace CourseDesktopClient.Models.DtosModel.Entities
+{
+    public class CourseDto
+    {
+        [JsonPropertyName("id")]
+        public Guid Id { get; set; }
+        [JsonPropertyName("title")]
+        public string Title { get; set; } = string.Empty;
+        [JsonPropertyName("description")]
+        public string? Description { get; set; }
+        [JsonPropertyName("createdAt")]
+        public DateTime CreatedAt { get; set; }
+        [JsonPropertyName("updateAt")]
+        public DateTime? UpdateAt { get; set; }
+        [JsonPropertyName("rait")]
+        public decimal? Rait { get; set; }
+        [JsonPropertyName("user")]
+        public UserDto? User { get; set; }
+    }
+}
