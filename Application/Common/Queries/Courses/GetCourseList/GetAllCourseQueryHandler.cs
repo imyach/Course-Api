@@ -17,7 +17,6 @@ namespace Application.Common.Queries.Courses.GetCourseList
         { 
             var courseQuery = await context.Courses
                 .Include(c => c.User)
-                .Where(c=>c.CurrentUserId == request.CurrentUserId)
                 .ProjectTo<CourseLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

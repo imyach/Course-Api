@@ -1,0 +1,849 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Application.DependencyInjection" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.EnumRoles" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Behaviors.ValidationBehavior&lt;TRequest, TResponse&gt;" Collapsed="true">
+    <Position X="16.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Answers.CreateAnswer.CreateAnswerCommand" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Answers.CreateAnswer.CreateAnswerCommandHandler" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Answers.CreateAnswer.CreateAnswerCommandValidator" Collapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Answers.DeleteAnswer.DeleteAnswerCommand" Collapsed="true">
+    <Position X="19.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Answers.DeleteAnswer.DeleteAnswerCommandHandler" Collapsed="true">
+    <Position X="21.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Answers.DeleteAnswer.DeleteAnswerCommandValidator" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Answers.UpdateAnswer.UpdateAnswerCommand" Collapsed="true">
+    <Position X="16.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Answers.UpdateAnswer.UpdateAnswerCommandHandler" Collapsed="true">
+    <Position X="18" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Answers.UpdateAnswer.UpdateAnswerCommandValidator" Collapsed="true">
+    <Position X="19.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.AnswersUsers.CreateAnswersUser.CreateAnswersUserCommand" Collapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.AnswersUsers.CreateAnswersUser.CreateAnswersUserCommandHandler" Collapsed="true">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.AnswersUsers.CreateAnswersUser.CreateAnswersUserCommandValidator" Collapsed="true">
+    <Position X="21.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.AnswersUsers.DeleteAnswersUser.DeleteAnswersUserCommand" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.AnswersUsers.DeleteAnswersUser.DeleteAnswersUserCommandHandler" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.AnswersUsers.DeleteAnswersUser.DeleteAnswersUserCommandValidator" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Courses.CreateCourse.CreateCourseCommand" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Courses.CreateCourse.CreateCourseCommandHandler" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Courses.CreateCourse.CreateCourseCommandValidator" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Courses.DeleteCourse.DeleteCourseCommand" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Courses.DeleteCourse.DeleteCourseCommandHandler" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Courses.DeleteCourse.DeleteCourseCommandValidator" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Courses.UpdateCourse.UpdateCourseCommand" Collapsed="true">
+    <Position X="21.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Courses.UpdateCourse.UpdateCourseCommandHandler" Collapsed="true">
+    <Position X="0.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Courses.UpdateCourse.UpdateCourseCommandValidator" Collapsed="true">
+    <Position X="2.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Matherials.CreateMatherial.CreateMatherialCommand" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Matherials.CreateMatherial.CreateMatherialCommandHandler" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Matherials.CreateMatherial.CreateMatherialCommandValidator" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Matherials.DeleteMatherial.DeleteMatherialCommand" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Matherials.DeleteMatherial.DeleteMatherialCommandHandler" Collapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Matherials.DeleteMatherial.DeleteMatherialCommandValidator" Collapsed="true">
+    <Position X="16.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Matherials.UpdateMatherial.UpdateMatherialCommand" Collapsed="true">
+    <Position X="4" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Matherials.UpdateMatherial.UpdateMatherialCommandHandler" Collapsed="true">
+    <Position X="5.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Matherials.UpdateMatherial.UpdateMatherialCommandValidator" Collapsed="true">
+    <Position X="7.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Modules.CreateModule.CreateModuleCommand" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Modules.CreateModule.CreateModuleCommandhandler" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Modules.CreateModule.CreateModuleCommandValidator" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Modules.DeleteModule.DeleteModuleCommand" Collapsed="true">
+    <Position X="18" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Modules.DeleteModule.DeleteModuleCommandHandler" Collapsed="true">
+    <Position X="19.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Modules.DeleteModule.DeleteModuleCommandValidator" Collapsed="true">
+    <Position X="21.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Modules.UpdateModule.UpdateModuleCommand" Collapsed="true">
+    <Position X="9.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Modules.UpdateModule.UpdateModuleCommandHandler" Collapsed="true">
+    <Position X="11" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Modules.UpdateModule.UpdateModuleCommandValidator" Collapsed="true">
+    <Position X="12.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.ProgressUsers.CreateProgressUser.CreateProgressUserCommand" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.ProgressUsers.CreateProgressUser.CreateProgressUserCommandHandler" Collapsed="true">
+    <Position X="18" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.ProgressUsers.CreateProgressUser.CreateProgressUserCommandValidator" Collapsed="true">
+    <Position X="19.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.ProgressUsers.DeleteProgressUser.DeleteProgressUserCommand" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.ProgressUsers.DeleteProgressUser.DeleteProgressUserCommandHandler" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.ProgressUsers.DeleteProgressUser.DeleteProgressUserCommandValidator" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.ProgressUsers.UpdateProgressUser.UpdateProgressUserCommand" Collapsed="true">
+    <Position X="14.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.ProgressUsers.UpdateProgressUser.UpdateProgressUserCommandHandler" Collapsed="true">
+    <Position X="16.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.ProgressUsers.UpdateProgressUser.UpdateProgressUserCommandValidator" Collapsed="true">
+    <Position X="18" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Questions.CreateQuestion.CreateQuestionCommand" Collapsed="true">
+    <Position X="21.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Questions.CreateQuestion.CreateQuestionCommandHandler" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Questions.CreateQuestion.CreateQuestionCommandValidator" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Questions.DeleteQuestion.DeleteQuestionCommand" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Questions.DeleteQuestion.DeleteQuestionCommandHandler" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Questions.DeleteQuestion.DeleteQuestionCommandValidator" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Questions.UpdateQuestion.UpdateQuestionCommand" Collapsed="true">
+    <Position X="19.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Questions.UpdateQuestion.UpdateQuestionCommandHandler" Collapsed="true">
+    <Position X="21.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Questions.UpdateQuestion.UpdateQuestionCommandValidator" Collapsed="true">
+    <Position X="0.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Reviews.CreateReview.CreateReviewCommandValidator" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Reviews.DeleteReview.DeleteReviewCommandValidator" Collapsed="true">
+    <Position X="14.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Rewies.CreateReview.CreateReviewCommand" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Rewies.CreateReview.CreateReviewCommandHandler" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Rewies.DeleteReview.DeleteReviewCommand" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Rewies.DeleteReview.DeleteReviewCommandHandler" Collapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Tests.CreateTest.CreateTestCommand" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Tests.CreateTest.CreateTestCommandHandler" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Tests.CreateTest.CreateTestCommandValidator" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Tests.DeleteTest.DeleteTestCommand" Collapsed="true">
+    <Position X="16.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Tests.DeleteTest.DeleteTestCommandHandler" Collapsed="true">
+    <Position X="18" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Tests.DeleteTest.DeleteTestCommandValidator" Collapsed="true">
+    <Position X="19.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Tests.UpdateTest.UpdateTestCommand" Collapsed="true">
+    <Position X="2.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Tests.UpdateTest.UpdateTestCommandHandler" Collapsed="true">
+    <Position X="4" Y="12.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Tests.UpdateTest.UpdateTestCommandValidator" Collapsed="true">
+    <Position X="5.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Users.CreateUser.CreateUserCommand" Collapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Users.CreateUser.CreateUserCommandHandler" Collapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Users.CreateUser.CreateUserCommandValidator" Collapsed="true">
+    <Position X="18" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Users.DeteleUser.DeleteUserCommand" Collapsed="true">
+    <Position X="21.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Users.DeteleUser.DeleteUserCommandHandler" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Users.DeteleUser.DeleteUserCommandValidator" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Users.UpdateUser.UpdateUserCommand" Collapsed="true">
+    <Position X="7.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Users.UpdateUser.UpdateUserCommandHandler" Collapsed="true">
+    <Position X="9.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Commands.Users.UpdateUser.UpdateUserCommandValidator" Collapsed="true">
+    <Position X="11" Y="12.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Dtos.Answers.AnswerListVm" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Dtos.Answers.AnswerLookupDto" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Application.Common.Dtos.AnswersUsers.AnswersUserListVm" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Dtos.AnswersUsers.AnswersUserLookupDto" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Application.Common.Dtos.Courses.CourseListVm" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Dtos.Courses.CourseLookupDto" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Application.Common.Dtos.Matherials.MatherialListVm" Collapsed="true">
+    <Position X="12.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Dtos.Matherials.MatherialLookupDto" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Application.Common.Dtos.Modules.ModuleListVm" Collapsed="true">
+    <Position X="16.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Dtos.Modules.ModuleLookupDto" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Application.Common.Dtos.ProgressUsers.ProgressUserListVm" Collapsed="true">
+    <Position X="21.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Dtos.ProgressUsers.ProgressUserLookupDto" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Application.Common.Dtos.Questions.QuestionListVm" Collapsed="true">
+    <Position X="2.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Dtos.Questions.QuestionLookupDto" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Application.Common.Dtos.Reviews.ReviewListVm" Collapsed="true">
+    <Position X="5.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Dtos.Reviews.ReviewLookupDto" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Application.Common.Dtos.Roles.RoleListVm" Collapsed="true">
+    <Position X="9.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Dtos.Roles.RoleLookupDto" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Application.Common.Dtos.Tests.TestListVm" Collapsed="true">
+    <Position X="12.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Dtos.Tests.TestLookupDto" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Application.Common.Dtos.Users.UsersListVm" Collapsed="true">
+    <Position X="14.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Dtos.Users.UserLookupDto" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Application.Common.Exceptions.NotFoundException" Collapsed="true">
+    <Position X="19.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Mappings.AssemblyMappingProfile" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Answers.GetAnswer.GetDetailsAnswerQuery" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Answers.GetAnswer.GetDetailsAnswerQueryHandler" Collapsed="true">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Answers.GetAnswer.GetDetailsAnswerQueryValidator" Collapsed="true">
+    <Position X="4" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Answers.GetAnswerList.GetAllAnswerQuery" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Answers.GetAnswerList.GetAllAnswerQueryHandler" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.AnswersUsers.GetAnswersUser.GetDetailsAnswersUserQuery" Collapsed="true">
+    <Position X="5.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.AnswersUsers.GetAnswersUser.GetDetailsAnswersUserQueryHandler" Collapsed="true">
+    <Position X="7.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.AnswersUsers.GetAnswersUser.GetDetailsAnswersUserQueryValidator" Collapsed="true">
+    <Position X="9.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.AnswersUsers.GetAnswersUserList.GetAllAnswersUserQuery" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.AnswersUsers.GetAnswersUserList.GetAllAnswersUserQueryHandler" Collapsed="true">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Courses.GetCourse.GetDetailsCourseQuery" Collapsed="true">
+    <Position X="11" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Courses.GetCourse.GetDetailsCourseQueryHandler" Collapsed="true">
+    <Position X="12.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Courses.GetCourse.GetDetailsCourseQueryValidator" Collapsed="true">
+    <Position X="14.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Courses.GetCourseList.GetAllCourseQuery" Collapsed="true">
+    <Position X="14.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Courses.GetCourseList.GetAllCourseQueryHandler" Collapsed="true">
+    <Position X="16.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Matherials.GetMatherial.GetDetailsMatherialQuery" Collapsed="true">
+    <Position X="16.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Matherials.GetMatherial.GetDetailsMatherialQueryHandler" Collapsed="true">
+    <Position X="18" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Matherials.GetMatherial.GetDetailsMatherialQueryValidator" Collapsed="true">
+    <Position X="19.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Matherials.GetMatherialList.GetAllMatherialQuery" Collapsed="true">
+    <Position X="18" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Matherials.GetMatherialList.GetAllMatherialQueryHandler" Collapsed="true">
+    <Position X="19.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Modules.GetModule.GetDetailsModuleQuery" Collapsed="true">
+    <Position X="21.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Modules.GetModule.GetDetailsModuleQueryHandler" Collapsed="true">
+    <Position X="0.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Modules.GetModule.GetDetailsModuleQueryValidator" Collapsed="true">
+    <Position X="2.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Modules.GetModuleList.GetAllModuleQuery" Collapsed="true">
+    <Position X="21.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Modules.GetModuleList.GetAllModuleQueryHandler" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.ProgressUsers.GetProgressUser.GetDetailsProgressUserQuery" Collapsed="true">
+    <Position X="4" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.ProgressUsers.GetProgressUser.GetDetailsProgressUserQueryHandler" Collapsed="true">
+    <Position X="5.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.ProgressUsers.GetProgressUser.GetDetailsProgressUserQueryValidator" Collapsed="true">
+    <Position X="7.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.ProgressUsers.GetProgressUserList.GetAllProgressUserQuery" Collapsed="true">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.ProgressUsers.GetProgressUserList.GetAllProgressUserQueryHandler" Collapsed="true">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Questions.GetQuestionList.GetAllQuestionQuery" Collapsed="true">
+    <Position X="5.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Questions.GetQuestionList.GetAllQuestionQueryHandler" Collapsed="true">
+    <Position X="7.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Questions.GetQuestions.GetDetailsQuestionQuery" Collapsed="true">
+    <Position X="9.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Questions.GetQuestions.GetDetailsQuestionQueryHandler" Collapsed="true">
+    <Position X="11" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Questions.GetQuestions.GetDetailsQuestionQueryValidator" Collapsed="true">
+    <Position X="12.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Reviews.GetReview.GetDetailsReviewQuery" Collapsed="true">
+    <Position X="14.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Reviews.GetReview.GetDetailsReviewQueryHandler" Collapsed="true">
+    <Position X="16.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Reviews.GetReview.GetDetailsReviewQueryValidator" Collapsed="true">
+    <Position X="18" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Reviews.GetReviewList.GetAllReviewQuery" Collapsed="true">
+    <Position X="9.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Reviews.GetReviewList.GetAllReviewQueryHandler" Collapsed="true">
+    <Position X="11" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Roles.GetRole.GetDetailsRoleQuery" Collapsed="true">
+    <Position X="19.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Roles.GetRole.GetDetailsRoleQueryHandler" Collapsed="true">
+    <Position X="21.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Roles.GetRole.GetDetailsRoleQueryValidator" Collapsed="true">
+    <Position X="0.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Roles.GetRoleList.GetAllRolesQuery" Collapsed="true">
+    <Position X="12.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Roles.GetRoleList.GetAllRolesQueryHandler" Collapsed="true">
+    <Position X="14.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Tests.GetTest.GetDetailsTestQuery" Collapsed="true">
+    <Position X="2.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Tests.GetTest.GetDetailsTestQueryHandler" Collapsed="true">
+    <Position X="4" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Tests.GetTest.GetDetailsTestQueryValidator" Collapsed="true">
+    <Position X="5.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Tests.GetTestList.GetAllTestQuery" Collapsed="true">
+    <Position X="16.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Tests.GetTestList.GetAllTestQueryHandler" Collapsed="true">
+    <Position X="18" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Users.GetUser.GetDetailsUserQuery" Collapsed="true">
+    <Position X="7.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Users.GetUser.GetDetailsUserQueryHandler" Collapsed="true">
+    <Position X="9.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Users.GetUser.GetDetailsUserQueryValidator" Collapsed="true">
+    <Position X="11" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Users.GetUsersList.GetAllUsersQuery" Collapsed="true">
+    <Position X="19.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Application.Common.Queries.Users.GetUsersList.GetAllUsersQueryHandler" Collapsed="true">
+    <Position X="21.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Domain.Model.Answer" Collapsed="true">
+    <Position X="1" Y="22" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Domain.Model.AnswersUser" Collapsed="true">
+    <Position X="7.75" Y="22" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Domain.Model.Course" Collapsed="true">
+    <Position X="14.5" Y="22" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Domain.Model.Matherial" Collapsed="true">
+    <Position X="21.25" Y="22" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Domain.Model.Module" Collapsed="true">
+    <Position X="3.25" Y="22" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Domain.Model.ProgressUser" Collapsed="true">
+    <Position X="10" Y="22" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Domain.Model.Question" Collapsed="true">
+    <Position X="16.75" Y="22" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Domain.Model.Review" Collapsed="true">
+    <Position X="23.5" Y="22" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Domain.Model.Role" Collapsed="true">
+    <Position X="5.5" Y="22" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Domain.Model.Test" Collapsed="true">
+    <Position X="12.25" Y="22" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Domain.Model.User" Collapsed="true">
+    <Position X="19" Y="22" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Domain.Model.Base.BaseModel" Collapsed="true">
+    <Position X="12.25" Y="20.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Persistance.CoursesDbContext" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAABGAAAAABAAAAAAAAAAAQEgAAAAQEQAAAABAAAAA=</HashCode>
+      <FileName>CoursesDbContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Persistance.DbInitializer" Collapsed="true">
+    <Position X="15.5" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DbInitializer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Persistance.DependencyInjection" Collapsed="true">
+    <Position X="17.25" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DependencyInjection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Persistance.EntityFrameworkConfiguration.AnswerConfiguration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityFrameworkConfiguration\AnswerConfiguration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Persistance.EntityFrameworkConfiguration.AnswersUserConfiguration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityFrameworkConfiguration\AnswersUserConfiguration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Persistance.EntityFrameworkConfiguration.CourseConfiguration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityFrameworkConfiguration\CourseConfiguration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Persistance.EntityFrameworkConfiguration.MatherialConfiguration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityFrameworkConfiguration\MatherialConfiguration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Persistance.EntityFrameworkConfiguration.ModuleConfiguration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityFrameworkConfiguration\ModuleConfiguration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Persistance.EntityFrameworkConfiguration.ProgressUserConfiguration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityFrameworkConfiguration\ProgressUserConfiguration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Persistance.EntityFrameworkConfiguration.QuestionsConfiguration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityFrameworkConfiguration\QuestionsConfiguration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Persistance.EntityFrameworkConfiguration.ReviewsConfiguration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityFrameworkConfiguration\ReviewsConfiguration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Persistance.EntityFrameworkConfiguration.RoleConfiguration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityFrameworkConfiguration\RoleConfiguration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Persistance.EntityFrameworkConfiguration.TestConfiguration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityFrameworkConfiguration\TestConfiguration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Persistance.EntityFrameworkConfiguration.UserConfiguration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityFrameworkConfiguration\UserConfiguration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Application.Common.Mappings.IMapWith&lt;T&gt;" Collapsed="true">
+    <Position X="4" Y="13.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Application.Interfaces.ICoursesDbContext" Collapsed="true">
+    <Position X="0.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Application.Interfaces.ICurrentUserService" Collapsed="true">
+    <Position X="2.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

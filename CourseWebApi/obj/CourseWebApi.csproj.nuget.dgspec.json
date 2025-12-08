@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj": {}
+    "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Application.csproj": {
+    "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\User9\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\obj\\",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "F:\\VS\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User9\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,8 +32,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\User9\\Desktop\\Course-Api\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\User9\\Desktop\\Course-Api\\Domain\\Domain.csproj"
+              "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj"
               }
             }
           }
@@ -73,6 +73,10 @@
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.15.0, )"
             }
           },
           "imports": [
@@ -369,20 +373,20 @@
         }
       }
     },
-    "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj": {
+    "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj",
         "projectName": "CourseWebApi",
-        "projectPath": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj",
-        "packagesPath": "C:\\Users\\User9\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User9\\Desktop\\Course-Api\\CourseWebApi\\obj\\",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj",
+        "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "F:\\VS\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User9\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -397,11 +401,11 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Application.csproj"
+              "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj"
               },
-              "C:\\Users\\User9\\Desktop\\Course-Api\\Persistance\\Persistance.csproj": {
-                "projectPath": "C:\\Users\\User9\\Desktop\\Course-Api\\Persistance\\Persistance.csproj"
+              "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj": {
+                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj"
               }
             }
           }
@@ -422,6 +426,10 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
             "Serilog.AspNetCore": {
               "target": "Package",
               "version": "[9.0.0, )"
@@ -872,20 +880,20 @@
         }
       }
     },
-    "C:\\Users\\User9\\Desktop\\Course-Api\\Domain\\Domain.csproj": {
+    "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User9\\Desktop\\Course-Api\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\User9\\Desktop\\Course-Api\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\User9\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User9\\Desktop\\Course-Api\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "F:\\VS\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User9\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -1217,20 +1225,20 @@
         }
       }
     },
-    "C:\\Users\\User9\\Desktop\\Course-Api\\Persistance\\Persistance.csproj": {
+    "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User9\\Desktop\\Course-Api\\Persistance\\Persistance.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj",
         "projectName": "Persistance",
-        "projectPath": "C:\\Users\\User9\\Desktop\\Course-Api\\Persistance\\Persistance.csproj",
-        "packagesPath": "C:\\Users\\User9\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User9\\Desktop\\Course-Api\\Persistance\\obj\\",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj",
+        "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "F:\\VS\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User9\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -1245,8 +1253,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\User9\\Desktop\\Course-Api\\Application\\Application.csproj"
+              "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj"
               }
             }
           }

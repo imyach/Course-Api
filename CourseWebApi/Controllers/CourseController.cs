@@ -6,6 +6,7 @@ using Application.Common.Queries.Courses.GetCourse;
 using Application.Common.Queries.Courses.GetCourseList;
 using AutoMapper;
 using CourseWebApi.Models.Course;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseWebApi.Controllers
@@ -14,6 +15,7 @@ namespace CourseWebApi.Controllers
     public class CourseController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]
+        [Authorize]
         public async Task<ActionResult<CourseListVm>> GetAll()
         {
             var query = new GetAllCourseQuery()

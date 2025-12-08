@@ -1,5 +1,10 @@
+using Application.Servises;
 using CourseWebApi.Middleware;
 using CourseWebApi.Servises;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 RegisterServices(builder.Services);
@@ -19,14 +24,41 @@ void RegisterServices(IServiceCollection services) {
         options.AddProfile(new AssemblyMappingProfile(typeof(ICoursesDbContext).Assembly));
     });
 
+
     services.AddHttpContextAccessor();
     services.AddApplication();
     services.AddPersistance(builder.Configuration);
     services.AddControllers();
 
+    services.AddAuthentication(cnf =>
+    {
+        cnf.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        cnf.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+        .AddJwtBearer("Bearer", options =>
+        {
+            options.Audience = "CourseWebApi";
+            options.RequireHttpsMetadata = false;
+
+
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = false,
+                ValidateAudience = true,
+                ValidAudience = "CourseWebApi",
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["SECRET_KEY"])),
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero,
+            };
+        });
+
+
+
     services.AddEndpointsApiExplorer();
     services.AddSwaggerGen();
     services.AddSingleton<ICurrentUserService, CurrentUserService>();
+    services.AddScoped<IJwtTokenServise, JwtTokenServise>();
 }
 
 async Task Configure(WebApplication build)
@@ -68,7 +100,7 @@ async Task Configure(WebApplication build)
     app.UseAuthorization();
     app.UseEndpoints(endpoints =>
     {
-        app.MapControllers();
+        app?.MapControllers();
     });
 }
 

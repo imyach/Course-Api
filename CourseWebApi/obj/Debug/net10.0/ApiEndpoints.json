@@ -192,6 +192,22 @@
     ]
   },
   {
+    "ContainingType": "CourseWebApi.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDto",
+        "Type": "CourseWebApi.Models.Auth.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CourseWebApi.Controllers.CourseController",
     "Method": "Create",
     "RelativePath": "api/Course",
