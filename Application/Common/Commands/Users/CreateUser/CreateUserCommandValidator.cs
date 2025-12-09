@@ -19,7 +19,7 @@ namespace Application.Common.Commands.Users.CreateUser
               .MaximumLength(50);
             RuleFor(createUserCommand => createUserCommand.PhoneNumber)
               .MaximumLength(12);
-            RuleFor(createUserCommand => createUserCommand.HashPassword)
+            RuleFor(createUserCommand => createUserCommand.Password)
               .NotNull().NotEmpty().MaximumLength(60);
         }
     }

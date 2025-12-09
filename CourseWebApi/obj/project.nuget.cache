@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "W4VT5lbSdhI=",
+  "dgSpecHash": "mM2klPT4bZE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj",
+  "projectFilePath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\CourseWebApi\\CourseWebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Artem\\.nuget\\packages\\automapper\\15.1.0\\automapper.15.1.0.nupkg.sha512",
+    "C:\\Users\\Artem\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Artem\\.nuget\\packages\\fluentvalidation\\12.1.0\\fluentvalidation.12.1.0.nupkg.sha512",
     "C:\\Users\\Artem\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.1.0\\fluentvalidation.dependencyinjectionextensions.12.1.0.nupkg.sha512",
     "C:\\Users\\Artem\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",

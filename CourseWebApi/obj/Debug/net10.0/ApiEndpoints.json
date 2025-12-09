@@ -208,6 +208,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CourseWebApi.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/Auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registrationDto",
+        "Type": "CourseWebApi.Models.Auth.RegistrationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CourseWebApi.Controllers.CourseController",
     "Method": "Create",
     "RelativePath": "api/Course",

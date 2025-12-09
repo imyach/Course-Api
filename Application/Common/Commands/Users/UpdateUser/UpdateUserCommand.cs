@@ -5,14 +5,14 @@ using System.Text;
 
 namespace Application.Common.Commands.Users.UpdateUser
 {
-    public class UpdateUserCommand : IRequest
+    public class UpdateUserCommand : IRequest<string>
     {
         public Guid Id { get; set; }
         public Guid CurrentUserId { get; set; }
         public string NameUser { get; set; } = string.Empty;
         public string Login { get; set; } = string.Empty;
         public string? Email { get; set; }
-        public string HashPassword { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
         public Guid RoleId { get; set; }
         public string? PhoneNumber { get; set; }
     }

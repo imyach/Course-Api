@@ -1,4 +1,3 @@
-using Application.Servises;
 using CourseWebApi.Middleware;
 using CourseWebApi.Servises;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -57,8 +56,8 @@ void RegisterServices(IServiceCollection services) {
 
     services.AddEndpointsApiExplorer();
     services.AddSwaggerGen();
-    services.AddSingleton<ICurrentUserService, CurrentUserService>();
     services.AddScoped<IJwtTokenServise, JwtTokenServise>();
+    services.AddScoped<IPasswordHasherServise, PasswordHasherServise>();
 }
 
 async Task Configure(WebApplication build)

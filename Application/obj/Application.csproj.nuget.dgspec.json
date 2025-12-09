@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj": {}
+    "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj": {
+    "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\obj\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\VS\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj"
+              "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Domain\\Domain.csproj"
               }
             }
           }
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -373,14 +373,14 @@
         }
       }
     },
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj": {
+    "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\VS\\Shared\\NuGetPackages"
@@ -440,7 +440,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

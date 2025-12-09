@@ -351,6 +351,37 @@
         }
       }
     },
+    "/api/Auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrationDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrationDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Course/All": {
       "get": {
         "tags": [
@@ -2079,9 +2110,9 @@
       },
       "CreateUserDto": {
         "required": [
-          "hashPassword",
           "login",
           "nameUser",
+          "password",
           "roleId"
         ],
         "type": "object",
@@ -2094,7 +2125,7 @@
             "minLength": 1,
             "type": "string"
           },
-          "hashPassword": {
+          "password": {
             "minLength": 1,
             "type": "string"
           },
@@ -2275,6 +2306,42 @@
           },
           "test": {
             "$ref": "#/components/schemas/TestLookupDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegistrationDto": {
+        "required": [
+          "login",
+          "nameUser",
+          "password",
+          "roleId"
+        ],
+        "type": "object",
+        "properties": {
+          "nameUser": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "login": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "roleId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2564,10 +2631,10 @@
       },
       "UpdateUserDto": {
         "required": [
-          "hashPassword",
           "id",
           "login",
           "nameUser",
+          "password",
           "roleId"
         ],
         "type": "object",
@@ -2584,7 +2651,7 @@
             "minLength": 1,
             "type": "string"
           },
-          "hashPassword": {
+          "password": {
             "minLength": 1,
             "type": "string"
           },

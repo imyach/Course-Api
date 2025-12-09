@@ -70,8 +70,9 @@ namespace CourseWebApi.Controllers
             var command = mapper.Map<UpdateUserCommand>(updateUserCommand);
             command.CurrentUserId = UserId;
 
-            await Mediator.Send(command);
-            return NoContent();
+            var response = await Mediator.Send(command);
+
+            return Ok(new {token = response });
         }
     }
 }

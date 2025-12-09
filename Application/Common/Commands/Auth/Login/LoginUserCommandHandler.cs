@@ -9,19 +9,23 @@ using System.Text;
 
 namespace Application.Common.Commands.Auth.Login
 {
-    public class LoginUserCommandHandler(ICoursesDbContext context, IJwtTokenServise servise) : IRequestHandler<LoginUserCommand,string>
+    public class LoginUserCommandHandler(ICoursesDbContext context, IJwtTokenServise JwtTokenServise, IPasswordHasherServise passwordHasher) : IRequestHandler<LoginUserCommand,string>
     {
         public async Task<string> Handle(LoginUserCommand request, CancellationToken cancellationToken)
         {
 
-            var user = await context.Users.FirstOrDefaultAsync(user=> 
-                (user.Login == request.Login || user.Email == request.Login)
-                && user.HashPassword == request.Password,cancellationToken);
+            var users = await context.Users.Where(user=> 
+                user.Login == request.Login || user.Email == request.Login).ToListAsync(cancellationToken);
+            if (users == null)
+            {
+                return string.Empty;
+            }
+            var user = users.FirstOrDefault(user => passwordHasher.VerifyBcryptPassword(request.Password, user.HashPassword));
             if (user == null)
             {
                 return string.Empty;
             }
-            var token =  servise.GenerateJwtToken(user);
+            var token = JwtTokenServise.GenerateJwtToken(user);
 
             return await token;
         }

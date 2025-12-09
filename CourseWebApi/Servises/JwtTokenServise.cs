@@ -8,12 +8,12 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Servises
+namespace CourseWebApi.Servises
 {
     public class JwtTokenServise(ICoursesDbContext context, IConfiguration configuration) : IJwtTokenServise
     {
         string SECRET_KEY = configuration["SECRET_KEY"];
-        public TimeSpan ExpiryDuration = new(0, 30, 0);
+        public TimeSpan ExpiryDuration = new(30, 0, 0);
         public async Task<string> GenerateJwtToken(User user) 
         {
 

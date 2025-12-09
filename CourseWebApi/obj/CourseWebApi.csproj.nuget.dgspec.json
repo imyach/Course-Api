@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj": {}
+    "C:\\Users\\Artem\\Desktop\\Course-Api-server\\CourseWebApi\\CourseWebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj": {
+    "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\obj\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\VS\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj"
+              "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Domain\\Domain.csproj"
               }
             }
           }
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -373,14 +373,14 @@
         }
       }
     },
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj": {
+    "C:\\Users\\Artem\\Desktop\\Course-Api-server\\CourseWebApi\\CourseWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\CourseWebApi\\CourseWebApi.csproj",
         "projectName": "CourseWebApi",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\CourseWebApi\\CourseWebApi.csproj",
         "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\obj\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\CourseWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\VS\\Shared\\NuGetPackages"
@@ -401,11 +401,11 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj"
+              "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Application\\Application.csproj"
               },
-              "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj": {
-                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj"
+              "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Persistance\\Persistance.csproj": {
+                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Persistance\\Persistance.csproj"
               }
             }
           }
@@ -426,6 +426,10 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[10.0.0, )"
@@ -462,7 +466,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -880,14 +884,14 @@
         }
       }
     },
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj": {
+    "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\VS\\Shared\\NuGetPackages"
@@ -947,7 +951,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -1225,14 +1229,14 @@
         }
       }
     },
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj": {
+    "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Persistance\\Persistance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Persistance\\Persistance.csproj",
         "projectName": "Persistance",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Persistance\\Persistance.csproj",
         "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\obj\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Persistance\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\VS\\Shared\\NuGetPackages"
@@ -1253,8 +1257,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj"
+              "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api-server\\Application\\Application.csproj"
               }
             }
           }
@@ -1304,7 +1308,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

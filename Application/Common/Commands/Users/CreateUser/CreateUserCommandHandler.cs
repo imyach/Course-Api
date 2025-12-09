@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Application.Common.Commands.Users.CreateUser
 {
-    public class CreateUserCommandHandler(ICoursesDbContext context) : IRequestHandler<CreateUserCommand, Guid>
+    public class CreateUserCommandHandler(ICoursesDbContext context, IPasswordHasherServise passwordHasher) : IRequestHandler<CreateUserCommand, Guid>
     {
         public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
@@ -19,7 +19,7 @@ namespace Application.Common.Commands.Users.CreateUser
                 NameUser = request.NameUser,
                 Login = request.Login,
                 Email = request.Email,
-                HashPassword = request.HashPassword,
+                HashPassword = passwordHasher.HashPasword(request.Password),
                 CreatedAt = DateTime.Now,
                 PhoneNumber = request.PhoneNumber
             };

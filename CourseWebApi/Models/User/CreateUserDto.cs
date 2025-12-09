@@ -12,7 +12,7 @@ namespace CourseWebApi.Models.User
         [Required]
         public string Login { get; set; } = string.Empty;
         [Required]
-        public string HashPassword { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
         [Required]
         public Guid RoleId { get; set; }
         public string? Email { get; set; }
@@ -27,8 +27,8 @@ namespace CourseWebApi.Models.User
                 opt => opt.MapFrom(userDto => userDto.NameUser))
                 .ForMember(userCm => userCm.Email,
                 opt => opt.MapFrom(userDto => userDto.Email))
-                .ForMember(userCm => userCm.HashPassword,
-                opt => opt.MapFrom(userDto => userDto.HashPassword))
+                .ForMember(userCm => userCm.Password,
+                opt => opt.MapFrom(userDto => userDto.Password))
                 .ForMember(userCm => userCm.RoleId,
                 opt => opt.MapFrom(userDto => userDto.RoleId))
                 .ForMember(userCm => userCm.PhoneNumber,

@@ -21,7 +21,7 @@ namespace Application.Common.Commands.Users.UpdateUser
               .MaximumLength(50);
             RuleFor(updateUserCommand => updateUserCommand.PhoneNumber)
               .MaximumLength(12);
-            RuleFor(updateUserCommand => updateUserCommand.HashPassword)
+            RuleFor(updateUserCommand => updateUserCommand.Password)
               .NotNull().NotEmpty().MaximumLength(60);
         }
     }

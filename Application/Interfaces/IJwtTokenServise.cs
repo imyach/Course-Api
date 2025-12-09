@@ -7,6 +7,6 @@ namespace Application.Interfaces
 {
     public interface IJwtTokenServise
     {
-        Task<string> GenerateJwtToken(User username);
+        Task<string> GenerateJwtToken(User user);
     }
 }
