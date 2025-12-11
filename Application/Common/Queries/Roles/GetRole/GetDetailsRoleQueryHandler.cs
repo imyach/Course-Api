@@ -28,7 +28,7 @@ namespace Application.Common.Queries.Roles.GetRole
                     ?? throw new NotFoundException(nameof(Role), request.Id);
                 return mapper.Map<RoleLookupDto>(entity);
             }
-            throw new Exception("User have not role Admin");           
+            throw new AccessException();
         }
     }
 }

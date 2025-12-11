@@ -14,7 +14,5 @@ namespace Application.Common.Commands.Courses.CreateCourse
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
         public decimal Rait { get; set; } = 0;
-        public Guid UserId { get; set; }
-
     }
 }

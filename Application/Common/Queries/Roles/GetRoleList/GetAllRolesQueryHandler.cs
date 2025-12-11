@@ -29,7 +29,7 @@ namespace Application.Common.Queries.Roles.GetRoleList
 
                 return new RoleListVm { Roles = rolesQuery };
             }
-            throw new Exception("User have not role Admin");
+            throw new AccessException();
         }
     }
 }

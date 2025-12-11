@@ -19,13 +19,8 @@ namespace Application.Common.Queries.Courses.GetCourse
             var entity = await context.Courses
                 .Include(c => c.User)
                     .ThenInclude(u => u.Role)
-                .FirstOrDefaultAsync(c=> c.Id == request.Id, cancellationToken);
-            
-            if (entity == null || entity.CurrentUserId != request.CurrentUserId)
-            {
-                throw new NotFoundException(nameof(Course), request.Id);
-            }
-
+                .FirstOrDefaultAsync(c=> c.Id == request.Id, cancellationToken)
+                ?? throw new NotFoundException(nameof(Course), request.Id);
             return mapper.Map<CourseLookupDto>(entity);
         }
     }

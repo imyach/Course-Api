@@ -8,7 +8,6 @@ namespace CourseWebApi.Servises
     public class PasswordHasherServise : IPasswordHasherServise
     {
         public  string HashPasword(string password) => BCrypt.Net.BCrypt.HashPassword(password, 8);
-
         public bool VerifyBcryptPassword(string password, string hash)=> BCrypt.Net.BCrypt.Verify(password, hash);
         
     }

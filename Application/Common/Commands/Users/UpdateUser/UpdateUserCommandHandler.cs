@@ -20,21 +20,23 @@ namespace Application.Common.Commands.Users.UpdateUser
 
             var entity = await context.Users.FindAsync([request.Id], cancellationToken);
 
-            if (entity == null || (currentUser.Id != entity.Id && roleUser.RoleName != "Admin"))
+
+            if (roleUser.RoleName != "Admin")
             {
-                throw new NotFoundException(nameof(User), request.Id);
-                throw new Exception("User have not role Admin");
+                if (entity != null || currentUser.Id == entity.Id)
+                {
+                    entity.RoleId = request.RoleId;
+                    entity.NameUser = request.NameUser;
+                    entity.Login = request.Login;
+                    entity.Email = request.Email;
+                    entity.HashPassword = passwordHasher.HashPasword(request.Password);
+                    entity.PhoneNumber = request.PhoneNumber;
+                    await context.SaveChangesAsync(cancellationToken);
+
+                    return await JwtTokenServise.GenerateJwtToken(entity);
+                }
             }
-
-            entity.RoleId = request.RoleId;
-            entity.NameUser = request.NameUser;
-            entity.Login = request.Login;
-            entity.Email = request.Email;
-            entity.HashPassword = passwordHasher.HashPasword(request.Password);
-            entity.PhoneNumber = request.PhoneNumber;
-            await context.SaveChangesAsync(cancellationToken);
-
-            return await JwtTokenServise.GenerateJwtToken(entity);
+            
         }
     }
 }

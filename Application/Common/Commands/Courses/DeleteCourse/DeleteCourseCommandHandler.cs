@@ -13,15 +13,24 @@ namespace Application.Common.Commands.Courses.DeleteCourse
     {
         public async Task<Unit> Handle(DeleteCourseCommand request, CancellationToken cancellationToken)
         {
-            var entity = await context.Courses.FindAsync([request.Id], cancellationToken);
-            if (entity == null || entity.CurrentUserId != request.CurrentUserId) 
-            {
-                throw new NotFoundException(nameof(Course), request.Id);
-            }
-            context.Courses.Remove(entity);
-            await context.SaveChangesAsync(cancellationToken);
+            var currentUser = await context.Users.FindAsync([request.CurrentUserId], cancellationToken)
+                ?? throw new NotFoundException(nameof(User), request.CurrentUserId);
+            var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
+                ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            return Unit.Value;
+            var entity = await context.Courses.FindAsync([request.Id], cancellationToken);
+
+            if (roleUser.RoleName != "Student")
+            {
+                if (entity == null || entity.UserId != currentUser.Id)
+                    throw new NotFoundException(nameof(Course), request.Id);
+
+                context.Courses.Remove(entity);
+                await context.SaveChangesAsync(cancellationToken);
+
+                return Unit.Value;
+            }
+            throw new AccessException();
         }
     }
 }

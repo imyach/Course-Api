@@ -37,7 +37,7 @@ namespace Application.Common.Commands.Users.CreateUser
 
                 return user.Id;
             }
-            throw new Exception("User have not role Admin");
+            throw new AccessException();
         }
     }
 }

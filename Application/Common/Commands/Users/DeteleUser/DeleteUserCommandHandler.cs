@@ -19,11 +19,13 @@ namespace Application.Common.Commands.Users.DeteleUser
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
             var entity = await context.Users.FindAsync([request.Id], cancellationToken);
-            if (entity == null || (currentUser.Id != entity.Id && roleUser.RoleName != "Admin"))
-            {
+
+            if (entity == null || currentUser.Id != entity.Id)
                 throw new NotFoundException(nameof(User), request.Id);
-                throw new Exception("User have not role Admin");
-            }
+
+            if (roleUser.RoleName != "Admin")
+                throw new AccessException();
+
             context.Users.Remove(entity);
             await context.SaveChangesAsync(cancellationToken);
             return Unit.Value;
