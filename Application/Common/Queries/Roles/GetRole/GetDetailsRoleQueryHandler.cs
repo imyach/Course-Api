@@ -16,14 +16,19 @@ namespace Application.Common.Queries.Roles.GetRole
     {
         public async Task<RoleLookupDto> Handle(GetDetailsRoleQuery request, CancellationToken cancellationToken)
         {
-            var entity = await context.Roles
-                .FirstOrDefaultAsync(e => e.Id == request.Id, cancellationToken);
-            if (entity == null || entity.CurrentUserId != request.CurrentUserId )
-            {
-                throw new NotFoundException(nameof(Role), request.Id);
-            }
+            var currentUser = await context.Users.FindAsync([request.CurrentUserId],cancellationToken)
+                ?? throw new NotFoundException(nameof(User), request.CurrentUserId);
+            var roleUser = await context.Roles.FirstOrDefaultAsync(r=> r.Id == currentUser.RoleId, cancellationToken)
+                ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            return mapper.Map<RoleLookupDto>(entity);
+            if (roleUser.RoleName == "Admin")
+            {
+                var entity = await context.Roles
+                    .FirstOrDefaultAsync(e => e.Id == request.Id, cancellationToken)
+                    ?? throw new NotFoundException(nameof(Role), request.Id);
+                return mapper.Map<RoleLookupDto>(entity);
+            }
+            throw new Exception("User have not role Admin");           
         }
     }
 }

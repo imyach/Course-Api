@@ -22,7 +22,6 @@ namespace CourseWebApi.Controllers
                 return Unauthorized();
 
             return Ok(new {token = response});
-
         }
 
         [HttpPost("register")]

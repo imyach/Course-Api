@@ -6,6 +6,7 @@ using Application.Common.Queries.Matherials.GetMatherial;
 using Application.Common.Queries.Matherials.GetMatherialList;
 using AutoMapper;
 using CourseWebApi.Models.Matherial;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseWebApi.Controllers
@@ -14,6 +15,7 @@ namespace CourseWebApi.Controllers
     public class MatherialController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]
+        [Authorize(Roles = "Couch,Student,Admin")]
         public async Task<ActionResult<MatherialListVm>> GetAll()
         {
             var query = new GetAllMatherialQuery
@@ -26,6 +28,7 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "Couch,Student,Admin")]
         public async Task<ActionResult<MatherialLookupDto>> Get(Guid id)
         {
             var query = new GetDetailsMatherialQuery
@@ -39,6 +42,7 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Couch,Admin")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteMatherialCommand
@@ -52,6 +56,7 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Couch,Admin")]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateMatherialDto createMatherialDto) 
         {
             var command = mapper.Map<CreateMatherialCommand>(createMatherialDto);
@@ -61,6 +66,7 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "Couch,Admin")]
         public async Task<IActionResult> Update([FromBody] UpdateMatherialDto updateMatherialDto)
         {
             var command = mapper.Map<UpdateMatherialCommand>(updateMatherialDto);

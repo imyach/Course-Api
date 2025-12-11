@@ -6,11 +6,13 @@ using Application.Common.Queries.ProgressUsers.GetProgressUser;
 using Application.Common.Queries.ProgressUsers.GetProgressUserList;
 using AutoMapper;
 using CourseWebApi.Models.ProgressUser;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseWebApi.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     public class ProgressUserController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]

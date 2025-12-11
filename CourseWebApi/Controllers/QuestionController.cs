@@ -13,6 +13,7 @@ using Application.Common.Queries.Questions.GetQuestions;
 using AutoMapper;
 using CourseWebApi.Models.ProgressUser;
 using CourseWebApi.Models.Questions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseWebApi.Controllers
@@ -21,6 +22,7 @@ namespace CourseWebApi.Controllers
     public class QuestionController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]
+        [Authorize(Roles = "Couch,Student,Admin")]
         public async Task<ActionResult<QuestionListVm>> GetAll()
         {
             var query = new GetAllQuestionQuery
@@ -33,6 +35,7 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "Couch,Student,Admin")]
         public async Task<ActionResult<QuestionLookupDto>> Get(Guid id)
         {
             var query = new GetDetailsQuestionQuery
@@ -46,6 +49,7 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Couch,Admin")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteQuestionCommand
@@ -59,6 +63,7 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Couch,Admin")]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateQuestionDto createQuestionDto)
         {
             var command = mapper.Map<CreateQuestionCommand>(createQuestionDto);
@@ -68,6 +73,7 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "Couch,Admin")]
         public async Task<IActionResult> Update([FromBody] UpdateQuestionDto updateQuestionDto)
         {
             var command = mapper.Map<UpdateQuestionCommand>(updateQuestionDto);

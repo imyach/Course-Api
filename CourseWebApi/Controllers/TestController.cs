@@ -15,6 +15,7 @@ using CourseWebApi.Models.Course;
 using CourseWebApi.Models.Tests;
 using Domain.Model;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseWebApi.Controllers
@@ -23,6 +24,7 @@ namespace CourseWebApi.Controllers
     public class TestController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]
+        [Authorize(Roles = "Couch,Student,Admin")]
         public async Task<ActionResult<TestListVm>> GetAll()
         {
             var query = new GetAllTestQuery()
@@ -34,6 +36,7 @@ namespace CourseWebApi.Controllers
             return Ok(vm);
         }
         [HttpGet("{id}")]
+        [Authorize(Roles = "Couch,Student,Admin")]
         public async Task<ActionResult<TestLookupDto>> Get(Guid id)
         {
             var query = new GetDetailsTestQuery
@@ -45,6 +48,7 @@ namespace CourseWebApi.Controllers
             return Ok(vm);
         }
         [HttpPost]
+        [Authorize(Roles = "Couch,Admin")]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateTestDto createTestDto)
         {
             var command = mapper.Map<CreateTestCommand>(createTestDto);
@@ -53,6 +57,7 @@ namespace CourseWebApi.Controllers
             return Ok(testId);
         }
         [HttpPut]
+        [Authorize(Roles = "Couch,Admin")]
         public async Task<IActionResult> Update([FromBody] UpdateTestDto updateTestDto)
         {
             var command = mapper.Map<UpdateTestCommand>(updateTestDto);
@@ -61,6 +66,7 @@ namespace CourseWebApi.Controllers
             return NoContent();
         }
         [HttpDelete("{Id}")]
+        [Authorize(Roles = "Couch,Admin")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteTestCommand

@@ -475,7 +475,7 @@
   },
   {
     "ContainingType": "CourseWebApi.Controllers.ModuleController",
-    "Method": "GetAll",
+    "Method": "Get",
     "RelativePath": "api/Module/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -833,7 +833,7 @@
   },
   {
     "ContainingType": "CourseWebApi.Controllers.RoleController",
-    "Method": "GetById",
+    "Method": "Get",
     "RelativePath": "api/Role/{id}",
     "HttpMethod": "GET",
     "IsController": true,

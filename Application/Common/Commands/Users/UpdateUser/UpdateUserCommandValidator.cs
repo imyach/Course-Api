@@ -11,6 +11,8 @@ namespace Application.Common.Commands.Users.UpdateUser
         {
             RuleFor(updateUserCommand => updateUserCommand.Id)
                .NotNull().NotEqual(Guid.Empty);
+            RuleFor(updateUserCommand => updateUserCommand.CurrentUserId)
+              .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateUserCommand => updateUserCommand.RoleId)
                .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateUserCommand => updateUserCommand.NameUser)

@@ -6,6 +6,7 @@ using Application.Common.Queries.Users.GetUser;
 using Application.Common.Queries.Users.GetUsersList;
 using AutoMapper;
 using CourseWebApi.Models.User;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseWebApi.Controllers
@@ -14,11 +15,11 @@ namespace CourseWebApi.Controllers
     public class UserController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]
+        [Authorize(Roles = "Couch,Student,Admin")]
         public async Task<ActionResult<UsersListVm>> GetAll()
         {
             var query = new GetAllUsersQuery()
             {
-                CurrentUserId = UserId
             };
 
             var vm = await Mediator.Send(query);
@@ -26,12 +27,12 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "Couch,Student,Admin")]
         public async Task<ActionResult<UserLookupDto>> Get(Guid id)
         {
             var query = new GetDetailsUserQuery()
             {
                 Id = id,
-                CurrentUserId = UserId
             };
 
             var vm = await Mediator.Send(query);
@@ -39,6 +40,7 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateUserDto createUserCommand)
 
         {
@@ -50,6 +52,7 @@ namespace CourseWebApi.Controllers
 
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Couch,Student,Admin")]
 
         public async Task<IActionResult> Delete(Guid id)
         {
@@ -64,7 +67,7 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpPut]
-
+        [Authorize(Roles = "Couch,Student,Admin")]
         public async Task<IActionResult> Update([FromBody] UpdateUserDto updateUserCommand)
         {
             var command = mapper.Map<UpdateUserCommand>(updateUserCommand);

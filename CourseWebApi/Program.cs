@@ -62,31 +62,7 @@ void RegisterServices(IServiceCollection services) {
 
 async Task Configure(WebApplication build)
 {
-    using var scope = app.Services.CreateScope();
-    try
-    {
-        var context = scope.ServiceProvider.GetRequiredService<CoursesDbContext>();
-        DbInitializer.Initialize(context, CancellationToken.None);
-
-        foreach (var nameRole in Enum.GetNames<EnumRoles>())
-        {
-            if (!context.Roles.Any(name => name.RoleName == nameRole))
-            {
-                await context.Roles.AddAsync(new Role()
-                {
-                    Id = Guid.NewGuid(),
-                    RoleName = nameRole,
-                    CreatedAt = DateTime.Now
-                });
-            }
-        }
-        await context.SaveChangesAsync();
-
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine(ex.ToString());
-    }
+    await app.AddRoleInDataBase();
 
     if (app.Environment.IsDevelopment())
     {
@@ -96,6 +72,7 @@ async Task Configure(WebApplication build)
     app.UseCustomExceptionHandler();
     app.UseRouting();
     app.UseHttpsRedirection();
+    app.UseAuthentication();
     app.UseAuthorization();
     app.UseEndpoints(endpoints =>
     {

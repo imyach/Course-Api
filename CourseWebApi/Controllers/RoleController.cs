@@ -3,12 +3,15 @@ using Application.Common.Queries.Roles.GetRole;
 using Application.Common.Queries.Roles.GetRoleList;
 using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
 namespace CourseWebApi.Controllers
 {
     [Route("api/[controller]")]
+
+    [Authorize(Roles = "Admin")]
     public class RoleController : BaseController
     {
         [HttpGet("All")]
@@ -24,7 +27,7 @@ namespace CourseWebApi.Controllers
     
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<RoleLookupDto>> GetById(Guid id)
+        public async Task<ActionResult<RoleLookupDto>> Get(Guid id)
         {
             var query = new GetDetailsRoleQuery()
             {

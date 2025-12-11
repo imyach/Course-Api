@@ -15,11 +15,13 @@ using AutoMapper;
 using CourseWebApi.Models.Answers;
 using CourseWebApi.Models.AnswersUsers;
 using CourseWebApi.Models.Course;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseWebApi.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     public class AnswersUserController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]

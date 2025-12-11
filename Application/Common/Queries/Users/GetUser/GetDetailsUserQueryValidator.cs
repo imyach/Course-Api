@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Application.Common.Queries.Users.GetUser
 {
-    public class GetDetailsUserQueryValidator : AbstractValidator<GetDetailsUserQuery>
+    public class GetAllUsersQueryValidator : AbstractValidator<GetDetailsUserQuery>
     {
-        public GetDetailsUserQueryValidator() 
+        public GetAllUsersQueryValidator() 
         {
             RuleFor(getDetailsUserQuery => getDetailsUserQuery.Id)
                 .NotNull().NotEqual(Guid.Empty);

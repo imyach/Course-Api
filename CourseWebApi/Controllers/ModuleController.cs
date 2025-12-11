@@ -6,6 +6,7 @@ using Application.Common.Queries.Modules.GetModule;
 using Application.Common.Queries.Modules.GetModuleList;
 using AutoMapper;
 using CourseWebApi.Models.Module;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseWebApi.Controllers
@@ -14,6 +15,7 @@ namespace CourseWebApi.Controllers
     public class ModuleController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]
+        [Authorize(Roles = "Couch,Student,Admin")]
         public async Task<ActionResult<ModuleListVm>> GetAll()
         {
             var query = new GetAllModuleQuery
@@ -25,7 +27,8 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ModuleLookupDto>> GetAll(Guid id)
+        [Authorize(Roles = "Couch,Student,Admin")]
+        public async Task<ActionResult<ModuleLookupDto>> Get(Guid id)
         {
             var query = new GetDetailsModuleQuery
             {
@@ -37,6 +40,7 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Couch,Admin")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteModuleCommand
@@ -49,6 +53,7 @@ namespace CourseWebApi.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Couch,Admin")]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateModuleDto createModuleDto)
         {
             var command = mapper.Map<CreateModuleCommand>(createModuleDto);
@@ -57,6 +62,7 @@ namespace CourseWebApi.Controllers
             return Ok(moduleId);
         }
         [HttpPut]
+        [Authorize(Roles = "Couch,Admin")]
         public async Task<IActionResult> Update([FromBody] UpdateModuleDto updateModuleDto)
         {
             var command = mapper.Map<UpdateModuleCommand>(updateModuleDto);

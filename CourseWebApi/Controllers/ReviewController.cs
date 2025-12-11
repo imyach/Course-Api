@@ -12,11 +12,13 @@ using Application.Common.Queries.Reviews.GetReviewList;
 using AutoMapper;
 using CourseWebApi.Models.Module;
 using CourseWebApi.Models.Reviews;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseWebApi.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     public class ReviewController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]

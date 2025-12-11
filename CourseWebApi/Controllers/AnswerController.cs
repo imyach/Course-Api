@@ -13,6 +13,8 @@ using Application.Common.Queries.Courses.GetCourseList;
 using AutoMapper;
 using CourseWebApi.Models.Answers;
 using CourseWebApi.Models.Course;
+using Domain.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseWebApi.Controllers
@@ -21,6 +23,7 @@ namespace CourseWebApi.Controllers
     public class AnswerController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]
+        [Authorize(Roles = "Couch,Student,Admin")]
         public async Task<ActionResult<AnswerListVm>> GetAll()
         {
             var query = new GetAllAnswerQuery()
@@ -32,6 +35,7 @@ namespace CourseWebApi.Controllers
             return Ok(vm);
         }
         [HttpGet("{id}")]
+        [Authorize(Roles = "Couch,Student,Admin")]
         public async Task<ActionResult<AnswerLookupDto>> Get(Guid id)
         {
             var query = new GetDetailsAnswerQuery
@@ -43,6 +47,7 @@ namespace CourseWebApi.Controllers
             return Ok(vm);
         }
         [HttpPost]
+        [Authorize(Roles = "Couch,Admin")]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateAnswerDto createAnswerDto)
         {
             var command = mapper.Map<CreateAnswerCommand>(createAnswerDto);
@@ -51,6 +56,7 @@ namespace CourseWebApi.Controllers
             return Ok(commandId);
         }
         [HttpPut]
+        [Authorize(Roles = "Couch,Admin")]
         public async Task<IActionResult> Update([FromBody] UpdateAnswerDto updateAnswerDto)
         {
             var command = mapper.Map<UpdateAnswerCommand>(updateAnswerDto);
@@ -59,6 +65,7 @@ namespace CourseWebApi.Controllers
             return NoContent();
         }
         [HttpDelete("{Id}")]
+        [Authorize(Roles = "Couch,Admin")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteAnswerCommand

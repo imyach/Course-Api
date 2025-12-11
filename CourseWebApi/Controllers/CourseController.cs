@@ -15,7 +15,6 @@ namespace CourseWebApi.Controllers
     public class CourseController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]
-        [Authorize]
         public async Task<ActionResult<CourseListVm>> GetAll()
         {
             var query = new GetAllCourseQuery()
@@ -27,6 +26,7 @@ namespace CourseWebApi.Controllers
             return Ok(vm);
         }
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,Couch,Student")]
         public async Task<ActionResult<CourseLookupDto>> Get(Guid id)
         {
             var query = new GetDetailsCourseQuery
@@ -38,6 +38,7 @@ namespace CourseWebApi.Controllers
             return Ok(vm);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin,Couch")]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateCourseDto createCourseDto)
         {
             var command = mapper.Map<CreateCourseCommand>(createCourseDto);
@@ -46,6 +47,7 @@ namespace CourseWebApi.Controllers
             return Ok(commandId);
         }
         [HttpPut]
+        [Authorize(Roles = "Admin,Couch")]
         public async Task<IActionResult> Update([FromBody] UpdateCourseDto updateCourseDto )
         {
             var command = mapper.Map<UpdateCourseCommand>(updateCourseDto);
@@ -54,6 +56,7 @@ namespace CourseWebApi.Controllers
             return NoContent();
         }
         [HttpDelete("{Id}")]
+        [Authorize(Roles = "Admin,Couch")]
         public async Task<IActionResult> Delete(Guid id) 
         {
             var command = new DeleteCourseCommand

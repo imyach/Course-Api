@@ -1,7 +1,9 @@
 ﻿using Application.Common.Dtos.Roles;
+using Application.Common.Exceptions;
 using Application.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Domain.Model;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -14,12 +16,20 @@ namespace Application.Common.Queries.Roles.GetRoleList
     {
         public async Task<RoleListVm> Handle(GetAllRolesQuery request, CancellationToken cancellationToken)
         {
-            var rolesQuery = await context.Roles
-                .Where(r=> r.CurrentUserId == request.CurrentUserId)
+            var currentUser = await context.Users.FindAsync([request.CurrentUserId], cancellationToken)
+                ?? throw new NotFoundException(nameof(User), request.CurrentUserId);
+            var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
+                ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
+
+            if (roleUser.RoleName == "Admin")
+            {
+                var rolesQuery = await context.Roles
                 .ProjectTo<RoleLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
-            return new RoleListVm { Roles = rolesQuery };
+                return new RoleListVm { Roles = rolesQuery };
+            }
+            throw new Exception("User have not role Admin");
         }
     }
 }
