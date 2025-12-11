@@ -13,6 +13,8 @@ namespace Application.Common.Commands.Modules.UpdateModule
                 .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateModuleCommand => updateModuleCommand.CourseId)
                 .NotNull().NotEqual(Guid.Empty);
+            RuleFor(updateModuleCommand => updateModuleCommand.CurrentUserId)
+                .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateModuleCommand => updateModuleCommand.Title)
                 .NotEmpty().NotNull().MaximumLength(100);
             RuleFor(updateModuleCommand => updateModuleCommand.Order)

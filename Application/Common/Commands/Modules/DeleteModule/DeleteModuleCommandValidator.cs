@@ -9,6 +9,8 @@ namespace Application.Common.Commands.Modules.DeleteModule
     {
         public DeleteModuleCommandValidator()
         {
+            RuleFor(deleteModuleCommand => deleteModuleCommand.CurrentUserId)
+               .NotNull().NotEqual(Guid.Empty);
             RuleFor(deleteModuleCommand => deleteModuleCommand.Id)
                 .NotNull().NotEqual(Guid.Empty);
         }

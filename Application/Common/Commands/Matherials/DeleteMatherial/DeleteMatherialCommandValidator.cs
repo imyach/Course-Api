@@ -9,6 +9,8 @@ namespace Application.Common.Commands.Matherials.DeleteMatherial
     {
         public DeleteMatherialCommandValidator()
         {
+            RuleFor(deleteMatherialCommand => deleteMatherialCommand.CurrentUserId)
+                .NotNull().NotEqual(Guid.Empty);
             RuleFor(deleteMatherialCommand => deleteMatherialCommand.Id)
                 .NotNull().NotEqual(Guid.Empty);
         }

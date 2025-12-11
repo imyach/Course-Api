@@ -11,6 +11,8 @@ namespace Application.Common.Commands.Matherials.UpdateMatherial
         {
             RuleFor(updateMatherialCommand => updateMatherialCommand.Id)
                .NotNull().NotEqual(Guid.Empty);
+            RuleFor(updateMatherialCommand => updateMatherialCommand.CurrentUserId)
+              .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateMatherialCommand => updateMatherialCommand.ModuleId)
                 .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateMatherialCommand => updateMatherialCommand.Title)

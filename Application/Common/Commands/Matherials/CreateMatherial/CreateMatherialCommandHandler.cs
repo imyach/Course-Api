@@ -1,6 +1,8 @@
-﻿using Application.Interfaces;
+﻿using Application.Common.Exceptions;
+using Application.Interfaces;
 using Domain.Model;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,19 +13,33 @@ namespace Application.Common.Commands.Matherials.CreateMatherial
     {
         public async Task<Guid> Handle(CreateMatherialCommand request, CancellationToken cancellationToken)
         {
-            var matherial = new Matherial
+
+            var currentUser = await context.Users.FindAsync([request.CurrentUserId], cancellationToken)
+                ?? throw new NotFoundException(nameof(User), request.CurrentUserId);
+
+            var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
+                ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
+
+            var module = await context.Modules.FirstOrDefaultAsync(r => r.Id == request.ModuleId, cancellationToken)
+                ?? throw new NotFoundException(nameof(Module), request.ModuleId);
+
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && module.Course.UserId == currentUser.Id))
             {
-                Id = Guid.NewGuid(),
-                ModuleId = request.ModuleId,
-                Title = request.Title,
-                Description = request.Description,
-                Order = request.Order,
-            };
+                var matherial = new Matherial
+                {
+                    Id = Guid.NewGuid(),
+                    ModuleId = request.ModuleId,
+                    Title = request.Title,
+                    Description = request.Description,
+                    Order = request.Order,
+                };
+                module.Course.UpdateAt = DateTime.Now;
+                await context.Matherials.AddAsync(matherial,cancellationToken);
+                await context.SaveChangesAsync(cancellationToken);
 
-            await context.Matherials.AddAsync(matherial,cancellationToken);
-            await context.SaveChangesAsync(cancellationToken);
-
-            return matherial.Id;
+                return matherial.Id;
+            }
+            throw new AccessException();
         }
     }
 }

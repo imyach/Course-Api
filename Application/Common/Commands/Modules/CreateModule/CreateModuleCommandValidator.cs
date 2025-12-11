@@ -11,6 +11,8 @@ namespace Application.Common.Commands.Modules.CreateModule
         {
             RuleFor(createModuleCommand => createModuleCommand.CourseId)
                .NotNull().NotEqual(Guid.Empty);
+            RuleFor(createModuleCommand => createModuleCommand.CurrentUserId)
+               .NotNull().NotEqual(Guid.Empty);
             RuleFor(createModuleCommand => createModuleCommand.Title)
                 .NotEmpty().NotNull().MaximumLength(100);
             RuleFor(createModuleCommand => createModuleCommand.Order)

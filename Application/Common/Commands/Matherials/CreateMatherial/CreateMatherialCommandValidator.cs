@@ -11,6 +11,8 @@ namespace Application.Common.Commands.Matherials.CreateMatherial
         {
             RuleFor(createMatherialCommand => createMatherialCommand.ModuleId)
                 .NotNull().NotEqual(Guid.Empty);
+            RuleFor(createMatherialCommand => createMatherialCommand.CurrentUserId)
+                .NotNull().NotEqual(Guid.Empty);
             RuleFor(createMatherialCommand => createMatherialCommand.Title)
                 .NotEmpty().NotNull().MaximumLength(100);
             RuleFor(createMatherialCommand => createMatherialCommand.Order)
