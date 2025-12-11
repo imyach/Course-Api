@@ -18,17 +18,16 @@ namespace Application.Common.Commands.Users.DeteleUser
             var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            var entity = await context.Users.FindAsync([request.Id], cancellationToken);
-
-            if (entity == null || currentUser.Id != entity.Id)
+            var entity = await context.Users.FindAsync([request.Id], cancellationToken) ??
                 throw new NotFoundException(nameof(User), request.Id);
 
-            if (roleUser.RoleName != "Admin")
-                throw new AccessException();
-
-            context.Users.Remove(entity);
-            await context.SaveChangesAsync(cancellationToken);
-            return Unit.Value;
+            if (roleUser.RoleName == "Admin" || currentUser.Id == entity.Id)
+            {
+                context.Users.Remove(entity);
+                await context.SaveChangesAsync(cancellationToken);
+                return Unit.Value;
+            }
+            throw new AccessException();
         }
     }
 }

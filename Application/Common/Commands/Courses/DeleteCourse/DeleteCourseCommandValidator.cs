@@ -11,6 +11,8 @@ namespace Application.Common.Commands.Courses.DeleteCourse
         {
             RuleFor(deleteCourseCommand => deleteCourseCommand.Id)
                 .NotNull().NotEqual(Guid.Empty);
+            RuleFor(deleteCourseCommand => deleteCourseCommand.CurrentUserId)
+                .NotNull().NotEqual(Guid.Empty);
         }
     }
 }

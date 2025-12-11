@@ -18,13 +18,10 @@ namespace Application.Common.Commands.Courses.DeleteCourse
             var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            var entity = await context.Courses.FindAsync([request.Id], cancellationToken);
+            var entity = await context.Courses.FindAsync([request.Id], cancellationToken)?? throw new NotFoundException(nameof(Course), request.Id);
 
-            if (roleUser.RoleName != "Student")
+            if (roleUser.RoleName == "Admin" || (entity.UserId == currentUser.Id && roleUser.RoleName == "Couch"))
             {
-                if (entity == null || entity.UserId != currentUser.Id)
-                    throw new NotFoundException(nameof(Course), request.Id);
-
                 context.Courses.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);
 

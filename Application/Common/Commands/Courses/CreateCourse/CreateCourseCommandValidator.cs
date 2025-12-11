@@ -9,6 +9,8 @@ namespace Application.Common.Commands.Courses.CreateCourse
     {
         public CreateCourseCommandValidator()
         {
+            RuleFor(createCourseCommand => createCourseCommand.CurrentUserId)
+                .NotNull().NotEqual(Guid.Empty);
             RuleFor(createCourseCommand => createCourseCommand.Title)
                 .NotNull().NotEmpty().MaximumLength(100);
             RuleFor(createCourseCommand => createCourseCommand.Rait)

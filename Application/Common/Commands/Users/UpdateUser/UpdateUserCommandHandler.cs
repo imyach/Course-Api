@@ -18,24 +18,21 @@ namespace Application.Common.Commands.Users.UpdateUser
             var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            var entity = await context.Users.FindAsync([request.Id], cancellationToken);
+            var entity = await context.Users.FindAsync([request.Id], cancellationToken) ?? throw new NotFoundException(nameof(User), currentUser.Id);
 
-
-            if (roleUser.RoleName != "Admin")
+            if (roleUser.RoleName == "Admin" || currentUser.Id == entity.Id)
             {
-                if (entity != null || currentUser.Id == entity.Id)
-                {
-                    entity.RoleId = request.RoleId;
-                    entity.NameUser = request.NameUser;
-                    entity.Login = request.Login;
-                    entity.Email = request.Email;
-                    entity.HashPassword = passwordHasher.HashPasword(request.Password);
-                    entity.PhoneNumber = request.PhoneNumber;
-                    await context.SaveChangesAsync(cancellationToken);
+                entity.RoleId = request.RoleId;
+                entity.NameUser = request.NameUser;
+                entity.Login = request.Login;
+                entity.Email = request.Email;
+                entity.HashPassword = passwordHasher.HashPasword(request.Password);
+                entity.PhoneNumber = request.PhoneNumber;
+                await context.SaveChangesAsync(cancellationToken);
 
-                    return await JwtTokenServise.GenerateJwtToken(entity);
-                }
+                return await JwtTokenServise.GenerateJwtToken(entity);
             }
+            throw new AccessException();
             
         }
     }

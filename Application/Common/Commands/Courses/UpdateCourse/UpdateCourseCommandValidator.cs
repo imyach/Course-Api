@@ -9,6 +9,8 @@ namespace Application.Common.Commands.Courses.UpdateCourse
     {
         public UpdateCourseCommandValidator()
         {
+            RuleFor(updateCourseCommand => updateCourseCommand.CurrentUserId)
+               .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateCourseCommand => updateCourseCommand.Id)
                .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateCourseCommand => updateCourseCommand.Title)
