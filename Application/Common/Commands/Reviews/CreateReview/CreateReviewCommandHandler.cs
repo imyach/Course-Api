@@ -16,7 +16,7 @@ namespace Application.Common.Commands.Rewies.CreateReview
             {
                 Id = Guid.NewGuid(),
                 CourseId = request.CourseId,
-                UserId = request.UserId,
+                UserId = request.CurrentUserId,
                 Rait = request.Rait,
                 Text = request.Text,
                 CreatedAt = DateTime.Now

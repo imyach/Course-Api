@@ -9,6 +9,5 @@ namespace Application.Common.Queries.Reviews.GetReviewList
 {
     public class GetAllReviewQuery : IRequest<ReviewListVm>
     {
-        public Guid CurrentUserId {  get; set; }
     }
 }

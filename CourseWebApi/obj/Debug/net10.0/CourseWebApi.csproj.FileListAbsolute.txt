@@ -761,3 +761,4 @@ C:\Users\1\Desktop\course-api\CourseWebApi\obj\Debug\net10.0\refint\CourseWebApi
 C:\Users\1\Desktop\course-api\CourseWebApi\obj\Debug\net10.0\CourseWebApi.pdb
 C:\Users\1\Desktop\course-api\CourseWebApi\obj\Debug\net10.0\CourseWebApi.genruntimeconfig.cache
 C:\Users\1\Desktop\course-api\CourseWebApi\obj\Debug\net10.0\ref\CourseWebApi.dll
+C:\Users\Artem\Desktop\Course-Api\CourseWebApi\bin\Debug\net10.0\BCrypt.Net-Next.dll

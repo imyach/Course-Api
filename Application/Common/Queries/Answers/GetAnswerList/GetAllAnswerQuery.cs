@@ -8,6 +8,5 @@ namespace Application.Common.Queries.Answers.GetAnswerList
 {
     public  class GetAllAnswerQuery : IRequest<AnswerListVm>
     {
-        public Guid CurrentUserId { get; set; }
     }
 }

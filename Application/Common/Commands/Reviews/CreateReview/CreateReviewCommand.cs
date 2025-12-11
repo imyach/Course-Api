@@ -9,7 +9,6 @@ namespace Application.Common.Commands.Rewies.CreateReview
     {
         public Guid CurrentUserId { get; set; }
 
-        public Guid UserId { get; set; }
         public Guid CourseId { get; set; }
         public int Rait { get; set; }
         public string Text { get; set; } = string.Empty;

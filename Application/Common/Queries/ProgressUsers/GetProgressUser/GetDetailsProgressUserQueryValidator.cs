@@ -11,6 +11,8 @@ namespace Application.Common.Queries.ProgressUsers.GetProgressUser
         {
             RuleFor(getDetailsProgressUserQuery => getDetailsProgressUserQuery.Id)
                 .NotNull().NotEqual(Guid.Empty);
+            RuleFor(getDetailsProgressUserQuery => getDetailsProgressUserQuery.CurrentUserId)
+                .NotNull().NotEqual(Guid.Empty);
         }
     }
 }

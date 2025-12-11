@@ -20,11 +20,9 @@ namespace Application.Common.Queries.Matherials.GetMatherial
                     .ThenInclude(m => m.Course)
                     .ThenInclude(c => c.User)
                     .ThenInclude(u => u.Role)
-                .FirstOrDefaultAsync(m => m.Id == request.Id, cancellationToken);
-            if (matherial == null || request.CurrentUserId != matherial.CurrentUserId)
-            {
-                throw new NotFoundException(nameof(Matherial), request.Id);
-            }
+                .FirstOrDefaultAsync(m => m.Id == request.Id, cancellationToken)
+                    ??throw new NotFoundException(nameof(Matherial), request.Id);
+            
             return mapper.Map<MatherialLookupDto>(matherial);
         }
     }

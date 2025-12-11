@@ -26,7 +26,7 @@ namespace Application.Common.Commands.Courses.CreateCourse
                     Title = request.Title,
                     Description = request.Description,
                     CreatedAt = DateTime.Now,
-                    Rait = request.Rait,
+                    Rait = 0,
                     UserId = request.CurrentUserId,
                     UpdateAt = null
                 };

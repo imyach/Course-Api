@@ -1941,8 +1941,7 @@
       },
       "CreateCourseDto": {
         "required": [
-          "title",
-          "userId"
+          "title"
         ],
         "type": "object",
         "properties": {
@@ -1953,14 +1952,6 @@
           "description": {
             "type": "string",
             "nullable": true
-          },
-          "rait": {
-            "type": "number",
-            "format": "double"
-          },
-          "userId": {
-            "type": "string",
-            "format": "uuid"
           }
         },
         "additionalProperties": false

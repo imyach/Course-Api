@@ -19,7 +19,6 @@ namespace Application.Common.Queries.Reviews.GetReviewList
             var reviewQuery = await context.Reviews
                 .Include(m => m.Course)
                 .Include(m => m.User)
-                .Where(m => m.CurrentUserId == request.CurrentUserId)
                 .ProjectTo<ReviewLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

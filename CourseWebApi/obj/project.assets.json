@@ -1956,25 +1956,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\student\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Artem\\.nuget\\packages\\": {},
+    "F:\\VS\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\student\\Desktop\\course\\course-api\\CourseWebApi\\CourseWebApi.csproj",
+      "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj",
       "projectName": "CourseWebApi",
-      "projectPath": "C:\\Users\\student\\Desktop\\course\\course-api\\CourseWebApi\\CourseWebApi.csproj",
-      "packagesPath": "C:\\Users\\student\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\student\\Desktop\\course\\course-api\\CourseWebApi\\obj\\",
+      "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj",
+      "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "F:\\VS\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1983,18 +1981,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\student\\Desktop\\course\\course-api\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\student\\Desktop\\course\\course-api\\Application\\Application.csproj"
+            "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj"
             },
-            "C:\\Users\\student\\Desktop\\course\\course-api\\Persistance\\Persistance.csproj": {
-              "projectPath": "C:\\Users\\student\\Desktop\\course\\course-api\\Persistance\\Persistance.csproj"
+            "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj": {
+              "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj"
             }
           }
         }
@@ -2055,7 +2052,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

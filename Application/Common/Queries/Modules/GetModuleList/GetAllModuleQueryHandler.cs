@@ -16,7 +16,6 @@ namespace Application.Common.Queries.Modules.GetModuleList
         {
             var moduleQuery = await context.Modules
                 .Include(m=> m.Course)
-                .Where(m => m.CurrentUserId == request.CurrentUserId)
                 .ProjectTo<ModuleLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

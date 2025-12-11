@@ -9,6 +9,5 @@ namespace Application.Common.Queries.Modules.GetModule
     public class GetDetailsModuleQuery : IRequest<ModuleLookupDto>
     {
         public Guid Id { get; set; }
-        public Guid CurrentUserId { get; set; }
     }
 }

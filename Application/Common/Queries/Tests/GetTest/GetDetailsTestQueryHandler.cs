@@ -24,12 +24,8 @@ namespace Application.Common.Queries.Tests.GetTest
                 .Include(t=> t.Course)
                     .ThenInclude(c => c.User)
                     .ThenInclude(u => u.Role)
-                .FirstOrDefaultAsync(t=>t.Id == request.Id, cancellationToken);
-
-            if (entity == null || entity.CurrentUserId != request.CurrentUserId)
-            {
-                throw new NotFoundException(nameof(Test),request.Id);
-            }
+                .FirstOrDefaultAsync(t=>t.Id == request.Id, cancellationToken)
+                ??throw new NotFoundException(nameof(Test),request.Id);
 
             return mapper.Map<TestLookupDto>(entity);
         }

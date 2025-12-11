@@ -18,7 +18,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CourseWebApi.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
+    [Authorize(Roles = "Admin,Couch,Student")]
     public class ReviewController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]
@@ -26,19 +26,17 @@ namespace CourseWebApi.Controllers
         {
             var query = new GetAllReviewQuery
             {
-                CurrentUserId = UserId
             };
             var vm = await Mediator.Send(query);
             return Ok(vm);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ReviewLookupDto>> GetAll(Guid id)
+        public async Task<ActionResult<ReviewLookupDto>> Get(Guid id)
         {
             var query = new GetDetailsReviewQuery
             {
                 Id = id,
-                CurrentUserId = UserId
             };
             var vm = await Mediator.Send(query);
             return Ok(vm);

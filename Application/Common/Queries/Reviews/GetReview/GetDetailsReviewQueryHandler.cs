@@ -22,12 +22,9 @@ namespace Application.Common.Queries.Reviews.GetReview
                     .ThenInclude(u => u.Role)
                 .Include(r => r.User)
                     .ThenInclude(u => u.Role)
-                .FirstOrDefaultAsync(r => r.Id == request.Id, cancellationToken);
-            if (entity == null || request.CurrentUserId != entity.CurrentUserId)
-            {
+                .FirstOrDefaultAsync(r => r.Id == request.Id, cancellationToken)??
                 throw new NotFoundException(nameof(Review), request.Id);
-            }
-
+            
             return mapper.Map<ReviewLookupDto>(entity);
         }
     }

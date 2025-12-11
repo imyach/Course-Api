@@ -8,6 +8,5 @@ namespace Application.Common.Queries.Modules.GetModuleList
 {
     public class GetAllModuleQuery : IRequest<ModuleListVm>
     {
-        public Guid CurrentUserId { get; set; }
     }
 }

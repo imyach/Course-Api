@@ -16,7 +16,6 @@ namespace Application.Common.Queries.Matherials.GetMatherialList
         {
             var matherialsQuery = await context.Matherials
                 .Include(m => m.Module)
-                .Where(m => m.CurrentUserId == request.CurrentUserId)
                 .ProjectTo<MatherialLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

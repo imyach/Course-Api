@@ -17,7 +17,13 @@ namespace Application.Common.Queries.AnswersUsers.GetAnswersUser
     {
         public async Task<AnswersUserLookupDto> Handle(GetDetailsAnswersUserQuery request, CancellationToken cancellationToken)
         {
-            var entity = await context.AnswersUsers
+            var currentUser = await context.Users.FindAsync([request.CurrentUserId], cancellationToken)
+                ?? throw new NotFoundException(nameof(User), request.CurrentUserId);
+
+            var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
+                ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
+
+            var entities = await context.AnswersUsers
                 .Include(a => a.Answer)
                     .ThenInclude(a => a.Question)
                     .ThenInclude(q => q.Test)
@@ -26,16 +32,26 @@ namespace Application.Common.Queries.AnswersUsers.GetAnswersUser
                     .ThenInclude(m => m.Course)
                     .ThenInclude(c => c.User)
                     .ThenInclude(u => u.Role)
-                .Include(a=> a.User)
-                    .ThenInclude(u=> u.Role)
-                .FirstOrDefaultAsync(c => c.Id == request.Id, cancellationToken);
+                .Include(a => a.User)
+                    .ThenInclude(u => u.Role)
+                .ToListAsync(cancellationToken);
 
-            if (entity == null || entity.CurrentUserId != request.CurrentUserId)
+
+            if (roleUser.RoleName == "Admin" || roleUser.RoleName == "Couch")
             {
-                throw new NotFoundException(nameof(AnswersUser), request.Id);
+                var entityA = entities.FirstOrDefault(c => c.Id == request.Id)
+                    ?? throw new NotFoundException(nameof(AnswersUser), request.Id);
+
+                return mapper.Map<AnswersUserLookupDto>(entityA);
             }
 
+
+            var entity = entities.Where(x=> x.UserId == currentUser.Id)
+                .FirstOrDefault(c => c.Id == request.Id)
+                    ?? throw new NotFoundException(nameof(AnswersUser), request.Id);
+
             return mapper.Map<AnswersUserLookupDto>(entity);
+
         }
     }
 }

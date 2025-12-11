@@ -23,12 +23,9 @@ namespace Application.Common.Queries.Questions.GetQuestions
                     .ThenInclude(m => m.Course)
                     .ThenInclude(c => c.User)
                     .ThenInclude(u => u.Role)
-                .FirstOrDefaultAsync(r => r.Id == request.Id, cancellationToken);
-            if (entity == null || request.CurrentUserId != entity.CurrentUserId)
-            {
-                throw new NotFoundException(nameof(Question), request.Id);
-            }
-
+                .FirstOrDefaultAsync(r => r.Id == request.Id, cancellationToken)
+                    ??throw new NotFoundException(nameof(Question), request.Id);
+           
             return mapper.Map<QuestionLookupDto>(entity);
         }
     }

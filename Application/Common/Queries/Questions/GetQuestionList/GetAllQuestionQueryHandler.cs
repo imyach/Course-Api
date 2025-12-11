@@ -17,7 +17,6 @@ namespace Application.Common.Queries.Questions.GetQuestionList
         {
             var questionQuery = await context.Questions
                 .Include(m => m.Test)
-                .Where(m => m.CurrentUserId == request.CurrentUserId)
                 .ProjectTo<QuestionLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

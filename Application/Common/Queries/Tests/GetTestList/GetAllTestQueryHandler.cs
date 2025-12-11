@@ -18,7 +18,6 @@ namespace Application.Common.Queries.Tests.GetTestList
             var testQuery = await context.Tests
                 .Include(t => t.Course)
                 .Include(t => t.Matherial)
-                .Where(t=> t.CurrentUserId == request.CurrentUserId)
                 .ProjectTo<TestLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

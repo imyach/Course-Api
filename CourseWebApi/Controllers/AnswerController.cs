@@ -28,7 +28,6 @@ namespace CourseWebApi.Controllers
         {
             var query = new GetAllAnswerQuery()
             {
-                CurrentUserId = UserId
             };
 
             var vm = await Mediator.Send(query);
@@ -41,7 +40,6 @@ namespace CourseWebApi.Controllers
             var query = new GetDetailsAnswerQuery
             {
                 Id = id,
-                CurrentUserId = UserId
             };
             var vm = await Mediator.Send(query);
             return Ok(vm);

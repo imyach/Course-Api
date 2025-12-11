@@ -9,6 +9,5 @@ namespace Application.Common.Queries.Answers.GetAnswer
     public class GetDetailsAnswerQuery : IRequest<AnswerLookupDto>
     {
         public Guid Id { get; set; }
-        public Guid CurrentUserId { get; set; }
     }
 }

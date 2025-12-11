@@ -13,8 +13,6 @@ namespace Application.Common.Commands.Courses.CreateCourse
                 .NotNull().NotEqual(Guid.Empty);
             RuleFor(createCourseCommand => createCourseCommand.Title)
                 .NotNull().NotEmpty().MaximumLength(100);
-            RuleFor(createCourseCommand => createCourseCommand.Rait)
-                .NotNull().NotEmpty().InclusiveBetween(1,5);
             RuleFor(createCourseCommand => createCourseCommand.Description)
                .MaximumLength(1000);
         }

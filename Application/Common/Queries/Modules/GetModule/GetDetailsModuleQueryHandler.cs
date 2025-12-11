@@ -22,12 +22,8 @@ namespace Application.Common.Queries.Modules.GetModule
                 .Include(m => m.Course)
                     .ThenInclude(c => c.User)
                     .ThenInclude(u => u.Role)
-                .FirstOrDefaultAsync(m => m.Id == request.Id, cancellationToken);
-            if (entity == null || request.CurrentUserId != entity.CurrentUserId)
-            {
-                throw new NotFoundException(nameof(Module), request.Id);
-            }
-
+                .FirstOrDefaultAsync(m => m.Id == request.Id, cancellationToken) 
+                ?? throw new NotFoundException(nameof(Module), request.Id);
             return mapper.Map<ModuleLookupDto>(entity);
         }
     }

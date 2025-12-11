@@ -9,6 +9,5 @@ namespace Application.Common.Queries.Matherials.GetMatherial
     public class GetDetailsMatherialQuery : IRequest<MatherialLookupDto>
     {
         public Guid Id { get; set; }
-        public Guid CurrentUserId { get; set; }
     }
 }

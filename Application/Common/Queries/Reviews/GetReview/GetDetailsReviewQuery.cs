@@ -9,6 +9,5 @@ namespace Application.Common.Queries.Reviews.GetReview
     public class GetDetailsReviewQuery : IRequest<ReviewLookupDto>
     {
         public Guid Id { get; set; }
-        public Guid CurrentUserId { get; set; }
     }
 }

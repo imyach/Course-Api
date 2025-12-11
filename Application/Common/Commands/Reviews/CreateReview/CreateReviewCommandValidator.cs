@@ -14,8 +14,8 @@ namespace Application.Common.Commands.Reviews.CreateReview
         {
             RuleFor(сreateReviewCommand => сreateReviewCommand.CourseId)
                 .NotNull().NotEqual(Guid.Empty);
-            RuleFor(сreateReviewCommand => сreateReviewCommand.UserId)
-                .NotNull().NotEqual(Guid.Empty);
+            RuleFor(сreateReviewCommand => сreateReviewCommand.CurrentUserId)
+               .NotNull().NotEqual(Guid.Empty);
             RuleFor(сreateReviewCommand => сreateReviewCommand.Text)
                .NotNull().NotEmpty().MaximumLength(500);
             RuleFor(сreateReviewCommand => сreateReviewCommand.Rait)

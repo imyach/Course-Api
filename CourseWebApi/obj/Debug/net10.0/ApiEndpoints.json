@@ -771,7 +771,7 @@
   },
   {
     "ContainingType": "CourseWebApi.Controllers.ReviewController",
-    "Method": "GetAll",
+    "Method": "Get",
     "RelativePath": "api/Review/{id}",
     "HttpMethod": "GET",
     "IsController": true,

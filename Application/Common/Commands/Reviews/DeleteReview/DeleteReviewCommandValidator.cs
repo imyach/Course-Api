@@ -12,6 +12,8 @@ namespace Application.Common.Commands.Reviews.DeleteReview
         {
             RuleFor(deleteReviewCommand => deleteReviewCommand.Id)
                 .NotNull().NotEqual(Guid.Empty);
+            RuleFor(deleteReviewCommand => deleteReviewCommand.CurrentUserId)
+                .NotNull().NotEqual(Guid.Empty);
         }
     }
 }

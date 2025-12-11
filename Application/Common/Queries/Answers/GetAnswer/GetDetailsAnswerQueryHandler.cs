@@ -25,12 +25,8 @@ namespace Application.Common.Queries.Answers.GetAnswer
                     .ThenInclude(m => m.Course)
                     .ThenInclude(c => c.User)
                     .ThenInclude(u => u.Role)
-                .FirstOrDefaultAsync(c => c.Id == request.Id, cancellationToken);
-
-            if (entity == null || entity.CurrentUserId != request.CurrentUserId)
-            {
-                throw new NotFoundException(nameof(Answer), request.Id);
-            }
+                .FirstOrDefaultAsync(c => c.Id == request.Id, cancellationToken)
+                    ?? throw new NotFoundException(nameof(Answer), request.Id);
 
             return mapper.Map<AnswerLookupDto>(entity);
         }

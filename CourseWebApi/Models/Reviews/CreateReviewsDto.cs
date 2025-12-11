@@ -23,9 +23,7 @@ namespace CourseWebApi.Models.Reviews
                 .ForMember(reviewCm => reviewCm.Rait,
                 opt => opt.MapFrom(reviewDto => reviewDto.Rait))
                 .ForMember(reviewCm => reviewCm.CourseId,
-                opt => opt.MapFrom(reviewDto => reviewDto.CourseId))
-                .ForMember(reviewCm => reviewCm.UserId,
-                opt => opt.MapFrom(reviewDto => reviewDto.UserId));
+                opt => opt.MapFrom(reviewDto => reviewDto.CourseId));
         }
 
     }
