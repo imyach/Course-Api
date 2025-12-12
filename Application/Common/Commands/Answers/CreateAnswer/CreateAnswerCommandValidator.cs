@@ -15,6 +15,8 @@ namespace Application.Common.Commands.Answers.CreateAnswer
                 .NotEmpty().NotNull();
             RuleFor(createAnswerCommand => createAnswerCommand.QuestionId)
                 .NotEqual(Guid.Empty).NotNull();
+            RuleFor(createAnswerCommand => createAnswerCommand.CurrentUserId)
+                .NotEqual(Guid.Empty).NotNull();
         }
     }
 }

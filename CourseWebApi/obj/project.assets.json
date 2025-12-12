@@ -1956,23 +1956,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Artem\\.nuget\\packages\\": {},
-    "F:\\VS\\Shared\\NuGetPackages": {}
+    "C:\\Users\\1\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj",
+      "projectUniqueName": "C:\\Users\\1\\Desktop\\course-api\\CourseWebApi\\CourseWebApi.csproj",
       "projectName": "CourseWebApi",
-      "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\CourseWebApi.csproj",
-      "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\obj\\",
+      "projectPath": "C:\\Users\\1\\Desktop\\course-api\\CourseWebApi\\CourseWebApi.csproj",
+      "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\1\\Desktop\\course-api\\CourseWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "F:\\VS\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1987,11 +1987,11 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj"
+            "C:\\Users\\1\\Desktop\\course-api\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\1\\Desktop\\course-api\\Application\\Application.csproj"
             },
-            "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj": {
-              "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Persistance\\Persistance.csproj"
+            "C:\\Users\\1\\Desktop\\course-api\\Persistance\\Persistance.csproj": {
+              "projectPath": "C:\\Users\\1\\Desktop\\course-api\\Persistance\\Persistance.csproj"
             }
           }
         }

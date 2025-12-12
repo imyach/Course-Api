@@ -13,17 +13,25 @@ namespace Application.Common.Commands.Tests.UpdateTest
     {
         public async Task<Unit> Handle(UpdateTestCommand request, CancellationToken cancellationToken)
         {
-            var entity = await context.Tests.FindAsync([request.Id], cancellationToken);
-            if (entity == null || entity.CurrentUserId != request.CurrentUserId)
+            var currentUser = await context.Users.FindAsync([request.CurrentUserId], cancellationToken)
+                ?? throw new NotFoundException(nameof(User), request.CurrentUserId);
+
+            var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
+                ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
+
+            var entity = await context.Tests.FindAsync([request.Id], cancellationToken)
+                ?? throw new NotFoundException(nameof(Test), request.Id);
+
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Course.UserId))
             {
-                throw new NotFoundException(nameof(Test), request.Id);
+                entity.Title = request.Title;
+                entity.Description = request.Description;
+                entity.Course.UpdateAt = DateTime.Now;
+                await context.SaveChangesAsync(cancellationToken);
+
+                return Unit.Value;
             }
-
-            entity.Title = request.Title;
-            entity.Description = request.Description;
-            await context.SaveChangesAsync(cancellationToken);
-
-            return Unit.Value;
+            throw new AccessException();
         }
     }
 }

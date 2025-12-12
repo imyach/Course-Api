@@ -11,6 +11,8 @@ namespace Application.Common.Commands.Questions.DeleteQuestion
         {
             RuleFor(deleteQuestionCommand => deleteQuestionCommand.Id)
                 .NotNull().NotEqual(Guid.Empty);
+            RuleFor(deleteQuestionCommand => deleteQuestionCommand.CurrentUserId)
+                .NotNull().NotEqual(Guid.Empty);
         }
     }
 }

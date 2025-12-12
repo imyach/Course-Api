@@ -11,6 +11,8 @@ namespace Application.Common.Commands.Tests.CreateTest
         {
             RuleFor(createTestCommand => createTestCommand.CourseId)
                 .NotNull().NotEqual(Guid.Empty);
+            RuleFor(createTestCommand => createTestCommand.CurrentUserId)
+                .NotNull().NotEqual(Guid.Empty);
             RuleFor(createTestCommand => createTestCommand.MatherialId)
                 .NotNull().NotEqual(Guid.Empty);
             RuleFor(createTestCommand => createTestCommand.Title)

@@ -11,6 +11,8 @@ namespace Application.Common.Commands.Tests.DeleteTest
         {
             RuleFor(deleteTestCommand => deleteTestCommand.Id)
                 .NotNull().NotEqual(Guid.Empty);
+            RuleFor(deleteTestCommand => deleteTestCommand.CurrentUserId)
+                .NotNull().NotEqual(Guid.Empty);
         }
     }
 }

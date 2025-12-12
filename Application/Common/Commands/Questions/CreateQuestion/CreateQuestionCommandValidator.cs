@@ -11,6 +11,8 @@ namespace Application.Common.Commands.Questions.CreateQuestion
         {
             RuleFor(createQuestionCommand => createQuestionCommand.TestId)
                 .NotNull().NotEqual(Guid.Empty);
+            RuleFor(createQuestionCommand => createQuestionCommand.CurrentUserId)
+                .NotNull().NotEqual(Guid.Empty);
             RuleFor(createQuestionCommand => createQuestionCommand.Text)
                .NotNull().NotEmpty().MaximumLength(1000);
         }

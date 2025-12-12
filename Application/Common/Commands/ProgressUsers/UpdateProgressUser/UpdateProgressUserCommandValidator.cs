@@ -11,6 +11,8 @@ namespace Application.Common.Commands.ProgressUsers.UpdateProgressUser
         {
             RuleFor(updateProgressUserCommand => updateProgressUserCommand.Id)
                 .NotNull().NotEqual(Guid.Empty);
+            RuleFor(updateProgressUserCommand => updateProgressUserCommand.CurrentUserId)
+                .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateProgressUserCommand => updateProgressUserCommand.Status)
                 .NotNull().MaximumLength(30);
         }

@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Application.Common.Exceptions;
+using Application.Interfaces;
 using Domain.Model;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -12,17 +13,31 @@ namespace Application.Common.Commands.Questions.CreateQuestion
     {
         public async Task<Guid> Handle(CreateQuestionCommand request, CancellationToken cancellationToken)
         {
-            var question = new Question
+            var currentUser = await context.Users.FindAsync([request.CurrentUserId], cancellationToken)
+                ?? throw new NotFoundException(nameof(User), request.CurrentUserId);
+
+            var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
+                ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
+
+            var test = await context.Tests.FirstOrDefaultAsync(r => r.Id == request.TestId, cancellationToken)
+                ?? throw new NotFoundException(nameof(Test), request.TestId);
+
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && test.Course.UserId == currentUser.Id))
             {
-                Id = Guid.NewGuid(),
-                TestId = request.TestId,
-                Text = request.Text,
-            };
+                var question = new Question
+                {
+                    Id = Guid.NewGuid(),
+                    TestId = request.TestId,
+                    Text = request.Text,
+                };
 
-            await context.Questions.AddAsync(question, cancellationToken);
-            await context.SaveChangesAsync(cancellationToken);
+                test.Course.UpdateAt = DateTime.Now;
+                await context.Questions.AddAsync(question, cancellationToken);
+                await context.SaveChangesAsync(cancellationToken);
 
-            return question.Id;
+                return question.Id;
+            }
+            throw new AccessException();
         }
     }
 }

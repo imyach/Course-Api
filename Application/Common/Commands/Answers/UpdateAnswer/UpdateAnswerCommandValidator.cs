@@ -15,6 +15,8 @@ namespace Application.Common.Commands.Answers.UpdateAnswer
                 .NotEmpty().NotNull();
             RuleFor(updateAnswerCommand => updateAnswerCommand.Id)
                 .NotEqual(Guid.Empty).NotNull();
+            RuleFor(updateAnswerCommand => updateAnswerCommand.CurrentUserId)
+               .NotEqual(Guid.Empty).NotNull();
         }
     }
 }

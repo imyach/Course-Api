@@ -11,7 +11,7 @@ namespace Application.Common.Commands.ProgressUsers.CreateProgressUser
         {
             RuleFor(createProgressUserCommand => createProgressUserCommand.CourseId)
                 .NotNull().NotEqual(Guid.Empty);
-            RuleFor(createProgressUserCommand => createProgressUserCommand.UserId)
+            RuleFor(createProgressUserCommand => createProgressUserCommand.CurrentUserId)
                .NotNull().NotEqual(Guid.Empty);
         }
     }

@@ -9,7 +9,7 @@ namespace Application.Common.Commands.AnswersUsers.CreateAnswersUser
     {
         public CreateAnswersUserCommandValidator()
         {
-            RuleFor(createAnswersUserCommand => createAnswersUserCommand.UserId)
+            RuleFor(createAnswersUserCommand => createAnswersUserCommand.CurrentUserId)
                 .NotEqual(Guid.Empty).NotNull();
             RuleFor(createAnswersUserCommand => createAnswersUserCommand.AnswerId)
                 .NotEqual(Guid.Empty).NotNull();

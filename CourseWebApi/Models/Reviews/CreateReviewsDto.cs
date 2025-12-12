@@ -7,8 +7,6 @@ namespace CourseWebApi.Models.Reviews
     public class CreateReviewsDto : IMapWith<CreateReviewCommand>
     {
         [Required]
-        public Guid UserId { get; set; }
-        [Required]
         public Guid CourseId { get; set; }
         [Required]
         public int Rait {  get; set; }

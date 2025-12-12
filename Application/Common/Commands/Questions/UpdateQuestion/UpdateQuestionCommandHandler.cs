@@ -2,6 +2,7 @@
 using Application.Interfaces;
 using Domain.Model;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,16 +13,24 @@ namespace Application.Common.Commands.Questions.UpdateQuestion
     {
         public async Task<Unit> Handle(UpdateQuestionCommand request, CancellationToken cancellationToken)
         {
-            var entity = await context.Questions.FindAsync([request.Id], cancellationToken);
-            if (entity == null || entity.CurrentUserId != request.CurrentUserId)
+            var currentUser = await context.Users.FindAsync([request.CurrentUserId], cancellationToken)
+                ?? throw new NotFoundException(nameof(User), request.CurrentUserId);
+
+            var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
+                ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
+
+            var entity = await context.Questions.FindAsync([request.Id], cancellationToken)
+                ?? throw new NotFoundException(nameof(Question), request.Id);
+
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Test.Course.UserId))
             {
-                throw new NotFoundException(nameof(Question), request.Id);
+                entity.Text = request.Text;
+                entity.Test.Course.UpdateAt = DateTime.Now;
+                await context.SaveChangesAsync(cancellationToken);
+
+                return Unit.Value;
             }
-
-            entity.Text = request.Text;
-            await context.SaveChangesAsync(cancellationToken);
-
-            return Unit.Value;
+            throw new AccessException();
         }
     }
 }

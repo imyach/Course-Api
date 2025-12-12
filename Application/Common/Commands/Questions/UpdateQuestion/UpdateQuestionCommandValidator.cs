@@ -11,6 +11,8 @@ namespace Application.Common.Commands.Questions.UpdateQuestion
         {
             RuleFor(updateQuestionCommand => updateQuestionCommand.Id)
                 .NotNull().NotEqual(Guid.Empty);
+            RuleFor(updateQuestionCommand => updateQuestionCommand.CurrentUserId)
+                .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateQuestionCommand => updateQuestionCommand.Text)
                .NotNull().NotEmpty().MaximumLength(1000);
         }

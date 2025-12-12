@@ -11,6 +11,8 @@ namespace Application.Common.Commands.ProgressUsers.DeleteProgressUser
         {
             RuleFor(deleteProgressUserCommand => deleteProgressUserCommand.Id)
                 .NotNull().NotEqual(Guid.Empty);
+            RuleFor(deleteProgressUserCommand => deleteProgressUserCommand.CurrentUserId)
+                .NotNull().NotEqual(Guid.Empty);
         }
     }
 }

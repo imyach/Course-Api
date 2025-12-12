@@ -9,15 +9,11 @@ namespace CourseWebApi.Models.ProgressUser
     public class CreateProgressUserDto : IMapWith<CreateProgressUserCommand>
     {
         [Required]
-        public Guid UserId { get; set; }
-        [Required]
         public Guid CourseId { get; set; }
 
         public void Mapping(Profile profile)
         {
             profile.CreateMap<CreateProgressUserDto, CreateProgressUserCommand>()
-                .ForMember(progressUserCm => progressUserCm.UserId,
-                opt => opt.MapFrom(progressUserDto => progressUserDto.UserId))
                 .ForMember(progressUserCm => progressUserCm.CourseId,
                 opt => opt.MapFrom(progressUserDto => progressUserDto.CourseId));
         }

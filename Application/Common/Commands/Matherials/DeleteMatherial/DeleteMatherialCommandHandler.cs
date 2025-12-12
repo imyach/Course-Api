@@ -20,7 +20,6 @@ namespace Application.Common.Commands.Matherials.DeleteMatherial
             var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-
             var entity = await context.Matherials.FindAsync([request.Id], cancellationToken)
                 ?? throw new NotFoundException(nameof(Matherial), request.Id);
 

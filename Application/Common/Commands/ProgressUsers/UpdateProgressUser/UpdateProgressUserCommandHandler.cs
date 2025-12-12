@@ -12,11 +12,11 @@ namespace Application.Common.Commands.ProgressUsers.UpdateProgressUser
     {
         public async Task<Unit> Handle(UpdateProgressUserCommand request, CancellationToken cancellationToken)
         {
-            var entity = await context.ProgressUsers.FindAsync([request.Id],cancellationToken);
-            if (entity == null || entity.CurrentUserId != request.CurrentUserId)
-            {
-                throw new NotFoundException(nameof(ProgressUser), request.Id);
-            }
+            var entity = await context.ProgressUsers.FindAsync([request.Id],cancellationToken)
+                ?? throw new NotFoundException(nameof(ProgressUser), request.Id);
+
+            if (entity.UserId != request.CurrentUserId)
+                throw new AccessException();
 
             entity.Status = request.Status;
             entity.FineshedAt = request.FinishedAt;

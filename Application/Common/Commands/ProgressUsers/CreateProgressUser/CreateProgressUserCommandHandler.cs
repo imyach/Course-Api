@@ -16,7 +16,7 @@ namespace Application.Common.Commands.ProgressUsers.CreateProgressUser
             {
                 Id = Guid.NewGuid(),
                 CourseId = request.CourseId,
-                UserId = request.UserId,
+                UserId = request.CurrentUserId,
                 Status = "В прохождении",
                 StartedAt = DateTime.Now,
                 FineshedAt = null,

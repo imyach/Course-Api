@@ -13,15 +13,24 @@ namespace Application.Common.Commands.Questions.DeleteQuestion
     {
         public async Task<Unit> Handle(DeleteQuestionCommand request, CancellationToken cancellationToken)
         {
-            var entity = await context.Questions.FindAsync([request.Id], cancellationToken);
-            if (entity == null || entity.CurrentUserId != request.CurrentUserId)
-            {
-                throw new NotFoundException(nameof(Question), request.Id);
-            }
-            context.Questions.Remove(entity);
-            await context.SaveChangesAsync(cancellationToken);
+            var currentUser = await context.Users.FindAsync([request.CurrentUserId], cancellationToken)
+                ?? throw new NotFoundException(nameof(User), request.CurrentUserId);
 
-            return Unit.Value;
+            var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
+                ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
+
+            var entity = await context.Questions.FindAsync([request.Id], cancellationToken)
+                ?? throw new NotFoundException(nameof(Question), request.Id);
+
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Test.Course.UserId))
+            {
+                entity.Test.Course.UpdateAt = DateTime.Now;
+                context.Questions.Remove(entity);
+                await context.SaveChangesAsync(cancellationToken);
+
+                return Unit.Value;
+            }
+            throw new AccessException();
         }
     }
 }
