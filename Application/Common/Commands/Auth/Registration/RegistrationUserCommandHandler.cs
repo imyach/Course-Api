@@ -2,6 +2,7 @@
 using Application.Interfaces;
 using Domain.Model;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,14 +21,20 @@ namespace Application.Common.Commands.Auth.Registration
                 Login = request.Login,
                 Email = request.Email,
                 HashPassword = passwordHasher.HashPasword(request.Password),
-                CreatedAt = DateTime.Now,
+                CreatedAt = DateTime.UtcNow,
                 PhoneNumber = request.PhoneNumber
             };
 
+            var dulicate = await context.Users.FirstOrDefaultAsync(x=> (x.Login == user.Login && x.HashPassword == user.HashPassword)
+                || (x.Email == user.Email && x.HashPassword == user.HashPassword),cancellationToken);
+
+            if (dulicate is not null)
+            {
+                return string.Empty;
+            }
+
             await context.Users.AddAsync(user, cancellationToken);
             await context.SaveChangesAsync(cancellationToken);
-
-
 
             return await JwtTokenServise.GenerateJwtToken(user);
         }

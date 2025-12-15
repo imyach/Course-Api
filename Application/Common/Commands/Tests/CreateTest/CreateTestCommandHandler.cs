@@ -34,7 +34,7 @@ namespace Application.Common.Commands.Tests.CreateTest
                     Description = request.Description,
                 };
 
-                matherial.Module.Course.UpdateAt = DateTime.Now;
+                matherial.Module.Course.UpdateAt = DateTime.UtcNow;
                 await context.Tests.AddAsync(test, cancellationToken);
                 await context.SaveChangesAsync(cancellationToken);
 

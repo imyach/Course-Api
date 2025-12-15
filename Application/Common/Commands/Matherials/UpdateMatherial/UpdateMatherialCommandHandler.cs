@@ -29,7 +29,7 @@ namespace Application.Common.Commands.Matherials.UpdateMatherial
                 entity.Order = request.Order;
                 entity.Title = request.Title;
                 entity.ModuleId = request.ModuleId;
-                entity.Module.Course.UpdateAt = DateTime.Now;
+                entity.Module.Course.UpdateAt = DateTime.UtcNow;
 
                 await context.SaveChangesAsync(cancellationToken);
                 return Unit.Value;

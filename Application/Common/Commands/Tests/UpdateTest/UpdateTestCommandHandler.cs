@@ -26,7 +26,7 @@ namespace Application.Common.Commands.Tests.UpdateTest
             {
                 entity.Title = request.Title;
                 entity.Description = request.Description;
-                entity.Course.UpdateAt = DateTime.Now;
+                entity.Course.UpdateAt = DateTime.UtcNow;
                 await context.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;

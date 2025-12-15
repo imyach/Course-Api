@@ -1,6 +1,7 @@
 ﻿using Application.Common.Commands.Users.CreateUser;
 using Application.Common.Commands.Users.DeteleUser;
 using Application.Common.Commands.Users.UpdateUser;
+using Application.Common.Commands.Users.UpdateUserForAdmin;
 using Application.Common.Dtos.Users;
 using Application.Common.Queries.Users.GetUser;
 using Application.Common.Queries.Users.GetUsersList;
@@ -8,6 +9,7 @@ using AutoMapper;
 using CourseWebApi.Models.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace CourseWebApi.Controllers
 {
@@ -76,6 +78,18 @@ namespace CourseWebApi.Controllers
             var response = await Mediator.Send(command);
 
             return Ok(new {token = response });
+        }
+
+        [HttpPut("admin")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> UpdateAdmin([FromBody] UpdateUserDto updateUserCommand)
+        {
+            var command = mapper.Map<UpdateUserForAdminCommand>(updateUserCommand);
+            command.CurrentUserId = UserId;
+            var response = await Mediator.Send(command);
+            if(!response)
+                return Conflict();
+            return NoContent();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Persistance
             var connectionString = configuration["DbConnection"];
             services.AddDbContext<CoursesDbContext>(options =>
             {
-                options.UseSqlite(connectionString);
+                options.UseNpgsql (connectionString);
             });
             services.AddScoped<ICoursesDbContext, CoursesDbContext>(provider =>
                 provider.GetRequiredService<CoursesDbContext>());

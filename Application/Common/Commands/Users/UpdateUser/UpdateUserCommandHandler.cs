@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Application.Common.Commands.Users.UpdateUser
 {
-    public class UpdateUserCommandHandler(ICoursesDbContext context, IJwtTokenServise JwtTokenServise, IPasswordHasherServise passwordHasher) : IRequestHandler<UpdateUserCommand, string>
+    public class UpdateUserForAdminCommandHandler(ICoursesDbContext context, IJwtTokenServise JwtTokenServise, IPasswordHasherServise passwordHasher) : IRequestHandler<UpdateUserCommand, string>
     {
         public async Task<string> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
@@ -20,8 +20,16 @@ namespace Application.Common.Commands.Users.UpdateUser
 
             var entity = await context.Users.FindAsync([request.Id], cancellationToken) ?? throw new NotFoundException(nameof(User), currentUser.Id);
 
-            if (roleUser.RoleName == "Admin" || currentUser.Id == entity.Id)
+            if (currentUser.Id == entity.Id)
             {
+                var dulicate = await context.Users.FirstOrDefaultAsync(x => (x.Login == request.Login && x.HashPassword == passwordHasher.HashPasword(request.Password))
+                    || (x.Email == request.Email && x.HashPassword == passwordHasher.HashPasword(request.Password)), cancellationToken);
+
+                if (dulicate is not null)
+                {
+                    return string.Empty;
+                }
+
                 entity.RoleId = request.RoleId;
                 entity.NameUser = request.NameUser;
                 entity.Login = request.Login;
@@ -33,7 +41,6 @@ namespace Application.Common.Commands.Users.UpdateUser
                 return await JwtTokenServise.GenerateJwtToken(entity);
             }
             throw new AccessException();
-            
         }
     }
 }

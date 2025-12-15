@@ -10,9 +10,9 @@ namespace Application.Common.Commands.Auth.Login
         public LoginUserCommandValidator() 
         {
             RuleFor(loginUserCommand => loginUserCommand.Login)
-                .NotNull().NotEqual(string.Empty);
+                .NotNull().NotEqual(string.Empty).MaximumLength(30);
             RuleFor(loginUserCommand => loginUserCommand.Password)
-                .NotNull().NotEqual(string.Empty);
+                .NotNull().NotEqual(string.Empty).MaximumLength(30);
         }
     }
 }

@@ -33,7 +33,7 @@ namespace Application.Common.Commands.Answers.CreateAnswer
                     IsCorrect = request.IsCorrect,
                 };
 
-                question.Test.Course.UpdateAt = DateTime.Now;
+                question.Test.Course.UpdateAt = DateTime.UtcNow;
                 await context.Answers.AddAsync(answer, cancellationToken);
                 await context.SaveChangesAsync(cancellationToken);
 

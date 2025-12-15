@@ -314,7 +314,18 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "Application.Common.Dtos.Courses.CourseListVm",
@@ -1060,6 +1071,22 @@
       {
         "Name": "id",
         "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.UserController",
+    "Method": "UpdateAdmin",
+    "RelativePath": "api/User/admin",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateUserCommand",
+        "Type": "CourseWebApi.Models.User.UpdateUserDto",
         "IsRequired": true
       }
     ],

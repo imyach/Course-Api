@@ -34,7 +34,7 @@ namespace Application.Common.Commands.Modules.CreateModule
                     Order = request.Order,
                 };
 
-                course.UpdateAt = DateTime.Now;
+                course.UpdateAt = DateTime.UtcNow;
                 await context.Modules.AddAsync(module, cancellationToken);
                 await context.SaveChangesAsync(cancellationToken);
 

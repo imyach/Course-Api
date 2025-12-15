@@ -11,8 +11,8 @@ namespace Application.Common.Commands.Users.CreateUser
         {
             RuleFor(createUserCommand => createUserCommand.RoleId)
                 .NotNull().NotEqual(Guid.Empty);
-            RuleFor(createUserCommand => createUserCommand.CurrentUserId)
-                .NotNull().NotEqual(Guid.Empty);
+           RuleFor(createUserCommand => createUserCommand.CurrentUserId)
+               .NotNull().NotEqual(Guid.Empty);
             RuleFor(createUserCommand => createUserCommand.NameUser)
                .NotNull().NotEmpty().MaximumLength(30);
             RuleFor(createUserCommand => createUserCommand.Login)

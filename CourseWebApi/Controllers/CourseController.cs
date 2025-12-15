@@ -15,10 +15,13 @@ namespace CourseWebApi.Controllers
     public class CourseController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]
-        public async Task<ActionResult<CourseListVm>> GetAll()
+        [Authorize]
+        public async Task<ActionResult<CourseListVm>> GetAll([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            var query = new GetAllCourseQuery()
+            var query = new GetAllCourseQuery
             {
+                PageNumber = pageNumber,
+                PageSize = pageSize
             };
 
             var vm = await Mediator.Send(query);

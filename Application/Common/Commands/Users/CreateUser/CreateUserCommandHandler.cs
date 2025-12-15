@@ -21,6 +21,15 @@ namespace Application.Common.Commands.Users.CreateUser
 
             if (roleUser.RoleName == "Admin")
             {
+
+                var dulicate = await context.Users.FirstOrDefaultAsync(x => (x.Login == request.Login && x.HashPassword == passwordHasher.HashPasword(request.Password))
+                || (x.Email == request.Email && x.HashPassword == passwordHasher.HashPasword(request.Password)), cancellationToken);
+
+                if (dulicate is not null)
+                {
+                    return Guid.Empty;
+                }
+
                 var user = new User
                 {
                     Id = Guid.NewGuid(),
@@ -29,7 +38,7 @@ namespace Application.Common.Commands.Users.CreateUser
                     Login = request.Login,
                     Email = request.Email,
                     HashPassword = passwordHasher.HashPasword(request.Password),
-                    CreatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
                     PhoneNumber = request.PhoneNumber
                 };
                 await context.Users.AddAsync(user, cancellationToken);

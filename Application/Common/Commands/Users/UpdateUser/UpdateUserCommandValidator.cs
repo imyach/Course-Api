@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Application.Common.Commands.Users.UpdateUser
 {
-    public class UpdateUserCommandValidator : AbstractValidator<UpdateUserCommand>
+    public class UpdateUserForAdminCommandValidator : AbstractValidator<UpdateUserCommand>
     {
-        public UpdateUserCommandValidator()
+        public UpdateUserForAdminCommandValidator()
         {
             RuleFor(updateUserCommand => updateUserCommand.Id)
                .NotNull().NotEqual(Guid.Empty);

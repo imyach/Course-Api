@@ -387,6 +387,26 @@
         "tags": [
           "Course"
         ],
+        "parameters": [
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1785,6 +1805,37 @@
           }
         }
       }
+    },
+    "/api/User/admin": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1923,15 +1974,10 @@
       },
       "CreateAnswersUserDto": {
         "required": [
-          "answerId",
-          "userId"
+          "answerId"
         ],
         "type": "object",
         "properties": {
-          "userId": {
-            "type": "string",
-            "format": "uuid"
-          },
           "answerId": {
             "type": "string",
             "format": "uuid"
@@ -2012,15 +2058,10 @@
       },
       "CreateProgressUserDto": {
         "required": [
-          "courseId",
-          "userId"
+          "courseId"
         ],
         "type": "object",
         "properties": {
-          "userId": {
-            "type": "string",
-            "format": "uuid"
-          },
           "courseId": {
             "type": "string",
             "format": "uuid"
@@ -2050,15 +2091,10 @@
         "required": [
           "courseId",
           "rait",
-          "text",
-          "userId"
+          "text"
         ],
         "type": "object",
         "properties": {
-          "userId": {
-            "type": "string",
-            "format": "uuid"
-          },
           "courseId": {
             "type": "string",
             "format": "uuid"

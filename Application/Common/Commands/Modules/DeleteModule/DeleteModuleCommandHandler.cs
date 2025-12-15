@@ -24,7 +24,7 @@ namespace Application.Common.Commands.Modules.DeleteModule
 
             if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Course.UserId))
             {
-                entity.Course.UpdateAt = DateTime.Now;
+                entity.Course.UpdateAt = DateTime.UtcNow;
                 context.Modules.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);
 

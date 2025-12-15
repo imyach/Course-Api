@@ -19,7 +19,7 @@ namespace Application.Common.Commands.Rewies.CreateReview
                 UserId = request.CurrentUserId,
                 Rait = request.Rait,
                 Text = request.Text,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow
             };
 
             await context.Reviews.AddAsync(review, cancellationToken);

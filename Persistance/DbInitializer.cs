@@ -6,7 +6,7 @@ namespace Persistance
 {
     public class DbInitializer
     {
-        public static async void Initialize(CoursesDbContext context, CancellationToken cancellation)
+        public static async Task Initialize(CoursesDbContext context, CancellationToken cancellation)
         {
             await context.Database.EnsureCreatedAsync( cancellation);
         }

@@ -25,7 +25,7 @@ namespace Application.Common.Commands.Questions.UpdateQuestion
             if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Test.Course.UserId))
             {
                 entity.Text = request.Text;
-                entity.Test.Course.UpdateAt = DateTime.Now;
+                entity.Test.Course.UpdateAt = DateTime.UtcNow;
                 await context.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;

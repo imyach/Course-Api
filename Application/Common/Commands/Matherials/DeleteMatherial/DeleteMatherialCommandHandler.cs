@@ -26,7 +26,7 @@ namespace Application.Common.Commands.Matherials.DeleteMatherial
             if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Module.Course.UserId))
             {
 
-                entity.Module.Course.UpdateAt = DateTime.Now;
+                entity.Module.Course.UpdateAt = DateTime.UtcNow;
                 context.Matherials.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);
 

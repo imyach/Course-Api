@@ -4,32 +4,30 @@
     {
         public static async Task AddRoleInDataBase(this WebApplication app)
         {
-            using (var scope = app.Services.CreateScope())
+            using var scope = app.Services.CreateScope();
+            try
             {
-                try
-                {
-                    var context = scope.ServiceProvider.GetRequiredService<CoursesDbContext>();
-                    DbInitializer.Initialize(context, CancellationToken.None);
+                var context = scope.ServiceProvider.GetRequiredService<CoursesDbContext>();
+                await DbInitializer.Initialize(context, CancellationToken.None);
 
-                    foreach (var nameRole in Enum.GetNames<EnumRoles>())
+                foreach (var nameRole in Enum.GetNames<EnumRoles>())
+                {
+                    if (!context.Roles.Any(name => name.RoleName == nameRole))
                     {
-                        if (!context.Roles.Any(name => name.RoleName == nameRole))
+                        await context.Roles.AddAsync(new Role()
                         {
-                            await context.Roles.AddAsync(new Role()
-                            {
-                                Id = Guid.NewGuid(),
-                                RoleName = nameRole,
-                                CreatedAt = DateTime.Now
-                            });
-                        }
+                            Id = Guid.NewGuid(),
+                            RoleName = nameRole,
+                            CreatedAt = DateTime.UtcNow
+                        });
                     }
-                    await context.SaveChangesAsync();
+                }
+                await context.SaveChangesAsync();
 
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
         }
 

@@ -31,7 +31,7 @@ namespace Application.Common.Commands.Questions.CreateQuestion
                     Text = request.Text,
                 };
 
-                test.Course.UpdateAt = DateTime.Now;
+                test.Course.UpdateAt = DateTime.UtcNow;
                 await context.Questions.AddAsync(question, cancellationToken);
                 await context.SaveChangesAsync(cancellationToken);
 

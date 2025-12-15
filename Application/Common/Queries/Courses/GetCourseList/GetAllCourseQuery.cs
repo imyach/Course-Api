@@ -6,7 +6,9 @@ using System.Text;
 
 namespace Application.Common.Queries.Courses.GetCourseList
 {
-    public class GetAllCourseQuery : IRequest<CourseListVm>
+    public class GetAllCourseQuery : IRequest<object[]>
     {
+        public int PageNumber { get; set; }
+        public int PageSize { get; set; }
     }
 }

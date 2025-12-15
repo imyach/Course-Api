@@ -25,7 +25,7 @@ namespace Application.Common.Commands.Courses.CreateCourse
                     Id = Guid.NewGuid(),
                     Title = request.Title,
                     Description = request.Description,
-                    CreatedAt = DateTime.Now,
+                    CreatedAt = DateTime.UtcNow,
                     Rait = 0,
                     UserId = request.CurrentUserId,
                     UpdateAt = null

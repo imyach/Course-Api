@@ -33,7 +33,7 @@ namespace Application.Common.Commands.Matherials.CreateMatherial
                     Description = request.Description,
                     Order = request.Order,
                 };
-                module.Course.UpdateAt = DateTime.Now;
+                module.Course.UpdateAt = DateTime.UtcNow;
                 await context.Matherials.AddAsync(matherial,cancellationToken);
                 await context.SaveChangesAsync(cancellationToken);
 

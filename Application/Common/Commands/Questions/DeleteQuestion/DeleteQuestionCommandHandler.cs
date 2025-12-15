@@ -24,7 +24,7 @@ namespace Application.Common.Commands.Questions.DeleteQuestion
 
             if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Test.Course.UserId))
             {
-                entity.Test.Course.UpdateAt = DateTime.Now;
+                entity.Test.Course.UpdateAt = DateTime.UtcNow;
                 context.Questions.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);
 
