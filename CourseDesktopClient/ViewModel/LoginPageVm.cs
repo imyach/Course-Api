@@ -48,6 +48,13 @@ namespace CourseDesktopClient.ViewModel
         public ICommand LoadedCommand { get; set; }
         public ICommand SignInCommand { get; set; }
 
+        public bool _checkedSaveUser;
+        public bool CheckedSaveUser
+        {
+            get { return _checkedSaveUser; }
+            set { _checkedSaveUser = value; SetProperty(ref _checkedSaveUser, value); }
+        }
+
         private bool FillingVerification(string? loginOrEmail, string? password)
         {
             if (string.IsNullOrEmpty(loginOrEmail) || string.IsNullOrEmpty(password))
@@ -91,7 +98,7 @@ namespace CourseDesktopClient.ViewModel
                 var responseContent = JsonSerializer.Deserialize<LoginResponseDto>(jsonResponseData);
 
                 var token = responseContent?.Token;
-                if (!string.IsNullOrEmpty(token))
+                if (!string.IsNullOrEmpty(token) && CheckedSaveUser)
                 {
                    SaveInLocalStorage(token);
                 }
@@ -104,8 +111,6 @@ namespace CourseDesktopClient.ViewModel
                 VisibleMisstake = Visibility.Visible;
             }
         }
-
-
 
 
         public LoginPageVm()

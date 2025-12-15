@@ -22,7 +22,7 @@
             <Button Content="Войти" Command="{Binding SignInCommand}"/>
             <TextBlock Text="{Binding MisstakeText}" Visibility="{Binding VisibleMisstake}"/>
             <Grid >
-                <CheckBox Content="Запомнить меня" HorizontalAlignment="Left"/>
+                <CheckBox Content="Запомнить меня" IsChecked="{Binding CheckedSaveUser}" HorizontalAlignment="Left"/>
                 <TextBlock Text="Регистрация" HorizontalAlignment="Right">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">

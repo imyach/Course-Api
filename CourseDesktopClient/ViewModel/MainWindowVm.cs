@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace CourseDesktopClient.ViewModel
 {
-    public class MainWindowVm : NavigationVm
+    public class MainWindowVm(MainWindow main) : NavigationVm
     {
         public ICommand Loaded => new RelayCommand(x => {
             var cred = new Credential { Target = "JwtToken" };
@@ -20,6 +20,16 @@ namespace CourseDesktopClient.ViewModel
                 ClientConfig.Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", cred.Password);
                 AllCourseCommandFunc();
             }
+        });
+
+        public ICommand LogOut => new RelayCommand(x => {
+            var cred = new Credential { Target = "JwtToken" };
+            if (cred.Load())
+            {   
+                cred.Delete();
+            }
+            ClientConfig.Client.DefaultRequestHeaders.Authorization = null;
+            AllCourseCommandFunc();
         });
     }
 }

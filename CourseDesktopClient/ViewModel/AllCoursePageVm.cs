@@ -22,13 +22,25 @@ namespace CourseDesktopClient.ViewModel
         public ICommand LoadedCommand  => new RelayCommand(async _ => 
         {
 
-            HttpResponseMessage response = await ClientConfig.Client.GetAsync(ApiPaths.API_GET_ALL_COURSE);
+            HttpResponseMessage response = await ClientConfig.Client.GetAsync(ApiPaths.API_GET_ALL_COURSE + "?pageNumber=1");
 
             if (response.IsSuccessStatusCode)
             {
                 var jsondata = await response.Content.ReadAsStringAsync();
-                var data = JsonSerializer.Deserialize<CoursesDto>(jsondata);
-                GetCourses = data?.Courses ?? throw new Exception("data is null");
+                var dataArray = JsonSerializer.Deserialize<JsonElement[]>(jsondata);
+                
+                var cousesElement = dataArray[0];
+                var couses = JsonSerializer.Deserialize<CoursesDto>(cousesElement);
+
+                var pagerInfoElement = dataArray[1];
+                var pagerInfo = JsonSerializer.Deserialize<PagerInfoDto>(pagerInfoElement);
+                
+                
+
+
+
+                
+                GetCourses = couses?.Courses ?? throw new Exception("data is null");
             }
         });
 

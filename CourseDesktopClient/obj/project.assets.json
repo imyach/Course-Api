@@ -78,11 +78,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Artem\\Desktop\\CourseDesktopClient\\CourseDesktopClient\\CourseDesktopClient.csproj",
+      "projectUniqueName": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\CourseDesktopClient.csproj",
       "projectName": "CourseDesktopClient",
-      "projectPath": "C:\\Users\\Artem\\Desktop\\CourseDesktopClient\\CourseDesktopClient\\CourseDesktopClient.csproj",
+      "projectPath": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\CourseDesktopClient.csproj",
       "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Artem\\Desktop\\CourseDesktopClient\\CourseDesktopClient\\obj\\",
+      "outputPath": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "F:\\VS\\Shared\\NuGetPackages"
@@ -149,7 +149,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

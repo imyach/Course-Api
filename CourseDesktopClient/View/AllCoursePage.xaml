@@ -13,19 +13,22 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
-        <Grid Grid.Row="1" >
-            <Canvas Background="#FFCCCCCC"/>
-            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding GetCourses}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                    <DataGridTextColumn Header="Title" Binding="{Binding Title}"/>
-                    <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
-                    <DataGridTextColumn Header="CreatedAt" Binding="{Binding CreatedAt}"/>
-                    <DataGridTextColumn Header="UpdateAt" Binding="{Binding UpdateAt}"/>
-                    <DataGridTextColumn Header="Rait" Binding="{Binding Rait}"/>
-                    <DataGridTextColumn Header="USer" Binding="{Binding User.NameUser}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Grid>
+        <Canvas Background="#FFCCCCCC"/>
+        <DataGrid  AutoGenerateColumns="False" ItemsSource="{Binding GetCourses}" CanUserAddRows="False" IsReadOnly="True"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="CreatedAt" Binding="{Binding CreatedAt, StringFormat=\{0:dd.MM.yyyy\}}"/>
+                <DataGridTextColumn Header="UpdateAt" Binding="{Binding UpdateAt}"/>
+                <DataGridTextColumn Header="Rait" Binding="{Binding Rait}"/>
+                <DataGridTextColumn Width="*" Header="USer" Binding="{Binding User.NameUser}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Width="30" Height="30" Content="1"/>
+            <Button Width="30" Height="30" Content="2"/>
+            <Button Width="30" Height="30" Content="3"/>
+        </StackPanel>
     </Grid>
 </UserControl>

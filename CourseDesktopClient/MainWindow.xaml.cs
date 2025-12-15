@@ -23,8 +23,7 @@ namespace CourseDesktopClient
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = Nav.Current = new MainWindowVm() { CurrentView = new RegisterPage(), VisibilitySearch = Visibility.Collapsed };  
-            
+            DataContext = Nav.Current = new MainWindowVm(this) { CurrentView = new LoginPage(), VisibilitySearch = Visibility.Collapsed };
         }
     }
 }
