@@ -23,6 +23,7 @@ namespace CourseDesktopClient.View
         {
             InitializeComponent();
             DataContext = new AllCoursePageVm();
+
         }
     }
 }
