@@ -1,5 +1,7 @@
 ﻿
 using Application.Common.Commands.Auth.Login;
+using Application.Common.Commands.Auth.Logout;
+using Application.Common.Commands.Auth.Refresh;
 using Application.Common.Commands.Auth.Registration;
 using AutoMapper;
 using CourseWebApi.Models.Auth;
@@ -18,10 +20,10 @@ namespace CourseWebApi.Controllers
             var command = mapper.Map<LoginUserCommand>(loginDto);
 
             var response = await Mediator.Send(command);
-            if (response == string.Empty) 
+            if (response is null) 
                 return Unauthorized();
 
-            return Ok(new {token = response});
+            return Ok(new {accessToken = response.AccessToken, refreshToken = response.RefreshToken });
         }
 
         [HttpPost("register")]
@@ -30,11 +32,39 @@ namespace CourseWebApi.Controllers
             var command = mapper.Map<RegistrationUserCommand>(registrationDto);
 
             var response = await Mediator.Send(command);
-            if (response == string.Empty)
+            if (response is null)
                 return Unauthorized();
 
-            return Ok(new { token = response });
+            return Ok(new { accessToken = response.AccessToken, refreshToken = response.RefreshToken });
 
+        }
+
+        [HttpPost("refresh")]
+        public async Task<IActionResult> Refresh([FromBody] RefreshDto refreshDto)
+        {
+            var command = mapper.Map<RefreshTokenCommand>(refreshDto);
+            command.CurrentUserId = UserId;
+
+            var response = await Mediator.Send(command);
+            if (response is null)
+                return Unauthorized();
+
+            return Ok(new { accessToken = response.AccessToken, refreshToken = response.RefreshToken });
+        }
+
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            var command = new LogoutUserCommand
+            {
+                CurrentUserId = UserId
+            };
+
+            var response = await Mediator.Send(command);
+            if (response is null)
+                return BadRequest();
+
+            return NoContent();
         }
     }
 }

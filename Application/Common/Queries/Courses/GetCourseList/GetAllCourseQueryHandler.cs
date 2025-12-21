@@ -32,7 +32,7 @@ namespace Application.Common.Queries.Courses.GetCourseList
             return
             [ new CourseListVm { Courses = courseQuery },
               new PagerInfoDto{ TotalItems = totalItems,
-                TotalPages = totalPages,
+                TotalPages = totalPages,    
                 PageSize = request.PageSize,
                 PageNumber = request.PageNumber}
             ];

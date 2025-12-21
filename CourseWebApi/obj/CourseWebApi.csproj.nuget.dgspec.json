@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Artem\\Desktop\\course-api\\CourseWebApi\\CourseWebApi.csproj": {}
+    "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\CourseWebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Artem\\Desktop\\course-api\\Application\\Application.csproj": {
+    "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\course-api\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\course-api\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\course-api\\Application\\obj\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\serv\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\VS\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Artem\\Desktop\\course-api\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Artem\\Desktop\\course-api\\Domain\\Domain.csproj"
+              "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Domain.csproj"
               }
             }
           }
@@ -373,14 +373,14 @@
         }
       }
     },
-    "C:\\Users\\Artem\\Desktop\\course-api\\CourseWebApi\\CourseWebApi.csproj": {
+    "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\CourseWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\course-api\\CourseWebApi\\CourseWebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\CourseWebApi.csproj",
         "projectName": "CourseWebApi",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\course-api\\CourseWebApi\\CourseWebApi.csproj",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\CourseWebApi.csproj",
         "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\course-api\\CourseWebApi\\obj\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\VS\\Shared\\NuGetPackages"
@@ -401,11 +401,11 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Artem\\Desktop\\course-api\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Artem\\Desktop\\course-api\\Application\\Application.csproj"
+              "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj"
               },
-              "C:\\Users\\Artem\\Desktop\\course-api\\Persistance\\Persistance.csproj": {
-                "projectPath": "C:\\Users\\Artem\\Desktop\\course-api\\Persistance\\Persistance.csproj"
+              "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\Persistance.csproj": {
+                "projectPath": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\Persistance.csproj"
               }
             }
           }
@@ -884,14 +884,14 @@
         }
       }
     },
-    "C:\\Users\\Artem\\Desktop\\course-api\\Domain\\Domain.csproj": {
+    "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\course-api\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\course-api\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\course-api\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\serv\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\VS\\Shared\\NuGetPackages"
@@ -1229,14 +1229,14 @@
         }
       }
     },
-    "C:\\Users\\Artem\\Desktop\\course-api\\Persistance\\Persistance.csproj": {
+    "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\Persistance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\course-api\\Persistance\\Persistance.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\Persistance.csproj",
         "projectName": "Persistance",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\course-api\\Persistance\\Persistance.csproj",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\Persistance.csproj",
         "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\course-api\\Persistance\\obj\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\VS\\Shared\\NuGetPackages"
@@ -1257,8 +1257,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Artem\\Desktop\\course-api\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Artem\\Desktop\\course-api\\Application\\Application.csproj"
+              "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj"
               }
             }
           }

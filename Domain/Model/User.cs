@@ -17,6 +17,7 @@ namespace Domain.Model
         public string? PhoneNumber { get; set; }
 
         public Role? Role { get; set; }
+        public RefreshToken? RefreshToken { get; set; }
 
         public IEnumerable<Course>? Courses { get; set; }
         public IEnumerable<ProgressUser>? ProgressUsers { get; set; }

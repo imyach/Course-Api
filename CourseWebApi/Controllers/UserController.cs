@@ -77,7 +77,10 @@ namespace CourseWebApi.Controllers
 
             var response = await Mediator.Send(command);
 
-            return Ok(new {token = response });
+            if (response is null)
+                return NoContent();
+
+            return Ok(new {accessToken = response.AccessToken, refreshToken = response.RefreshToken});
         }
 
         [HttpPut("admin")]

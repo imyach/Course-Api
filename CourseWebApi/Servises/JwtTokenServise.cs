@@ -1,4 +1,7 @@
-﻿using Application.Interfaces;
+﻿using Application.Common.Dtos.Auth;
+using Application.Common.Exceptions;
+using Application.Interfaces;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -6,6 +9,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CourseWebApi.Servises
@@ -13,11 +17,11 @@ namespace CourseWebApi.Servises
     public class JwtTokenServise(ICoursesDbContext context, IConfiguration configuration) : IJwtTokenServise
     {
         string SECRET_KEY = configuration["SECRET_KEY"];
-        public TimeSpan ExpiryDuration = new(30, 0, 0);
-        public async Task<string> GenerateJwtToken(User user) 
+        public TimeSpan ExpiryDuration = new(0, 0, 30);
+        private async Task<string> GenerateJwtToken(User user, CancellationToken cancellationToken = default) 
         {
 
-            var role = await context.Roles.FindAsync([user.RoleId]);
+            var role = await context.Roles.FindAsync([user.RoleId], cancellationToken);
             string roleNameClaim = role?.RoleName.ToString() ?? string.Empty;
 
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -38,6 +42,57 @@ namespace CourseWebApi.Servises
 
             var token = tokenHandler.CreateToken(tokenDescription);
             return tokenHandler.WriteToken(token);
+        }
+
+        public async Task<Guid> GenerateRefreshToken(User user, CancellationToken cancellationToken = default)
+        {
+           var entity = await context.RefreshTokens.FirstOrDefaultAsync(x=>x.UserId == user.Id, cancellationToken);
+
+           if (entity is not null) 
+            { 
+                entity.ResreshToken = Guid.NewGuid();
+                entity.CreatedAt = DateTime.UtcNow;
+                entity.ExpiresIn = DateTime.UtcNow.AddDays(30);
+
+                await context.SaveChangesAsync(cancellationToken);
+
+                return entity.ResreshToken;
+            }
+
+
+            var newToken = new RefreshToken
+            {
+                Id = Guid.NewGuid(),
+                UserId = user.Id,
+                ResreshToken = Guid.NewGuid(),
+                CreatedAt = DateTime.UtcNow,
+                ExpiresIn = DateTime.UtcNow.AddDays(30)
+            };
+            await context.RefreshTokens.AddAsync(newToken, cancellationToken);
+            await context.SaveChangesAsync(cancellationToken);
+
+            return newToken.ResreshToken;
+
+        }
+
+
+        public async Task<TokensDto> GenerateTokens(User user)
+        {
+            var refreshToken = await GenerateRefreshToken(user);
+            var accessToken = await GenerateJwtToken(user);
+
+            return new TokensDto { AccessToken = accessToken, RefreshToken = refreshToken };
+
+        }
+
+        public async Task DeleteResreshToken(User user, CancellationToken cancellationToken = default)
+        {
+            var entity = await context.RefreshTokens.FirstOrDefaultAsync(x => x.UserId == user.Id, cancellationToken);
+            if (entity is not null)
+            {
+                context.RefreshTokens.Remove(entity);
+                await context.SaveChangesAsync(cancellationToken);
+            }
         }
     }
 }

@@ -940,11 +940,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Artem\\Desktop\\course-api\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\Artem\\Desktop\\course-api\\Application\\Application.csproj",
+      "projectPath": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Artem\\Desktop\\course-api\\Application\\obj\\",
+      "outputPath": "C:\\Users\\Artem\\Desktop\\serv\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "F:\\VS\\Shared\\NuGetPackages"
@@ -965,8 +965,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\Artem\\Desktop\\course-api\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Artem\\Desktop\\course-api\\Domain\\Domain.csproj"
+            "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Domain.csproj"
             }
           }
         }

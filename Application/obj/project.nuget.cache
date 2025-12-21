@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "olDe2wWUD6k=",
+  "dgSpecHash": "FBc69DpLcmg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Artem\\Desktop\\course-api\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Artem\\.nuget\\packages\\automapper\\15.1.0\\automapper.15.1.0.nupkg.sha512",
     "C:\\Users\\Artem\\.nuget\\packages\\fluentvalidation\\12.1.0\\fluentvalidation.12.1.0.nupkg.sha512",

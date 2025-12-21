@@ -28,7 +28,6 @@ namespace Application.Common.Queries.AnswersUsers.GetAnswersUserList
 
             if (roleUser.RoleName == "Admin" || roleUser.RoleName == "Couch")
             {
-
                 var answersUserQueryA = await context.AnswersUsers
                     .Include(c => c.Answer)
                     .Include(c => c.User)

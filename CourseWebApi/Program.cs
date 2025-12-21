@@ -29,6 +29,16 @@ void RegisterServices(IServiceCollection services) {
     services.AddPersistance(builder.Configuration);
     services.AddControllers();
 
+    services.AddCors(options =>
+    {
+        options.AddPolicy("AllowAll", policy =>
+        {
+            policy.AllowAnyHeader();
+            policy.AllowAnyMethod();
+            policy.AllowAnyOrigin();
+        });
+    });
+
     services.AddAuthentication(cnf =>
     {
         cnf.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -72,6 +82,7 @@ async Task Configure(WebApplication build)
     app.UseCustomExceptionHandler();
     app.UseRouting();
     app.UseHttpsRedirection();
+    app.UseCors("AllowAll");
     app.UseAuthentication();
     app.UseAuthorization();
     app.UseEndpoints(endpoints =>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LJXMBh0gQDA=",
+  "dgSpecHash": "/ln1fllJOuA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Artem\\Desktop\\course-api\\CourseWebApi\\CourseWebApi.csproj",
+  "projectFilePath": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\CourseWebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Artem\\.nuget\\packages\\automapper\\15.1.0\\automapper.15.1.0.nupkg.sha512",
     "C:\\Users\\Artem\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",

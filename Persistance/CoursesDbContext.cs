@@ -23,6 +23,7 @@ namespace Persistance
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
         public DbSet<AnswersUser> AnswersUsers { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -37,6 +38,7 @@ namespace Persistance
             builder.ApplyConfiguration(new ReviewsConfiguration());
             builder.ApplyConfiguration(new TestConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new RefreshTokenConfiguration());
             base.OnModelCreating(builder);
         }
     }

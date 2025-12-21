@@ -10,6 +10,7 @@ namespace Application.Interfaces
     {
         DbSet<User> Users { get; set; }
         DbSet<Role> Roles { get; set; }
+        DbSet<RefreshToken> RefreshTokens { get; set; }
         DbSet<ProgressUser> ProgressUsers { get; set; }
         DbSet<Review> Reviews { get; set; }
         DbSet<Course> Courses { get; set; }
