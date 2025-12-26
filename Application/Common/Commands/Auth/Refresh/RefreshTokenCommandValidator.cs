@@ -11,8 +11,6 @@ namespace Application.Common.Commands.Auth.Refresh
         {
             RuleFor(refreshTokenCommand => refreshTokenCommand.RefreshToken)
                 .NotEmpty().NotNull();
-            RuleFor(refreshTokenCommand => refreshTokenCommand.CurrentUserId)
-                .NotEmpty().NotNull();
         }
     }
 }

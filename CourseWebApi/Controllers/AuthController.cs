@@ -5,6 +5,7 @@ using Application.Common.Commands.Auth.Refresh;
 using Application.Common.Commands.Auth.Registration;
 using AutoMapper;
 using CourseWebApi.Models.Auth;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Net;
@@ -52,6 +53,7 @@ namespace CourseWebApi.Controllers
             return Ok(new { accessToken = response.AccessToken, refreshToken = response.RefreshToken });
         }
 
+        [Authorize]
         [HttpPost("logout")]
         public async Task<IActionResult> Logout()
         {
