@@ -12,7 +12,7 @@ namespace CourseDesktopClient.Models.DtosModel.Entities
         [JsonPropertyName("nameUser")]
         public string NameUser { get; set; } = string.Empty;
         [JsonPropertyName("role")]
-        public RoleDto? Role { get; set; }
+        public RoleDto Role { get; set; } = new();
         [JsonPropertyName("email")]
         public string? Email { get; set; }
         [JsonPropertyName("hashPassword")]

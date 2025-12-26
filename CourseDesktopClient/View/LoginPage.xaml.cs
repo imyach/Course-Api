@@ -22,7 +22,6 @@ namespace CourseDesktopClient.View
         public LoginPage()
         {
             InitializeComponent();
-            DataContext = new LoginPageVm();
         }
     }
 }

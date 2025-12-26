@@ -1,20 +1,28 @@
 {
   "version": 2,
-  "dgSpecHash": "zwI++yBkNuM=",
+  "dgSpecHash": "IyG5VhclxQA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\CourseDesktopClient.csproj",
+  "projectFilePath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\CourseDesktopClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Artem\\.nuget\\packages\\credentialmanagement\\1.0.2\\credentialmanagement.1.0.2.nupkg.sha512",
-    "C:\\Users\\Artem\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.135\\microsoft.xaml.behaviors.wpf.1.1.135.nupkg.sha512"
+    "C:\\Users\\Artem\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.1\\microsoft.extensions.dependencyinjection.10.0.1.nupkg.sha512",
+    "C:\\Users\\Artem\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.1\\microsoft.extensions.dependencyinjection.abstractions.10.0.1.nupkg.sha512",
+    "C:\\Users\\Artem\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.0\\microsoft.extensions.logging.abstractions.10.0.0.nupkg.sha512",
+    "C:\\Users\\Artem\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.15.0\\microsoft.identitymodel.abstractions.8.15.0.nupkg.sha512",
+    "C:\\Users\\Artem\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.15.0\\microsoft.identitymodel.jsonwebtokens.8.15.0.nupkg.sha512",
+    "C:\\Users\\Artem\\.nuget\\packages\\microsoft.identitymodel.logging\\8.15.0\\microsoft.identitymodel.logging.8.15.0.nupkg.sha512",
+    "C:\\Users\\Artem\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.15.0\\microsoft.identitymodel.tokens.8.15.0.nupkg.sha512",
+    "C:\\Users\\Artem\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.135\\microsoft.xaml.behaviors.wpf.1.1.135.nupkg.sha512",
+    "C:\\Users\\Artem\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.15.0\\system.identitymodel.tokens.jwt.8.15.0.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"CredentialManagement 1.0.2\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net10.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\CourseDesktopClient.csproj",
+      "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\CourseDesktopClient.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\CourseDesktopClient.csproj",
+      "filePath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\CourseDesktopClient.csproj",
       "libraryId": "CredentialManagement",
       "targetGraphs": [
         "net10.0-windows7.0"

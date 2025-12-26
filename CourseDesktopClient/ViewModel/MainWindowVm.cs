@@ -1,4 +1,4 @@
-﻿using CourseDesktopClient.ApiConnection;
+﻿using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Utilities;
 using CourseDesktopClient.View;
 using CredentialManagement;
@@ -11,25 +11,24 @@ using System.Windows.Input;
 
 namespace CourseDesktopClient.ViewModel
 {
-    public class MainWindowVm(MainWindow main) : NavigationVm
+    public class MainWindowVm :NavigationVm
     {
-        public ICommand Loaded => new RelayCommand(x => {
-            var cred = new Credential { Target = "JwtToken" };
-            if (cred.Load())
-            {
-                ClientConfig.Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", cred.Password);
-                AllCourseCommandFunc();
-            }
-        });
+        private object _currentView;
+        public object CurrentView
+        {
+            get { return _currentView; }
+            set { _currentView = value;
+                OnPropertyChanged(); }
+        }
 
-        public ICommand LogOut => new RelayCommand(x => {
-            var cred = new Credential { Target = "JwtToken" };
-            if (cred.Load())
-            {   
-                cred.Delete();
-            }
-            ClientConfig.Client.DefaultRequestHeaders.Authorization = null;
-            AllCourseCommandFunc();
-        });
+        public ICommand LogOutCommand {  get; set; }
+
+        public MainWindowVm(INavigationService navigationService, IAuthService authService) : base(navigationService) 
+        {
+            LogOutCommand = new RelayCommand(async _ =>
+            {
+                await authService.LogoutAsync();
+            });
+        }
     }
 }

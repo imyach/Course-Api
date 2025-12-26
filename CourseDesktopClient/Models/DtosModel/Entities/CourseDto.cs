@@ -20,6 +20,6 @@ namespace CourseDesktopClient.Models.DtosModel.Entities
         [JsonPropertyName("rait")]
         public decimal? Rait { get; set; }
         [JsonPropertyName("user")]
-        public UserDto? User { get; set; }
+        public UserDto User { get; set; } = new();
     }
 }

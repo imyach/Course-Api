@@ -7,11 +7,6 @@
         xmlns:local="clr-namespace:CourseDesktopClient"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <i:Interaction.Triggers>
-        <i:EventTrigger EventName="Loaded" >
-            <i:InvokeCommandAction Command="{Binding Loaded}"/>
-        </i:EventTrigger>
-    </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -43,7 +38,7 @@
             <TextBlock Text="выйти" HorizontalAlignment="Right" VerticalAlignment="Center" Margin=" 0 0 100 0">
                  <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                        <i:InvokeCommandAction Command="{Binding LogOut, UpdateSourceTrigger=PropertyChanged}"/>
+                        <i:InvokeCommandAction Command="{Binding LogOutCommand, UpdateSourceTrigger=PropertyChanged}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </TextBlock>

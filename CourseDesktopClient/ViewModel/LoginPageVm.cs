@@ -1,4 +1,6 @@
-﻿using CourseDesktopClient.ApiConnection;
+﻿
+using CourseDesktopClient.Api;
+using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Models.DtosModel.Auth;
 using CourseDesktopClient.Utilities;
 using CourseDesktopClient.View;
@@ -18,6 +20,7 @@ namespace CourseDesktopClient.ViewModel
 {
     public class LoginPageVm : NavigationVm
     {
+        private readonly IAuthService authService;
         private string _userPasswordText = string.Empty;
         public string  UserPasswordText
         {
@@ -45,7 +48,6 @@ namespace CourseDesktopClient.ViewModel
             get { return _userLoginText; }
             set { _userLoginText = value; SetProperty(ref _userLoginText, value); }
         }
-        public ICommand LoadedCommand { get; set; }
         public ICommand SignInCommand { get; set; }
 
         public bool _checkedSaveUser;
@@ -69,12 +71,6 @@ namespace CourseDesktopClient.ViewModel
             return true;
         }
 
-        private static void SaveInLocalStorage(string token)
-        {
-            var cred = new Credential { Target = "JwtToken" , Password = token, PersistanceType = PersistanceType.LocalComputer};
-            cred.Save();
-        }
-
         public async Task Login(string? loginOrEmail, string? password)
         {
             if (!FillingVerification(loginOrEmail, password))
@@ -86,47 +82,29 @@ namespace CourseDesktopClient.ViewModel
                 Password = password
             };
 
+            var mistakeText = await authService.LoginAsync(loginDto, CheckedSaveUser);
 
-            var jsonRequestData = JsonSerializer.Serialize(loginDto);
-            var content = new StringContent(jsonRequestData, Encoding.UTF8, "application/json");
-
-            var response = await ClientConfig.Client.PostAsync(ApiPaths.API_LOGIN_USER, content);
-
-            if (response.IsSuccessStatusCode)
+            switch (string.IsNullOrEmpty(mistakeText))
             {
-                var jsonResponseData = await response.Content.ReadAsStringAsync();
-                var responseContent = JsonSerializer.Deserialize<LoginResponseDto>(jsonResponseData);
-
-                var token = responseContent?.Token;
-                if (!string.IsNullOrEmpty(token) && CheckedSaveUser)
-                {
-                   SaveInLocalStorage(token);
-                }
-                ClientConfig.Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",token);
-                AllCourseCommandFunc();
-            }
-            else
-            {
-                MisstakeText = "Неправильный логин или пароль";
-                VisibleMisstake = Visibility.Visible;
+                case true:
+                    UserLoginText = string.Empty;
+                    UserPasswordText = string.Empty;
+                    break;
+                case false:
+                    MisstakeText = mistakeText;
+                    VisibleMisstake = Visibility.Visible;
+                    return;
             }
         }
 
-
-        public LoginPageVm()
+       public LoginPageVm(IAuthService authService, INavigationService navigationService) : base(navigationService)
         {
-            UserPasswordText = string.Empty;
-            UserLoginText = string.Empty;
+            this.authService = authService;
 
-            SignInCommand = new RelayCommand(_ =>
+            SignInCommand = new RelayCommand(async _ =>
             {
-                Login(UserLoginText,UserPasswordText);
-            });
-            LoadedCommand = new RelayCommand(_ =>
-            {
-                
+                await Login(UserLoginText,UserPasswordText);
             });
         }
-
     }
 }
