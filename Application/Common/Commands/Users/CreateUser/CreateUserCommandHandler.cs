@@ -21,14 +21,10 @@ namespace Application.Common.Commands.Users.CreateUser
 
             if (roleUser.RoleName == "Admin")
             {
+                var dublicate = await context.Users.AnyAsync(x => x.Email == request.Email || x.Login == request.Login, cancellationToken);
 
-                var dulicate = await context.Users.FirstOrDefaultAsync(x => (x.Login == request.Login && x.HashPassword == passwordHasher.HashPasword(request.Password))
-                || (x.Email == request.Email && x.HashPassword == passwordHasher.HashPasword(request.Password)), cancellationToken);
-
-                if (dulicate is not null)
-                {
+                if (dublicate)
                     return Guid.Empty;
-                }
 
                 var user = new User
                 {

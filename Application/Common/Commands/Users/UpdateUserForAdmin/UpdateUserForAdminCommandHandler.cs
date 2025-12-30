@@ -20,13 +20,12 @@ namespace Application.Common.Commands.Users.UpdateUserForAdmin
 
             var entity = await context.Users.FindAsync([request.Id], cancellationToken) ?? throw new NotFoundException(nameof(User), currentUser.Id);
 
-            var dulicate = await context.Users.FirstOrDefaultAsync(x => (x.Login == request.Login && x.HashPassword == passwordHasher.HashPasword(request.Password))
-                    || (x.Email == request.Email && x.HashPassword == passwordHasher.HashPasword(request.Password)), cancellationToken);
 
-            if (dulicate is not null)
-            {
+            var dublicate = await context.Users.AnyAsync(x => x.Email == currentUser.Email || x.Login == currentUser.Login, cancellationToken);
+
+            if (dublicate)
                 return false;
-            }
+            
 
             entity.RoleId = request.RoleId;
             entity.NameUser = request.NameUser;

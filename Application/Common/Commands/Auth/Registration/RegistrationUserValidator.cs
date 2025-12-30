@@ -9,8 +9,6 @@ namespace Application.Common.Commands.Auth.Registration
     {
         public RegistrationUserValidator() 
         {
-            RuleFor(registrationUserCommand => registrationUserCommand.RoleId)
-    .NotNull().NotEqual(Guid.Empty);
             RuleFor(registrationUserCommand => registrationUserCommand.NameUser)
                .NotNull().NotEmpty().MaximumLength(30);
             RuleFor(registrationUserCommand => registrationUserCommand.Login)

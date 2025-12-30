@@ -26,22 +26,20 @@ namespace Application.Common.Commands.Users.UpdateUser
 
             if (currentUser.Id == entity.Id)
             {
-                var dublicate = await context.Users.FirstOrDefaultAsync(x => (x.Login == request.Login && x.HashPassword == passwordHasher.HashPasword(request.Password))
-                    || (x.Email == request.Email &&  passwordHasher.VerifyBcryptPassword(request.Password, x.HashPassword)), cancellationToken);
+                var dublicate = await context.Users.AnyAsync(x => x.Email == currentUser.Email || x.Login == currentUser.Login, cancellationToken);
 
-                if (dublicate is null)
-                {
-                    entity.RoleId = request.RoleId;
-                    entity.NameUser = request.NameUser;
-                    entity.Login = request.Login;
-                    entity.Email = request.Email;
-                    entity.HashPassword = passwordHasher.HashPasword(request.Password);
-                    entity.PhoneNumber = request.PhoneNumber;
-                    await context.SaveChangesAsync(cancellationToken);
+                if (dublicate)
+                    return null;
 
-                    return await tokenServise.GenerateTokens(entity);
-                }
-                return null;
+                entity.RoleId = request.RoleId;
+                entity.NameUser = request.NameUser;
+                entity.Login = request.Login;
+                entity.Email = request.Email;
+                entity.HashPassword = passwordHasher.HashPasword(request.Password);
+                entity.PhoneNumber = request.PhoneNumber;
+                await context.SaveChangesAsync(cancellationToken);
+
+                return await tokenServise.GenerateTokens(entity);
             }
             throw new AccessException();
         }

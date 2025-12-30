@@ -14,10 +14,12 @@ namespace Application.Common.Commands.Auth.Registration
     {
         public async Task<TokensDto?> Handle(RegistrationUserCommand request, CancellationToken cancellationToken)
         {
+            var role = await context.Roles.FirstOrDefaultAsync(x => x.RoleName == nameof(EnumRoles.Student), cancellationToken);
+
             var user = new User
             {
                 Id = Guid.NewGuid(),
-                RoleId = request.RoleId,
+                RoleId = role.Id,
                 NameUser = request.NameUser,
                 Login = request.Login,
                 Email = request.Email,
@@ -26,17 +28,15 @@ namespace Application.Common.Commands.Auth.Registration
                 PhoneNumber = request.PhoneNumber
             };
 
-            var dulicate = await context.Users.FirstOrDefaultAsync(x=> (x.Login == user.Login && x.HashPassword == user.HashPassword)
-                || (x.Email == user.Email && passwordHasher.VerifyBcryptPassword(request.Password, x.HashPassword)), cancellationToken);
+            var dublicate = await context.Users.AnyAsync(x => x.Email == user.Email && x.Login == user.Login, cancellationToken);
 
-            if (dulicate is null)
-            {
-                await context.Users.AddAsync(user, cancellationToken);
-                await context.SaveChangesAsync(cancellationToken);
+            if (dublicate)
+                return null;
 
-                return await tokenServise.GenerateTokens(user); 
-            }
-            return null;
+            await context.Users.AddAsync(user, cancellationToken);
+            await context.SaveChangesAsync(cancellationToken);
+
+            return await tokenServise.GenerateTokens(user);
         }
     }
 }

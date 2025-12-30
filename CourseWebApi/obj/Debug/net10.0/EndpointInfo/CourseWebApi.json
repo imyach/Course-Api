@@ -2397,8 +2397,7 @@
         "required": [
           "login",
           "nameUser",
-          "password",
-          "roleId"
+          "password"
         ],
         "type": "object",
         "properties": {
@@ -2413,10 +2412,6 @@
           "password": {
             "minLength": 1,
             "type": "string"
-          },
-          "roleId": {
-            "type": "string",
-            "format": "uuid"
           },
           "email": {
             "type": "string",
