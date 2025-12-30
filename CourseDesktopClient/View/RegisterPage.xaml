@@ -11,20 +11,21 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Регистрация" HorizontalAlignment="Center"/>
             <TextBlock Text="Логин"/>
-            <TextBox x:Name="LoginTbx" Width="300"/>
-            <TextBlock Text="Email"/>
-            <TextBox x:Name="EmailTbx" Width="300"/>
+            <TextBox x:Name="LoginTbx" Text="{Binding UserLoginText}" Width="300"/>
+            <TextBlock Text="Email (необязательно)"/>
+            <TextBox x:Name="EmailTbx" Text="{Binding UserEmailText}" Width="300"/>
             <TextBlock Text="Имя пользователя"/>
-            <TextBox x:Name="NameUserTbx" Width="300"/>
+            <TextBox x:Name="NameUserTbx" Text="{Binding UserNameText}" Width="300"/>
             <TextBlock Text="Пароль"/>
-            <TextBox x:Name="PasswordTbx" Width="300"/>
+            <TextBox x:Name="PasswordTbx" Text="{Binding UserPasswordText}" Width="300"/>
             <TextBlock Text="Повтор пароля"/>
-            <TextBox x:Name="RepetPasswordTbx" Width="300"/>
-            <TextBlock Text="Номер телефона"/>
-            <TextBox x:Name="PhoneTbx" Width="300"/>
-            <Button Content="Зарегистрироваться"/>
+            <TextBox x:Name="RepetPasswordTbx" Text="{Binding UserRepeedPasswordText}" Width="300"/>
+            <TextBlock Text="Номер телефона (необязательно)"/>
+            <TextBox x:Name="PhoneTbx" Text="{Binding UserPhoneNumber}" Width="300"/>
+            <Button Content="Зарегистрироваться" Command="{Binding SignUpCommand}"/>
+            <TextBlock Text="{Binding MisstakeText}" Visibility="{Binding VisibleMisstake}"/>
             <Grid >
-                <CheckBox Content="Запомнить меня" HorizontalAlignment="Left"/>
+                <CheckBox Content="Запомнить меня" IsChecked="{Binding CheckedSaveUser}" HorizontalAlignment="Left"/>
                 <TextBlock Text="Вход" HorizontalAlignment="Right">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseLeftButtonUp">

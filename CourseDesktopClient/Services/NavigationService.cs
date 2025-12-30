@@ -11,9 +11,21 @@ namespace CourseDesktopClient.Services
 {
     public class NavigationService(IServiceProvider serviceProvider) : INavigationService
     {
+
         public void NavigateToCourses()
         {
-            var coursePage = serviceProvider.GetRequiredService<AllCoursePage>();
+            var coursesPage = serviceProvider.GetRequiredService<AllCoursePage>();
+            SetMainWindowContent(coursesPage);
+        }
+
+        public async void NavigateToInformationCourse(Guid Id)
+        {
+            var coursePage = serviceProvider.GetRequiredService<CourseInformationPage>();
+
+            if(coursePage.DataContext is CourseInformationPageVm vm)
+            {
+                await vm.LoadCourse(Id);
+            }
             SetMainWindowContent(coursePage);
         }
 
@@ -23,13 +35,19 @@ namespace CourseDesktopClient.Services
             SetMainWindowContent(loginPage);
         }
 
+        public void NavigateToProfile()
+        {
+           var profilePage = serviceProvider.GetRequiredService<ProfilePage>();
+           SetMainWindowContent(profilePage);
+        }
+
         public void NavigateToRegister()
         {
             var registerPage = serviceProvider.GetRequiredService<RegisterPage>();
             SetMainWindowContent(registerPage);
         }
 
-        private static void SetMainWindowContent(object content)
+        private void SetMainWindowContent(object content)
         {
             var mainWindow = Application.Current.MainWindow as MainWindow;
             if (mainWindow?.DataContext is MainWindowVm mainWindowVm)

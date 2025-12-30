@@ -18,6 +18,8 @@ using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Navigation;
 
 namespace CourseDesktopClient.ViewModel
 {
@@ -28,42 +30,53 @@ namespace CourseDesktopClient.ViewModel
 
         private ObservableCollection<ButtonItem>? _buttonPanel = [];
         public ObservableCollection<ButtonItem>? ButtonPanel{ get => _buttonPanel; set { _buttonPanel = value; OnPropertyChanged(nameof(ButtonPanel)); }}
-        public ICommand PaginationCommand { get; set; }
+        public ICommand PagerCommand { get; set; }
         public ICommand LoadedCommand {  get; set; }
+        public ICommand ViewDetailsCommand {  get; set; }
 
         private readonly ICourseApiClient courseApiClient;
-        private readonly IPaginationService paginationService;
+        private readonly IPagerService pagerService;
 
         public async Task LoadCoursesData(int pageNumber = 1)
         {
             var (courses, pager) = await courseApiClient.GetCoursesAsync(pageNumber);
             GetCourses = courses.Courses;
-            GeneratePaginationPanel(pager); 
+            GenerateButtonPanel(pager); 
         }
 
-        public void GeneratePaginationPanel(PagerInfoDto pager)
+        public void GenerateButtonPanel(PagerInfoDto pager)
         {
-            var newButtonPanel = paginationService.GeneratePaginationPanel(pager, PaginationCommand);
+            var newButtonPanel = pagerService.GeneratePagerPanel(pager, PagerCommand);
             ButtonPanel = new ObservableCollection<ButtonItem>(newButtonPanel);
         }
 
 
-        public AllCoursePageVm(ICourseApiClient courseApiClient, INavigationService navigationService, IPaginationService paginationService) : base(navigationService)
+        public AllCoursePageVm(ICourseApiClient courseApiClient, INavigationService navigationService, IPagerService pagerService) : base(navigationService)
         {
             this.courseApiClient = courseApiClient;
-            this.paginationService = paginationService;
+            this.pagerService = pagerService;
 
-            PaginationCommand = new RelayCommand(pageNumberStr =>
+            PagerCommand = new RelayCommand(pageNumberStr =>
             {
                 if (int.TryParse((pageNumberStr as ButtonItem).Text, out int pageNumber))
                 {
                     LoadCoursesData(pageNumber);
+
                 }
             });
+
             LoadedCommand = new RelayCommand(async _ =>
             {
                 await LoadCoursesData();
             });
-        }
+
+
+            ViewDetailsCommand = new RelayCommand(async sender =>
+            {
+                var idCourse = (sender as CourseDto).Id;
+                navigationService.NavigateToInformationCourse(idCourse);
+            });
+
+    }
     }
 }

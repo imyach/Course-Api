@@ -92,11 +92,13 @@ namespace CourseDesktopClient.Services
         {
             TokenHandler.isRemember = isRememberMe;
             var tokens = await apiClient.RegisterAsync(registerData);
-            await tokenService.SaveTokensAsync(tokens.AccessToken, tokens.RefreshToken, isRememberMe);
 
-            var (accessToken, refreshToken) = await tokenService.GetTokensAsync();
-            if (accessToken == null || refreshToken == null)
+            if (tokens is null)
                 return "Пользователь уже существует";
+
+            await tokenService.SaveTokensAsync(tokens.AccessToken, tokens.RefreshToken, isRememberMe);
+            var (accessToken, refreshToken) = await tokenService.GetTokensAsync();
+
 
             var currentUser = await tokenService.GetCurrentUserInfoAsync(accessToken);
             var userProfile = await apiClient.GetUserProfileAsync(Guid.Parse(currentUser.Id));

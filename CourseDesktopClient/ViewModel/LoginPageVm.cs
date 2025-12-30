@@ -21,6 +21,8 @@ namespace CourseDesktopClient.ViewModel
     public class LoginPageVm : NavigationVm
     {
         private readonly IAuthService authService;
+        public ICommand SignInCommand { get; set; }
+
         private string _userPasswordText = string.Empty;
         public string  UserPasswordText
         {
@@ -48,7 +50,6 @@ namespace CourseDesktopClient.ViewModel
             get { return _userLoginText; }
             set { _userLoginText = value; SetProperty(ref _userLoginText, value); }
         }
-        public ICommand SignInCommand { get; set; }
 
         public bool _checkedSaveUser;
         public bool CheckedSaveUser
@@ -57,7 +58,7 @@ namespace CourseDesktopClient.ViewModel
             set { _checkedSaveUser = value; SetProperty(ref _checkedSaveUser, value); }
         }
 
-        private bool FillingVerification(string? loginOrEmail, string? password)
+        private bool FillingVerificationLogin(string? loginOrEmail, string? password)
         {
             if (string.IsNullOrEmpty(loginOrEmail) || string.IsNullOrEmpty(password))
             {
@@ -73,7 +74,7 @@ namespace CourseDesktopClient.ViewModel
 
         public async Task Login(string? loginOrEmail, string? password)
         {
-            if (!FillingVerification(loginOrEmail, password))
+            if (!FillingVerificationLogin(loginOrEmail, password))
                 return;
             
             var loginDto = new LoginDto
@@ -89,6 +90,8 @@ namespace CourseDesktopClient.ViewModel
                 case true:
                     UserLoginText = string.Empty;
                     UserPasswordText = string.Empty;
+                    MisstakeText = string.Empty;
+                    CheckedSaveUser = false;
                     break;
                 case false:
                     MisstakeText = mistakeText;

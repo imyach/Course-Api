@@ -11,7 +11,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" >
@@ -28,25 +27,42 @@
                     </i:Interaction.Triggers>
                 </TextBlock>
             </WrapPanel>
-            <TextBlock Text="Войти" HorizontalAlignment="Right" VerticalAlignment="Center" Margin=" 0 0 30 0">
+
+
+            <WrapPanel   HorizontalAlignment="Right" VerticalAlignment="Center" >
+
+                <Menu Visibility="{Binding VisibilityProfileButton}" 
+                    Margin="0 0 30 0"
+                    Background="Transparent"
+                    BorderBrush="Transparent">
+
+                    <MenuItem Header="{Binding UserName}" 
+                  FontWeight="Bold"
+                  Background="Transparent">
+
+                        <MenuItem Header="{Binding UserName}" 
+                      Command="{Binding ProfileCommand}"/>
+
+                        <Separator/>
+
+                        <MenuItem Header="Выйти" 
+                      Command="{Binding LogOutCommand}"/>
+                    </MenuItem>
+                </Menu>
+
+
+
+                <TextBlock Text="Войти"  Visibility="{Binding VisibilitySignInButton}" HorizontalAlignment="Right" Margin=" 0 0 30 0" VerticalAlignment="Center" >
                 <i:Interaction.Triggers>
-                   <i:EventTrigger EventName="MouseLeftButtonUp">
-                       <i:InvokeCommandAction Command="{Binding LoginCommand, UpdateSourceTrigger=PropertyChanged}"/>
-                   </i:EventTrigger>
-               </i:Interaction.Triggers>
-            </TextBlock>
-            <TextBlock Text="выйти" HorizontalAlignment="Right" VerticalAlignment="Center" Margin=" 0 0 100 0">
-                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                        <i:InvokeCommandAction Command="{Binding LogOutCommand, UpdateSourceTrigger=PropertyChanged}"/>
+                        <i:InvokeCommandAction Command="{Binding LoginCommand, UpdateSourceTrigger=PropertyChanged}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
-            </TextBlock>
+                </TextBlock>
+            </WrapPanel>
         </Grid>
 
         <ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>
-        
-        
-        
+
     </Grid>
 </Window>

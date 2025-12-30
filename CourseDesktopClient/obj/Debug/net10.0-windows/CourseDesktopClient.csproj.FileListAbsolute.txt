@@ -125,3 +125,10 @@ C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\CourseDe.68B73A98.Up2Date
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\CourseDesktopClient.genruntimeconfig.cache
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\ref\CourseDesktopClient.dll
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\ProfilePage.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\ProfilePage.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\CoursePanelElement.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\CoursePanelElement.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\CourseInformationPage.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\CourseInformationPage.baml

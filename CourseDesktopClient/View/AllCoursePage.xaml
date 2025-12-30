@@ -1,4 +1,5 @@
 ﻿<UserControl x:Class="CourseDesktopClient.View.AllCoursePage"
+             xmlns:controls="clr-namespace:CourseDesktopClient.UI.Elements"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -13,24 +14,65 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
-        <Canvas Background="#FFCCCCCC"/>
-        <DataGrid  AutoGenerateColumns="False" ItemsSource="{Binding GetCourses}" CanUserAddRows="False" IsReadOnly="True"  >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Title" Binding="{Binding Title}"/>
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
-                <DataGridTextColumn Header="CreatedAt" Binding="{Binding CreatedAt, StringFormat=\{0:dd.MM.yyyy\}}"/>
-                <DataGridTextColumn Header="UpdateAt" Binding="{Binding UpdateAt}"/>
-                <DataGridTextColumn Header="Rait" Binding="{Binding Rait}"/>
-                <DataGridTextColumn Width="*" Header="USer" Binding="{Binding User.NameUser}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <ItemsControl ItemsSource="{Binding ButtonPanel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Canvas Background="#FFCCCCCC" Grid.Row="0"/>
+
+        <ListView Grid.Row="0" ItemsSource="{Binding GetCourses}" Margin ="20" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                  HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Hidden" >
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <!-- Прозрачный фон всегда -->
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+
+                    <!-- Убираем эффект при наведении -->
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListViewItem">
+                                <Border Background="Transparent"
+                                BorderBrush="Transparent">
+                                    <ContentPresenter/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                    <!-- Отключаем все триггеры -->
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Transparent"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <controls:CoursePanelElement />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="2" 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+
+        <ItemsControl Grid.Row="1"  ItemsSource="{Binding ButtonPanel}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal" 
-                        HorizontalAlignment="Center" 
-                        VerticalAlignment="Bottom"/>
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
@@ -42,8 +84,8 @@
                                     <Setter.Value>
                                         <DataTemplate>
                                             <RadioButton Content="{Binding Text}"
-                                                Command="{Binding Command}"
-                                                CommandParameter="{Binding}"/>
+                                        Command="{Binding Command}"
+                                        CommandParameter="{Binding}"/>
                                         </DataTemplate>
                                     </Setter.Value>
                                 </Setter>
@@ -53,8 +95,8 @@
                                             <Setter.Value>
                                                 <DataTemplate>
                                                     <TextBlock Text="{Binding Text}" 
-                                                      Margin="10,0" 
-                                                      VerticalAlignment="Center"/>
+                                              Margin="10,0" 
+                                              VerticalAlignment="Center"/>
                                                 </DataTemplate>
                                             </Setter.Value>
                                         </Setter>
@@ -66,5 +108,6 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+
     </Grid>
 </UserControl>

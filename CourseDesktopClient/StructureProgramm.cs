@@ -19,9 +19,9 @@ namespace CourseDesktopClient
         {
             //SERVICES
             services.AddSingleton<ITokenService, TokenService>();
-            services.AddSingleton<IAuthService, AuthService>();
-            services.AddSingleton<IPaginationService, PaginationService>();
             services.AddSingleton<INavigationService>( provider => new NavigationService(provider));
+            services.AddSingleton<IAuthService, AuthService>();
+            services.AddSingleton<IPagerService, PagerService>();
 
             // HTTP CLIENTS
             services.AddSingleton(provider =>
@@ -47,6 +47,8 @@ namespace CourseDesktopClient
             services.AddSingleton<MainWindowVm>();
 
             services.AddSingleton<LoginPageVm>();
+            services.AddSingleton<CourseInformationPageVm>();
+            services.AddSingleton<ProfilePageVm>();
             services.AddSingleton<AllCoursePageVm>();
             services.AddSingleton<RegisterPageVm>();
 
@@ -60,6 +62,12 @@ namespace CourseDesktopClient
 
             services.AddTransient(provider =>
             {
+                var profileVm = provider.GetRequiredService<ProfilePageVm>();
+                return new ProfilePage { DataContext = profileVm };
+            });
+
+            services.AddTransient(provider =>
+            {
                 var coursesVm = provider.GetRequiredService<AllCoursePageVm>();
                 return new AllCoursePage { DataContext = coursesVm };
             });
@@ -68,6 +76,12 @@ namespace CourseDesktopClient
             {
                 var registerVm = provider.GetRequiredService<RegisterPageVm>();
                 return new RegisterPage { DataContext = registerVm };
+            });
+
+            services.AddTransient(provider =>
+            {
+                var courseDesktopPageVm = provider.GetRequiredService<CourseInformationPageVm>();
+                return new CourseInformationPage { DataContext = courseDesktopPageVm };
             });
 
 

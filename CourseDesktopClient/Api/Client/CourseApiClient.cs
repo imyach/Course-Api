@@ -72,7 +72,8 @@ namespace CourseDesktopClient.Api.Client
         public async Task<TokensDto> RegisterAsync(RegisterDto registerDto, CancellationToken ct = default)
         {
             var response = await httpClient.PostAsJsonAsync(ApiPaths.API_REGISTER_USER, registerDto, ct);
-            response.EnsureSuccessStatusCode();
+            if (response.StatusCode is HttpStatusCode.Unauthorized)
+                return null;
             return await response.Content.ReadFromJsonAsync<TokensDto>(jsonOptions, ct);
         }
     }
