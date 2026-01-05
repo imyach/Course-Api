@@ -13,7 +13,6 @@ namespace CourseDesktopClient
     /// </summary>
     public partial class App : Application
     {
-
         private IServiceProvider serviceProvider;
         private static Mutex mutex;
         protected void OnStartup(object sender, StartupEventArgs e)

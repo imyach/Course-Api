@@ -14,8 +14,8 @@ namespace CourseDesktopClient.Services
     public class TokenService : ITokenService
     {
         private const string CREDENTIAL_TARGET = "CourseAppTokens";
-        private static readonly object locker = new();
-        private static TokensDto Tokens;
+        private  readonly object locker = new();
+        private  TokensDto Tokens;
 
         public async Task SaveTokensAsync(string access, string refresh, bool rememberMe)
         {

@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="CourseDesktopClient.UI.Elements.RatingStarsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="StarButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Foreground" Value="{Binding Tag, RelativeSource={RelativeSource Self}}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="Transparent">
+                            <TextBlock Text="★" 
+                                       FontSize="24"
+                                       Foreground="{TemplateBinding Foreground}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <StackPanel Orientation="Horizontal" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+        <!-- Звезда 1 -->
+        <Button x:Name="btnStar1" 
+                Style="{StaticResource StarButtonStyle}"
+                Tag="LightGray"
+                Click="StarButton_Click"
+                MouseEnter="StarButton_MouseEnter"
+                MouseLeave="StarButton_MouseLeave"/>
+
+        <!-- Звезда 2 -->
+        <Button x:Name="btnStar2" 
+                Style="{StaticResource StarButtonStyle}"
+                Tag="LightGray"
+                Click="StarButton_Click"
+                MouseEnter="StarButton_MouseEnter"
+                MouseLeave="StarButton_MouseLeave"/>
+
+        <!-- Звезда 3 -->
+        <Button x:Name="btnStar3" 
+                Style="{StaticResource StarButtonStyle}"
+                Tag="LightGray"
+                Click="StarButton_Click"
+                MouseEnter="StarButton_MouseEnter"
+                MouseLeave="StarButton_MouseLeave"/>
+
+        <!-- Звезда 4 -->
+        <Button x:Name="btnStar4" 
+                Style="{StaticResource StarButtonStyle}"
+                Tag="LightGray"
+                Click="StarButton_Click"
+                MouseEnter="StarButton_MouseEnter"
+                MouseLeave="StarButton_MouseLeave"/>
+
+        <!-- Звезда 5 -->
+        <Button x:Name="btnStar5" 
+                Style="{StaticResource StarButtonStyle}"
+                Tag="LightGray"
+                Click="StarButton_Click"
+                MouseEnter="StarButton_MouseEnter"
+                MouseLeave="StarButton_MouseLeave"/>
+
+        <!-- Текст оценки -->
+        <TextBlock x:Name="txtRating"
+                   Text="0.0"
+                   VerticalAlignment="Center"
+                   Margin="15,0,0,0"
+                   Foreground="#666"
+                   FontSize="14"/>
+
+    </StackPanel>
+</UserControl>

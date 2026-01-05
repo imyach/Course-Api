@@ -14,13 +14,31 @@ namespace CourseDesktopClient.ViewModel
 {
     public class MainWindowVm :NavigationVm
     {
-        public MainWindowVm(INavigationService navigationService, IAuthService authService) : base(navigationService)
+        public MainWindowVm(INavigationService navigationService, IAuthService authService ) : base(navigationService)
         {
+
             this.authService = authService;
             LogOutCommand = new RelayCommand(async _ =>
             {
                 await authService.LogoutAsync();
             });
+        }
+
+        private string _searchCourse = string.Empty;
+        public string SearchCourse
+        {
+            get => _searchCourse;
+            set
+            {
+                if (SetProperty(ref _searchCourse, value))
+                {
+                    if (CurrentView is AllCoursePage page &&
+                        page.DataContext is AllCoursePageVm courseVm)
+                    {
+                        courseVm.SearchCourse = value;
+                    }
+                }
+            }
         }
         private readonly IAuthService authService;
 

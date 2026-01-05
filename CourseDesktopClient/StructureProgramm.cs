@@ -3,6 +3,7 @@ using CourseDesktopClient.Api.Client;
 using CourseDesktopClient.Api.Handlers;
 using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Services;
+using CourseDesktopClient.UI.Elements;
 using CourseDesktopClient.View;
 using CourseDesktopClient.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
@@ -47,12 +48,14 @@ namespace CourseDesktopClient
             services.AddSingleton<MainWindowVm>();
 
             services.AddSingleton<LoginPageVm>();
-            services.AddSingleton<CourseInformationPageVm>();
-            services.AddSingleton<ProfilePageVm>();
-            services.AddSingleton<AllCoursePageVm>();
+            services.AddTransient<CourseInformationPageVm>();
+            services.AddTransient<ProfilePageVm>();
+            services.AddTransient<AllCoursePageVm>();
             services.AddSingleton<RegisterPageVm>();
 
+
             //VIEWS
+
 
             services.AddTransient(provider =>
             {

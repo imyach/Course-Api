@@ -2,10 +2,13 @@
 using CourseDesktopClient.Models.DtosModel.Auth;
 using CourseDesktopClient.Models.DtosModel.Entities;
 using CourseDesktopClient.Models.DtosModel.EntitiesLists;
+using CourseDesktopClient.Services;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
@@ -18,7 +21,7 @@ namespace CourseDesktopClient.Api.Client
         private readonly JsonSerializerOptions jsonOptions;
         private readonly ITokenService tokenService;
 
-        public CourseApiClient(HttpClient httpClient, ITokenService tokenService )
+        public CourseApiClient(HttpClient httpClient, ITokenService tokenService)
         {
             this.tokenService = tokenService;
             this.httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
@@ -29,6 +32,8 @@ namespace CourseDesktopClient.Api.Client
             };
         }
 
+
+        //COURSES
         public async Task<CourseDto> GetCourseByIdAsync(Guid id, CancellationToken ct = default)
         {
             var response = await httpClient.GetAsync(ApiPaths.API_GET_COURSE_BY_ID + $"{id}", ct);
@@ -36,9 +41,9 @@ namespace CourseDesktopClient.Api.Client
             return await response.Content.ReadFromJsonAsync<CourseDto>(jsonOptions, ct);
         }
 
-        public async Task<(CoursesDto?, PagerInfoDto?)> GetCoursesAsync(int pageNumber, int pageSize = 10, CancellationToken ct = default)
+        public async Task<(CoursesDto?, PagerInfoDto?)> GetCoursesAsync(int pageNumber=1, int pageSize = 10, string searchText = null, CancellationToken ct = default)
         {
-            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_COURSE + $"?pageNumber={pageNumber}&pageSize={pageSize}", ct);
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_COURSE + $"?pageNumber={pageNumber}&pageSize={pageSize}&searchText={searchText}", ct);
             response.EnsureSuccessStatusCode();
             var dataArray =  await response.Content.ReadFromJsonAsync<JsonElement[]>(jsonOptions, ct);
             var courses =  JsonSerializer.Deserialize<CoursesDto>(dataArray[0]);
@@ -47,9 +52,11 @@ namespace CourseDesktopClient.Api.Client
             return  (courses, pagerInfo);
         }
 
+
+        //PROFILES
         public async Task<UserDto> GetUserProfileAsync(Guid id, CancellationToken ct = default)
         {
-            var response = await httpClient.GetAsync(ApiPaths.API_GET_USER + $"{id}", ct);
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_USER_BY_ID + $"{id}", ct);
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadFromJsonAsync<UserDto>(jsonOptions, ct);
         }
@@ -75,6 +82,52 @@ namespace CourseDesktopClient.Api.Client
             if (response.StatusCode is HttpStatusCode.Unauthorized)
                 return null;
             return await response.Content.ReadFromJsonAsync<TokensDto>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode> DeleteProfileAsync(CancellationToken ct = default)
+        {
+            var (access, _) = await tokenService.GetTokensAsync();
+
+            var request = new HttpRequestMessage(HttpMethod.Delete, ApiPaths.API_DELETE_UPDATE_CREATE_USER);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", access);
+
+            var response = await httpClient.SendAsync(request,ct);
+            response.EnsureSuccessStatusCode();
+            return response.StatusCode;
+        }
+
+
+        //REVIEWS
+        public async Task<ReviewDto> GetReviewByIdAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_REVIEW_BY_ID + $"{id}", ct);
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<ReviewDto>(jsonOptions, ct);
+        }
+
+        public async Task<(ReviewsDto, PagerInfoDto)> GetReviewsAsync(Guid idCourse, int pageNumber=1, int pageSize = 20,CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_REVIEWS + $"?pageNumber={pageNumber}&pageSize={pageSize}&idCourse={idCourse}", ct);
+            response.EnsureSuccessStatusCode();
+
+            var dataArray = await response.Content.ReadFromJsonAsync<JsonElement[]>(jsonOptions, ct);
+            var reviews = JsonSerializer.Deserialize<ReviewsDto>(dataArray[0]);
+            var pagerInfo = JsonSerializer.Deserialize<PagerInfoDto>(dataArray[1]);
+
+            return (reviews, pagerInfo);
+        }
+        public async Task<Guid> CreateReviewAsync(ReviewDto reviewDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CREATE_REVIEW, reviewDto, ct);
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<Guid>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode> DeleteReviewAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.DeleteAsync(ApiPaths.API_DELETE_UPDATE_CREATE_REVIEW + $"/{id}", ct);
+            response.EnsureSuccessStatusCode();
+            return response.StatusCode;
         }
     }
 }

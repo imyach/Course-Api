@@ -1,15 +1,19 @@
-﻿using CourseDesktopClient.Api.Client;
+﻿using CourseDesktopClient.Api;
+using CourseDesktopClient.Api.Client;
 using CourseDesktopClient.Api.Handlers;
 using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Models.DtosModel.Auth;
 using CourseDesktopClient.Models.DtosModel.Entities;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
+using System.Windows;
 
 namespace CourseDesktopClient.Services
 {
-    public class AuthService(ITokenService tokenService, ICourseApiClient apiClient, INavigationService navigationService) : IAuthService
+    public class AuthService(HttpClient httpClient, ITokenService tokenService, ICourseApiClient apiClient, INavigationService navigationService) : IAuthService
     {
         private bool isAuthenticated;
         private UserDto currentUser;
@@ -108,6 +112,25 @@ namespace CourseDesktopClient.Services
 
             navigationService.NavigateToCourses();
             return string.Empty;
+        }
+        public async Task DeleteProfile()
+        {
+
+            if (MessageBox.Show("Вы точно хотите удалить аккаунт?", "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                await apiClient.DeleteProfileAsync();
+                await LocalLogoutAsync();
+
+                navigationService.NavigateToLogin();
+            }
+        }
+
+        private async Task LocalLogoutAsync()
+        {
+                await httpClient.PostAsync("api/auth/logout", null);
+            tokenService.ClearTokensAsync();
+            CurrentUser = null;
+            IsAuthenticated = false;
         }
     }
 }

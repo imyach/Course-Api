@@ -18,5 +18,6 @@ namespace CourseDesktopClient.Interfaces
         Task<string> LoginAsync(LoginDto loginDto, bool isRememberMe);
         Task<string> RegisterAsync(RegisterDto registerData, bool isRememberMe);
         Task LogoutAsync();
+        Task DeleteProfile();
     }
 }

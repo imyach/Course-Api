@@ -2,9 +2,12 @@
 
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\MainWindow.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CoursePanelElement.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CreateReveiwsElement.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\RatingStarsControl.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\ReviewPanelElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\AllCoursePage.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\CourseInformationPage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\LoginPage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\ProfilePage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\RegisterPage.xaml;;
-FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\CourseInformationPage.xaml;;
 

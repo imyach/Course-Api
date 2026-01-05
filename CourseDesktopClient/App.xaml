@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:CourseDesktopClient"
              Startup="OnStartup">
     <Application.Resources>
-         
+        
     </Application.Resources>
 </Application>

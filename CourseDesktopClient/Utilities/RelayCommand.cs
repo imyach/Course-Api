@@ -5,16 +5,33 @@ using System.Windows.Input;
 
 namespace CourseDesktopClient.Utilities
 {
-    class RelayCommand(Action<object?> execute, Func<object?, bool>? canExecute = null) : ICommand
+    class RelayCommand : ICommand
     {
+        private readonly Action<object?> _execute;
+        private readonly Func<object?, bool>? _canExecute;
 
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public bool CanExecute(object? parameter) => canExecute ==null || canExecute(parameter);
-        public void Execute(object? parameter) => execute(parameter);
+        // Конструктор для методов с параметром (Action<object?>)
+        public RelayCommand(Action<object?> execute, Func<object?, bool>? canExecute = null)
+        {
+            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            _canExecute = canExecute;
+        }
+
+        // Дополнительный конструктор для методов без параметра (Action)
+        public RelayCommand(Action execute, Func<bool>? canExecute = null)
+        {
+            _execute = _ => execute();
+            _canExecute = canExecute != null ? _ => canExecute() : null;
+        }
+
+        public bool CanExecute(object? parameter) => _canExecute == null || _canExecute(parameter);
+
+        public void Execute(object? parameter) => _execute(parameter);
     }
 }

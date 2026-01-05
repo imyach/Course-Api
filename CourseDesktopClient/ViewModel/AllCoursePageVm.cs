@@ -5,6 +5,7 @@ using CourseDesktopClient.Models;
 using CourseDesktopClient.Models.DtosModel.Entities;
 using CourseDesktopClient.Models.DtosModel.EntitiesLists;
 using CourseDesktopClient.Services;
+using CourseDesktopClient.UI.Elements.ElementVM;
 using CourseDesktopClient.Utilities;
 using CredentialManagement;
 using System;
@@ -25,26 +26,31 @@ namespace CourseDesktopClient.ViewModel
 {
     public class AllCoursePageVm : NavigationVm
     {
-        private IList<CourseDto>? _getCourses;
-        public IList<CourseDto>? GetCourses { get => _getCourses; set { _getCourses = value; OnPropertyChanged(nameof(GetCourses)); } }
+        private IList<CoursePanelElementVm>? _getCourses;
+        public IList<CoursePanelElementVm>? GetCourses { get => _getCourses; set { _getCourses = value; OnPropertyChanged(nameof(GetCourses)); } }
 
         private ObservableCollection<ButtonItem>? _buttonPanel = [];
         public ObservableCollection<ButtonItem>? ButtonPanel{ get => _buttonPanel; set { _buttonPanel = value; OnPropertyChanged(nameof(ButtonPanel)); }}
+        private string _searchCourse = string.Empty;
+        public string SearchCourse { get { return _searchCourse; } set { _searchCourse =  value; SetProperty(ref _searchCourse,  value);  Update(); } }
         public ICommand PagerCommand { get; set; }
-        public ICommand LoadedCommand {  get; set; }
+        public ICommand EnrollCommand {  get; set; }
         public ICommand ViewDetailsCommand {  get; set; }
 
         private readonly ICourseApiClient courseApiClient;
         private readonly IPagerService pagerService;
 
-        public async Task LoadCoursesData(int pageNumber = 1)
+        public async Task LoadCoursesData( string searchText, int pageNumber)
         {
-            var (courses, pager) = await courseApiClient.GetCoursesAsync(pageNumber);
-            GetCourses = courses.Courses;
+            var (courses, pager) = await courseApiClient.GetCoursesAsync(pageNumber, searchText: searchText);
+
+            var courseViewModel = courses.Courses.Select(x => new CoursePanelElementVm(x, courseApiClient)).ToList();
+
+            GetCourses = courseViewModel;
             GenerateButtonPanel(pager); 
         }
 
-        public void GenerateButtonPanel(PagerInfoDto pager)
+        private void GenerateButtonPanel(PagerInfoDto pager)
         {
             var newButtonPanel = pagerService.GeneratePagerPanel(pager, PagerCommand);
             ButtonPanel = new ObservableCollection<ButtonItem>(newButtonPanel);
@@ -56,27 +62,31 @@ namespace CourseDesktopClient.ViewModel
             this.courseApiClient = courseApiClient;
             this.pagerService = pagerService;
 
-            PagerCommand = new RelayCommand(pageNumberStr =>
+            PagerCommand = new RelayCommand(async pageNumberStr =>
             {
                 if (int.TryParse((pageNumberStr as ButtonItem).Text, out int pageNumber))
                 {
-                    LoadCoursesData(pageNumber);
+                    await Update(pageNumber);
 
                 }
             });
 
-            LoadedCommand = new RelayCommand(async _ =>
-            {
-                await LoadCoursesData();
-            });
-
-
             ViewDetailsCommand = new RelayCommand(async sender =>
             {
-                var idCourse = (sender as CourseDto).Id;
+                var idCourse = (sender as CoursePanelElementVm).Id;
                 navigationService.NavigateToInformationCourse(idCourse);
             });
 
-    }
+            EnrollCommand = new RelayCommand(async sender => 
+            {
+                //////////////////////////////////////
+            });
+
+        }
+
+        public async Task Update(int pageNumber = 1)
+        {
+            await LoadCoursesData(SearchCourse, pageNumber);
+        }
     }
 }

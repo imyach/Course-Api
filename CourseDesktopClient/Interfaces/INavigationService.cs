@@ -10,6 +10,12 @@ namespace CourseDesktopClient.Interfaces
         void NavigateToRegister();
         void NavigateToCourses();
         void NavigateToProfile();
+        void NavigateMyCourseCommand();
         void NavigateToInformationCourse(Guid Id);
+
+
+        void GoBack();
+        bool CanGoBack { get; }
+        void ClearHistory();
     }
 }

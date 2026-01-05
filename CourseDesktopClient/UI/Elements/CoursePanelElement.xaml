@@ -5,24 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
              mc:Ignorable="d" 
-             d:DesignHeight="380" d:DesignWidth="400" >
+             d:DesignHeight="300" d:DesignWidth="380" >
+    
     <Border Background="LightGray" 
             BorderBrush="#E0E0E0" 
             BorderThickness="0 0 0 1"
             Padding="20"
             CornerRadius="20"
-            Width="400"
-            Height="380"
+            Width="380"
+            Height="Auto"
+            MaxHeight="300"
             Margin="20">
 
         <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" MaxHeight="121"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0"
@@ -30,38 +33,37 @@
                        FontSize="18"
                        FontWeight="Bold"
                        Foreground="#333"
-                       VerticalAlignment="Center"/>
+                       Margin="0,0,0,8"/>
 
             <TextBlock Grid.Row="1"
                        Text="{Binding Description}" 
                        Foreground="#666"
-                       Margin="0 8 0 0"
-                       TextWrapping="Wrap"
-                       Grid.ColumnSpan="2"/>
-            
+                       TextWrapping="WrapWithOverflow"
+                       TextTrimming="CharacterEllipsis"
+                       MaxHeight="89" 
+                       Height="Auto"
+                       Margin="0,0,0,8"/>
+
             <TextBlock Grid.Row="2"
-                        Text="{Binding User.NameUser ,StringFormat='Создатель: {0}'}" 
-                        Foreground="#666"
-                        Margin="0 8 0 0"
-                        TextWrapping="Wrap"
-                        Grid.ColumnSpan="2"/>
+                       Text="{Binding User.NameUser, StringFormat='Создатель: {0}'}" 
+                       Foreground="#666"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,8"/>
 
-            <Grid Grid.Row="3">
-                <TextBlock 
-                        Text="{Binding CreatedAt , StringFormat='Создан: {0:dd.MM.yyyy}'}" 
-                        Foreground="#666"
-                        Margin="0 8 0 0"
-                        TextWrapping="Wrap"
-                        Grid.ColumnSpan="2"
-                        HorizontalAlignment="Left"/>
+            <Grid Grid.Row="3" Margin="0,0,0,8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-                <TextBlock 
-                        Text="{Binding UpdateAt, StringFormat='Последнее обновление: {0:dd.MM.yyyy}'}" 
-                        Foreground="#666"
-                        Margin="0 8 0 0"
-                        TextWrapping="Wrap"
-                        Grid.ColumnSpan="2"
-                        HorizontalAlignment="Right">
+                <TextBlock Grid.Column="0"
+                           Text="{Binding CreatedAt, StringFormat='Создан: {0:dd.MM.yyyy}'}" 
+                           Foreground="#666"/>
+
+                <TextBlock Grid.Column="1"
+                           Text="{Binding UpdateAt, StringFormat='Обновлён: {0:dd.MM.yyyy}'}" 
+                           Foreground="#666"
+                           HorizontalAlignment="Right">
                     <TextBlock.Style>
                         <Style TargetType="TextBlock">
                             <Setter Property="Visibility" Value="Visible"/>
@@ -74,33 +76,44 @@
                     </TextBlock.Style>
                 </TextBlock>
             </Grid>
-            
-            <TextBlock Grid.Row="4"
-            Text="{Binding Rait,StringFormat='Рейтинг курса: {0}'}" 
-            Foreground="#666"
-            Margin="0 8 0 0"
-            TextWrapping="Wrap"
-            HorizontalAlignment="Right"/>
+            <Grid  Grid.Row="4"
+             VerticalAlignment="Bottom"
+                         Width="auto"
+             HorizontalAlignment="Stretch">
+                <TextBlock
+                       Text="{Binding ReviewsCount, StringFormat='Отзывов: {0}'}" 
+                       Foreground="#666"
+                       HorizontalAlignment="Left"
+                       Margin="0,0,0,8"/>
 
-            <!-- Кнопки действий -->
-            <StackPanel Grid.Row="5"
+                <TextBlock
+                       Text="{Binding Rait, StringFormat='Рейтинг: {0:F1}'}" 
+                       Foreground="#666"
+                       HorizontalAlignment="Right"
+                       Margin="0,0,0,8"/>
+
+            </Grid>
+            <StackPanel Grid.Row="6"
                         Orientation="Horizontal"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Margin="16 0 0 0">
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
 
-                <Button x:Name="DetailsButton"
-                        Content="Подробнее"
+                <Button Content="Подробнее"
                         Command="{Binding DataContext.ViewDetailsCommand, 
-                        RelativeSource={RelativeSource AncestorType=ListView}}"
+                                RelativeSource={RelativeSource 
+                                AncestorType=UserControl, 
+                                AncestorLevel=2}}"
                         CommandParameter="{Binding}"
-                        Padding="12 6"
-                        Margin="0 0 8 0"/>
+                        Padding="12,6"
+                        Margin="0,0,8,0"/>
 
-                <Button x:Name="EnrollButton"
-                        Content="Записаться"
-                        Command="{Binding EnrollCommand}"
-                        Padding="12 6"/>
+                <Button Content="Записаться"
+                        Command="{Binding DataContext.EnrollCommand, 
+                                RelativeSource={RelativeSource 
+                                AncestorType=UserControl, 
+                                AncestorLevel=2}}"
+                        CommandParameter="{Binding}"
+                        Padding="12,6"/>
             </StackPanel>
         </Grid>
     </Border>

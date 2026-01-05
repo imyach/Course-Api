@@ -1,4 +1,6 @@
-﻿using CourseDesktopClient.Interfaces;
+﻿using CourseDesktopClient.Api.Client;
+using CourseDesktopClient.Interfaces;
+using CourseDesktopClient.Models.DtosModel.Entities;
 using CourseDesktopClient.Utilities;
 using System;
 using System.Collections.Generic;
@@ -50,9 +52,20 @@ namespace CourseDesktopClient.ViewModel
                 OnPropertyChanged();
             }
         }
+        private string _userRole = string.Empty;
+        public string UserRole
+        {
+            get { return _userRole; }
+            set
+            {
+                _userRole = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ICommand LogOutCommand {  get; set; }
-        public ProfilePageVm(INavigationService navigationService, IAuthService authService) : base(navigationService)
+        public ICommand DeleteUserProfile {  get; set; }
+        public ProfilePageVm(INavigationService navigationService, IAuthService authService, ICourseApiClient courseApiClient) : base(navigationService)
         {
             this.authService = authService;
 
@@ -61,15 +74,20 @@ namespace CourseDesktopClient.ViewModel
                 await authService.LogoutAsync();
             });
 
-            LoadingProfilePage();
+
+            DeleteUserProfile = new RelayCommand(async _ =>
+            {
+                await authService.DeleteProfile();
+            });
         }
 
-        private void LoadingProfilePage()
+        public void LoadingProfilePage()
         {
-            UserName = "Имя: " + authService.CurrentUser.NameUser;
-            UserEmail = "Почта: " + authService.CurrentUser.Email;
-            PhoneNumber = "Номер телефона: " + authService.CurrentUser.PhoneNumber;
-            UserLogin = "Логин: " + authService.CurrentUser.Login;
+            UserName = authService.CurrentUser.NameUser;
+            UserEmail = authService.CurrentUser.Email;
+            PhoneNumber = authService.CurrentUser.PhoneNumber;
+            UserLogin = authService.CurrentUser.Login;
+            UserRole = authService.CurrentUser.Role.Name;
         }
     }
 }

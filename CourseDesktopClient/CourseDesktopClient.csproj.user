@@ -8,6 +8,15 @@
     <Compile Update="UI\Elements\CoursePanelElement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UI\Elements\CreateReveiwsElement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Elements\RatingStarsControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Elements\ReviewPanelElement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\AllCoursePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

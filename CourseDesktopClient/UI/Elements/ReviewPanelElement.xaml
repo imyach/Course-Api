@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="CourseDesktopClient.UI.Elements.ReviewPanelElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controlls="clr-namespace:CourseDesktopClient.UI.Elements"
+             xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
+             mc:Ignorable="d" 
+             d:DesignHeight="450">
+
+    <Border Background="#FFC1C1C1" 
+            BorderBrush="#E0E0E0" 
+            BorderThickness="0 0 0 1"
+            Padding="20"
+            CornerRadius="20"
+            HorizontalAlignment="Stretch"
+            Height="Auto"
+            MaxHeight="130"
+            Margin="20">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" MaxHeight="121"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0"
+                           Text="{Binding User.NameUser}" 
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="#333"
+                           VerticalAlignment="Center"/>
+
+                <Grid Grid.Column="1"/>
+
+                <controlls:RatingStarsControl Grid.Column="2" 
+                                              Rating="{Binding Rait}"
+                                              IsEnabled="False"
+                                              HorizontalAlignment="Right"
+                                              VerticalAlignment="Center"/>
+
+                <!-- Кнопка удаления (видна только автору) -->
+                <Button Grid.Column="1"
+         Content="Удалить"
+         FontSize="12"
+         Foreground="Red"
+         Background="Transparent"
+         BorderThickness="1"
+         BorderBrush="Red"
+         Padding="5,2"
+         Cursor="Hand"
+         Command="{Binding DataContext.DeleteReviewCommand, 
+                  RelativeSource={RelativeSource AncestorType=ListView}}"
+         CommandParameter="{Binding}">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <!-- Условие: отображаем только если текущий пользователь - автор отзыва -->
+                                <DataTrigger Binding="{Binding IsCurrentUserReview}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+
+            <!-- Текст отзыва -->
+            <TextBlock Grid.Row="1"
+                       Text="{Binding Text}" 
+                       Foreground="#666"
+                       TextWrapping="WrapWithOverflow"
+                       Margin="0,8,0,8"/>
+
+            <!-- Дата создания -->
+            <TextBlock Grid.Row="2"
+                       Text="{Binding CreatedAt, StringFormat='Создан: {0:dd.MM.yyyy}'}" 
+                       Foreground="#666"
+                       HorizontalAlignment="Right"/>
+        </Grid>
+    </Border>
+</UserControl>
