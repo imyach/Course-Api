@@ -22,10 +22,13 @@ namespace CourseWebApi.Controllers
     public class ReviewController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]
-        public async Task<ActionResult<ReviewListVm>> GetAll()
+        public async Task<ActionResult<ReviewListVm>> GetAll([FromQuery] Guid idCourse, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10 )
         {
             var query = new GetAllReviewQuery
             {
+                IdCourse = idCourse,
+                PageNumber = pageNumber,
+                PageSize = pageSize
             };
             var vm = await Mediator.Send(query);
             return Ok(vm);

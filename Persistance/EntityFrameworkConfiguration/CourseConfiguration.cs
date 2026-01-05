@@ -15,7 +15,6 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.HasIndex(course => course.Id).IsUnique();
             builder.Property(course => course.Id).HasMaxLength(250);
             builder.Property(course => course.Title).IsRequired().HasMaxLength(50);
-            builder.Property(course => course.Description).HasMaxLength(50);
             builder.Property(course => course.CreatedAt).IsRequired();
             builder.Property(course => course.UserId).IsRequired();
 

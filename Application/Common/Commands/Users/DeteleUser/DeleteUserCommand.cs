@@ -7,7 +7,6 @@ namespace Application.Common.Commands.Users.DeteleUser
 {
     public class DeleteUserCommand: IRequest
     {
-        public Guid Id { get; set; }
         public Guid CurrentUserId { get; set; }
     }
 }

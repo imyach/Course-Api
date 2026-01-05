@@ -53,16 +53,14 @@ namespace CourseWebApi.Controllers
         }
 
 
-        [HttpDelete("{id}")]
+        [HttpDelete]
         [Authorize(Roles = "Couch,Student,Admin")]
 
         public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteUserCommand()
             {
-
-                Id = id,
-                CurrentUserId = UserId
+                CurrentUserId = UserId,
             };
             await Mediator.Send(command);
             return NoContent();

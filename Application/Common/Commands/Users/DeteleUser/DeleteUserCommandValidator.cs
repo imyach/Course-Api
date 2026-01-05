@@ -9,8 +9,6 @@ namespace Application.Common.Commands.Users.DeteleUser
     {
         public DeleteUserCommandValidator() 
         {
-            RuleFor(deleteUserCommand => deleteUserCommand.Id)
-               .NotNull().NotEqual(Guid.Empty);
             RuleFor(deleteUserCommand => deleteUserCommand.CurrentUserId)
                .NotNull().NotEqual(Guid.Empty);
         }

@@ -18,8 +18,8 @@ namespace Application.Common.Commands.Users.DeteleUser
             var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            var entity = await context.Users.FindAsync([request.Id], cancellationToken) ??
-                throw new NotFoundException(nameof(User), request.Id);
+            var entity = await context.Users.FindAsync([currentUser.Id], cancellationToken) ??
+                throw new NotFoundException(nameof(User), currentUser.Id);
 
             if (roleUser.RoleName == "Admin" || currentUser.Id == entity.Id)
             {

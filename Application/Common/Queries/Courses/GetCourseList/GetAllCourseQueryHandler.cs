@@ -16,21 +16,28 @@ namespace Application.Common.Queries.Courses.GetCourseList
     {
         public async Task<object[]> Handle(GetAllCourseQuery request, CancellationToken cancellationToken)
         {
-            var totalItems = await context.Courses.CountAsync(cancellationToken);
 
-            var courseQuery = await context.Courses
-                .Include(c => c.User)
+            var query = context.Courses
+                .Include(c => c.User).AsQueryable();
+
+            if(!string.IsNullOrEmpty(request.SearchText))
+            {
+                query = query.Where(x=>x.Title.Contains(request.SearchText));
+            }
+
+
+            var totalItems = await query.CountAsync(cancellationToken);
+            var totalPages = (int)Math.Ceiling(totalItems / (double)request.PageSize);
+
+            var courses = await query
                 .OrderBy(x=>x.Id)
                 .Skip((request.PageNumber-1) * request.PageSize)
                 .Take(request.PageSize)
                 .ProjectTo<CourseLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
-            var totalPages = (int)Math.Ceiling(totalItems / (double)request.PageSize);
-
-
             return
-            [ new CourseListVm { Courses = courseQuery },
+            [ new CourseListVm { Courses = courses },
               new PagerInfoDto{ TotalItems = totalItems,
                 TotalPages = totalPages,    
                 PageSize = request.PageSize,
