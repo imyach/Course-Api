@@ -25,6 +25,9 @@ namespace CourseDesktopClient.Api
         public const string API_REGISTER_USER= "auth/register";
         public const string API_REFRESH_TOKEN= "auth/refresh";
 
+        public const string API_GET_ALL_PROGRESSUSER = "progressUser/all";
+        public const string API_GET_PROGRESSUSER_BY_ID = "progressUser/";
+        public const string API_DELETE_UPDATE_CERATE_PROGRESSUSER = "progressUser";
 
     }
 }

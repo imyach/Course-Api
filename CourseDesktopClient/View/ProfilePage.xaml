@@ -9,12 +9,17 @@
     <Grid>
         <WrapPanel Orientation="Vertical" HorizontalAlignment="Center"  VerticalAlignment="Center">
             <TextBlock Text="Профиль" FontWeight="Bold" Margin="0 0 0 30"/>
-            <TextBlock Text="{Binding UserName, StringFormat='Имя: {0}'}" />
-            <TextBlock Text="{Binding UserEmail, StringFormat='Почта: {0}'}" />
-            <TextBlock Text="{Binding PhoneNumber, StringFormat='Телефон: {0}'}" />
-            <TextBlock Text="{Binding UserLogin, StringFormat='Логин: {0}'}" />
-            <TextBlock Text="{Binding UserRole, StringFormat='Роль: {0}'}" />
-            <Button Content="Изменить профиль" Command="{Binding UpdateUserProfile}"/>
+            <TextBlock Text="Имя:" />
+            <TextBox Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Почта:" />
+            <TextBox Text="{Binding UserEmail, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Номер телефона:" />
+            <TextBox Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Логин:" />
+            <TextBox Text="{Binding UserLogin, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Роль:" />
+            <TextBlock Text="{Binding UserRole}" />
+            <Button Content="Сохранить изменения" Command="{Binding UpdateUserProfile}" IsEnabled="{Binding IsEnable}"/>
             <Button Content="Удалить аккаунт" Command="{Binding DeleteUserProfile}"/>
             <Button Content="Выйти" Command="{Binding LogOutCommand}"/>
         </WrapPanel>

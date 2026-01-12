@@ -11,6 +11,9 @@
     <Compile Update="UI\Elements\CreateReveiwsElement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UI\Elements\MyCoursePanelElement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UI\Elements\RatingStarsControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -24,6 +27,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\LoginPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MyCoursePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ProfilePage.xaml.cs">

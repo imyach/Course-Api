@@ -6,6 +6,7 @@ using CourseDesktopClient.Models.DtosModel.Auth;
 using CourseDesktopClient.Models.DtosModel.Entities;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -15,6 +16,7 @@ namespace CourseDesktopClient.Services
 {
     public class AuthService(HttpClient httpClient, ITokenService tokenService, ICourseApiClient apiClient, INavigationService navigationService) : IAuthService
     {
+        public bool IsRememberProfile {  get; set; }
         private bool isAuthenticated;
         private UserDto currentUser;
         public bool IsAuthenticated
@@ -62,13 +64,13 @@ namespace CourseDesktopClient.Services
             return true;
         }
 
-        public async Task<string> LoginAsync(LoginDto loginDto, bool isRememberMe)
+        public async Task<string> LoginAsync(LoginDto loginDto)
         {
-            TokenHandler.isRemember = isRememberMe;
+            TokenHandler.isRemember = IsRememberProfile;
             var tokens = await apiClient.LoginAsync(loginDto);
             if (tokens is null)
                 return "Данные введены неверно";
-            await tokenService.SaveTokensAsync(tokens.AccessToken, tokens.RefreshToken, isRememberMe);
+            await tokenService.SaveTokensAsync(tokens.AccessToken, tokens.RefreshToken, IsRememberProfile);
             var (accessToken, refreshToken) = await tokenService.GetTokensAsync();
 
             var currentUser = await tokenService.GetCurrentUserInfoAsync(accessToken);
@@ -92,16 +94,16 @@ namespace CourseDesktopClient.Services
             navigationService.NavigateToLogin();
         }
 
-        public async Task<string> RegisterAsync(RegisterDto registerData, bool isRememberMe)
+        public async Task<string> RegisterAsync(RegisterDto registerData)
         {
-            TokenHandler.isRemember = isRememberMe;
+            TokenHandler.isRemember = IsRememberProfile;
             var tokens = await apiClient.RegisterAsync(registerData);
 
             if (tokens is null)
                 return "Пользователь уже существует";
 
-            await tokenService.SaveTokensAsync(tokens.AccessToken, tokens.RefreshToken, isRememberMe);
-            var (accessToken, refreshToken) = await tokenService.GetTokensAsync();
+            await tokenService.SaveTokensAsync(tokens.AccessToken, tokens.RefreshToken, IsRememberProfile);
+            var (accessToken, _) = await tokenService.GetTokensAsync();
 
 
             var currentUser = await tokenService.GetCurrentUserInfoAsync(accessToken);
@@ -131,6 +133,26 @@ namespace CourseDesktopClient.Services
             tokenService.ClearTokensAsync();
             CurrentUser = null;
             IsAuthenticated = false;
+        }
+
+        public async Task UpdateUserAsync(UpdateUserRequestDto userDto, CancellationToken ct = default)
+        {
+            if (MessageBox.Show("Вы действительно хотите изменить профиль?", "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                var tokens = await apiClient.UpdateUserAsync(userDto, ct);
+
+                if (tokens is not null) 
+                {
+                    await tokenService.SaveTokensAsync(tokens.AccessToken,tokens.RefreshToken,IsRememberProfile);
+
+                    var (accessToken, _) = await tokenService.GetTokensAsync();
+
+                    var currentUser = await tokenService.GetCurrentUserInfoAsync(accessToken);
+                    var userProfile = await apiClient.GetUserProfileAsync(Guid.Parse(currentUser.Id));
+
+                    CurrentUser = userProfile;
+                }
+            }
         }
     }
 }

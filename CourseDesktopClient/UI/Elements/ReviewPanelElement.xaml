@@ -60,7 +60,7 @@
          Padding="5,2"
          Cursor="Hand"
          Command="{Binding DataContext.DeleteReviewCommand, 
-                  RelativeSource={RelativeSource AncestorType=ListView}}"
+                  RelativeSource={RelativeSource AncestorType=ItemsControl}}"
          CommandParameter="{Binding}">
 
                     <Button.Style>

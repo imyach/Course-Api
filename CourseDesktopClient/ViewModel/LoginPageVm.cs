@@ -74,6 +74,7 @@ namespace CourseDesktopClient.ViewModel
 
         public async Task Login(string? loginOrEmail, string? password)
         {
+            authService.IsRememberProfile = CheckedSaveUser;
             if (!FillingVerificationLogin(loginOrEmail, password))
                 return;
             
@@ -83,7 +84,7 @@ namespace CourseDesktopClient.ViewModel
                 Password = password
             };
 
-            var mistakeText = await authService.LoginAsync(loginDto, CheckedSaveUser);
+            var mistakeText = await authService.LoginAsync(loginDto);
 
             switch (string.IsNullOrEmpty(mistakeText))
             {

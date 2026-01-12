@@ -9,8 +9,8 @@ namespace CourseDesktopClient.Interfaces
         void NavigateToLogin();
         void NavigateToRegister();
         void NavigateToCourses();
+        void NavigateToMyCourses();
         void NavigateToProfile();
-        void NavigateMyCourseCommand();
         void NavigateToInformationCourse(Guid Id);
 
 

@@ -47,11 +47,12 @@ namespace CourseDesktopClient
             // VIEW MODELS
             services.AddSingleton<MainWindowVm>();
 
-            services.AddSingleton<LoginPageVm>();
+            services.AddTransient<LoginPageVm>();
             services.AddTransient<CourseInformationPageVm>();
             services.AddTransient<ProfilePageVm>();
             services.AddTransient<AllCoursePageVm>();
-            services.AddSingleton<RegisterPageVm>();
+            services.AddTransient<MyCoursePageVm>();
+            services.AddTransient<RegisterPageVm>();
 
 
             //VIEWS
@@ -85,6 +86,11 @@ namespace CourseDesktopClient
             {
                 var courseDesktopPageVm = provider.GetRequiredService<CourseInformationPageVm>();
                 return new CourseInformationPage { DataContext = courseDesktopPageVm };
+            });
+            services.AddTransient(provider =>
+            {
+                var myCoursePageVm = provider.GetRequiredService<MyCoursePageVm>();
+                return new MyCoursePage { DataContext = myCoursePageVm };
             });
 
 

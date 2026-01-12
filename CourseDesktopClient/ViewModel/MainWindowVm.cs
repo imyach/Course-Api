@@ -32,11 +32,17 @@ namespace CourseDesktopClient.ViewModel
             {
                 if (SetProperty(ref _searchCourse, value))
                 {
-                    if (CurrentView is AllCoursePage page &&
-                        page.DataContext is AllCoursePageVm courseVm)
+                    if (CurrentView is AllCoursePage coursePage &&
+                        coursePage.DataContext is AllCoursePageVm courseVm )
                     {
                         courseVm.SearchCourse = value;
                     }
+                    else if (CurrentView is MyCoursePage myCoursesPage &&
+                       myCoursesPage.DataContext is MyCoursePageVm myCoursesVm)
+                    {
+                        myCoursesVm.SearchProgressCourse = value;
+                    }
+
                 }
             }
         }
@@ -73,13 +79,13 @@ namespace CourseDesktopClient.ViewModel
             }
         }
 
-        private Visibility _visibilityProfileButton;
-        public Visibility VisibilityProfileButton
+        private Visibility _visibilityInAuthorizedProfile;
+        public Visibility VisibilityInAuthorizedProfile
         {
-            get { return _visibilityProfileButton; }
+            get { return _visibilityInAuthorizedProfile; }
             set
             {
-                _visibilityProfileButton = value;
+                _visibilityInAuthorizedProfile = value;
                 OnPropertyChanged();
             }
         }
@@ -102,7 +108,7 @@ namespace CourseDesktopClient.ViewModel
         {
             if (Application.Current.MainWindow.DataContext is MainWindowVm mainWindowVm)
             {
-                VisibilitySearch = mainWindowVm.CurrentView is AllCoursePage
+                VisibilitySearch = mainWindowVm.CurrentView is AllCoursePage or MyCoursePage
                     ? Visibility.Visible 
                     : Visibility.Collapsed;
                 
@@ -110,7 +116,7 @@ namespace CourseDesktopClient.ViewModel
                     ? Visibility.Visible 
                     : Visibility.Collapsed;
 
-                VisibilityProfileButton = authService.IsAuthenticated && mainWindowVm.CurrentView is not LoginPage and not RegisterPage
+                VisibilityInAuthorizedProfile = authService.IsAuthenticated && mainWindowVm.CurrentView is not LoginPage and not RegisterPage
                     ? Visibility.Visible 
                     : Visibility.Collapsed;
 

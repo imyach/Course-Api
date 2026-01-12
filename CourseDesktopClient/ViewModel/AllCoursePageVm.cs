@@ -79,10 +79,20 @@ namespace CourseDesktopClient.ViewModel
 
             EnrollCommand = new RelayCommand(async sender => 
             {
-                //////////////////////////////////////
+                var idCourse = (sender as CoursePanelElementVm).Id;
+                var request = new ProgressUserDto
+                {
+                    CourseId = idCourse,
+                };
+                var id = await courseApiClient.CreateProgressUserAsync(request);
+                if(id == Guid.Empty)
+                    MessageBox.Show($"Вы уже были завписаны на данный курс {id}");
+                else
+                    MessageBox.Show($"Успешно {id}");
             });
 
         }
+
 
         public async Task Update(int pageNumber = 1)
         {

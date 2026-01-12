@@ -40,6 +40,20 @@ namespace CourseDesktopClient.Services
 
             NavigateTo(coursePage);
         }
+        public async void NavigateToMyCourses()
+        {
+            var myCoursePage = serviceProvider.GetRequiredService<MyCoursePage>();
+
+            if (myCoursePage.DataContext is MyCoursePageVm vm)
+            {
+                if (Application.Current.MainWindow?.DataContext is MainWindowVm mainVm)
+                {
+                    vm.SearchProgressCourse = mainVm.SearchCourse;
+                }
+                await vm.Update();
+            }
+            NavigateTo(myCoursePage);
+        }
 
         public void NavigateToLogin()
         {
@@ -70,10 +84,8 @@ namespace CourseDesktopClient.Services
         {
             if (!CanGoBack) return;
 
-            // Удаляем текущую страницу
             _navigationStack.Pop();
 
-            // Берем предыдущую страницу
             var previousPage = _navigationStack.Peek();
 
             SetMainWindowContent(previousPage);
@@ -103,11 +115,6 @@ namespace CourseDesktopClient.Services
         public void ClearHistory()
         {
             _navigationStack.Clear();
-        }
-
-        public void NavigateMyCourseCommand()
-        {
-           //////
         }
     }
 }

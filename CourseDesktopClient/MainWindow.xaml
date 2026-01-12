@@ -20,11 +20,18 @@
                     <TextBox Width="150" Height="14" Margin="3 0 0 0" 
          Text="{Binding SearchCourse, UpdateSourceTrigger=PropertyChanged}"/>
                 </WrapPanel>
-                <TextBlock Text="Курсы" HorizontalAlignment="Right" VerticalAlignment="Center" Margin=" 0 0 30 0">
+                <TextBlock Text="Курсы" HorizontalAlignment="Right" Cursor="Hand" VerticalAlignment="Center" Margin=" 10 0 30 0">
                      <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseLeftButtonUp">
                             <i:InvokeCommandAction Command="{Binding AllCourseCommand}"/>
                         </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBlock>
+                <TextBlock Text="Мои курсы" Cursor="Hand" Visibility="{Binding VisibilityInAuthorizedProfile}"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin=" 0 0 30 0">
+                    <i:Interaction.Triggers>
+                       <i:EventTrigger EventName="MouseLeftButtonUp">
+                           <i:InvokeCommandAction Command="{Binding MyCourseCommand}"/>
+                       </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </TextBlock>
             </WrapPanel>
@@ -32,24 +39,24 @@
 
             <WrapPanel   HorizontalAlignment="Right" VerticalAlignment="Center" >
 
-                <Menu Visibility="{Binding VisibilityProfileButton}" 
+                <Menu Cursor="Hand" Visibility="{Binding VisibilityInAuthorizedProfile}" 
                     Margin="0 0 30 0"
                     Background="Transparent"
                     BorderBrush="Transparent">
 
-                    <MenuItem Header="{Binding UserName}" 
+                    <MenuItem Cursor="Hand" Header="{Binding UserName}" 
                   FontWeight="Bold"
                   Background="Transparent">
 
-                        <MenuItem Header="{Binding UserName}" 
+                        <MenuItem Cursor="Hand" Header="{Binding UserName}" 
                       Command="{Binding ProfileCommand}"/>
 
                         <Separator/>
 
-                        <MenuItem Header="Мои курсы" 
+                        <MenuItem Cursor="Hand" Header="Мои курсы" 
                       Command="{Binding MyCourseCommand}"/>
 
-                        <MenuItem Header="Выйти" 
+                        <MenuItem Cursor="Hand" Header="Выйти" 
                       Command="{Binding LogOutCommand}"/>
                         
                     </MenuItem>

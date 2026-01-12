@@ -4,10 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace CourseDesktopClient.UI.Elements.ElementVM
 {
-    class ReviewPanelElementVm(ReviewDto reviewDto, Guid currentUserId)  :ViewModelBase
+    class ReviewPanelElementVm(ReviewDto reviewDto, UserDto currentUser)  :ViewModelBase
     {
         public Guid Id => reviewDto.Id;
         public string Text => reviewDto.Text;
@@ -15,8 +16,7 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
         public DateTime CreatedAt => reviewDto.CreatedAt;
         public UserDto User => reviewDto.User;
 
-        public bool IsCurrentUserReview => reviewDto.User?.Id == currentUserId;
+        public bool IsCurrentUserReview => reviewDto.User?.Id == currentUser.Id || currentUser.Role.Name == "Admin";
 
-        public ReviewDto GetReviewDto() => reviewDto;
     }
 }

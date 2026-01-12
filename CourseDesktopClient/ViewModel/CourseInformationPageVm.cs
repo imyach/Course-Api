@@ -24,14 +24,11 @@ namespace CourseDesktopClient.ViewModel
             this.pagerService = pagerService;
             this.authService = authService;
 
-            GoBackCommand = new RelayCommand(execute: _ => navigationService.GoBack(),
-                                            canExecute: _ => navigationService.CanGoBack);
-
             PagerCommand = new RelayCommand(async pageNumberStr =>
             {
                 if (int.TryParse((pageNumberStr as ButtonItem).Text, out int pageNumber))
                 {
-                    Update(idCourse, pageNumber);
+                    Update(pageNumber);
 
                 }
             });
@@ -73,8 +70,20 @@ namespace CourseDesktopClient.ViewModel
 
                     await LoadCourse(idCourse);
                 }
-            }
-            );
+            });
+
+            EnrollCommand = new RelayCommand(async sender =>
+            {
+                var request = new ProgressUserDto
+                {
+                    CourseId = idCourse,
+                };
+                var id = await courseApiClient.CreateProgressUserAsync(request);
+                if (id == Guid.Empty)
+                    MessageBox.Show($"Вы уже были записаны на данный курс {id}");
+                else
+                    MessageBox.Show($"Успешно {id}");
+            });
         }
 
 
@@ -105,6 +114,51 @@ namespace CourseDesktopClient.ViewModel
             get => _shouldResetRating;
             set => SetProperty(ref _shouldResetRating, value);
         }
+
+        private bool _sortByDate = true;
+        public bool SortByDate
+        {
+            get => _sortByDate;
+            set
+            {
+                if (SetProperty(ref _sortByDate, value) && value)
+                {
+                    SortByRating = false;
+                    Update();
+                }
+            }
+        }
+
+        private bool _sortByRating;
+        public bool SortByRating
+        {
+            get => _sortByRating;
+            set
+            {
+                if (SetProperty(ref _sortByRating, value) && value)
+                {
+                    SortByDate = false;
+                    Update();
+                }
+            }
+        }
+
+        private bool _sortAscending = false;
+        public bool SortAscending
+        {
+            get => _sortAscending;
+            set
+            {
+                if (SetProperty(ref _sortAscending, value))
+                {
+                    OnPropertyChanged(nameof(SortDirectionSymbol));
+                    Update();
+                }
+            }
+        }
+
+        public string SortDirectionSymbol => SortAscending ? "↑" : "↓";
+
         private string _reviewUserText;
         public string ReviewUserText { get { return _reviewUserText; } set { _reviewUserText = value; OnPropertyChanged(); } }
         private string _description;
@@ -125,22 +179,26 @@ namespace CourseDesktopClient.ViewModel
         private readonly IPagerService pagerService;
         private readonly IAuthService authService;
 
-        public ICommand GoBackCommand { get; set; }
         public ICommand DeleteReviewCommand { get; set; }
         public ICommand SendReviewCommand { get; set; }
         public ICommand PagerCommand { get; set; }
         public ICommand RatingCommand { get; set; }
+        public ICommand EnrollCommand { get; set; }
+
+
 
         public async Task LoadCourse(Guid id)
         {
             idCourse = id;
-            Update(idCourse);
+            Update();
         }
 
-        public async void Update(Guid id, int pageNumber = 1)
+        public async void Update(int pageNumber = 1)
         {
-            var infoCourse = await courseApiClient.GetCourseByIdAsync(id);
-            var (reviews, pager) = await courseApiClient.GetReviewsAsync(id, pageNumber);
+            var sortBy = ApplySorting();
+
+            var infoCourse = await courseApiClient.GetCourseByIdAsync(idCourse);
+            var (reviews, pager) = await courseApiClient.GetReviewsAsync(idCourse,sortBy, SortAscending,pageNumber);
 
             Title = infoCourse.Title;
             Description = infoCourse.Description;
@@ -148,7 +206,7 @@ namespace CourseDesktopClient.ViewModel
 
 
 
-            var reviewViewModels = reviews.Reviews.Select(x=> new ReviewPanelElementVm(x, authService.CurrentUser.Id))
+            var reviewViewModels = reviews.Reviews.Select(x=> new ReviewPanelElementVm(x, authService.CurrentUser))
                 .ToList();
 
             GetReviews = reviewViewModels;
@@ -159,5 +217,21 @@ namespace CourseDesktopClient.ViewModel
             var newButtonPanel = pagerService.GeneratePagerPanel(pager, PagerCommand);
             ButtonPanel = new ObservableCollection<ButtonItem>(newButtonPanel);
         }
+
+
+
+        private SortEnum ApplySorting()
+        {
+            if (SortByDate)
+            {
+                return SortEnum.ByDate;
+            }
+            return SortEnum.ByRait;
+        }
+    }
+    public enum SortEnum
+    {
+        ByDate,
+        ByRait
     }
 }

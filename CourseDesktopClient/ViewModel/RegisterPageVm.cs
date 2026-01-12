@@ -102,7 +102,8 @@ namespace CourseDesktopClient.ViewModel
             if (!FillingVerificationRegister(registerDto, repPass))
                 return;
 
-            var mistakeText = await authService.RegisterAsync(registerDto, CheckedSaveUser);
+            authService.IsRememberProfile = CheckedSaveUser;
+            var mistakeText = await authService.RegisterAsync(registerDto);
 
             switch (string.IsNullOrEmpty(mistakeText))
             {
