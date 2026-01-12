@@ -12,5 +12,8 @@ namespace Application.Common.Queries.Reviews.GetReviewList
         public Guid IdCourse {  get; set; }
         public int PageSize {  get; set; }
         public int PageNumber {  get; set; }
+        public bool SortAscending {  get; set; }
+        public string SortBy {  get; set; } = string.Empty;
+
     }
 }

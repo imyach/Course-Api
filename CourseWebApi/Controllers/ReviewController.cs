@@ -22,13 +22,19 @@ namespace CourseWebApi.Controllers
     public class ReviewController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]
-        public async Task<ActionResult<ReviewListVm>> GetAll([FromQuery] Guid idCourse, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10 )
+        public async Task<ActionResult<ReviewListVm>> GetAll([FromQuery] Guid idCourse, 
+            [FromQuery] int pageNumber = 1, 
+            [FromQuery] int pageSize = 10,
+            [FromQuery] bool sortAscending = false,
+            [FromQuery] string sortBy = null)
         {
             var query = new GetAllReviewQuery
             {
                 IdCourse = idCourse,
                 PageNumber = pageNumber,
-                PageSize = pageSize
+                PageSize = pageSize,
+                SortAscending = sortAscending,
+                SortBy = sortBy
             };
             var vm = await Mediator.Send(query);
             return Ok(vm);

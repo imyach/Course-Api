@@ -16,26 +16,25 @@ namespace Application.Common.Commands.Users.UpdateUser
         {
             var currentUser = await context.Users.FindAsync([request.CurrentUserId], cancellationToken)
                 ?? throw new NotFoundException(nameof(User), request.CurrentUserId);
-            var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
-                ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            var entity = await context.Users.FindAsync([request.Id], cancellationToken) ?? throw new NotFoundException(nameof(User), currentUser.Id);
+            var entity = await context.Users.FindAsync([request.Id], cancellationToken) 
+                ?? throw new NotFoundException(nameof(User), currentUser.Id);
 
-            if (!passwordHasher.VerifyBcryptPassword(request.Password, entity.HashPassword))
-                await tokenServise.DeleteResreshToken(currentUser, cancellationToken);
 
             if (currentUser.Id == entity.Id)
             {
-                var dublicate = await context.Users.AnyAsync(x => x.Email == currentUser.Email || x.Login == currentUser.Login, cancellationToken);
+
+                var dublicate = await context.Users.AnyAsync(x => (x.Email == entity.Email && x.Login == entity.Login)&&x.Id != entity.Id, cancellationToken);
 
                 if (dublicate)
                     return null;
 
-                entity.RoleId = request.RoleId;
+                entity.RoleId = request.Role.Id;
                 entity.NameUser = request.NameUser;
                 entity.Login = request.Login;
                 entity.Email = request.Email;
-                entity.HashPassword = passwordHasher.HashPasword(request.Password);
+                if(!string.IsNullOrEmpty(request.Password))
+                    entity.HashPassword = passwordHasher.HashPasword(request.Password);
                 entity.PhoneNumber = request.PhoneNumber;
                 await context.SaveChangesAsync(cancellationToken);
 

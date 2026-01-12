@@ -13,8 +13,8 @@ namespace Application.Common.Commands.Users.UpdateUser
                .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateUserCommand => updateUserCommand.CurrentUserId)
               .NotNull().NotEqual(Guid.Empty);
-            RuleFor(updateUserCommand => updateUserCommand.RoleId)
-               .NotNull().NotEqual(Guid.Empty);
+            RuleFor(updateUserCommand => updateUserCommand.Role)
+               .NotNull();
             RuleFor(updateUserCommand => updateUserCommand.NameUser)
                .NotNull().NotEmpty().MaximumLength(30);
             RuleFor(updateUserCommand => updateUserCommand.Login)
@@ -23,8 +23,6 @@ namespace Application.Common.Commands.Users.UpdateUser
               .MaximumLength(50);
             RuleFor(updateUserCommand => updateUserCommand.PhoneNumber)
               .MaximumLength(12);
-            RuleFor(updateUserCommand => updateUserCommand.Password)
-              .NotNull().NotEmpty().MaximumLength(60);
         }
     }
 }

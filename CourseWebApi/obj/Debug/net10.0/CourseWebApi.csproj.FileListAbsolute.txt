@@ -843,7 +843,6 @@ C:\Users\Artem\Desktop\serv\CourseWebApi\obj\Debug\net10.0\CourseWebApi.Generate
 C:\Users\Artem\Desktop\serv\CourseWebApi\obj\Debug\net10.0\CourseWebApi.AssemblyInfoInputs.cache
 C:\Users\Artem\Desktop\serv\CourseWebApi\obj\Debug\net10.0\CourseWebApi.AssemblyInfo.cs
 C:\Users\Artem\Desktop\serv\CourseWebApi\obj\Debug\net10.0\CourseWebApi.csproj.CoreCompileInputs.cache
-C:\Users\Artem\Desktop\serv\CourseWebApi\obj\Debug\net10.0\CourseWebApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Artem\Desktop\serv\CourseWebApi\obj\Debug\net10.0\CourseWebApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Artem\Desktop\serv\CourseWebApi\obj\Debug\net10.0\CourseWebApi.sourcelink.json
 C:\Users\Artem\Desktop\serv\CourseWebApi\obj\Debug\net10.0\rjimswa.dswa.cache.json

@@ -16,11 +16,16 @@ namespace CourseWebApi.Controllers
     public class ProgressUserController(IMapper mapper) : BaseController
     {
         [HttpGet("All")]
-        public async Task<ActionResult<ProgressUserListVm>> GetAll()
+        public async Task<ActionResult<ProgressUserListVm>> GetAll([FromQuery] string searchText = null, 
+            [FromQuery] int pageNumber = 1, 
+            [FromQuery] int pageSize = 10)
         {
             var query = new GetAllProgressUserQuery
             {
-                CurrentUserId = UserId
+                CurrentUserId = UserId,
+                SearchText = searchText,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
             };
 
             var vm = await Mediator.Send(query);

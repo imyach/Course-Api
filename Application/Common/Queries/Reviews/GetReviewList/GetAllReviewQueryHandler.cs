@@ -29,9 +29,26 @@ namespace Application.Common.Queries.Reviews.GetReviewList
             var totalItems = await query.CountAsync(cancellationToken);
             var totalPages = (int)Math.Ceiling(totalItems / (double)request.PageSize);
 
-            var reviews = await query
-                .OrderByDescending(x => x.CreatedAt)
-                .Skip((request.PageNumber - 1) * request.PageSize)
+
+            if (request.SortAscending == true && request.SortBy == "ByDate")
+            {
+                query = query.OrderBy(x => x.CreatedAt);
+            }
+            if (request.SortAscending == false && request.SortBy == "ByDate")
+            {
+                query = query.OrderByDescending(x => x.CreatedAt);
+            }
+            if (request.SortAscending == true && request.SortBy == "ByRait")
+            {
+                query = query.OrderBy(x => x.Rait);
+            }
+            if (request.SortAscending == false && request.SortBy == "ByRait")
+            {
+                query = query.OrderByDescending(x => x.Rait);
+            }
+
+
+            var reviews = await query.Skip((request.PageNumber - 1) * request.PageSize)
                 .Take(request.PageSize)
                 .ProjectTo<ReviewLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);

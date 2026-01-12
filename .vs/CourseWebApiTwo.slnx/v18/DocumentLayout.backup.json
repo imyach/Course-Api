@@ -3,24 +3,84 @@
   "WorkspaceRootPath": "C:\\Users\\Artem\\Desktop\\serv\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\reviews\\getreviewlist\\getallreviewqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\reviews\\getreviewlist\\getallreviewqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\auth\\login\\loginusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\auth\\login\\loginusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\users\\updateuser\\updateusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\users\\updateuser\\updateusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\users\\updateuser\\updateusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\users\\updateuser\\updateusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\auth\\registration\\registrationusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\auth\\registration\\registrationusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\servises\\passwordhasherservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\servises\\passwordhasherservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\servises\\jwttokenservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\servises\\jwttokenservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\users\\updateuser\\updateusercommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\users\\updateuser\\updateusercommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\models\\user\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\models\\user\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\controllers\\progressusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\progressusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\reviews\\getreviewlist\\getallreviewqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\reviews\\getreviewlist\\getallreviewqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\reviews\\getreviewlist\\getallreviewquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\reviews\\getreviewlist\\getallreviewquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\progressusers\\getprogressuserlist\\getallprogressuserqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\progressusers\\getprogressuserlist\\getallprogressuserqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\progressusers\\getprogressuserlist\\getallprogressuserquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\progressusers\\getprogressuserlist\\getallprogressuserquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\courses\\getcourselist\\getallcoursequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\courses\\getcourselist\\getallcoursequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\progressusers\\createprogressuser\\createprogressusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\progressusers\\createprogressuser\\createprogressusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\progressusers\\updateprogressuser\\updateprogressusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\progressusers\\updateprogressuser\\updateprogressusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\reviews\\getreviewlist\\getallreviewqueryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,10 +89,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\courses\\getcourselist\\getallcoursequeryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\courses\\getcourselist\\getallcoursequeryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\reviews\\getreview\\getdetailsreviewqueryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -115,14 +171,6 @@
       "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\answers\\deleteanswer\\deleteanswercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\servises\\passwordhasherservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\servises\\passwordhasherservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\servises\\jwttokenservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\servises\\jwttokenservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\courses\\getcourse\\getdetailscoursequeryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\courses\\getcourse\\getdetailscoursequeryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -141,10 +189,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\questions\\getquestionlist\\getallquestionqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\questions\\getquestionlist\\getallquestionqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\users\\deteleuser\\deleteusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -170,7 +214,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -194,32 +238,171 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "CourseWebApi\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "LoginUserCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\Login\\LoginUserCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Auth\\Login\\LoginUserCommandHandler.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\Login\\LoginUserCommandHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Auth\\Login\\LoginUserCommandHandler.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T13:12:12.782Z"
+              "WhenOpened": "2026-01-12T20:00:17.207Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GetAllReviewQueryHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAgwCAAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "UpdateUserCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommand.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommand.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommand.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAqwAkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T12:59:05.661Z",
+              "WhenOpened": "2026-01-12T19:14:57.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UpdateUserCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandHandler.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandHandler.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T19:15:52.524Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "UpdateUserCommandValidator.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandValidator.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandValidator.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandValidator.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandValidator.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAhwBgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T19:15:49.092Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UpdateUserDto.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Models\\User\\UpdateUserDto.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Models\\User\\UpdateUserDto.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Models\\User\\UpdateUserDto.cs",
+              "RelativeToolTip": "CourseWebApi\\Models\\User\\UpdateUserDto.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAA6wCcAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T19:15:45.538Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RegistrationUserCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\Registration\\RegistrationUserCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Auth\\Registration\\RegistrationUserCommandHandler.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\Registration\\RegistrationUserCommandHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Auth\\Registration\\RegistrationUserCommandHandler.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAYwCAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T19:46:35.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GetAllProgressUserQuery.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\ProgressUsers\\GetProgressUserList\\GetAllProgressUserQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\ProgressUsers\\GetProgressUserList\\GetAllProgressUserQuery.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\ProgressUsers\\GetProgressUserList\\GetAllProgressUserQuery.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\ProgressUsers\\GetProgressUserList\\GetAllProgressUserQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T18:06:27.65Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CreateProgressUserCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\ProgressUsers\\CreateProgressUser\\CreateProgressUserCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\ProgressUsers\\CreateProgressUser\\CreateProgressUserCommandHandler.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\ProgressUsers\\CreateProgressUser\\CreateProgressUserCommandHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\ProgressUsers\\CreateProgressUser\\CreateProgressUserCommandHandler.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAUwBkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-08T15:59:20.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProgressUserController.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\ProgressUserController.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\ProgressUserController.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\ProgressUserController.cs",
+              "RelativeToolTip": "CourseWebApi\\Controllers\\ProgressUserController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAABUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-08T15:33:56.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GetAllProgressUserQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\ProgressUsers\\GetProgressUserList\\GetAllProgressUserQueryHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\ProgressUsers\\GetProgressUserList\\GetAllProgressUserQueryHandler.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\ProgressUsers\\GetProgressUserList\\GetAllProgressUserQueryHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\ProgressUsers\\GetProgressUserList\\GetAllProgressUserQueryHandler.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAqwCAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-08T15:00:06.66Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "UpdateProgressUserCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\ProgressUsers\\UpdateProgressUser\\UpdateProgressUserCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\ProgressUsers\\UpdateProgressUser\\UpdateProgressUserCommandHandler.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\ProgressUsers\\UpdateProgressUser\\UpdateProgressUserCommandHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\ProgressUsers\\UpdateProgressUser\\UpdateProgressUserCommandHandler.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-08T14:51:46.204Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "CourseWebApi\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAjwBcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-03T13:12:12.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "GetAllReviewQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryHandler.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwC8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-03T12:59:05.661Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "GetDetailsReviewQueryValidator.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Reviews\\GetReview\\GetDetailsReviewQueryValidator.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Queries\\Reviews\\GetReview\\GetDetailsReviewQueryValidator.cs",
@@ -231,7 +414,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 20,
               "Title": "GetAllReviewQueryValidator.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryValidator.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQueryValidator.cs",
@@ -243,31 +426,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 13,
               "Title": "GetAllReviewQuery.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQuery.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQuery.cs",
               "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQuery.cs",
               "RelativeToolTip": "Application\\Common\\Queries\\Reviews\\GetReviewList\\GetAllReviewQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-03T12:57:00.228Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
               "Title": "ReviewController.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\ReviewController.cs",
               "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\ReviewController.cs",
               "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\ReviewController.cs",
               "RelativeToolTip": "CourseWebApi\\Controllers\\ReviewController.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAgwDwAAABQAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAqwBsAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-03T12:56:20.303Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 21,
               "Title": "GetAllCourseQueryValidator.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Courses\\GetCourseList\\GetAllCourseQueryValidator.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Queries\\Courses\\GetCourseList\\GetAllCourseQueryValidator.cs",
@@ -279,7 +462,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 24,
               "Title": "CourseLookupDto.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Dtos\\Courses\\CourseLookupDto.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Dtos\\Courses\\CourseLookupDto.cs",
@@ -291,7 +474,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 25,
               "Title": "ReviewLookupDto.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Dtos\\Reviews\\ReviewLookupDto.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Dtos\\Reviews\\ReviewLookupDto.cs",
@@ -303,7 +486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 23,
               "Title": "ReviewListVm.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Dtos\\Reviews\\ReviewListVm.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Dtos\\Reviews\\ReviewListVm.cs",
@@ -315,7 +498,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 26,
               "Title": "AnswerLookupDto.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Dtos\\Answers\\AnswerLookupDto.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Dtos\\Answers\\AnswerLookupDto.cs",
@@ -327,7 +510,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 27,
               "Title": "Review.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Model\\Review.cs",
               "RelativeDocumentMoniker": "Domain\\Model\\Review.cs",
@@ -339,7 +522,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 28,
               "Title": "UserConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\EntityFrameworkConfiguration\\UserConfiguration.cs",
               "RelativeDocumentMoniker": "Persistance\\EntityFrameworkConfiguration\\UserConfiguration.cs",
@@ -351,7 +534,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 29,
               "Title": "TestConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\EntityFrameworkConfiguration\\TestConfiguration.cs",
               "RelativeDocumentMoniker": "Persistance\\EntityFrameworkConfiguration\\TestConfiguration.cs",
@@ -363,7 +546,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 30,
               "Title": "RoleConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\EntityFrameworkConfiguration\\RoleConfiguration.cs",
               "RelativeDocumentMoniker": "Persistance\\EntityFrameworkConfiguration\\RoleConfiguration.cs",
@@ -375,7 +558,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 31,
               "Title": "ReviewsConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\EntityFrameworkConfiguration\\ReviewsConfiguration.cs",
               "RelativeDocumentMoniker": "Persistance\\EntityFrameworkConfiguration\\ReviewsConfiguration.cs",
@@ -387,7 +570,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 32,
               "Title": "RefreshTokenConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\EntityFrameworkConfiguration\\RefreshTokenConfiguration.cs",
               "RelativeDocumentMoniker": "Persistance\\EntityFrameworkConfiguration\\RefreshTokenConfiguration.cs",
@@ -399,7 +582,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 33,
               "Title": "QuestionsConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\EntityFrameworkConfiguration\\QuestionsConfiguration.cs",
               "RelativeDocumentMoniker": "Persistance\\EntityFrameworkConfiguration\\QuestionsConfiguration.cs",
@@ -411,7 +594,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 34,
               "Title": "ProgressUserConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\EntityFrameworkConfiguration\\ProgressUserConfiguration.cs",
               "RelativeDocumentMoniker": "Persistance\\EntityFrameworkConfiguration\\ProgressUserConfiguration.cs",
@@ -423,7 +606,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 35,
               "Title": "ModuleConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\EntityFrameworkConfiguration\\ModuleConfiguration.cs",
               "RelativeDocumentMoniker": "Persistance\\EntityFrameworkConfiguration\\ModuleConfiguration.cs",
@@ -435,7 +618,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 36,
               "Title": "AnswersUserConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\EntityFrameworkConfiguration\\AnswersUserConfiguration.cs",
               "RelativeDocumentMoniker": "Persistance\\EntityFrameworkConfiguration\\AnswersUserConfiguration.cs",
@@ -447,7 +630,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 37,
               "Title": "AnswerConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\EntityFrameworkConfiguration\\AnswerConfiguration.cs",
               "RelativeDocumentMoniker": "Persistance\\EntityFrameworkConfiguration\\AnswerConfiguration.cs",
@@ -459,7 +642,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 39,
               "Title": "MatherialConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\EntityFrameworkConfiguration\\MatherialConfiguration.cs",
               "RelativeDocumentMoniker": "Persistance\\EntityFrameworkConfiguration\\MatherialConfiguration.cs",
@@ -471,7 +654,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 38,
               "Title": "CourseConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\EntityFrameworkConfiguration\\CourseConfiguration.cs",
               "RelativeDocumentMoniker": "Persistance\\EntityFrameworkConfiguration\\CourseConfiguration.cs",
@@ -483,7 +666,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 40,
               "Title": "DeleteAnswerCommand.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Answers\\DeleteAnswer\\DeleteAnswerCommand.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Commands\\Answers\\DeleteAnswer\\DeleteAnswerCommand.cs",
@@ -495,7 +678,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 41,
               "Title": "DeleteAnswerCommandHandler.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Answers\\DeleteAnswer\\DeleteAnswerCommandHandler.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Commands\\Answers\\DeleteAnswer\\DeleteAnswerCommandHandler.cs",
@@ -507,31 +690,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 5,
               "Title": "PasswordHasherServise.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\PasswordHasherServise.cs",
               "RelativeDocumentMoniker": "CourseWebApi\\Servises\\PasswordHasherServise.cs",
               "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\PasswordHasherServise.cs",
               "RelativeToolTip": "CourseWebApi\\Servises\\PasswordHasherServise.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T17:36:07.198Z"
+              "WhenOpened": "2026-01-02T17:36:07.198Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 17,
               "Title": "GetAllCourseQuery.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Courses\\GetCourseList\\GetAllCourseQuery.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Queries\\Courses\\GetCourseList\\GetAllCourseQuery.cs",
               "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Courses\\GetCourseList\\GetAllCourseQuery.cs",
               "RelativeToolTip": "Application\\Common\\Queries\\Courses\\GetCourseList\\GetAllCourseQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-02T11:54:37.298Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 42,
               "Title": "GetDetailsCourseQueryHandler.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Courses\\GetCourse\\GetDetailsCourseQueryHandler.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Queries\\Courses\\GetCourse\\GetDetailsCourseQueryHandler.cs",
@@ -543,7 +727,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 43,
               "Title": "GetDetailsCourseQuery.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Courses\\GetCourse\\GetDetailsCourseQuery.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Queries\\Courses\\GetCourse\\GetDetailsCourseQuery.cs",
@@ -555,7 +739,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 44,
               "Title": "GetDetailsQuestionQueryHandler.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Questions\\GetQuestions\\GetDetailsQuestionQueryHandler.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Queries\\Questions\\GetQuestions\\GetDetailsQuestionQueryHandler.cs",
@@ -567,7 +751,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 46,
               "Title": "GetAllQuestionQueryHandler.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Questions\\GetQuestionList\\GetAllQuestionQueryHandler.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Queries\\Questions\\GetQuestionList\\GetAllQuestionQueryHandler.cs",
@@ -579,7 +763,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 45,
               "Title": "GetAllQuestionQuery.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Questions\\GetQuestionList\\GetAllQuestionQuery.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Queries\\Questions\\GetQuestionList\\GetAllQuestionQuery.cs",
@@ -591,7 +775,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 15,
               "Title": "CourseController.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\CourseController.cs",
               "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\CourseController.cs",
@@ -603,7 +787,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 47,
               "Title": "DeleteUserCommand.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\DeteleUser\\DeleteUserCommand.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Commands\\Users\\DeteleUser\\DeleteUserCommand.cs",
@@ -615,7 +799,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 48,
               "Title": "DeleteUserCommandValidator.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\DeteleUser\\DeleteUserCommandValidator.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Commands\\Users\\DeteleUser\\DeleteUserCommandValidator.cs",
@@ -627,19 +811,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 2,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\UserController.cs",
               "RelativeToolTip": "CourseWebApi\\Controllers\\UserController.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAawD4AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAuwEcAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T09:54:18.894Z"
+              "WhenOpened": "2026-01-02T09:54:18.894Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 50,
               "Title": "UpdateCourseDto.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Models\\Course\\UpdateCourseDto.cs",
               "RelativeDocumentMoniker": "CourseWebApi\\Models\\Course\\UpdateCourseDto.cs",
@@ -651,7 +836,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 49,
               "Title": "DeleteUserCommandHandler.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\DeteleUser\\DeleteUserCommandHandler.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Commands\\Users\\DeteleUser\\DeleteUserCommandHandler.cs",
@@ -663,15 +848,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 7,
               "Title": "JwtTokenServise.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\JwtTokenServise.cs",
               "RelativeDocumentMoniker": "CourseWebApi\\Servises\\JwtTokenServise.cs",
               "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\JwtTokenServise.cs",
               "RelativeToolTip": "CourseWebApi\\Servises\\JwtTokenServise.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAowE0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-30T13:37:33.963Z"
+              "WhenOpened": "2025-12-30T13:37:33.963Z",
+              "EditorCaption": ""
             }
           ]
         }

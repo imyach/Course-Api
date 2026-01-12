@@ -22,6 +22,9 @@ namespace Application.Common.Commands.ProgressUsers.CreateProgressUser
                 FineshedAt = null,
             };
 
+            if(context.ProgressUsers.Any(pu => pu.UserId== progressUser.UserId && pu.CourseId == progressUser.CourseId))
+                return Guid.Empty;
+
             await context.ProgressUsers.AddAsync(progressUser, cancellationToken);
             await context.SaveChangesAsync(cancellationToken);
 

@@ -969,6 +969,33 @@
         "tags": [
           "ProgressUser"
         ],
+        "parameters": [
+          {
+            "name": "searchText",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1334,6 +1361,21 @@
               "type": "integer",
               "format": "int32",
               "default": 10
+            }
+          },
+          {
+            "name": "sortAscending",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -1917,6 +1959,37 @@
   },
   "components": {
     "schemas": {
+      "Answer": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "questionId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "isCorrect": {
+            "type": "boolean"
+          },
+          "question": {
+            "$ref": "#/components/schemas/Question"
+          },
+          "answersUsers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnswersUser"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "AnswerListVm": {
         "type": "object",
         "properties": {
@@ -1950,6 +2023,30 @@
         },
         "additionalProperties": false
       },
+      "AnswersUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "answerId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "answer": {
+            "$ref": "#/components/schemas/Answer"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        },
+        "additionalProperties": false
+      },
       "AnswersUserListVm": {
         "type": "object",
         "properties": {
@@ -1975,6 +2072,72 @@
           },
           "answer": {
             "$ref": "#/components/schemas/AnswerLookupDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Course": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updateAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "rait": {
+            "type": "number",
+            "format": "double"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "progressUsers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgressUser"
+            },
+            "nullable": true
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Review"
+            },
+            "nullable": true
+          },
+          "modules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Module"
+            },
+            "nullable": true
+          },
+          "tests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Test"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2266,6 +2429,42 @@
         },
         "additionalProperties": false
       },
+      "Matherial": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "moduleId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "module": {
+            "$ref": "#/components/schemas/Module"
+          },
+          "tests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Test"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "MatherialListVm": {
         "type": "object",
         "properties": {
@@ -2300,6 +2499,42 @@
           },
           "module": {
             "$ref": "#/components/schemas/ModuleLookupDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Module": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "courseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "course": {
+            "$ref": "#/components/schemas/Course"
+          },
+          "matherials": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Matherial"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2342,6 +2577,43 @@
         },
         "additionalProperties": false
       },
+      "ProgressUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "courseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fineshedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "course": {
+            "$ref": "#/components/schemas/Course"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        },
+        "additionalProperties": false
+      },
       "ProgressUserListVm": {
         "type": "object",
         "properties": {
@@ -2380,6 +2652,41 @@
           },
           "user": {
             "$ref": "#/components/schemas/UserLookupDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Question": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "testId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "test": {
+            "$ref": "#/components/schemas/Test"
+          },
+          "answers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Answer"
+            },
+            "nullable": true
+          },
+          "answersUsers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnswersUser"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2427,6 +2734,35 @@
         },
         "additionalProperties": false
       },
+      "RefreshToken": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "resreshToken": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "expiresIn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        },
+        "additionalProperties": false
+      },
       "RegistrationDto": {
         "required": [
           "login",
@@ -2454,6 +2790,42 @@
           "phoneNumber": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Review": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "courseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "rait": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "course": {
+            "$ref": "#/components/schemas/Course"
           }
         },
         "additionalProperties": false
@@ -2499,6 +2871,31 @@
         },
         "additionalProperties": false
       },
+      "Role": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "roleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "RoleListVm": {
         "type": "object",
         "properties": {
@@ -2526,6 +2923,47 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Test": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "matherialId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "cousreId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "course": {
+            "$ref": "#/components/schemas/Course"
+          },
+          "matherial": {
+            "$ref": "#/components/schemas/Matherial"
+          },
+          "questions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Question"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2743,11 +3181,12 @@
       },
       "UpdateUserDto": {
         "required": [
+          "email",
           "id",
           "login",
           "nameUser",
-          "password",
-          "roleId"
+          "phoneNumber",
+          "role"
         ],
         "type": "object",
         "properties": {
@@ -2764,19 +3203,90 @@
             "type": "string"
           },
           "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "email": {
             "minLength": 1,
             "type": "string"
           },
-          "roleId": {
+          "phoneNumber": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
             "type": "string",
             "format": "uuid"
+          },
+          "nameUser": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "nullable": true
           },
           "email": {
             "type": "string",
             "nullable": true
           },
+          "hashPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
           "phoneNumber": {
             "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "refreshToken": {
+            "$ref": "#/components/schemas/RefreshToken"
+          },
+          "courses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Course"
+            },
+            "nullable": true
+          },
+          "progressUsers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgressUser"
+            },
+            "nullable": true
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Review"
+            },
+            "nullable": true
+          },
+          "answersUsers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnswersUser"
+            },
             "nullable": true
           }
         },
