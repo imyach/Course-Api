@@ -20,6 +20,9 @@
     <Compile Update="UI\Elements\ReviewPanelElement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UI\Elements\UserPanelElement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\AllCoursePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

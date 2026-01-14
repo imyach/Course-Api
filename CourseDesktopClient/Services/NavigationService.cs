@@ -22,7 +22,7 @@ namespace CourseDesktopClient.Services
             {
                 if (Application.Current.MainWindow?.DataContext is MainWindowVm mainVm)
                 {
-                    vm.SearchCourse = mainVm.SearchCourse;
+                    vm.SearchCourse = mainVm.Search;
                 }
                 await vm.Update();
             }
@@ -48,7 +48,7 @@ namespace CourseDesktopClient.Services
             {
                 if (Application.Current.MainWindow?.DataContext is MainWindowVm mainVm)
                 {
-                    vm.SearchProgressCourse = mainVm.SearchCourse;
+                    vm.SearchProgressCourse = mainVm.Search;
                 }
                 await vm.Update();
             }
@@ -62,7 +62,7 @@ namespace CourseDesktopClient.Services
             {
                 if (Application.Current.MainWindow?.DataContext is MainWindowVm mainVm)
                 {
-                    vm.SearchUsers = mainVm.SearchCourse;
+                    vm.SearchUsers = mainVm.Search;
                 }
                 await vm.Update();
             }

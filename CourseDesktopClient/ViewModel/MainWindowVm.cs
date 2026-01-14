@@ -24,13 +24,13 @@ namespace CourseDesktopClient.ViewModel
             });
         }
 
-        private string _searchCourse = string.Empty;
-        public string SearchCourse
+        private string _search = string.Empty;
+        public string Search
         {
-            get => _searchCourse;
+            get => _search;
             set
             {
-                if (SetProperty(ref _searchCourse, value))
+                if (SetProperty(ref _search, value))
                 {
                     if (CurrentView is AllCoursePage coursePage &&
                         coursePage.DataContext is AllCoursePageVm courseVm )
@@ -41,6 +41,11 @@ namespace CourseDesktopClient.ViewModel
                        myCoursesPage.DataContext is MyCoursePageVm myCoursesVm)
                     {
                         myCoursesVm.SearchProgressCourse = value;
+                    }
+                    else if (CurrentView is AllUsersPage userPage &&
+                       userPage.DataContext is AllUsersPageVm userVm)
+                    {
+                        userVm.SearchUsers = value;
                     }
 
                 }

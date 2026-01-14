@@ -1,7 +1,15 @@
-﻿using CourseDesktopClient.Interfaces;
+﻿using CourseDesktopClient.Api.Client;
+using CourseDesktopClient.Interfaces;
+using CourseDesktopClient.Models;
+using CourseDesktopClient.Models.DtosModel.Entities;
+using CourseDesktopClient.Services;
+using CourseDesktopClient.UI.Elements.ElementVM;
+using CourseDesktopClient.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
 
 namespace CourseDesktopClient.ViewModel
 {
@@ -10,14 +18,45 @@ namespace CourseDesktopClient.ViewModel
         private string _searchProgressCourse = string.Empty;
         public string SearchUsers { get { return _searchProgressCourse; } set { _searchProgressCourse = value; SetProperty(ref _searchProgressCourse, value); Update(); } }
 
-        public AllUsersPageVm(INavigationService navigationService):base(navigationService)
+        private IList<UserPanelElementVm>? _getUsers;
+        public IList<UserPanelElementVm>? GetUsers { get => _getUsers; set { _getUsers = value; OnPropertyChanged(nameof(GetUsers)); } }
+        private ObservableCollection<ButtonItem>? _buttonPanel = [];
+        public ObservableCollection<ButtonItem>? ButtonPanel { get => _buttonPanel; set { _buttonPanel = value; OnPropertyChanged(nameof(ButtonPanel)); } }
+
+        private readonly ICourseApiClient courseApiClient;
+        private readonly IPagerService pagerService;
+        private readonly IAuthService authService;
+
+        public ICommand PagerCommand { get; set; }
+
+        public AllUsersPageVm(INavigationService navigationService, ICourseApiClient courseApiClient, IAuthService authService, IPagerService pagerService) :base(navigationService)
         {
-            
+            this.courseApiClient = courseApiClient;
+            this.authService = authService;
+            this.pagerService = pagerService;
+
+            PagerCommand = new RelayCommand(async pageNumberStr =>
+            {
+                if (int.TryParse((pageNumberStr as ButtonItem).Text, out int pageNumber))
+                {
+                    Update(pageNumber);
+
+                }
+            });
         }
 
-        public async Task Update()
+        public async Task Update(int pageNumber = 1)
         {
+            var (users, pager) = await courseApiClient.GetUsersAsync(pageNumber,searchText:SearchUsers);
+            var usersVm = users.Users.Select(x => new UserPanelElementVm(x, authService.CurrentUser)).ToList();
 
+            GetUsers = usersVm;
+            GenerateButtonPanel(pager);
+        }
+        private void GenerateButtonPanel(PagerInfoDto pager)
+        {
+            var newButtonPanel = pagerService.GeneratePagerPanel(pager, PagerCommand);
+            ButtonPanel = new ObservableCollection<ButtonItem>(newButtonPanel);
         }
     }
 }

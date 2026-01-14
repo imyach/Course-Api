@@ -178,5 +178,16 @@ namespace CourseDesktopClient.Api.Client
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadFromJsonAsync<TokensDto>(jsonOptions, ct);
         }
+        public async Task<(UsersDto, PagerInfoDto)> GetUsersAsync(int pageNumber = 1, int pageSize = 20, string searchText = null, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_USERS + $"?searchText={searchText}&pageSize={pageSize}&pageNumber={pageNumber}", ct);
+            response.EnsureSuccessStatusCode();
+
+            var dataArray = await response.Content.ReadFromJsonAsync<JsonElement[]>(jsonOptions, ct);
+            var users = JsonSerializer.Deserialize<UsersDto>(dataArray[0]);
+            var pagerInfo = JsonSerializer.Deserialize<PagerInfoDto>(dataArray[1]);
+
+            return (users, pagerInfo);
+        }
     }
 }

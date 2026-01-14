@@ -18,7 +18,7 @@
                 <WrapPanel Visibility="{Binding VisibilitySearch}">
                     <TextBlock Text="Поиск"   />
                     <TextBox Width="150" Height="14" Margin="3 0 0 0" 
-         Text="{Binding SearchCourse, UpdateSourceTrigger=PropertyChanged}"/>
+         Text="{Binding Search, UpdateSourceTrigger=PropertyChanged}"/>
                 </WrapPanel>
                 <TextBlock Text="Курсы" HorizontalAlignment="Right" Cursor="Hand" VerticalAlignment="Center" Margin=" 10 0 30 0">
                      <i:Interaction.Triggers>

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\App.xaml
-13-1964638184
+141869765050
 
-621903062550
+64-705549008
 2161419743578
-MainWindow.xaml;UI\Elements\CoursePanelElement.xaml;UI\Elements\CreateReveiwsElement.xaml;UI\Elements\MyCoursePanelElement.xaml;UI\Elements\RatingStarsControl.xaml;UI\Elements\ReviewPanelElement.xaml;View\AllCoursePage.xaml;View\AllUsersPage.xaml;View\CourseInformationPage.xaml;View\LoginPage.xaml;View\MyCoursePage.xaml;View\ProfilePage.xaml;View\RegisterPage.xaml;
+MainWindow.xaml;UI\Elements\CoursePanelElement.xaml;UI\Elements\CreateReveiwsElement.xaml;UI\Elements\MyCoursePanelElement.xaml;UI\Elements\RatingStarsControl.xaml;UI\Elements\ReviewPanelElement.xaml;UI\Elements\UserPanelElement.xaml;View\AllCoursePage.xaml;View\AllUsersPage.xaml;View\CourseInformationPage.xaml;View\LoginPage.xaml;View\MyCoursePage.xaml;View\ProfilePage.xaml;View\RegisterPage.xaml;
 
 False
 

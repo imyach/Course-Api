@@ -1,4 +1,4 @@
-﻿C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\GeneratedInternalTypeHelper.g.cs
+﻿
 
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\MainWindow.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CoursePanelElement.xaml;;
@@ -13,4 +13,5 @@ FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\LoginPage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\MyCoursePage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\ProfilePage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\RegisterPage.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\UserPanelElement.xaml;;
 

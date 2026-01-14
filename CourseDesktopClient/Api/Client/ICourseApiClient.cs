@@ -20,6 +20,7 @@ namespace CourseDesktopClient.Api.Client
         Task<UserDto> GetUserProfileAsync(Guid id, CancellationToken ct = default);
         Task<HttpStatusCode> DeleteProfileAsync(CancellationToken ct = default);
         Task<TokensDto> UpdateUserAsync(UpdateUserRequestDto userDto, CancellationToken ct = default);
+        Task<(UsersDto, PagerInfoDto)> GetUsersAsync(int pageNumber = 1, int pageSize = 20, string searchText = null, CancellationToken ct = default);
 
         //COURSE
         Task<(CoursesDto?, PagerInfoDto?)> GetCoursesAsync(int pageNumber = 1, int pageSize = 10, string searchText= null, CancellationToken ct = default);
