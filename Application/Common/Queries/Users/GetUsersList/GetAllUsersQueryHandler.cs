@@ -1,4 +1,6 @@
-﻿using Application.Common.Dtos.Users;
+﻿using Application.Common.Dtos;
+using Application.Common.Dtos.Courses;
+using Application.Common.Dtos.Users;
 using Application.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -10,16 +12,36 @@ using System.Text;
 
 namespace Application.Common.Queries.Users.GetUsersList
 {
-    public class GetAllUsersQueryHandler(IMapper mapper, ICoursesDbContext context) : IRequestHandler<GetAllUsersQuery, UsersListVm>
+    public class GetAllUsersQueryHandler(IMapper mapper, ICoursesDbContext context) : IRequestHandler<GetAllUsersQuery, object[]>
     {
-        public async Task<UsersListVm> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
+        public async Task<object[]> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
         {
-            var usersQuery = await context.Users
-                .Include(u => u.Role)
+            var query = context.Users
+               .Include(u => u.Role).AsQueryable();
+
+            if (!string.IsNullOrEmpty(request.SearchText))
+            {
+                query = query.Where(x => x.NameUser.Contains(request.SearchText));
+            }
+
+
+            var totalItems = await query.CountAsync(cancellationToken);
+            var totalPages = (int)Math.Ceiling(totalItems / (double)request.PageSize);
+
+            var users = await query
+                .OrderBy(x => x.Id)
+                .Skip((request.PageNumber - 1) * request.PageSize)
+                .Take(request.PageSize)
                 .ProjectTo<UserLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
-            return new UsersListVm { Users =  usersQuery };
+            return
+            [ new UsersListVm { Users = users },
+              new PagerInfoDto{ TotalItems = totalItems,
+                TotalPages = totalPages,
+                PageSize = request.PageSize,
+                PageNumber = request.PageNumber}
+            ];
         }
     }
 }

@@ -18,10 +18,13 @@ namespace CourseWebApi.Controllers
     {
         [HttpGet("All")]
         [Authorize(Roles = "Couch,Student,Admin")]
-        public async Task<ActionResult<UsersListVm>> GetAll()
+        public async Task<ActionResult<UsersListVm>> GetAll([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10, [FromQuery] string? searchText = null)
         {
             var query = new GetAllUsersQuery()
             {
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                SearchText = searchText
             };
 
             var vm = await Mediator.Send(query);
