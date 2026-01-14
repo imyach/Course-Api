@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Application.Common.Commands.Users.UpdateUser
 {
-    public class UpdateUserForAdminCommandHandler(ICoursesDbContext context, IJwtTokenServise tokenServise, IPasswordHasherServise passwordHasher) : IRequestHandler<UpdateUserCommand, TokensDto?>
+    public class UpdateUserCommandHandler(ICoursesDbContext context, IJwtTokenServise tokenServise, IPasswordHasherServise passwordHasher) : IRequestHandler<UpdateUserCommand, TokensDto?>
     {
         public async Task<TokensDto?> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {

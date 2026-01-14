@@ -1,6 +1,7 @@
 ﻿using Application.Common.Dtos.Auth;
 using Application.Common.Exceptions;
 using Application.Interfaces;
+using Domain.Model;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -18,7 +19,7 @@ namespace CourseWebApi.Servises
     {
         string SECRET_KEY = configuration["SECRET_KEY"];
         public TimeSpan ExpiryDuration = new(0, 15, 0);
-        private async Task<string> GenerateJwtToken(User user, CancellationToken cancellationToken = default) 
+        private async Task<string> GenerateJwtToken(User user, CancellationToken cancellationToken = default)
         {
 
             var role = await context.Roles.FindAsync([user.RoleId], cancellationToken);
@@ -46,20 +47,8 @@ namespace CourseWebApi.Servises
 
         public async Task<Guid> GenerateRefreshToken(User user, CancellationToken cancellationToken = default)
         {
-           var entity = await context.RefreshTokens.FirstOrDefaultAsync(x=>x.UserId == user.Id, cancellationToken);
 
-           if (entity is not null) 
-            { 
-                entity.ResreshToken = Guid.NewGuid();
-                entity.CreatedAt = DateTime.UtcNow;
-                entity.ExpiresIn = DateTime.UtcNow.AddDays(30);
-
-                await context.SaveChangesAsync(cancellationToken);
-
-                return entity.ResreshToken;
-            }
-
-
+            // СОЗДАЕМ новый Refresh Token
             var newToken = new RefreshToken
             {
                 Id = Guid.NewGuid(),
@@ -68,6 +57,7 @@ namespace CourseWebApi.Servises
                 CreatedAt = DateTime.UtcNow,
                 ExpiresIn = DateTime.UtcNow.AddDays(30)
             };
+
             await context.RefreshTokens.AddAsync(newToken, cancellationToken);
             await context.SaveChangesAsync(cancellationToken);
 
@@ -78,6 +68,8 @@ namespace CourseWebApi.Servises
 
         public async Task<TokensDto> GenerateTokens(User user)
         {
+            await DeleteResreshToken(user);
+
             var refreshToken = await GenerateRefreshToken(user);
             var accessToken = await GenerateJwtToken(user);
 
@@ -87,12 +79,15 @@ namespace CourseWebApi.Servises
 
         public async Task DeleteResreshToken(User user, CancellationToken cancellationToken = default)
         {
-            var entity = await context.RefreshTokens.FirstOrDefaultAsync(x => x.UserId == user.Id, cancellationToken);
-            if (entity is not null)
+            var tokens = await context.RefreshTokens
+                .Where(rt => rt.UserId == user.Id)
+                .ToListAsync(cancellationToken);
+            if (tokens is not null)
             {
-                context.RefreshTokens.Remove(entity);
+                context.RefreshTokens.RemoveRange(tokens);
                 await context.SaveChangesAsync(cancellationToken);
             }
         }
+
     }
 }

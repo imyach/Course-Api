@@ -27,6 +27,9 @@ namespace Application.Common.Commands.Auth.Refresh
             if (user is null)
                 return null;
 
+            context.RefreshTokens.Remove(token);
+            await context.SaveChangesAsync(cancellationToken);
+
             return await tokenService.GenerateTokens(user);
         }
     }

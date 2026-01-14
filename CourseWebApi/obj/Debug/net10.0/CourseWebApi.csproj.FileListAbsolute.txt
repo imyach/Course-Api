@@ -861,3 +861,4 @@ C:\Users\Artem\Desktop\serv\CourseWebApi\obj\Debug\net10.0\refint\CourseWebApi.d
 C:\Users\Artem\Desktop\serv\CourseWebApi\obj\Debug\net10.0\CourseWebApi.pdb
 C:\Users\Artem\Desktop\serv\CourseWebApi\obj\Debug\net10.0\CourseWebApi.genruntimeconfig.cache
 C:\Users\Artem\Desktop\serv\CourseWebApi\obj\Debug\net10.0\ref\CourseWebApi.dll
+C:\Users\Artem\Desktop\serv\CourseWebApi\obj\Debug\net10.0\CourseWebApi.MvcApplicationPartsAssemblyInfo.cs
