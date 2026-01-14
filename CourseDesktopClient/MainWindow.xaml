@@ -34,6 +34,13 @@
                        </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </TextBlock>
+                <TextBlock Text="Пользователи" Cursor="Hand" Visibility="{Binding VisibilityInAuthorizedProfile}"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin=" 0 0 30 0">
+                    <i:Interaction.Triggers>
+                       <i:EventTrigger EventName="MouseLeftButtonUp">
+                           <i:InvokeCommandAction Command="{Binding UsersPageCommand}"/>
+                       </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBlock>
             </WrapPanel>
 
 

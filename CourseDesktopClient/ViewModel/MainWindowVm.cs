@@ -108,7 +108,7 @@ namespace CourseDesktopClient.ViewModel
         {
             if (Application.Current.MainWindow.DataContext is MainWindowVm mainWindowVm)
             {
-                VisibilitySearch = mainWindowVm.CurrentView is AllCoursePage or MyCoursePage
+                VisibilitySearch = mainWindowVm.CurrentView is AllCoursePage or MyCoursePage or AllUsersPage
                     ? Visibility.Visible 
                     : Visibility.Collapsed;
                 

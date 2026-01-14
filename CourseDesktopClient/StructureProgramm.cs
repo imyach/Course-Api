@@ -51,6 +51,7 @@ namespace CourseDesktopClient
             services.AddTransient<CourseInformationPageVm>();
             services.AddTransient<ProfilePageVm>();
             services.AddTransient<AllCoursePageVm>();
+            services.AddTransient<AllUsersPageVm>();
             services.AddTransient<MyCoursePageVm>();
             services.AddTransient<RegisterPageVm>();
 
@@ -91,6 +92,11 @@ namespace CourseDesktopClient
             {
                 var myCoursePageVm = provider.GetRequiredService<MyCoursePageVm>();
                 return new MyCoursePage { DataContext = myCoursePageVm };
+            });
+            services.AddTransient(provider =>
+            {
+                var AllUsersPageVm = provider.GetRequiredService<AllUsersPageVm>();
+                return new AllUsersPage { DataContext = AllUsersPageVm };
             });
 
 

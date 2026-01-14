@@ -6,6 +6,7 @@ using CourseDesktopClient.Models.DtosModel.Auth;
 using CourseDesktopClient.Models.DtosModel.Entities;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -141,11 +142,11 @@ namespace CourseDesktopClient.Services
             {
                 var tokens = await apiClient.UpdateUserAsync(userDto, ct);
 
-                if (tokens is not null) 
+                if (tokens is not null)
                 {
-                    await tokenService.SaveTokensAsync(tokens.AccessToken,tokens.RefreshToken,IsRememberProfile);
+                    await tokenService.SaveTokensAsync(tokens.AccessToken, tokens.RefreshToken, IsRememberProfile);
 
-                    var (accessToken, _) = await tokenService.GetTokensAsync();
+                    var (accessToken, refreshToken) = await tokenService.GetTokensAsync();
 
                     var currentUser = await tokenService.GetCurrentUserInfoAsync(accessToken);
                     var userProfile = await apiClient.GetUserProfileAsync(Guid.Parse(currentUser.Id));

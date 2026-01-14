@@ -54,7 +54,20 @@ namespace CourseDesktopClient.Services
             }
             NavigateTo(myCoursePage);
         }
+        public async void NavigateToUsers()
+        {
+            var allUsersPage = serviceProvider.GetRequiredService<AllUsersPage>();
 
+            if (allUsersPage.DataContext is AllUsersPageVm vm)
+            {
+                if (Application.Current.MainWindow?.DataContext is MainWindowVm mainVm)
+                {
+                    vm.SearchUsers = mainVm.SearchCourse;
+                }
+                await vm.Update();
+            }
+            NavigateTo(allUsersPage);
+        }
         public void NavigateToLogin()
         {
             var loginPage = serviceProvider.GetRequiredService<LoginPage>();
@@ -77,6 +90,8 @@ namespace CourseDesktopClient.Services
             var registerPage = serviceProvider.GetRequiredService<RegisterPage>();
             NavigateTo(registerPage);
         }
+
+
 
         public bool CanGoBack => _navigationStack.Count > 1;
 
@@ -116,5 +131,7 @@ namespace CourseDesktopClient.Services
         {
             _navigationStack.Clear();
         }
+
+
     }
 }

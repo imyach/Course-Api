@@ -11,6 +11,7 @@ namespace CourseDesktopClient.Interfaces
         void NavigateToCourses();
         void NavigateToMyCourses();
         void NavigateToProfile();
+        void NavigateToUsers();
         void NavigateToInformationCourse(Guid Id);
 
 

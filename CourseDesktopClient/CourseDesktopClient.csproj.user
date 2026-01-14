@@ -23,6 +23,9 @@
     <Compile Update="View\AllCoursePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\AllUsersPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\CourseInformationPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
