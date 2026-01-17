@@ -103,6 +103,7 @@
                                 RelativeSource={RelativeSource 
                                 AncestorType=UserControl, 
                                 AncestorLevel=2}}"
+                        
                         CommandParameter="{Binding}"
                         Padding="12,6"
                         Margin="0,0,8,0"/>
@@ -112,8 +113,21 @@
                                 RelativeSource={RelativeSource 
                                 AncestorType=UserControl, 
                                 AncestorLevel=2}}"
+                         
                         CommandParameter="{Binding}"
-                        Padding="12,6"/>
+                        Padding="12,6">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsEnrolled}" Value="True">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
             </StackPanel>
         </Grid>
     </Border>

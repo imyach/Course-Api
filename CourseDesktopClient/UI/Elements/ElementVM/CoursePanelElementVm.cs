@@ -1,17 +1,18 @@
 ﻿using CourseDesktopClient.Api.Client;
+using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Models.DtosModel.Entities;
 using CourseDesktopClient.Models.DtosModel.EntitiesLists;
+using CourseDesktopClient.Services;
 using CourseDesktopClient.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 
 namespace CourseDesktopClient.UI.Elements.ElementVM
 {
     public class CoursePanelElementVm : ViewModelBase
     {
-        private readonly ICourseApiClient courseApiClient;
-
         public string Title  { get; set; }
         public string? Description { get; set; }
         public Guid Id { get; set; }
@@ -27,8 +28,14 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
             set => SetProperty(ref _reviewsCount, value);
         }
 
+        private bool _isEnrolled = false;
+        public bool IsEnrolled
+        {
+            get => _isEnrolled;
+            set => SetProperty(ref _isEnrolled, value);
+        }
 
-        public CoursePanelElementVm(CourseDto courseDto, ICourseApiClient courseApiClient)
+        public CoursePanelElementVm(CourseDto courseDto, ICourseApiClient courseApiClient, ProgressUsersDto? progress, IAuthService? authService)
         {
             Title = courseDto.Title;
             Description = courseDto.Description;
@@ -44,7 +51,8 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
                 ReviewsCount = pager.TotalItems;
             });
             
-            }
-
+            if(progress != null && authService != null)
+                IsEnrolled = progress.ProgressUsers?.Any(pu=> pu.Course.Id == Id && pu.User.Id == authService.CurrentUser.Id) ?? false;
+        }
     }
 }

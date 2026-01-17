@@ -73,6 +73,16 @@ namespace CourseDesktopClient.ViewModel
                 OnPropertyChanged();
             }
         }
+        private string _usersText = string.Empty;
+        public string UsersText
+        {
+            get { return _usersText; }
+            set
+            {
+                _usersText = value;
+                OnPropertyChanged();
+            }
+        }
         private Visibility _visibilitySearch;
         public Visibility VisibilitySearch
         {
@@ -105,6 +115,16 @@ namespace CourseDesktopClient.ViewModel
                 OnPropertyChanged();
             }
         }
+        private Visibility _visibleControlPanel;
+        public Visibility VisibleControlPanel
+        {
+            get { return _visibleControlPanel; }
+            set
+            {
+                _visibleControlPanel = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         public ICommand LogOutCommand {  get; set; }
@@ -113,21 +133,28 @@ namespace CourseDesktopClient.ViewModel
         {
             if (Application.Current.MainWindow.DataContext is MainWindowVm mainWindowVm)
             {
+                if (authService.IsAuthenticated)
+                {
+                    UsersText = authService.CurrentUser.Role.Name is "Admin"
+                        ? "Управление пользователями"
+                        : "Пользователи";
+                }
+
                 VisibilitySearch = mainWindowVm.CurrentView is AllCoursePage or MyCoursePage or AllUsersPage
-                    ? Visibility.Visible 
+                    ? Visibility.Visible
                     : Visibility.Collapsed;
-                
+
                 VisibilitySignInButton = !authService.IsAuthenticated && mainWindowVm.CurrentView is not LoginPage and not RegisterPage
-                    ? Visibility.Visible 
+                    ? Visibility.Visible
                     : Visibility.Collapsed;
 
                 VisibilityInAuthorizedProfile = authService.IsAuthenticated && mainWindowVm.CurrentView is not LoginPage and not RegisterPage
-                    ? Visibility.Visible 
+                    ? Visibility.Visible
                     : Visibility.Collapsed;
 
-                UserName = authService.IsAuthenticated 
-                    ? authService.CurrentUser.NameUser
-                    : string.Empty;
+                UserName = authService.IsAuthenticated
+                   ? authService.CurrentUser.NameUser
+                   : string.Empty;
             }
         }
     }

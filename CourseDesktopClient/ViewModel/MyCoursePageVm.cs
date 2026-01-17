@@ -42,7 +42,6 @@ namespace CourseDesktopClient.ViewModel
             {
                 if (MessageBox.Show("Вы действительно хотите удавлить прогресс?", "Предупреждение!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-
                     var idProgerssUser = (button as MyCoursePanelElementVm).Id;
 
                     await courseApiClient.DeleteProgressUserAsync(idProgerssUser);

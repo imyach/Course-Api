@@ -2,12 +2,14 @@
 using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Models;
 using CourseDesktopClient.Models.DtosModel.Entities;
+using CourseDesktopClient.Models.DtosModel.Entities.RequestDto;
 using CourseDesktopClient.Services;
 using CourseDesktopClient.UI.Elements.ElementVM;
 using CourseDesktopClient.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Data;
@@ -74,15 +76,13 @@ namespace CourseDesktopClient.ViewModel
 
             EnrollCommand = new RelayCommand(async sender =>
             {
-                var request = new ProgressUserDto
+                var request = new ProgressUserRequestDto
                 {
                     CourseId = idCourse,
                 };
                 var id = await courseApiClient.CreateProgressUserAsync(request);
-                if (id == Guid.Empty)
-                    MessageBox.Show($"Вы уже были записаны на данный курс {id}");
-                else
                     MessageBox.Show($"Успешно {id}");
+                Update();
             });
         }
 
@@ -105,6 +105,13 @@ namespace CourseDesktopClient.ViewModel
 
         private int raitReview;
         private Guid idCourse;
+
+        private Visibility _visibleSendReview { get; set; }
+        public Visibility VisibleSendReview
+        {
+            get => _visibleSendReview;
+            set  { _visibleSendReview = value; OnPropertyChanged(); }
+        }
 
         public bool IsCurrentUserReview { get; set; } = true;
 
@@ -156,6 +163,12 @@ namespace CourseDesktopClient.ViewModel
                 }
             }
         }
+        private bool _isEnrolled = false;
+        public bool IsEnrolled
+        {
+            get => _isEnrolled;
+            set => SetProperty(ref _isEnrolled, value);
+        }
 
         public string SortDirectionSymbol => SortAscending ? "↑" : "↓";
 
@@ -204,7 +217,14 @@ namespace CourseDesktopClient.ViewModel
             Description = infoCourse.Description;
             CreatedAt = infoCourse.CreatedAt;
 
+            var (progress, _) = await courseApiClient.GetProgressUsersAsync(pageSize: int.MaxValue);
+            if (progress != null && authService != null)
+                IsEnrolled = progress.ProgressUsers?.Any(pu => pu.Course.Id == idCourse && pu.User.Id == authService.CurrentUser.Id) ?? false;
 
+            if (IsEnrolled)
+                VisibleSendReview = Visibility.Visible;
+            else VisibleSendReview = 
+                    Visibility.Collapsed;
 
             var reviewViewModels = reviews.Reviews.Select(x=> new ReviewPanelElementVm(x, authService.CurrentUser))
                 .ToList();
@@ -212,6 +232,7 @@ namespace CourseDesktopClient.ViewModel
             GetReviews = reviewViewModels;
             GenerateButtonPanel(pager);
         }
+
         private void GenerateButtonPanel(PagerInfoDto pager)
         {
             var newButtonPanel = pagerService.GeneratePagerPanel(pager, PagerCommand);

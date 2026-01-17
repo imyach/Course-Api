@@ -6,8 +6,10 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
+using System.Windows;
 
 namespace CourseDesktopClient.Api.Handlers
 {
@@ -16,16 +18,18 @@ namespace CourseDesktopClient.Api.Handlers
         private readonly HttpClient refreshHttpClient;
         private readonly SemaphoreSlim refreshLock = new(1, 1);
         private readonly ITokenService tokenService;
+        private readonly INavigationService navigationService;
         private static bool isRefreshing = false;
         public static bool isRemember = true;
 
-        public TokenHandler(ITokenService tokenService)
+        public TokenHandler(ITokenService tokenService , INavigationService navigationService)
         {
             this.tokenService = tokenService;
+            this.navigationService = navigationService;
             refreshHttpClient = new HttpClient
             {
                 BaseAddress = new Uri(ApiPaths.API_PATH),
-                Timeout = TimeSpan.FromSeconds(30)
+                Timeout = TimeSpan.FromSeconds(300)
             };
 
             refreshHttpClient.DefaultRequestHeaders.Accept.Add(
@@ -34,20 +38,31 @@ namespace CourseDesktopClient.Api.Handlers
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            await AddAccessTokenToRequestAsync(request);
-            var responce = await base.SendAsync(request, cancellationToken);
-            if (responce.StatusCode == HttpStatusCode.Unauthorized) 
+            try
             {
-                var refreshSuccess = await TryRefreshTokenAsync(cancellationToken);
-                if (refreshSuccess) 
+                await AddAccessTokenToRequestAsync(request);
+                var responce = await base.SendAsync(request, cancellationToken);
+                if (responce.StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    await AddAccessTokenToRequestAsync(request);
-                    responce = await base.SendAsync(request, cancellationToken);
+                    var refreshSuccess = await TryRefreshTokenAsync(cancellationToken);
+                    if (refreshSuccess)
+                    {
+                        await AddAccessTokenToRequestAsync(request);
+                        responce = await base.SendAsync(request, cancellationToken);
+                    }
                 }
+                return responce;
             }
-            return responce;
+            catch(HttpRequestException ex) when (ex.InnerException is SocketException)
+            {
+                navigationService.NavigateMistakePage(ex);
+                return new HttpResponseMessage(HttpStatusCode.ServiceUnavailable)
+                {
+                    Content = new StringContent("Сервер недоступен")
+                };
+            }
         }
-
+        
 
         private async Task AddAccessTokenToRequestAsync(HttpRequestMessage request)
         {

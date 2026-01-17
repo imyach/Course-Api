@@ -1,7 +1,9 @@
 ﻿using CourseDesktopClient.Api.Client;
 using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Models.DtosModel.Auth;
+using CourseDesktopClient.Models.DtosModel.Auth.RequestDto;
 using CourseDesktopClient.Models.DtosModel.Entities;
+using CourseDesktopClient.Models.DtosModel.Entities.RequestDto;
 using CourseDesktopClient.Utilities;
 using System;
 using System.Collections.Generic;
@@ -107,7 +109,6 @@ namespace CourseDesktopClient.ViewModel
                     Role = authService.CurrentUser.Role,
                 };
                     await authService.UpdateUserAsync(userDto);
-                    navigationService.NavigateToProfile();
             });
         }
 

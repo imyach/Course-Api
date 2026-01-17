@@ -3,6 +3,7 @@ using CourseDesktopClient.Api.Client;
 using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Models;
 using CourseDesktopClient.Models.DtosModel.Entities;
+using CourseDesktopClient.Models.DtosModel.Entities.RequestDto;
 using CourseDesktopClient.Models.DtosModel.EntitiesLists;
 using CourseDesktopClient.Services;
 using CourseDesktopClient.UI.Elements.ElementVM;
@@ -12,6 +13,7 @@ using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -39,16 +41,7 @@ namespace CourseDesktopClient.ViewModel
 
         private readonly ICourseApiClient courseApiClient;
         private readonly IPagerService pagerService;
-
-        public async Task LoadCoursesData( string searchText, int pageNumber)
-        {
-            var (courses, pager) = await courseApiClient.GetCoursesAsync(pageNumber, searchText: searchText);
-
-            var courseViewModel = courses.Courses.Select(x => new CoursePanelElementVm(x, courseApiClient)).ToList();
-
-            GetCourses = courseViewModel;
-            GenerateButtonPanel(pager); 
-        }
+        private readonly IAuthService authService;
 
         private void GenerateButtonPanel(PagerInfoDto pager)
         {
@@ -57,10 +50,11 @@ namespace CourseDesktopClient.ViewModel
         }
 
 
-        public AllCoursePageVm(ICourseApiClient courseApiClient, INavigationService navigationService, IPagerService pagerService) : base(navigationService)
+        public AllCoursePageVm(ICourseApiClient courseApiClient, INavigationService navigationService, IPagerService pagerService, IAuthService authService) : base(navigationService)
         {
             this.courseApiClient = courseApiClient;
             this.pagerService = pagerService;
+            this.authService = authService;
 
             PagerCommand = new RelayCommand(async pageNumberStr =>
             {
@@ -80,23 +74,33 @@ namespace CourseDesktopClient.ViewModel
             EnrollCommand = new RelayCommand(async sender => 
             {
                 var idCourse = (sender as CoursePanelElementVm).Id;
-                var request = new ProgressUserDto
+                var request = new ProgressUserRequestDto
                 {
                     CourseId = idCourse,
                 };
                 var id = await courseApiClient.CreateProgressUserAsync(request);
-                if(id == Guid.Empty)
-                    MessageBox.Show($"Вы уже были завписаны на данный курс {id}");
-                else
-                    MessageBox.Show($"Успешно {id}");
+                
+                MessageBox.Show($"Успешно {id}");
+                await Update();
             });
 
         }
-
-
         public async Task Update(int pageNumber = 1)
         {
-            await LoadCoursesData(SearchCourse, pageNumber);
+            var (courses, pager) = await courseApiClient.GetCoursesAsync(pageNumber, searchText: SearchCourse);
+
+            if (authService.IsAuthenticated)
+            {
+                var (progress, _) = await courseApiClient.GetProgressUsersAsync(pageSize: int.MaxValue);
+                var courseViewModel = courses.Courses.Select(x => new CoursePanelElementVm(x, courseApiClient, progress, authService)).ToList();
+                GetCourses = courseViewModel;
+            }
+            else
+            {
+                var courseViewModel = courses.Courses.Select(x => new CoursePanelElementVm(x, courseApiClient, null, null)).ToList();
+                GetCourses = courseViewModel;
+            }
+            GenerateButtonPanel(pager);
         }
     }
 }

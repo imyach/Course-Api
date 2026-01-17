@@ -1,4 +1,6 @@
 ﻿using CourseDesktopClient.Interfaces;
+using CourseDesktopClient.View;
+using CourseDesktopClient.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Configuration;
@@ -40,12 +42,16 @@ namespace CourseDesktopClient
 
 
             var isAuthenticated = await authService.CheckAuthOnStartupAsync();
-            if (isAuthenticated)
+            if (!((Application.Current.MainWindow as MainWindow).DataContext is MainWindowVm mainWindowVm && mainWindowVm.CurrentView is MistakePage))
             {
-                navService.NavigateToCourses();
+                if (isAuthenticated)
+                {
+                    navService.NavigateToCourses();
+                }
+                else
+                    navService.NavigateToLogin();
             }
-            else
-                navService.NavigateToLogin();
+
             mainWindow.Show();
         }
 

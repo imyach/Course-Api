@@ -146,3 +146,7 @@ C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\AllUsersPage.baml
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\UserPanelElement.g.cs
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\UserPanelElement.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\UpdateUserPasswordPage.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\UpdateUserPasswordPage.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\MistakePage.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\MistakePage.baml

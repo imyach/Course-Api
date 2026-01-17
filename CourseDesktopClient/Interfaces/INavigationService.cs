@@ -13,6 +13,9 @@ namespace CourseDesktopClient.Interfaces
         void NavigateToProfile();
         void NavigateToUsers();
         void NavigateToInformationCourse(Guid Id);
+        void NavigateToUpdateUserPassword();
+        void NavigateMistakePage(Exception exception);
+
 
 
         void GoBack();

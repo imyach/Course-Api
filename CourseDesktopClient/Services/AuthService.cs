@@ -3,6 +3,7 @@ using CourseDesktopClient.Api.Client;
 using CourseDesktopClient.Api.Handlers;
 using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Models.DtosModel.Auth;
+using CourseDesktopClient.Models.DtosModel.Auth.RequestDto;
 using CourseDesktopClient.Models.DtosModel.Entities;
 using System;
 using System.Collections.Generic;
@@ -136,6 +137,28 @@ namespace CourseDesktopClient.Services
             IsAuthenticated = false;
         }
 
+        public async Task UpdateUserPasswordAsync(UpdateUserRequestDto userDto, CancellationToken ct = default)
+        {
+            if (MessageBox.Show("Вы действительно хотите изменить пароль?", "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                var tokens = await apiClient.UpdateUserAsync(userDto, ct);
+
+                if (tokens is not null)
+                {
+                    await tokenService.SaveTokensAsync(tokens.AccessToken, tokens.RefreshToken, IsRememberProfile);
+
+                    var (accessToken, refreshToken) = await tokenService.GetTokensAsync();
+
+                    var currentUser = await tokenService.GetCurrentUserInfoAsync(accessToken);
+                    var userProfile = await apiClient.GetUserProfileAsync(Guid.Parse(currentUser.Id));
+
+                    CurrentUser = userProfile;
+                    navigationService.NavigateToProfile();
+                }
+                else 
+                    MessageBox.Show("Вы ввели неверный пароль", "Ошибка", MessageBoxButton.OK);
+            }
+        }
         public async Task UpdateUserAsync(UpdateUserRequestDto userDto, CancellationToken ct = default)
         {
             if (MessageBox.Show("Вы действительно хотите изменить профиль?", "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
@@ -152,6 +175,8 @@ namespace CourseDesktopClient.Services
                     var userProfile = await apiClient.GetUserProfileAsync(Guid.Parse(currentUser.Id));
 
                     CurrentUser = userProfile;
+
+                    navigationService.NavigateToProfile();
                 }
             }
         }

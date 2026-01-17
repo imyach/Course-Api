@@ -9,6 +9,7 @@ using CourseDesktopClient.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Net.Http;
 using System.Text;
 
@@ -28,7 +29,8 @@ namespace CourseDesktopClient
             services.AddSingleton(provider =>
             {
                 var tokenService = provider.GetRequiredService<ITokenService>();
-                var handler = new TokenHandler(tokenService)
+                var navigationService = provider.GetRequiredService<INavigationService>();
+                var handler = new TokenHandler(tokenService, navigationService)
                 {
                     InnerHandler = new HttpClientHandler()
                 };
@@ -48,11 +50,13 @@ namespace CourseDesktopClient
             services.AddSingleton<MainWindowVm>();
 
             services.AddTransient<LoginPageVm>();
+            services.AddTransient<MistakePageVm>();
             services.AddTransient<CourseInformationPageVm>();
             services.AddTransient<ProfilePageVm>();
             services.AddTransient<AllCoursePageVm>();
             services.AddTransient<AllUsersPageVm>();
             services.AddTransient<MyCoursePageVm>();
+            services.AddTransient<UpdateUserPasswordPageVm>();
             services.AddTransient<RegisterPageVm>();
 
 
@@ -63,6 +67,18 @@ namespace CourseDesktopClient
             {
                 var loginVm = provider.GetRequiredService<LoginPageVm>();
                 return new LoginPage { DataContext = loginVm };
+            });
+
+            services.AddTransient(provider =>
+            {
+                var mistakeVm = provider.GetRequiredService<MistakePageVm>();
+                return new MistakePage { DataContext = mistakeVm };
+            });
+
+            services.AddTransient(provider =>
+            {
+                var updPassVm = provider.GetRequiredService<UpdateUserPasswordPageVm>();
+                return new UpdateUserPasswordPage { DataContext = updPassVm };
             });
 
             services.AddTransient(provider =>

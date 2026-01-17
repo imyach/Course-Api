@@ -13,7 +13,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" >
+        <Grid Grid.Row="0" Visibility="{Binding VisibleControlPanel}" >
             <WrapPanel  Margin="30 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" >
                 <WrapPanel Visibility="{Binding VisibilitySearch}">
                     <TextBlock Text="Поиск"   />
@@ -34,7 +34,7 @@
                        </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </TextBlock>
-                <TextBlock Text="Пользователи" Cursor="Hand" Visibility="{Binding VisibilityInAuthorizedProfile}"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin=" 0 0 30 0">
+                <TextBlock Text="{Binding UsersText}" Cursor="Hand" Visibility="{Binding VisibilityInAuthorizedProfile}"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin=" 0 0 30 0">
                     <i:Interaction.Triggers>
                        <i:EventTrigger EventName="MouseLeftButtonUp">
                            <i:InvokeCommandAction Command="{Binding UsersPageCommand}"/>
@@ -71,7 +71,7 @@
 
 
 
-                <TextBlock Text="Войти"  Visibility="{Binding VisibilitySignInButton}" HorizontalAlignment="Right" Margin=" 0 0 30 0" VerticalAlignment="Center" >
+                <TextBlock Text="Войти"  Visibility="{Binding VisibilitySignInButton}" Cursor="Hand" HorizontalAlignment="Right" Margin=" 0 0 30 0" VerticalAlignment="Center" >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonUp">
                         <i:InvokeCommandAction Command="{Binding LoginCommand, UpdateSourceTrigger=PropertyChanged}"/>

@@ -20,6 +20,7 @@
             <TextBlock Text="Роль:" />
             <TextBlock Text="{Binding UserRole}" />
             <Button Content="Сохранить изменения" Command="{Binding UpdateUserProfile}" IsEnabled="{Binding IsEnable}"/>
+            <Button Content="Изменить пароль" Command="{Binding UpdateUserPassword}"/>
             <Button Content="Удалить аккаунт" Command="{Binding DeleteUserProfile}"/>
             <Button Content="Выйти" Command="{Binding LogOutCommand}"/>
         </WrapPanel>

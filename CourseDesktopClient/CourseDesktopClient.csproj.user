@@ -35,6 +35,9 @@
     <Compile Update="View\LoginPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\MistakePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\MyCoursePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -42,6 +45,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\RegisterPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UpdateUserPasswordPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

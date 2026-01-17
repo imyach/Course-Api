@@ -4,6 +4,7 @@ using CourseDesktopClient.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -68,6 +69,32 @@ namespace CourseDesktopClient.Services
             }
             NavigateTo(allUsersPage);
         }
+        public void NavigateToUpdateUserPassword()
+        {
+            var updUserPage = serviceProvider.GetRequiredService<UpdateUserPasswordPage>();
+            NavigateTo(updUserPage);
+        }
+
+        public void NavigateMistakePage(Exception exception)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                var mistakePage = serviceProvider.GetRequiredService<MistakePage>();
+
+                if (mistakePage.DataContext is MistakePageVm vm)
+                {
+                    vm.SetException(exception);
+                }
+
+                // Очищаем историю
+                _navigationStack.Clear();
+
+                // Устанавливаем страницу ошибки
+                SetMainWindowContent(mistakePage);
+            });
+
+        }
+
         public void NavigateToLogin()
         {
             var loginPage = serviceProvider.GetRequiredService<LoginPage>();
@@ -108,7 +135,6 @@ namespace CourseDesktopClient.Services
 
         private void NavigateTo(object content)
         {
-            // Добавляем в стек (если это не та же самая страница)
             if (_navigationStack.Count == 0 || _navigationStack.Peek() != content)
             {
                 _navigationStack.Push(content);
@@ -126,7 +152,6 @@ namespace CourseDesktopClient.Services
             }
         }
 
-        // Метод для очистки стека (например, при выходе)
         public void ClearHistory()
         {
             _navigationStack.Clear();

@@ -10,10 +10,7 @@ namespace CourseDesktopClient.Models.DtosModel.Entities
     {
         [JsonPropertyName("id")]
         public Guid Id { get; set; }
-        [JsonPropertyName("courseId")]
-        public Guid CourseId { get; set; }
-        [JsonPropertyName("userId")]
-        public Guid UserId { get; set; }
+        
         [JsonPropertyName("status")]
         public string Status { get; set; } = string.Empty;
         [JsonPropertyName("startedAt")]

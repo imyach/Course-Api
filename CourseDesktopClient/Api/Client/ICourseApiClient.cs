@@ -1,5 +1,7 @@
 ﻿using CourseDesktopClient.Models.DtosModel.Auth;
+using CourseDesktopClient.Models.DtosModel.Auth.RequestDto;
 using CourseDesktopClient.Models.DtosModel.Entities;
+using CourseDesktopClient.Models.DtosModel.Entities.RequestDto;
 using CourseDesktopClient.Models.DtosModel.EntitiesLists;
 using CourseDesktopClient.ViewModel;
 using System;
@@ -14,12 +16,12 @@ namespace CourseDesktopClient.Api.Client
         //AUTH
         Task<TokensDto> LoginAsync(LoginDto loginDto, CancellationToken ct = default);
         Task<TokensDto> RegisterAsync(RegisterDto registerDto, CancellationToken ct = default);
-        Task<HttpStatusCode> LogoutAsync(CancellationToken ct = default);
+        Task<HttpStatusCode?> LogoutAsync(CancellationToken ct = default);
 
         //USER
         Task<UserDto> GetUserProfileAsync(Guid id, CancellationToken ct = default);
-        Task<HttpStatusCode> DeleteProfileAsync(CancellationToken ct = default);
-        Task<TokensDto> UpdateUserAsync(UpdateUserRequestDto userDto, CancellationToken ct = default);
+        Task<HttpStatusCode?> DeleteProfileAsync(CancellationToken ct = default);
+        Task<TokensDto?> UpdateUserAsync(UpdateUserRequestDto userDto, CancellationToken ct = default);
         Task<(UsersDto, PagerInfoDto)> GetUsersAsync(int pageNumber = 1, int pageSize = 20, string searchText = null, CancellationToken ct = default);
 
         //COURSE
@@ -29,13 +31,14 @@ namespace CourseDesktopClient.Api.Client
         //REVIEW
         Task<(ReviewsDto, PagerInfoDto)> GetReviewsAsync(Guid idCourse, SortEnum sortBy = SortEnum.ByDate, bool sortAscending = false, int pageNumber = 1, int pageSize = 20, CancellationToken ct = default);
         Task<ReviewDto> GetReviewByIdAsync(Guid id, CancellationToken ct = default);
-        Task<Guid> CreateReviewAsync(ReviewDto reviewDto, CancellationToken ct = default);
-        Task<HttpStatusCode> DeleteReviewAsync(Guid id, CancellationToken ct = default);
+        Task<Guid?> CreateReviewAsync(ReviewDto reviewDto, CancellationToken ct = default);
+        Task<HttpStatusCode?> DeleteReviewAsync(Guid id, CancellationToken ct = default);
 
         //PROGRESS USER
         Task<(ProgressUsersDto, PagerInfoDto)> GetProgressUsersAsync(int pageNumber = 1, int pageSize = 10, string searchText = null, CancellationToken ct = default);
-        Task<Guid> CreateProgressUserAsync(ProgressUserDto progressUserDto, CancellationToken ct = default);
+        Task<Guid?> CreateProgressUserAsync(ProgressUserRequestDto progressUserDto, CancellationToken ct = default);
         Task<ProgressUserDto> GetProgressUserByIdAsync(Guid id, CancellationToken ct = default);
-        Task<HttpStatusCode> DeleteProgressUserAsync(Guid id, CancellationToken ct = default);
+        Task<HttpStatusCode?> DeleteProgressUserAsync(Guid id, CancellationToken ct = default);
+        Task<HttpStatusCode?> UpdateProgressUserAsync(ProgressUserRequestDto progressUserDto, CancellationToken ct = default);
     }
 }
