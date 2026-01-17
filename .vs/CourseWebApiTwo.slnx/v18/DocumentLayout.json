@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Artem\\Desktop\\serv\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\servises\\jwttokenservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\servises\\jwttokenservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\users\\updateuser\\updateusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\users\\updateuser\\updateusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\progressusers\\getprogressuserlist\\getallprogressuserqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\progressusers\\getprogressuserlist\\getallprogressuserqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,14 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\controllers\\progressusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\progressusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\users\\updateuser\\updateusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\users\\updateuser\\updateusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\servises\\jwttokenservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\servises\\jwttokenservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\servises\\passwordhasherservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -258,7 +258,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -281,18 +281,14 @@
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "JwtTokenServise.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\JwtTokenServise.cs",
               "RelativeDocumentMoniker": "CourseWebApi\\Servises\\JwtTokenServise.cs",
               "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\JwtTokenServise.cs",
               "RelativeToolTip": "CourseWebApi\\Servises\\JwtTokenServise.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAIwCMAAABMAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABQAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-30T13:37:33.963Z",
               "EditorCaption": ""
@@ -307,8 +303,7 @@
               "RelativeToolTip": "CourseWebApi\\Controllers\\UserController.cs",
               "ViewState": "AgIAADkAAAAAAAAAAAAmwFAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T09:54:18.894Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-02T09:54:18.894Z"
             },
             {
               "$type": "Document",
@@ -320,25 +315,24 @@
               "RelativeToolTip": "CourseWebApi\\Servises\\PasswordHasherServise.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T17:36:07.198Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-02T17:36:07.198Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "GetAllProgressUserQueryHandler.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\ProgressUsers\\GetProgressUserList\\GetAllProgressUserQueryHandler.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Queries\\ProgressUsers\\GetProgressUserList\\GetAllProgressUserQueryHandler.cs",
               "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\ProgressUsers\\GetProgressUserList\\GetAllProgressUserQueryHandler.cs",
               "RelativeToolTip": "Application\\Common\\Queries\\ProgressUsers\\GetProgressUserList\\GetAllProgressUserQueryHandler.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAxwCMAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-08T15:00:06.66Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "GetAllCourseQueryHandler.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Courses\\GetCourseList\\GetAllCourseQueryHandler.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Queries\\Courses\\GetCourseList\\GetAllCourseQueryHandler.cs",
@@ -346,18 +340,17 @@
               "RelativeToolTip": "Application\\Common\\Queries\\Courses\\GetCourseList\\GetAllCourseQueryHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-16T11:30:53.374Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-16T11:30:53.374Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "UpdateUserCommandHandler.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandHandler.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandHandler.cs",
               "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandHandler.cs",
               "RelativeToolTip": "Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandHandler.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwB8AAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAxwB8AAABtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-12T19:15:52.524Z",
               "EditorCaption": ""
@@ -372,12 +365,11 @@
               "RelativeToolTip": "Application\\Common\\Commands\\Users\\UpdateUserForAdmin\\UpdateUserForAdminCommandHandler.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T20:16:40.239Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-13T20:16:40.239Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ProgressUserController.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\ProgressUserController.cs",
               "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\ProgressUserController.cs",
@@ -385,8 +377,7 @@
               "RelativeToolTip": "CourseWebApi\\Controllers\\ProgressUserController.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAABUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T15:33:56.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-08T15:33:56.096Z"
             },
             {
               "$type": "Document",
@@ -398,8 +389,7 @@
               "RelativeToolTip": "CourseWebApi\\Models\\User\\UpdateUserDto.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAuwBoAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T19:15:45.538Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-12T19:15:45.538Z"
             },
             {
               "$type": "Document",
@@ -411,8 +401,7 @@
               "RelativeToolTip": "Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandValidator.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAADgvxYAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T19:15:49.092Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-12T19:15:49.092Z"
             },
             {
               "$type": "Document",
@@ -424,8 +413,7 @@
               "RelativeToolTip": "Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T19:14:57.122Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-12T19:14:57.122Z"
             },
             {
               "$type": "Document",
