@@ -29,13 +29,19 @@ namespace Application.Common.Commands.Users.UpdateUser
                 if (dublicate)
                     return null;
 
+                if (!string.IsNullOrEmpty(request.NewPassword) && !string.IsNullOrEmpty(request.OldPassword))
+                {
+                    if (passwordHasher.VerifyBcryptPassword(request.OldPassword, entity.HashPassword))
+                        entity.HashPassword = passwordHasher.HashPasword(request.NewPassword);
+                    else return null;
+                }
                 entity.RoleId = request.Role.Id;
                 entity.NameUser = request.NameUser;
                 entity.Login = request.Login;
                 entity.Email = request.Email;
-                if(!string.IsNullOrEmpty(request.Password))
-                    entity.HashPassword = passwordHasher.HashPasword(request.Password);
+                
                 entity.PhoneNumber = request.PhoneNumber;
+
                 await context.SaveChangesAsync(cancellationToken);
 
                 return await tokenServise.GenerateTokens(entity);

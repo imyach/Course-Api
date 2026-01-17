@@ -3229,7 +3229,11 @@
             "minLength": 1,
             "type": "string"
           },
-          "password": {
+          "oldPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPassword": {
             "type": "string",
             "nullable": true
           },

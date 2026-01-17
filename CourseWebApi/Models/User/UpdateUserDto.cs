@@ -13,7 +13,8 @@ namespace CourseWebApi.Models.User
         public string NameUser { get; set; } = string.Empty;
         [Required]
         public string Login { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
+        public string OldPassword { get; set; } = string.Empty;
+        public string NewPassword { get; set; } = string.Empty;
         [Required]
         public Role Role { get; set; }
         [Required]
@@ -32,8 +33,10 @@ namespace CourseWebApi.Models.User
                 opt => opt.MapFrom(userDto => userDto.NameUser))
                 .ForMember(userCommand => userCommand.Email,
                 opt => opt.MapFrom(userDto => userDto.Email))
-                .ForMember(userCommand => userCommand.Password,
-                opt => opt.MapFrom(userDto => userDto.Password))
+                .ForMember(userCommand => userCommand.OldPassword,
+                opt => opt.MapFrom(userDto => userDto.OldPassword))
+                .ForMember(userCommand => userCommand.NewPassword,
+                opt => opt.MapFrom(userDto => userDto.NewPassword))
                 .ForMember(userCommand => userCommand.Role,
                 opt => opt.MapFrom(userDto => userDto.Role))
                 .ForMember(userCommand => userCommand.PhoneNumber,

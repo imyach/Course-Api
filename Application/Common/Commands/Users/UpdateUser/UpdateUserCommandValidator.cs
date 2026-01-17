@@ -17,6 +17,10 @@ namespace Application.Common.Commands.Users.UpdateUser
                .NotNull();
             RuleFor(updateUserCommand => updateUserCommand.NameUser)
                .NotNull().NotEmpty().MaximumLength(30);
+            RuleFor(updateUserCommand => updateUserCommand.OldPassword)
+               .MaximumLength(30);
+            RuleFor(updateUserCommand => updateUserCommand.NewPassword)
+               .MaximumLength(30);
             RuleFor(updateUserCommand => updateUserCommand.Login)
               .NotNull().NotEmpty().MaximumLength(30);
             RuleFor(updateUserCommand => updateUserCommand.Email)

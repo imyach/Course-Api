@@ -22,7 +22,9 @@ namespace Application.Common.Queries.Courses.GetCourseList
 
             if(!string.IsNullOrEmpty(request.SearchText))
             {
-                query = query.Where(x=>x.Title.Contains(request.SearchText));
+                query = query.Where(x=>x.Title.ToLower().Contains(request.SearchText.ToLower()) 
+                    || x.Description.ToLower().Contains(request.SearchText.ToLower())
+                    || x.User.NameUser.ToLower().Contains(request.SearchText.ToLower()));
             }
 
 

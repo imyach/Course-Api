@@ -30,27 +30,9 @@ namespace Application.Common.Queries.ProgressUsers.GetProgressUserList
 
             if (!string.IsNullOrEmpty(request.SearchText))
             {
-                query = query.Where(x => x.Course.Title.Contains(request.SearchText));
-            }
-
-
-            if (roleUser.RoleName == "Admin" || roleUser.RoleName == "Couch")
-            {
-
-                var totalItemsA = await query.CountAsync(cancellationToken);
-                var totalPagesA = (int)Math.Ceiling(totalItemsA / (double)request.PageSize);
-
-                var progressUsersA = await query.OrderBy(x => x.Id)
-                .Skip((request.PageNumber - 1) * request.PageSize)
-                .Take(request.PageSize)
-                .ProjectTo<ProgressUserLookupDto>(mapper.ConfigurationProvider)
-                .ToListAsync(cancellationToken);
-
-                return [new ProgressUserListVm { ProgressUsers = progressUsersA },
-                        new PagerInfoDto { TotalItems = totalItemsA,
-                            TotalPages = totalPagesA,
-                            PageSize = request.PageSize,
-                            PageNumber = request.PageNumber} ];
+                query = query.Where(x => x.Course.Title.ToLower().Contains(request.SearchText.ToLower()) 
+                || x.Course.Description.ToLower().Contains(request.SearchText.ToLower()) 
+                || x.Course.User.NameUser.ToLower().Contains(request.SearchText.ToLower()));
             }
 
             query = query.Where(m => m.UserId == currentUser.Id);
