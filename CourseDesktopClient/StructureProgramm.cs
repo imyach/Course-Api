@@ -4,6 +4,7 @@ using CourseDesktopClient.Api.Handlers;
 using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Services;
 using CourseDesktopClient.UI.Elements;
+using CourseDesktopClient.UI.Elements.ElementVM;
 using CourseDesktopClient.View;
 using CourseDesktopClient.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
@@ -61,7 +62,6 @@ namespace CourseDesktopClient
 
 
             //VIEWS
-
 
             services.AddTransient(provider =>
             {

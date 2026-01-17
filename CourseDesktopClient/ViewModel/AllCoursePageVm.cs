@@ -61,7 +61,6 @@ namespace CourseDesktopClient.ViewModel
                 if (int.TryParse((pageNumberStr as ButtonItem).Text, out int pageNumber))
                 {
                     await Update(pageNumber);
-
                 }
             });
 
@@ -74,13 +73,14 @@ namespace CourseDesktopClient.ViewModel
             EnrollCommand = new RelayCommand(async sender => 
             {
                 var idCourse = (sender as CoursePanelElementVm).Id;
+                var titleCourse = (sender as CoursePanelElementVm).Title;
                 var request = new ProgressUserRequestDto
                 {
                     CourseId = idCourse,
                 };
                 var id = await courseApiClient.CreateProgressUserAsync(request);
-                
-                MessageBox.Show($"Успешно {id}");
+
+                CustomMessageBox.Show($"Вы записаны на курс {titleCourse}");
                 await Update();
             });
 

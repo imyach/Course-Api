@@ -5,6 +5,8 @@ using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Models.DtosModel.Auth;
 using CourseDesktopClient.Models.DtosModel.Auth.RequestDto;
 using CourseDesktopClient.Models.DtosModel.Entities;
+using CourseDesktopClient.UI.Elements.ElementVM;
+using CourseDesktopClient.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -120,7 +122,7 @@ namespace CourseDesktopClient.Services
         public async Task DeleteProfile()
         {
 
-            if (MessageBox.Show("Вы точно хотите удалить аккаунт?", "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (CustomMessageBox.ShowYesNo("Вы точно хотите удалить аккаунт?") == DialogResult.Yes)
             {
                 await apiClient.DeleteProfileAsync();
                 await LocalLogoutAsync();
@@ -139,12 +141,13 @@ namespace CourseDesktopClient.Services
 
         public async Task UpdateUserPasswordAsync(UpdateUserRequestDto userDto, CancellationToken ct = default)
         {
-            if (MessageBox.Show("Вы действительно хотите изменить пароль?", "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (CustomMessageBox.ShowYesNo("Вы действительно хотите изменить пароль?") == DialogResult.Yes)
             {
                 var tokens = await apiClient.UpdateUserAsync(userDto, ct);
 
                 if (tokens is not null)
                 {
+                    await tokenService.ClearTokensAsync();
                     await tokenService.SaveTokensAsync(tokens.AccessToken, tokens.RefreshToken, IsRememberProfile);
 
                     var (accessToken, refreshToken) = await tokenService.GetTokensAsync();
@@ -155,18 +158,19 @@ namespace CourseDesktopClient.Services
                     CurrentUser = userProfile;
                     navigationService.NavigateToProfile();
                 }
-                else 
-                    MessageBox.Show("Вы ввели неверный пароль", "Ошибка", MessageBoxButton.OK);
+                else
+                    CustomMessageBox.ShowError("Вы ввели неверный пароль");
             }
         }
         public async Task UpdateUserAsync(UpdateUserRequestDto userDto, CancellationToken ct = default)
         {
-            if (MessageBox.Show("Вы действительно хотите изменить профиль?", "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (CustomMessageBox.ShowYesNo("Вы действительно хотите изменить профиль?") == DialogResult.Yes)
             {
                 var tokens = await apiClient.UpdateUserAsync(userDto, ct);
 
                 if (tokens is not null)
                 {
+                    await tokenService.ClearTokensAsync();
                     await tokenService.SaveTokensAsync(tokens.AccessToken, tokens.RefreshToken, IsRememberProfile);
 
                     var (accessToken, refreshToken) = await tokenService.GetTokensAsync();

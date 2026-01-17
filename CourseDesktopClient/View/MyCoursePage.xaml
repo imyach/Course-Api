@@ -10,7 +10,6 @@
         <ScrollViewer HorizontalScrollBarVisibility="Disabled">
 
         <StackPanel>
-            <Button Content="Назад" Command="{Binding GoBackCommand}"/>
 
             <ItemsControl ItemsSource="{Binding GetProgressUsers}"
                           HorizontalAlignment="Center"

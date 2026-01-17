@@ -40,7 +40,6 @@ namespace CourseDesktopClient.ViewModel
                 if (int.TryParse((pageNumberStr as ButtonItem).Text, out int pageNumber))
                 {
                     Update(pageNumber);
-
                 }
             });
         }

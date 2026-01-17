@@ -40,7 +40,7 @@ namespace CourseDesktopClient.ViewModel
 
             DeleteProgressCourseCommand = new RelayCommand(async button =>
             {
-                if (MessageBox.Show("Вы действительно хотите удавлить прогресс?", "Предупреждение!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (CustomMessageBox.ShowYesNo($"Вы действительно хотите удавлить прогресс \nОн будет утерян навсегда") == DialogResult.Yes)
                 {
                     var idProgerssUser = (button as MyCoursePanelElementVm).Id;
 

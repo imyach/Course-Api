@@ -1,4 +1,5 @@
 ﻿using CourseDesktopClient.Interfaces;
+using CourseDesktopClient.UI.Elements.ElementVM;
 using CourseDesktopClient.Utilities;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace CourseDesktopClient.ViewModel
         {
             RestartCommand = new RelayCommand(_ =>
             {
-                if (MessageBox.Show("Перезапустить приложение?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                if (CustomMessageBox.ShowYesNo("Перезапустить приложение?") == DialogResult.Yes)
                 {
 
                     var executablePath = Process.GetCurrentProcess().MainModule.FileName;

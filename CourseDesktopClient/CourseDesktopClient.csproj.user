@@ -11,6 +11,9 @@
     <Compile Update="UI\Elements\CreateReveiwsElement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UI\Elements\CustomMessageBoxWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UI\Elements\MyCoursePanelElement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

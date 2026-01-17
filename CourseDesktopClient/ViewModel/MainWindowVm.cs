@@ -1,8 +1,8 @@
 ﻿using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Services;
+using CourseDesktopClient.UI.Elements.ElementVM;
 using CourseDesktopClient.Utilities;
 using CourseDesktopClient.View;
-using CredentialManagement;
 using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
@@ -20,7 +20,8 @@ namespace CourseDesktopClient.ViewModel
             this.authService = authService;
             LogOutCommand = new RelayCommand(async _ =>
             {
-                await authService.LogoutAsync();
+                if(CustomMessageBox.ShowYesNo("Вы действительно хотите выйти?") == DialogResult.Yes) 
+                    await authService.LogoutAsync();
             });
         }
 

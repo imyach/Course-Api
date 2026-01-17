@@ -63,7 +63,7 @@ namespace CourseDesktopClient.ViewModel
 
             DeleteReviewCommand = new RelayCommand(async button => 
             {
-                if (MessageBox.Show("Вы действительно хотите удавлить отзыв?", "Предупреждение!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (CustomMessageBox.ShowYesNo("Вы действительно хотите удавлить отзыв?") == DialogResult.Yes)
                 {
 
                     var idReview = (button as ReviewPanelElementVm).Id;
@@ -81,7 +81,7 @@ namespace CourseDesktopClient.ViewModel
                     CourseId = idCourse,
                 };
                 var id = await courseApiClient.CreateProgressUserAsync(request);
-                    MessageBox.Show($"Успешно {id}");
+                    CustomMessageBox.Show($"Вы записаны на курс {Title}");
                 Update();
             });
         }
@@ -197,8 +197,6 @@ namespace CourseDesktopClient.ViewModel
         public ICommand PagerCommand { get; set; }
         public ICommand RatingCommand { get; set; }
         public ICommand EnrollCommand { get; set; }
-
-
 
         public async Task LoadCourse(Guid id)
         {

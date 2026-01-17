@@ -86,10 +86,8 @@ namespace CourseDesktopClient.Services
                     vm.SetException(exception);
                 }
 
-                // Очищаем историю
                 _navigationStack.Clear();
 
-                // Устанавливаем страницу ошибки
                 SetMainWindowContent(mistakePage);
             });
 
