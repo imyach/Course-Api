@@ -103,11 +103,11 @@ namespace CourseDesktopClient.Api.Client
             return await response.Content.ReadFromJsonAsync<TokensDto>(jsonOptions, ct);
         }
 
-        public async Task<HttpStatusCode?> DeleteProfileAsync(CancellationToken ct = default)
+        public async Task<HttpStatusCode?> DeleteProfileAsync(Guid idUser, CancellationToken ct = default)
         {
             var (access, _) = await tokenService.GetTokensAsync();
 
-            var request = new HttpRequestMessage(HttpMethod.Delete, ApiPaths.API_DELETE_UPDATE_CREATE_USER);
+            var request = new HttpRequestMessage(HttpMethod.Delete, ApiPaths.API_DELETE_UPDATE_CREATE_USER + $"/{idUser}");
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", access);
 
             var response = await httpClient.SendAsync(request,ct);
@@ -220,6 +220,15 @@ namespace CourseDesktopClient.Api.Client
                 return null;
             return await response.Content.ReadFromJsonAsync<TokensDto?>(jsonOptions, ct);
         }
+
+        public async Task<HttpStatusCode?> UpdateUserForAdminAsync(UpdateUserRequestDto userDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PutAsJsonAsync(ApiPaths.API_UPDATE_USER_ADMIN, userDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return response.StatusCode;
+        }
+
         public async Task<(UsersDto, PagerInfoDto)> GetUsersAsync(int pageNumber = 1, int pageSize = 20, string searchText = null, CancellationToken ct = default)
         {
             var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_USERS + $"?searchText={searchText}&pageSize={pageSize}&pageNumber={pageNumber}", ct);

@@ -15,7 +15,7 @@ namespace CourseDesktopClient.Services
     {
         private readonly Stack<object> _navigationStack = new Stack<object>();
 
-        public async void NavigateToCourses()
+        public async Task NavigateToCourses()
         {
             var coursesPage = serviceProvider.GetRequiredService<AllCoursePage>();
 
@@ -30,7 +30,7 @@ namespace CourseDesktopClient.Services
             NavigateTo(coursesPage);
         }
 
-        public async void NavigateToInformationCourse(Guid Id)
+        public async Task NavigateToInformationCourse(Guid Id)
         {
             var coursePage = serviceProvider.GetRequiredService<CourseInformationPage>();
 
@@ -41,7 +41,7 @@ namespace CourseDesktopClient.Services
 
             NavigateTo(coursePage);
         }
-        public async void NavigateToMyCourses()
+        public async Task NavigateToMyCourses()
         {
             var myCoursePage = serviceProvider.GetRequiredService<MyCoursePage>();
 
@@ -55,7 +55,7 @@ namespace CourseDesktopClient.Services
             }
             NavigateTo(myCoursePage);
         }
-        public async void NavigateToUsers()
+        public async Task NavigateToUsers()
         {
             var allUsersPage = serviceProvider.GetRequiredService<AllUsersPage>();
 
@@ -99,13 +99,13 @@ namespace CourseDesktopClient.Services
             NavigateTo(loginPage);
         }
 
-        public void NavigateToProfile()
+        public async Task NavigateToProfile(Guid idUser)
         {
             var profilePage = serviceProvider.GetRequiredService<ProfilePage>();
 
             if (profilePage.DataContext is ProfilePageVm vm)
             {
-                vm.LoadingProfilePage();
+                await vm.LoadingProfilePage(idUser);
             }
             NavigateTo(profilePage);
         }

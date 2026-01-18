@@ -19,10 +19,60 @@
             <TextBox Text="{Binding UserLogin, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock Text="Роль:" />
             <TextBlock Text="{Binding UserRole}" />
-            <Button Content="Сохранить изменения" Command="{Binding UpdateUserProfile}" IsEnabled="{Binding IsEnable}"/>
-            <Button Content="Изменить пароль" Command="{Binding UpdateUserPassword}"/>
-            <Button Content="Удалить аккаунт" Command="{Binding DeleteUserProfile}"/>
-            <Button Content="Выйти" Command="{Binding LogOutCommand}"/>
+            <Button Content="Сохранить изменения" Command="{Binding UpdateUserProfile}" IsEnabled="{Binding IsEnable}">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Visibility" Value="Visible"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsAccessUpdate}" Value="False">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsCurrentUSer}" Value="True">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Content="Изменить пароль" Command="{Binding UpdateUserPassword}">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Visibility" Value="Visible"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsCurrentUSer}" Value="False">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Content="Удалить аккаунт" Command="{Binding DeleteUserProfile}">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Visibility" Value="Visible"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsAccessUpdate}" Value="False">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsCurrentUSer}" Value="True">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Content="Выйти" Command="{Binding LogOutCommand}">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Visibility" Value="Visible"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsCurrentUSer}" Value="False">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </WrapPanel>
     </Grid>
 </UserControl>

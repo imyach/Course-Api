@@ -54,7 +54,7 @@
                    Text="{Binding CreatedAt, StringFormat='Зарегестрирован: {0:dd.MM.yyyy}'}" 
                    Foreground="#666"
                    HorizontalAlignment="Right"/>
-                <Button Content="Посмотреть профиль" Grid.Row="3"/>
+                <Button Content="Посмотреть профиль" Grid.Row="3" Command="{Binding DataContext.LookProfile, RelativeSource={RelativeSource AncestorType=ItemsControl} }" CommandParameter="{Binding}"/>
             </Grid>
         </Border>
     </Grid>

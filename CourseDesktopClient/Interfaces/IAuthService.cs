@@ -23,7 +23,7 @@ namespace CourseDesktopClient.Interfaces
         Task UpdateUserPasswordAsync(UpdateUserRequestDto userDto, CancellationToken ct = default);
         Task UpdateUserAsync(UpdateUserRequestDto userDto, CancellationToken ct = default);
         Task LogoutAsync();
-        Task DeleteProfile();
+        Task DeleteProfile(Guid id);
 
     }
 }

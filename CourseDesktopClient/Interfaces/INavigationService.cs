@@ -8,11 +8,11 @@ namespace CourseDesktopClient.Interfaces
     {
         void NavigateToLogin();
         void NavigateToRegister();
-        void NavigateToCourses();
-        void NavigateToMyCourses();
-        void NavigateToProfile();
-        void NavigateToUsers();
-        void NavigateToInformationCourse(Guid Id);
+        Task NavigateToCourses();
+        Task NavigateToInformationCourse(Guid Id);
+        Task NavigateToMyCourses();
+        Task NavigateToProfile(Guid idUser);
+        Task NavigateToUsers();
         void NavigateToUpdateUserPassword();
         void NavigateMistakePage(Exception exception);
 

@@ -23,6 +23,11 @@ namespace CourseDesktopClient.ViewModel
                 if(CustomMessageBox.ShowYesNo("Вы действительно хотите выйти?") == DialogResult.Yes) 
                     await authService.LogoutAsync();
             });
+            ProfileCommand = new RelayCommand(async _ => 
+            {
+               await navigationService.NavigateToProfile(authService.CurrentUser.Id);
+            });
+
         }
 
         private string _search = string.Empty;
@@ -129,6 +134,7 @@ namespace CourseDesktopClient.ViewModel
 
 
         public ICommand LogOutCommand {  get; set; }
+        public ICommand ProfileCommand {  get; set; }
 
         private void UpddateVisible()
         {

@@ -80,7 +80,7 @@ namespace CourseDesktopClient.ViewModel
                 };
                 var id = await courseApiClient.CreateProgressUserAsync(request);
 
-                CustomMessageBox.Show($"Вы записаны на курс {titleCourse}");
+                CustomMessageBox.ShowInfo($"Вы записаны на курс {titleCourse}");
                 await Update();
             });
 

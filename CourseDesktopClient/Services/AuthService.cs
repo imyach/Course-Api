@@ -83,7 +83,7 @@ namespace CourseDesktopClient.Services
             CurrentUser = userProfile;
             isAuthenticated = true;    
 
-            navigationService.NavigateToCourses();
+            await navigationService.NavigateToCourses();
             return string.Empty;
         }
 
@@ -116,25 +116,39 @@ namespace CourseDesktopClient.Services
             CurrentUser = userProfile;
             isAuthenticated = true;
 
-            navigationService.NavigateToCourses();
+            await navigationService.NavigateToCourses();
             return string.Empty;
         }
-        public async Task DeleteProfile()
+        public async Task DeleteProfile(Guid id)
         {
-
-            if (CustomMessageBox.ShowYesNo("Вы точно хотите удалить аккаунт?") == DialogResult.Yes)
+            if (CurrentUser.Role.Name == "Admin" && CurrentUser.Id != id)
             {
-                await apiClient.DeleteProfileAsync();
-                await LocalLogoutAsync();
+                if (CustomMessageBox.ShowYesNo("Вы точно хотите удалить этот аккаунт?") == DialogResult.Yes)
+                {
+                    await apiClient.DeleteProfileAsync(id);
 
-                navigationService.NavigateToLogin();
+                    await navigationService.NavigateToUsers();
+                }
             }
+
+            else
+            {
+                if (CustomMessageBox.ShowYesNo("Вы точно хотите удалить аккаунт?") == DialogResult.Yes)
+                {
+                    await apiClient.DeleteProfileAsync(id);
+                    await LocalLogoutAsync();
+
+                    navigationService.NavigateToLogin();
+                }
+            }
+
+
         }
 
         private async Task LocalLogoutAsync()
         {
-                await httpClient.PostAsync("api/auth/logout", null);
-            tokenService.ClearTokensAsync();
+            await httpClient.PostAsync("api/auth/logout", null);
+            await tokenService.ClearTokensAsync();
             CurrentUser = null;
             IsAuthenticated = false;
         }
@@ -156,7 +170,7 @@ namespace CourseDesktopClient.Services
                     var userProfile = await apiClient.GetUserProfileAsync(Guid.Parse(currentUser.Id));
 
                     CurrentUser = userProfile;
-                    navigationService.NavigateToProfile();
+                   await navigationService.NavigateToProfile(userDto.Id);
                 }
                 else
                     CustomMessageBox.ShowError("Вы ввели неверный пароль");
@@ -164,23 +178,45 @@ namespace CourseDesktopClient.Services
         }
         public async Task UpdateUserAsync(UpdateUserRequestDto userDto, CancellationToken ct = default)
         {
-            if (CustomMessageBox.ShowYesNo("Вы действительно хотите изменить профиль?") == DialogResult.Yes)
+            if (CurrentUser.Role.Name == "Admin" && CurrentUser.Id != userDto.Id)
             {
-                var tokens = await apiClient.UpdateUserAsync(userDto, ct);
-
-                if (tokens is not null)
+                if (CustomMessageBox.ShowYesNo("Вы действительно хотите изменить этот профиль?") == DialogResult.Yes)
                 {
-                    await tokenService.ClearTokensAsync();
-                    await tokenService.SaveTokensAsync(tokens.AccessToken, tokens.RefreshToken, IsRememberProfile);
+                    var result = await apiClient.UpdateUserForAdminAsync(userDto, ct);
+                    switch (result)
+                    {
+                        case HttpStatusCode.Conflict:
+                            CustomMessageBox.ShowError("Пользователь с такимим данными сущетвует");
+                            break;
+                        case HttpStatusCode.NoContent:
+                            CustomMessageBox.ShowInfo("Пользователь обновлен");
+                            break;
+                    }
+                }
 
-                    var (accessToken, refreshToken) = await tokenService.GetTokensAsync();
+            }
 
-                    var currentUser = await tokenService.GetCurrentUserInfoAsync(accessToken);
-                    var userProfile = await apiClient.GetUserProfileAsync(Guid.Parse(currentUser.Id));
+            else
+            {
 
-                    CurrentUser = userProfile;
+                if (CustomMessageBox.ShowYesNo("Вы действительно хотите изменить профиль?") == DialogResult.Yes)
+                {
+                    var tokens = await apiClient.UpdateUserAsync(userDto, ct);
 
-                    navigationService.NavigateToProfile();
+                    if (tokens is not null)
+                    {
+                        await tokenService.ClearTokensAsync();
+                        await tokenService.SaveTokensAsync(tokens.AccessToken, tokens.RefreshToken, IsRememberProfile);
+
+                        var (accessToken, refreshToken) = await tokenService.GetTokensAsync();
+
+                        var currentUser = await tokenService.GetCurrentUserInfoAsync(accessToken);
+                        var userProfile = await apiClient.GetUserProfileAsync(Guid.Parse(currentUser.Id));
+
+                        CurrentUser = userProfile;
+
+                        await navigationService.NavigateToProfile(userDto.Id);
+                    }
                 }
             }
         }

@@ -16,5 +16,5 @@ C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\App.xaml
 2161419743578
 MainWindow.xaml;UI\Elements\CoursePanelElement.xaml;UI\Elements\CreateReveiwsElement.xaml;UI\Elements\CustomMessageBoxWindow.xaml;UI\Elements\MyCoursePanelElement.xaml;UI\Elements\RatingStarsControl.xaml;UI\Elements\ReviewPanelElement.xaml;UI\Elements\UserPanelElement.xaml;View\AllCoursePage.xaml;View\AllUsersPage.xaml;View\CourseInformationPage.xaml;View\LoginPage.xaml;View\MistakePage.xaml;View\MyCoursePage.xaml;View\ProfilePage.xaml;View\RegisterPage.xaml;View\UpdateUserPasswordPage.xaml;
 
-True
+False
 

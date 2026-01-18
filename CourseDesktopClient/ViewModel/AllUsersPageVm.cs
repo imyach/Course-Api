@@ -28,6 +28,7 @@ namespace CourseDesktopClient.ViewModel
         private readonly IAuthService authService;
 
         public ICommand PagerCommand { get; set; }
+        public ICommand LookProfile { get; set; }
 
         public AllUsersPageVm(INavigationService navigationService, ICourseApiClient courseApiClient, IAuthService authService, IPagerService pagerService) :base(navigationService)
         {
@@ -39,8 +40,12 @@ namespace CourseDesktopClient.ViewModel
             {
                 if (int.TryParse((pageNumberStr as ButtonItem).Text, out int pageNumber))
                 {
-                    Update(pageNumber);
+                    await Update(pageNumber);
                 }
+            });
+            LookProfile = new RelayCommand(async userInfo => 
+            {
+               await navigationService.NavigateToProfile((userInfo as UserPanelElementVm).Id);
             });
         }
 
@@ -52,6 +57,9 @@ namespace CourseDesktopClient.ViewModel
             GetUsers = usersVm;
             GenerateButtonPanel(pager);
         }
+
+        
+
         private void GenerateButtonPanel(PagerInfoDto pager)
         {
             var newButtonPanel = pagerService.GeneratePagerPanel(pager, PagerCommand);

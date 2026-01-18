@@ -63,6 +63,8 @@ namespace CourseDesktopClient
 
             //VIEWS
 
+   
+
             services.AddTransient(provider =>
             {
                 var loginVm = provider.GetRequiredService<LoginPageVm>();
