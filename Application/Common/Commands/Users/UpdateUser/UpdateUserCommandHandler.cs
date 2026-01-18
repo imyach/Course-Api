@@ -18,7 +18,7 @@ namespace Application.Common.Commands.Users.UpdateUser
                 ?? throw new NotFoundException(nameof(User), request.CurrentUserId);
 
             var entity = await context.Users.FindAsync([request.Id], cancellationToken) 
-                ?? throw new NotFoundException(nameof(User), currentUser.Id);
+                ?? throw new NotFoundException(nameof(User), request.Id);
 
 
             if (currentUser.Id == entity.Id)

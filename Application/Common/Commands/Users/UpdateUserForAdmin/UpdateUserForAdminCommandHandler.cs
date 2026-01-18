@@ -13,25 +13,17 @@ namespace Application.Common.Commands.Users.UpdateUserForAdmin
     {
         public async Task<bool> Handle(UpdateUserForAdminCommand request, CancellationToken cancellationToken)
         {
-            var currentUser = await context.Users.FindAsync([request.CurrentUserId], cancellationToken)
-                ?? throw new NotFoundException(nameof(User), request.CurrentUserId);
-            var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
-                ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
+            var entity = await context.Users.FindAsync([request.Id], cancellationToken) ?? throw new NotFoundException(nameof(User), request.Id);
 
-            var entity = await context.Users.FindAsync([request.Id], cancellationToken) ?? throw new NotFoundException(nameof(User), currentUser.Id);
-
-
-            var dublicate = await context.Users.AnyAsync(x => x.Email == currentUser.Email || x.Login == currentUser.Login, cancellationToken);
+            var dublicate = await context.Users.AnyAsync(x => (x.Email == request.Email && x.Login == request.Login) && x.Id != request.Id, cancellationToken);
 
             if (dublicate)
                 return false;
-            
 
-            entity.RoleId = request.RoleId;
+            entity.RoleId = request.Role.Id;
             entity.NameUser = request.NameUser;
             entity.Login = request.Login;
             entity.Email = request.Email;
-            entity.HashPassword = passwordHasher.HashPasword(request.Password);
             entity.PhoneNumber = request.PhoneNumber;
             await context.SaveChangesAsync(cancellationToken);
 

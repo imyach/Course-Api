@@ -11,6 +11,8 @@ namespace Application.Common.Commands.Users.DeteleUser
         {
             RuleFor(deleteUserCommand => deleteUserCommand.CurrentUserId)
                .NotNull().NotEqual(Guid.Empty);
+            RuleFor(deleteUserCommand => deleteUserCommand.Id)
+               .NotNull().NotEqual(Guid.Empty);
         }
     }
 }

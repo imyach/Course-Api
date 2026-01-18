@@ -1093,22 +1093,6 @@
   },
   {
     "ContainingType": "CourseWebApi.Controllers.UserController",
-    "Method": "Delete",
-    "RelativePath": "api/User",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CourseWebApi.Controllers.UserController",
     "Method": "Update",
     "RelativePath": "api/User",
     "HttpMethod": "PUT",
@@ -1151,6 +1135,22 @@
   },
   {
     "ContainingType": "CourseWebApi.Controllers.UserController",
+    "Method": "Delete",
+    "RelativePath": "api/User/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.UserController",
     "Method": "UpdateAdmin",
     "RelativePath": "api/User/admin",
     "HttpMethod": "PUT",
@@ -1159,7 +1159,7 @@
     "Parameters": [
       {
         "Name": "updateUserCommand",
-        "Type": "CourseWebApi.Models.User.UpdateUserDto",
+        "Type": "CourseWebApi.Models.User.UpdateUserForAdminDto",
         "IsRequired": true
       }
     ],

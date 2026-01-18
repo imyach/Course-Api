@@ -56,7 +56,7 @@ namespace CourseWebApi.Controllers
         }
 
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [Authorize(Roles = "Couch,Student,Admin")]
 
         public async Task<IActionResult> Delete(Guid id)
@@ -64,6 +64,7 @@ namespace CourseWebApi.Controllers
             var command = new DeleteUserCommand()
             {
                 CurrentUserId = UserId,
+                Id = id,
             };
             await Mediator.Send(command);
             return NoContent();
@@ -86,7 +87,7 @@ namespace CourseWebApi.Controllers
 
         [HttpPut("admin")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateAdmin([FromBody] UpdateUserDto updateUserCommand)
+        public async Task<IActionResult> UpdateAdmin([FromBody] UpdateUserForAdminDto updateUserCommand)
         {
             var command = mapper.Map<UpdateUserForAdminCommand>(updateUserCommand);
             command.CurrentUserId = UserId;
