@@ -4,8 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.View"
+             xmlns:controll ="clr-namespace:CourseDesktopClient.UI.Elements"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+
+        <StackPanel>
     <Grid>
         <WrapPanel Orientation="Vertical" HorizontalAlignment="Center"  VerticalAlignment="Center">
             <TextBlock Text="Профиль" FontWeight="Bold" Margin="0 0 0 30"/>
@@ -18,7 +22,30 @@
             <TextBlock Text="Логин:" />
             <TextBox Text="{Binding UserLogin, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock Text="Роль:" />
-            <TextBlock Text="{Binding UserRole}" />
+            <TextBlock Text="{Binding UserRole.Name}">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsVisible}" Value="False">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <ComboBox ItemsSource="{Binding GetRoles}" DisplayMemberPath="Name" SelectedItem="{Binding UserRole}">
+                <ComboBox.Style>
+                    <Style TargetType="ComboBox">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsVisible}" Value="True">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
             <Button Content="Сохранить изменения" Command="{Binding UpdateUserProfile}" IsEnabled="{Binding IsEnable}">
                 <Button.Style>
                     <Style TargetType="Button">
@@ -75,4 +102,64 @@
             </Button>
         </WrapPanel>
     </Grid>
+
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="20 10">
+                <TextBlock Text="{Binding ComplitedCourses, StringFormat='Завершенных: {0}'}" />
+                <TextBlock Text="{Binding CourseInPassage, StringFormat='В прохождении: {0}'}" Margin="20 0 0 0"/>
+            </StackPanel>
+
+            <ItemsControl ItemsSource="{Binding GetProgressUsers}"
+                          HorizontalAlignment="Center"
+                          BorderThickness="0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <controll:MyCoursePanelForProfileElement/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <ItemsControl Margin="10"  ItemsSource="{Binding ButtonPanel}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ContentControl Content="{Binding}">
+                            <ContentControl.Style>
+                                <Style TargetType="ContentControl">
+                                    <Setter Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <RadioButton Content="{Binding Text}"
+                                       Command="{Binding Command}"
+                                       CommandParameter="{Binding}"/>
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEllipsis}" Value="True">
+                                            <Setter Property="ContentTemplate">
+                                                <Setter.Value>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding Text}" 
+                                             Margin="10,0" 
+                                             VerticalAlignment="Center"/>
+                                                    </DataTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentControl.Style>
+                        </ContentControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </ScrollViewer>
+
 </UserControl>

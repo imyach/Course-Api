@@ -10,6 +10,10 @@
         <ScrollViewer HorizontalScrollBarVisibility="Disabled">
 
         <StackPanel>
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="20 10">
+                <TextBlock Text="{Binding ComplitedCourses, StringFormat='Завершенных: {0}'}" /> 
+                <TextBlock Text="{Binding CourseInPassage, StringFormat='В прохождении: {0}'}" Margin="20 0 0 0"/>
+            </StackPanel>
 
             <ItemsControl ItemsSource="{Binding GetProgressUsers}"
                           HorizontalAlignment="Center"

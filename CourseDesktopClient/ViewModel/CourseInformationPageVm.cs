@@ -215,7 +215,7 @@ namespace CourseDesktopClient.ViewModel
             Description = infoCourse.Description;
             CreatedAt = infoCourse.CreatedAt;
 
-            var (progress, _) = await courseApiClient.GetProgressUsersAsync(pageSize: int.MaxValue);
+            var (progress, _, _) = await courseApiClient.GetProgressUsersAsync(authService.CurrentUser.Id, pageSize: int.MaxValue);
             if (progress != null && authService != null)
                 IsEnrolled = progress.ProgressUsers?.Any(pu => pu.Course.Id == idCourse && pu.User.Id == authService.CurrentUser.Id) ?? false;
 

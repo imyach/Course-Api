@@ -25,6 +25,12 @@ namespace CourseDesktopClient.ViewModel
         private string _searchProgressCourse = string.Empty;
         public string SearchProgressCourse { get { return _searchProgressCourse; } set { _searchProgressCourse = value; SetProperty(ref _searchProgressCourse, value); Update(); } }
 
+
+        private int _complitedCourses;
+        public int ComplitedCourses { get { return _complitedCourses; } set { _complitedCourses = value; OnPropertyChanged();} }
+        private int _courseInPassage;
+        public int CourseInPassage { get { return _courseInPassage; } set { _courseInPassage = value; OnPropertyChanged(); } }
+
         public ICommand ContinueCousre { get; set; }
         public ICommand ViewDetailsCommand { get; set; }
         public ICommand DeleteProgressCourseCommand { get; set; }
@@ -32,11 +38,13 @@ namespace CourseDesktopClient.ViewModel
 
         private readonly ICourseApiClient courseApiClient;
         private readonly IPagerService pagerService;
+        private readonly IAuthService authService;
 
-        public MyCoursePageVm(INavigationService navigationService , ICourseApiClient courseApiClient, IPagerService pagerService) : base(navigationService)
+        public MyCoursePageVm(INavigationService navigationService , ICourseApiClient courseApiClient, IPagerService pagerService, IAuthService authService) : base(navigationService)
         {
             this.courseApiClient = courseApiClient;
             this.pagerService = pagerService;
+            this.authService = authService;
 
             DeleteProgressCourseCommand = new RelayCommand(async button =>
             {
@@ -73,9 +81,12 @@ namespace CourseDesktopClient.ViewModel
 
         public async Task LoadProgressUserForCoursesData(string searchText, int pageNumber)
         {
-            var (progeresCourses, pager) = await courseApiClient.GetProgressUsersAsync(pageNumber, searchText: searchText);
+            var (progeresCourses, progressinfo, pager) = await courseApiClient.GetProgressUsersAsync(authService.CurrentUser.Id, pageNumber, searchText: searchText);
 
             var courseProgressViewModel = progeresCourses.ProgressUsers.Select(x => new MyCoursePanelElementVm(x)).ToList();
+
+            ComplitedCourses = progressinfo.CompletedCourse;
+            CourseInPassage = progressinfo.CourseInPassage;
 
             GetProgressUsers = courseProgressViewModel;
             GenerateButtonPanel(pager);

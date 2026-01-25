@@ -8,6 +8,7 @@ using CourseDesktopClient.Services;
 using CourseDesktopClient.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.DirectoryServices.ActiveDirectory;
 using System.Drawing.Printing;
 using System.Net;
 using System.Net.Http;
@@ -34,6 +35,14 @@ namespace CourseDesktopClient.Api.Client
             {
                 PropertyNameCaseInsensitive = true
             };
+        }
+
+        //ROLES
+        public async Task<RolesDto> GetRolesAsync(CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_ROLES, ct);
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<RolesDto>(jsonOptions, ct);
         }
 
 
@@ -161,19 +170,20 @@ namespace CourseDesktopClient.Api.Client
 
 
         //PROGRESSUSER
-        public async Task<(ProgressUsersDto,PagerInfoDto)> GetProgressUsersAsync(int pageNumber = 1, int pageSize = 20, string searchText = null, CancellationToken ct = default)
+        public async Task<(ProgressUsersDto,ProgerssInfoDto,PagerInfoDto)> GetProgressUsersAsync(Guid userId, int pageNumber = 1, int pageSize = 20, string searchText = null, CancellationToken ct = default)
         {
-            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_PROGRESSUSER + $"?searchText={searchText}&pageSize={pageSize}&pageNumber={pageNumber}", ct);
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_PROGRESSUSER + $"{userId}?searchText={searchText}&pageSize={pageSize}&pageNumber={pageNumber}", ct);
 
             if (!CheckOnAvalibleSever(response))
-                return (null,null);
+                return (null,null,null);
             response.EnsureSuccessStatusCode();
 
             var dataArray = await response.Content.ReadFromJsonAsync<JsonElement[]>(jsonOptions, ct);
             var progressUsers = JsonSerializer.Deserialize<ProgressUsersDto>(dataArray[0]);
-            var pagerInfo = JsonSerializer.Deserialize<PagerInfoDto>(dataArray[1]);
+            var progressInfo = JsonSerializer.Deserialize<ProgerssInfoDto>(dataArray[1]);
+            var pagerInfo = JsonSerializer.Deserialize<PagerInfoDto>(dataArray[2]);
 
-            return (progressUsers, pagerInfo);
+            return (progressUsers, progressInfo, pagerInfo);
         }
         public async Task<Guid?> CreateProgressUserAsync(ProgressUserRequestDto progressUserDto, CancellationToken ct = default)
         {

@@ -13,6 +13,9 @@ namespace CourseDesktopClient.Api.Client
 {
     public interface ICourseApiClient
     {
+        //ROLE
+        Task<RolesDto> GetRolesAsync(CancellationToken ct = default);
+
         //AUTH
         Task<TokensDto> LoginAsync(LoginDto loginDto, CancellationToken ct = default);
         Task<TokensDto> RegisterAsync(RegisterDto registerDto, CancellationToken ct = default);
@@ -36,7 +39,7 @@ namespace CourseDesktopClient.Api.Client
         Task<HttpStatusCode?> DeleteReviewAsync(Guid id, CancellationToken ct = default);
 
         //PROGRESS USER
-        Task<(ProgressUsersDto, PagerInfoDto)> GetProgressUsersAsync(int pageNumber = 1, int pageSize = 10, string searchText = null, CancellationToken ct = default);
+        Task<(ProgressUsersDto, ProgerssInfoDto, PagerInfoDto)> GetProgressUsersAsync(Guid userId ,int pageNumber = 1, int pageSize = 10, string searchText = null, CancellationToken ct = default);
         Task<Guid?> CreateProgressUserAsync(ProgressUserRequestDto progressUserDto, CancellationToken ct = default);
         Task<ProgressUserDto> GetProgressUserByIdAsync(Guid id, CancellationToken ct = default);
         Task<HttpStatusCode?> DeleteProgressUserAsync(Guid id, CancellationToken ct = default);

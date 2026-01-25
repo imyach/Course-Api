@@ -91,7 +91,7 @@ namespace CourseDesktopClient.ViewModel
 
             if (authService.IsAuthenticated)
             {
-                var (progress, _) = await courseApiClient.GetProgressUsersAsync(pageSize: int.MaxValue);
+                var (progress,_, _) = await courseApiClient.GetProgressUsersAsync(authService.CurrentUser.Id, pageSize: int.MaxValue);
                 var courseViewModel = courses.Courses.Select(x => new CoursePanelElementVm(x, courseApiClient, progress, authService)).ToList();
                 GetCourses = courseViewModel;
             }

@@ -8,7 +8,11 @@ namespace CourseDesktopClient.Api
     {
         public const string API_PATH = "https://localhost:7000/api/";
 
+        public const string API_GET_ALL_ROLES = "role/all";
+        public const string API_GET_ROLE = "role/";
+
         public const string API_GET_ALL_COURSE = "course/all";
+        public const string API_GET_ALL_CREATED_COURSE = "course/drafted";
         public const string API_GET_COURSE_BY_ID = "course/";
         public const string API_DELETE_UPDATE_CERATE_COURSE = "course";
 
@@ -26,7 +30,7 @@ namespace CourseDesktopClient.Api
         public const string API_REGISTER_USER= "auth/register";
         public const string API_REFRESH_TOKEN= "auth/refresh";
 
-        public const string API_GET_ALL_PROGRESSUSER = "progressUser/all";
+        public const string API_GET_ALL_PROGRESSUSER = "progressUser/all/";
         public const string API_GET_PROGRESSUSER_BY_ID = "progressUser/";
         public const string API_DELETE_UPDATE_CERATE_PROGRESSUSER = "progressUser";
 
