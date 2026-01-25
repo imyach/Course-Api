@@ -8,6 +8,7 @@ using CourseDesktopClient.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing.Printing;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,6 +36,28 @@ namespace CourseDesktopClient.ViewModel
         public ICommand ViewDetailsCommand { get; set; }
         public ICommand DeleteProgressCourseCommand { get; set; }
         public ICommand PagerCommand { get; set; }
+
+        private Visibility _visibleButtonPanel;
+        public Visibility VisibleButtonPanel
+        {
+            get { return _visibleButtonPanel; }
+            set
+            {
+                _visibleButtonPanel = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Visibility _visibleEmptyPage;
+        public Visibility VisibleEmptyPage
+        {
+            get { return _visibleEmptyPage; }
+            set
+            {
+                _visibleEmptyPage = value;
+                OnPropertyChanged();
+            }
+        }
 
         private readonly ICourseApiClient courseApiClient;
         private readonly IPagerService pagerService;
@@ -90,6 +113,14 @@ namespace CourseDesktopClient.ViewModel
 
             GetProgressUsers = courseProgressViewModel;
             GenerateButtonPanel(pager);
+
+            VisibleButtonPanel = pager.TotalItems <= pager.PageSize
+                ? Visibility.Collapsed
+                : Visibility.Visible;
+
+            VisibleEmptyPage = pager.TotalItems <= 0
+                ? Visibility.Visible
+                : Visibility.Collapsed;
         }
 
         private void GenerateButtonPanel(PagerInfoDto pager)

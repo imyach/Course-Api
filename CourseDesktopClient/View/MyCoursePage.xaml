@@ -9,70 +9,79 @@
              d:DesignHeight="450" d:DesignWidth="800">
         <ScrollViewer HorizontalScrollBarVisibility="Disabled">
 
-        <StackPanel>
-            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="20 10">
-                <TextBlock Text="{Binding ComplitedCourses, StringFormat='Завершенных: {0}'}" /> 
-                <TextBlock Text="{Binding CourseInPassage, StringFormat='В прохождении: {0}'}" Margin="20 0 0 0"/>
-            </StackPanel>
+        <Grid Margin="0 10 0 0">
+            <WrapPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center" Visibility="{Binding VisibleEmptyPage}">
+                <TextBlock Text="Вы ещё не записались не на один курс" HorizontalAlignment="Center"/>
+                <TextBlock Text="Самое время записаться" HorizontalAlignment="Center"/>
+                <Button Content="К курсам" Command="{Binding AllCourseCommand}"/>
+            </WrapPanel>
 
-            <ItemsControl ItemsSource="{Binding GetProgressUsers}"
+            <StackPanel>
+                <TextBlock Text="Мои курсы" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="20 10">
+                    <TextBlock Text="{Binding ComplitedCourses, StringFormat='Завершенных: {0}'}" />
+                    <TextBlock Text="{Binding CourseInPassage, StringFormat='В прохождении: {0}'}" Margin="20 0 0 0"/>
+                </StackPanel>
+
+                <ItemsControl ItemsSource="{Binding GetProgressUsers}"
                           HorizontalAlignment="Center"
                           BorderThickness="0">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <controll:MyCoursePanelElement/>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <UniformGrid Columns="2" 
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <controll:MyCoursePanelElement/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="2" 
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
-            
-            <ItemsControl Grid.Row="1"  ItemsSource="{Binding ButtonPanel}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal" 
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+
+                <ItemsControl Grid.Row="1"  ItemsSource="{Binding ButtonPanel}" Visibility="{Binding VisibleButtonPanel}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" 
                HorizontalAlignment="Center" 
                VerticalAlignment="Center"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <ContentControl Content="{Binding}">
-                            <ContentControl.Style>
-                                <Style TargetType="ContentControl">
-                                    <Setter Property="ContentTemplate">
-                                        <Setter.Value>
-                                            <DataTemplate>
-                                                <RadioButton Content="{Binding Text}"
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ContentControl Content="{Binding}">
+                                <ContentControl.Style>
+                                    <Style TargetType="ContentControl">
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <RadioButton Content="{Binding Text}"
                                        Command="{Binding Command}"
                                        CommandParameter="{Binding}"/>
-                                            </DataTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding IsEllipsis}" Value="True">
-                                            <Setter Property="ContentTemplate">
-                                                <Setter.Value>
-                                                    <DataTemplate>
-                                                        <TextBlock Text="{Binding Text}" 
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsEllipsis}" Value="True">
+                                                <Setter Property="ContentTemplate">
+                                                    <Setter.Value>
+                                                        <DataTemplate>
+                                                            <TextBlock Text="{Binding Text}" 
                                              Margin="10,0" 
                                              VerticalAlignment="Center"/>
-                                                    </DataTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </ContentControl.Style>
-                        </ContentControl>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </StackPanel>
+                                                        </DataTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ContentControl.Style>
+                            </ContentControl>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </Grid>
     </ScrollViewer>
 </UserControl>

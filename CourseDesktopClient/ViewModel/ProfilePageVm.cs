@@ -11,6 +11,7 @@ using CourseDesktopClient.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing.Printing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -123,6 +124,28 @@ namespace CourseDesktopClient.ViewModel
             }
         }
 
+        private Visibility _visibleButtonPanel;
+        public Visibility VisibleButtonPanel
+        {
+            get { return _visibleButtonPanel; }
+            set
+            {
+                _visibleButtonPanel = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Visibility _visibleEmptyPage;
+        public Visibility VisibleEmptyPage
+        {
+            get { return _visibleEmptyPage; }
+            set
+            {
+                _visibleEmptyPage = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         private IList<RoleDto>? _getRoles;
         public IList<RoleDto>? GetRoles { get => _getRoles; set { _getRoles = value; OnPropertyChanged(); } }
@@ -143,6 +166,8 @@ namespace CourseDesktopClient.ViewModel
         public ICommand DeleteUserProfile {  get; set; }
         public ICommand UpdateUserProfile {  get; set; }
         public ICommand PagerCommand { get; set; }
+
+
         public ProfilePageVm(INavigationService navigationService, IAuthService authService, ICourseApiClient courseApiClient, IPagerService pagerService) : base(navigationService)
         {
             this.authService = authService;
@@ -180,7 +205,6 @@ namespace CourseDesktopClient.ViewModel
                 if (int.TryParse((pageNumberStr as ButtonItem).Text, out int pageNumber))
                 {
                     await LoadingProfilePage(ViewedUser.Id, pageNumber);
-
                 }
             });
         }
@@ -245,6 +269,14 @@ namespace CourseDesktopClient.ViewModel
 
             GetProgressUsers = courseProgressViewModel;
             GenerateButtonPanel(pager);
+
+            VisibleButtonPanel = pager.TotalItems <= pager.PageSize
+                ? Visibility.Collapsed
+                : Visibility.Visible;
+
+            VisibleEmptyPage = pager.TotalItems <= 0 && ViewedUser.Id == authService.CurrentUser.Id
+                ? Visibility.Visible
+                : Visibility.Collapsed;
 
             Update();
 

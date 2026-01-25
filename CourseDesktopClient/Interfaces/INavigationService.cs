@@ -8,6 +8,7 @@ namespace CourseDesktopClient.Interfaces
     {
         void NavigateToLogin();
         void NavigateToRegister();
+        Task NavigateToWorkshop();
         Task NavigateToCourses();
         Task NavigateToInformationCourse(Guid Id);
         Task NavigateToMyCourses();

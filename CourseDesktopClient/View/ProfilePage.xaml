@@ -8,107 +8,122 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <WrapPanel  Orientation="Vertical" HorizontalAlignment="Center"  VerticalAlignment="Center">
+                    <TextBlock Text="Профиль" FontWeight="Bold" Margin="0 0 0 30"/>
+                    <TextBlock Text="Имя:" />
+                    <TextBox Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Text="Почта:" />
+                    <TextBox Text="{Binding UserEmail, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Text="Номер телефона:" />
+                    <TextBox Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Text="Логин:" />
+                    <TextBox Text="{Binding UserLogin, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Text="Роль:" />
+                    <TextBlock Text="{Binding UserRole.Name}">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsVisible}" Value="False">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <ComboBox ItemsSource="{Binding GetRoles}" DisplayMemberPath="Name" SelectedItem="{Binding UserRole}">
+                        <ComboBox.Style>
+                            <Style TargetType="ComboBox">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsVisible}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+                    <Button Content="Сохранить изменения" Command="{Binding UpdateUserProfile}" IsEnabled="{Binding IsEnable}">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsAccessUpdate}" Value="False">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsCurrentUSer}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Content="Изменить пароль" Command="{Binding UpdateUserPassword}">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsCurrentUSer}" Value="False">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Content="Удалить аккаунт" Command="{Binding DeleteUserProfile}">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsAccessUpdate}" Value="False">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsCurrentUSer}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Content="Выйти" Command="{Binding LogOutCommand}">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsCurrentUSer}" Value="False">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </WrapPanel>
+            </Grid>
 
-        <StackPanel>
-    <Grid>
-        <WrapPanel Orientation="Vertical" HorizontalAlignment="Center"  VerticalAlignment="Center">
-            <TextBlock Text="Профиль" FontWeight="Bold" Margin="0 0 0 30"/>
-            <TextBlock Text="Имя:" />
-            <TextBox Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Почта:" />
-            <TextBox Text="{Binding UserEmail, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Номер телефона:" />
-            <TextBox Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Логин:" />
-            <TextBox Text="{Binding UserLogin, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Роль:" />
-            <TextBlock Text="{Binding UserRole.Name}">
-                <TextBlock.Style>
-                    <Style TargetType="TextBlock">
-                        <Setter Property="Visibility" Value="Collapsed"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsVisible}" Value="False">
-                                <Setter Property="Visibility" Value="Visible"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBlock.Style>
-            </TextBlock>
-            <ComboBox ItemsSource="{Binding GetRoles}" DisplayMemberPath="Name" SelectedItem="{Binding UserRole}">
-                <ComboBox.Style>
-                    <Style TargetType="ComboBox">
-                        <Setter Property="Visibility" Value="Collapsed"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsVisible}" Value="True">
-                                <Setter Property="Visibility" Value="Visible"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </ComboBox.Style>
-            </ComboBox>
-            <Button Content="Сохранить изменения" Command="{Binding UpdateUserProfile}" IsEnabled="{Binding IsEnable}">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Visibility" Value="Visible"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsAccessUpdate}" Value="False">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding IsCurrentUSer}" Value="True">
-                                <Setter Property="Visibility" Value="Visible"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button Content="Изменить пароль" Command="{Binding UpdateUserPassword}">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Visibility" Value="Visible"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsCurrentUSer}" Value="False">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button Content="Удалить аккаунт" Command="{Binding DeleteUserProfile}">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Visibility" Value="Visible"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsAccessUpdate}" Value="False">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding IsCurrentUSer}" Value="True">
-                                <Setter Property="Visibility" Value="Visible"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button Content="Выйти" Command="{Binding LogOutCommand}">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Visibility" Value="Visible"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsCurrentUSer}" Value="False">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-        </WrapPanel>
-    </Grid>
+            <Grid Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+            <TextBlock Text="Результативность" Grid.Row="0" FontSize="20" Margin="0 20 0 0" FontWeight="Bold" HorizontalAlignment="Center"/>
 
-            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="20 10">
+            <StackPanel HorizontalAlignment="Left" Grid.Row="1" Orientation="Horizontal" Margin="20 10">
                 <TextBlock Text="{Binding ComplitedCourses, StringFormat='Завершенных: {0}'}" />
                 <TextBlock Text="{Binding CourseInPassage, StringFormat='В прохождении: {0}'}" Margin="20 0 0 0"/>
             </StackPanel>
 
-            <ItemsControl ItemsSource="{Binding GetProgressUsers}"
+            
+
+            <ItemsControl Grid.Row="2" ItemsSource="{Binding GetProgressUsers}"
                           HorizontalAlignment="Center"
                           BorderThickness="0">
                 <ItemsControl.ItemTemplate>
@@ -118,7 +133,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
 
-            <ItemsControl Margin="10"  ItemsSource="{Binding ButtonPanel}">
+            <ItemsControl Margin="10" Grid.Row="3" ItemsSource="{Binding ButtonPanel}" Visibility="{Binding VisibleButtonPanel}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal" 
@@ -159,7 +174,14 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-        </StackPanel>
+            </Grid>
+                <WrapPanel HorizontalAlignment="Center" Orientation="Vertical" Grid.Row="2" VerticalAlignment="Center" Visibility="{Binding VisibleEmptyPage}">
+                    <TextBlock Text="Вы ещё не записались не на один курс" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Самое время записаться" HorizontalAlignment="Center"/>
+                    <Button Content="К курсам" Command="{Binding AllCourseCommand}"/>
+                </WrapPanel>
+            </Grid>
+        </Grid>
     </ScrollViewer>
 
 </UserControl>

@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseDesktopClient"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="450" MinWidth="1000" >
+        Title="MainWindow" MinHeight="800" MinWidth="1500" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -46,6 +46,8 @@
 
             <WrapPanel   HorizontalAlignment="Right" VerticalAlignment="Center" >
 
+                <Button Content="Создать курс" Visibility="{Binding CouchAdminVisible}" Command="{Binding CreateCouseCommand}" />
+
                 <Menu Cursor="Hand" Visibility="{Binding VisibilityInAuthorizedProfile}" 
                     Margin="0 0 30 0"
                     Background="Transparent"
@@ -59,6 +61,9 @@
                       Command="{Binding ProfileCommand}"/>
 
                         <Separator/>
+
+                        <MenuItem Cursor="Hand" Header="Мастерская" 
+                        Command="{Binding WorkshopCommand}" Visibility="{Binding CouchAdminVisible}" />
 
                         <MenuItem Cursor="Hand" Header="Мои курсы" 
                       Command="{Binding MyCourseCommand}"/>

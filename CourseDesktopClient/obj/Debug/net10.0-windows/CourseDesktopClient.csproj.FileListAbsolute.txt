@@ -154,3 +154,7 @@ C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\CustomMessageBoxWindow.baml
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\MyCoursePanelForProfileElement.g.cs
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\MyCoursePanelForProfileElement.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\WorkshopPage.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\WorkshopPage.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\CreateCoursePanelElement.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\CreateCoursePanelElement.baml

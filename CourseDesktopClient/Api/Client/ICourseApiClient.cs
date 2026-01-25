@@ -30,6 +30,7 @@ namespace CourseDesktopClient.Api.Client
 
         //COURSE
         Task<(CoursesDto?, PagerInfoDto?)> GetCoursesAsync(int pageNumber = 1, int pageSize = 10, string searchText= null, CancellationToken ct = default);
+        Task<(CoursesDto?, PagerInfoDto?)> GetCreatedCoursesAsync(int pageNumber = 1, int pageSize = 10, CancellationToken ct = default);
         Task<CourseDto> GetCourseByIdAsync(Guid id, CancellationToken ct = default);
 
         //REVIEW

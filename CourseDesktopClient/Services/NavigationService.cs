@@ -116,6 +116,17 @@ namespace CourseDesktopClient.Services
             NavigateTo(registerPage);
         }
 
+        public async Task NavigateToWorkshop()
+        {
+            var workshopPage = serviceProvider.GetRequiredService<WorkshopPage>();
+
+            if (workshopPage.DataContext is WorkshopPageVm vm)
+            {
+                await vm.LoadingWorkshopPage();
+            }
+            NavigateTo(workshopPage);
+        }
+
 
 
         public bool CanGoBack => _navigationStack.Count > 1;
@@ -155,6 +166,6 @@ namespace CourseDesktopClient.Services
             _navigationStack.Clear();
         }
 
-
+        
     }
 }

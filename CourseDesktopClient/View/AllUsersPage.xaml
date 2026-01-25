@@ -23,7 +23,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
 
-            <ItemsControl Grid.Row="1"  ItemsSource="{Binding ButtonPanel}">
+            <ItemsControl Grid.Row="1"  ItemsSource="{Binding ButtonPanel}" Visibility="{Binding VisibleButtonPanel}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal" 

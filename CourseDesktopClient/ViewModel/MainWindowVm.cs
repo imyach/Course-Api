@@ -132,6 +132,16 @@ namespace CourseDesktopClient.ViewModel
             }
         }
 
+        private Visibility _couchAdminVisible;
+        public Visibility CouchAdminVisible
+        {
+            get { return _couchAdminVisible; }
+            set
+            {
+                _couchAdminVisible = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ICommand LogOutCommand {  get; set; }
         public ICommand ProfileCommand {  get; set; }
@@ -147,6 +157,11 @@ namespace CourseDesktopClient.ViewModel
                         : "Пользователи";
                 }
 
+
+                CouchAdminVisible = authService.IsAuthenticated && authService.CurrentUser.Role.Name is "Admin" or "Couch"
+                    ? Visibility.Visible
+                    : Visibility.Collapsed;
+
                 VisibilitySearch = mainWindowVm.CurrentView is AllCoursePage or MyCoursePage or AllUsersPage
                     ? Visibility.Visible
                     : Visibility.Collapsed;
@@ -158,6 +173,7 @@ namespace CourseDesktopClient.ViewModel
                 VisibilityInAuthorizedProfile = authService.IsAuthenticated && mainWindowVm.CurrentView is not LoginPage and not RegisterPage
                     ? Visibility.Visible
                     : Visibility.Collapsed;
+
 
                 UserName = authService.IsAuthenticated
                    ? authService.CurrentUser.NameUser

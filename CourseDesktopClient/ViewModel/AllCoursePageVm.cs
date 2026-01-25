@@ -43,6 +43,28 @@ namespace CourseDesktopClient.ViewModel
         private readonly IPagerService pagerService;
         private readonly IAuthService authService;
 
+        private Visibility _visibleButtonPanel;
+        public Visibility VisibleButtonPanel
+        {
+            get { return _visibleButtonPanel; }
+            set
+            {
+                _visibleButtonPanel = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Visibility _visibleEmptyPage;
+        public Visibility VisibleEmptyPage
+        {
+            get { return _visibleEmptyPage; }
+            set
+            {
+                _visibleEmptyPage = value;
+                OnPropertyChanged();
+            }
+        }
+
         private void GenerateButtonPanel(PagerInfoDto pager)
         {
             var newButtonPanel = pagerService.GeneratePagerPanel(pager, PagerCommand);
@@ -91,7 +113,7 @@ namespace CourseDesktopClient.ViewModel
 
             if (authService.IsAuthenticated)
             {
-                var (progress,_, _) = await courseApiClient.GetProgressUsersAsync(authService.CurrentUser.Id, pageSize: int.MaxValue);
+                var (progress, _, _) = await courseApiClient.GetProgressUsersAsync(authService.CurrentUser.Id, pageSize: int.MaxValue);
                 var courseViewModel = courses.Courses.Select(x => new CoursePanelElementVm(x, courseApiClient, progress, authService)).ToList();
                 GetCourses = courseViewModel;
             }
@@ -101,6 +123,14 @@ namespace CourseDesktopClient.ViewModel
                 GetCourses = courseViewModel;
             }
             GenerateButtonPanel(pager);
+
+            VisibleButtonPanel = pager.TotalItems <= pager.PageSize
+                ? Visibility.Collapsed
+                : Visibility.Visible;
+
+            VisibleEmptyPage = pager.TotalItems <= 0
+                ? Visibility.Visible
+                : Visibility.Collapsed;
         }
     }
 }

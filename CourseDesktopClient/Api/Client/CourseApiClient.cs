@@ -71,6 +71,21 @@ namespace CourseDesktopClient.Api.Client
             return  (courses, pagerInfo);
         }
 
+        public async Task<(CoursesDto?, PagerInfoDto?)> GetCreatedCoursesAsync(int pageNumber = 1, int pageSize = 10, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_CREATED_COURSE + $"?pageNumber={pageNumber}&pageSize={pageSize}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return (null, null);
+
+            response.EnsureSuccessStatusCode();
+            var dataArray = await response.Content.ReadFromJsonAsync<JsonElement[]>(jsonOptions, ct);
+            var courses = JsonSerializer.Deserialize<CoursesDto>(dataArray[0]);
+            var pagerInfo = JsonSerializer.Deserialize<PagerInfoDto>(dataArray[1]);
+
+            return (courses, pagerInfo);
+        }
+
+
 
         //PROFILES
         public async Task<UserDto> GetUserProfileAsync(Guid id, CancellationToken ct = default)
@@ -234,6 +249,7 @@ namespace CourseDesktopClient.Api.Client
         public async Task<HttpStatusCode?> UpdateUserForAdminAsync(UpdateUserRequestDto userDto, CancellationToken ct = default)
         {
             var response = await httpClient.PutAsJsonAsync(ApiPaths.API_UPDATE_USER_ADMIN, userDto, ct);
+
             if (!CheckOnAvalibleSever(response))
                 return null;
             return response.StatusCode;

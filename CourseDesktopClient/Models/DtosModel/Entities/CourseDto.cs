@@ -21,5 +21,7 @@ namespace CourseDesktopClient.Models.DtosModel.Entities
         public decimal? Rait { get; set; }
         [JsonPropertyName("user")]
         public UserDto User { get; set; } = new();
+        [JsonPropertyName("status")]
+        public string Status { get; set; } = string.Empty;
     }
 }

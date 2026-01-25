@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 
 namespace CourseDesktopClient.ViewModel
@@ -29,6 +30,17 @@ namespace CourseDesktopClient.ViewModel
 
         public ICommand PagerCommand { get; set; }
         public ICommand LookProfile { get; set; }
+
+        private Visibility _visibleButtonPanel;
+        public Visibility VisibleButtonPanel
+        {
+            get { return _visibleButtonPanel; }
+            set
+            {
+                _visibleButtonPanel = value;
+                OnPropertyChanged();
+            }
+        }
 
         public AllUsersPageVm(INavigationService navigationService, ICourseApiClient courseApiClient, IAuthService authService, IPagerService pagerService) :base(navigationService)
         {
@@ -56,6 +68,10 @@ namespace CourseDesktopClient.ViewModel
 
             GetUsers = usersVm;
             GenerateButtonPanel(pager);
+
+            VisibleButtonPanel = pager.TotalItems <= pager.PageSize
+                ? Visibility.Collapsed
+                : Visibility.Visible;
         }
 
         
