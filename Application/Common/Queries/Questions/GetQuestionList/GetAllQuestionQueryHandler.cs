@@ -16,7 +16,8 @@ namespace Application.Common.Queries.Questions.GetQuestionList
         public async Task<QuestionListVm> Handle(GetAllQuestionQuery request, CancellationToken cancellationToken)
         {
             var questionQuery = await context.Questions
-                .Include(m => m.Test)
+                .Include(q => q.Test)
+                .Where(q=>q.TestId == request.TestId)
                 .ProjectTo<QuestionLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

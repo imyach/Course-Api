@@ -23,11 +23,11 @@ namespace Application.Common.Commands.Answers.UpdateAnswer
             var entity = await context.Answers.FindAsync([request.Id], cancellationToken)
                 ?? throw new NotFoundException(nameof(Answer), request.Id);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Question.Test.Course.UserId))
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Question.Test.Matherial.Module.Course.UserId))
             {
                 entity.Text = request.Text;
                 entity.IsCorrect = request.IsCorrect;
-                entity.Question.Test.Course.UpdateAt = DateTime.UtcNow;
+                entity.Question.Test.Matherial.Module.Course.UpdateAt = DateTime.UtcNow;
 
                 await context.SaveChangesAsync(cancellationToken);
                 return Unit.Value;

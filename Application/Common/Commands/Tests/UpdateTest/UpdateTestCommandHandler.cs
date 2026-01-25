@@ -22,11 +22,11 @@ namespace Application.Common.Commands.Tests.UpdateTest
             var entity = await context.Tests.FindAsync([request.Id], cancellationToken)
                 ?? throw new NotFoundException(nameof(Test), request.Id);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Course.UserId))
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Matherial.Module.Course.UserId))
             {
                 entity.Title = request.Title;
                 entity.Description = request.Description;
-                entity.Course.UpdateAt = DateTime.UtcNow;
+                entity.Matherial.Module.Course.UpdateAt = DateTime.UtcNow;
                 await context.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;

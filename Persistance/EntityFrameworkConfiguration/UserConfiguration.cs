@@ -20,6 +20,7 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.Property(user => user.Email).HasMaxLength(250);
             builder.Property(user => user.CreatedAt).IsRequired();
             builder.Property(user => user.RoleId).IsRequired();
+            builder.Property(user => user.IsActive).IsRequired();
             builder.Property(user => user.PhoneNumber).HasMaxLength(12);
 
             builder.HasOne(role => role.Role)

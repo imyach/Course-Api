@@ -86,11 +86,17 @@
   {
     "ContainingType": "CourseWebApi.Controllers.AnswerController",
     "Method": "GetAll",
-    "RelativePath": "api/Answer/All",
+    "RelativePath": "api/Answer/All/{questionId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "questionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "Application.Common.Dtos.Answers.AnswerListVm",
@@ -370,6 +376,37 @@
     ]
   },
   {
+    "ContainingType": "CourseWebApi.Controllers.CourseController",
+    "Method": "GetAllCreated",
+    "RelativePath": "api/Course/Drafted",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Common.Dtos.Courses.CourseListVm",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "CourseWebApi.Controllers.MatherialController",
     "Method": "Create",
     "RelativePath": "api/Matherial",
@@ -456,11 +493,17 @@
   {
     "ContainingType": "CourseWebApi.Controllers.MatherialController",
     "Method": "GetAll",
-    "RelativePath": "api/Matherial/All",
+    "RelativePath": "api/Matherial/All/{moduleId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "moduleId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "Application.Common.Dtos.Matherials.MatherialListVm",
@@ -560,11 +603,17 @@
   {
     "ContainingType": "CourseWebApi.Controllers.ModuleController",
     "Method": "GetAll",
-    "RelativePath": "api/Module/All",
+    "RelativePath": "api/Module/All/{courseId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "Application.Common.Dtos.Modules.ModuleListVm",
@@ -664,11 +713,16 @@
   {
     "ContainingType": "CourseWebApi.Controllers.ProgressUserController",
     "Method": "GetAll",
-    "RelativePath": "api/ProgressUser/All",
+    "RelativePath": "api/ProgressUser/All/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
       {
         "Name": "searchText",
         "Type": "System.String",
@@ -784,11 +838,17 @@
   {
     "ContainingType": "CourseWebApi.Controllers.QuestionController",
     "Method": "GetAll",
-    "RelativePath": "api/Question/All",
+    "RelativePath": "api/Question/All/{testId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "testId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "Application.Common.Dtos.Questions.QuestionListVm",

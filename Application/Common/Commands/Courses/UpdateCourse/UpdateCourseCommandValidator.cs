@@ -21,6 +21,8 @@ namespace Application.Common.Commands.Courses.UpdateCourse
                 .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateCourseCommand => updateCourseCommand.Description)
                 .MaximumLength(1000);
+            RuleFor(updateCourseCommand => updateCourseCommand.Status)
+                .NotNull().NotEmpty();
         }
     }
 }

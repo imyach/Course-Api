@@ -22,10 +22,10 @@ namespace Application.Common.Commands.Questions.UpdateQuestion
             var entity = await context.Questions.FindAsync([request.Id], cancellationToken)
                 ?? throw new NotFoundException(nameof(Question), request.Id);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Test.Course.UserId))
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Test.Matherial.Module.Course.UserId))
             {
                 entity.Text = request.Text;
-                entity.Test.Course.UpdateAt = DateTime.UtcNow;
+                entity.Test.Matherial.Module.Course.UpdateAt = DateTime.UtcNow;
                 await context.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;

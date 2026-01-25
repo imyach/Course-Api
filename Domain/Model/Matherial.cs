@@ -10,7 +10,7 @@ namespace Domain.Model
         public Guid ModuleId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
-        public int Order { get; set; }
+        public int Order { get; set; } = 0;
 
         public Module? Module { get; set; }
 

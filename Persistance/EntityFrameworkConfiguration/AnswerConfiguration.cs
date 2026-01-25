@@ -21,7 +21,8 @@ namespace Persistance.EntityFrameworkConfiguration
 
             builder.HasOne(quest => quest.Question)
                 .WithMany(ans => ans.Answers)
-                .HasForeignKey(k => k.QuestionId);
+                .HasForeignKey(k => k.QuestionId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

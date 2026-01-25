@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Application.Common.Queries.Modules.GetModule
 {
-    public class GetDetailsModuleQueryValidator : AbstractValidator<GetDetailsModuleQuery>
+    public class GetAllModuleQueryValidator : AbstractValidator<GetDetailsModuleQuery>
     {
-        public GetDetailsModuleQueryValidator() 
+        public GetAllModuleQueryValidator() 
         {
             RuleFor(getDetailsModuleQuery => getDetailsModuleQuery.Id)
                 .NotNull().NotEqual(Guid.Empty);

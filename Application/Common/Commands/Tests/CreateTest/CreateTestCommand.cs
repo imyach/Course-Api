@@ -11,7 +11,6 @@ namespace Application.Common.Commands.Tests.CreateTest
         public Guid CurrentUserId { get; set; }
 
         public Guid MatherialId { get; set; }
-        public Guid CourseId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
     }

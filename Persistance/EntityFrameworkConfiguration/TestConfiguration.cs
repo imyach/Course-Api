@@ -15,14 +15,13 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.HasIndex(test => test.Id).IsUnique();
             builder.Property(test => test.Id).HasMaxLength(250);
             builder.Property(test => test.Title).IsRequired().HasMaxLength(250);
+            builder.Property(test => test.Description).HasMaxLength(2000);
 
             builder.HasOne(math => math.Matherial)
                 .WithMany(tests => tests.Tests)
-                .HasForeignKey(k => k.MatherialId);
-
-            builder.HasOne(course => course.Course)
-                .WithMany(tests => tests.Tests)
-                .HasForeignKey(k => k.CousreId);
+                .HasForeignKey(k => k.MatherialId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired(false);
         }
     }
 }

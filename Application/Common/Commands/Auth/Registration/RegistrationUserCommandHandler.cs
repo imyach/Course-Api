@@ -25,7 +25,8 @@ namespace Application.Common.Commands.Auth.Registration
                 Email = request.Email,
                 HashPassword = passwordHasher.HashPasword(request.Password),
                 CreatedAt = DateTime.UtcNow,
-                PhoneNumber = request.PhoneNumber
+                PhoneNumber = request.PhoneNumber,
+                IsActive = true
             };
 
             var dublicate = await context.Users.AnyAsync(x => x.Email == user.Email && x.Login == user.Login, cancellationToken);

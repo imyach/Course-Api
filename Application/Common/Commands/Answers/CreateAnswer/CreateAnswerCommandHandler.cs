@@ -23,7 +23,7 @@ namespace Application.Common.Commands.Answers.CreateAnswer
             var question = await context.Questions.FirstOrDefaultAsync(r => r.Id == request.QuestionId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Course), request.QuestionId);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && question.Test.Course.UserId == currentUser.Id))
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && question.Test.Matherial.Module.Course.UserId == currentUser.Id))
             {
                 var answer = new Answer
                 {
@@ -33,7 +33,7 @@ namespace Application.Common.Commands.Answers.CreateAnswer
                     IsCorrect = request.IsCorrect,
                 };
 
-                question.Test.Course.UpdateAt = DateTime.UtcNow;
+                question.Test.Matherial.Module.Course.UpdateAt = DateTime.UtcNow;
                 await context.Answers.AddAsync(answer, cancellationToken);
                 await context.SaveChangesAsync(cancellationToken);
 

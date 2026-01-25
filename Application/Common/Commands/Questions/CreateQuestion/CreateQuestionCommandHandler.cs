@@ -22,7 +22,7 @@ namespace Application.Common.Commands.Questions.CreateQuestion
             var test = await context.Tests.FirstOrDefaultAsync(r => r.Id == request.TestId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Test), request.TestId);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && test.Course.UserId == currentUser.Id))
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && test.Matherial.Module.Course.UserId == currentUser.Id))
             {
                 var question = new Question
                 {
@@ -31,7 +31,7 @@ namespace Application.Common.Commands.Questions.CreateQuestion
                     Text = request.Text,
                 };
 
-                test.Course.UpdateAt = DateTime.UtcNow;
+                test.Matherial.Module.Course.UpdateAt = DateTime.UtcNow;
                 await context.Questions.AddAsync(question, cancellationToken);
                 await context.SaveChangesAsync(cancellationToken);
 

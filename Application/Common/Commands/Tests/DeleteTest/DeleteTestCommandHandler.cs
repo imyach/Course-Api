@@ -24,7 +24,7 @@ namespace Application.Common.Commands.Tests.DeleteTest
 
             if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Matherial.Module.Course.UserId))
             {
-                entity.Course.UpdateAt = DateTime.UtcNow;
+                entity.Matherial.Module.Course.UpdateAt = DateTime.UtcNow;
                 context.Tests.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);
 

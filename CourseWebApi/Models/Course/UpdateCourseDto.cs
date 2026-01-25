@@ -15,6 +15,9 @@ namespace CourseWebApi.Models.Course
         public decimal Rait { get; set; } = 0;
         [Required]
         public Guid UserId { get; set; }
+        [Required]
+        public string Status { get; set; } = string.Empty;
+
 
         public void Mapping(Profile profile)
         {
@@ -28,7 +31,9 @@ namespace CourseWebApi.Models.Course
                 .ForMember(courseVm => courseVm.Rait,
                 opt => opt.MapFrom(courseCr => courseCr.Rait))
                 .ForMember(courseVm => courseVm.UserId,
-                opt => opt.MapFrom(courseCr => courseCr.UserId));
+                opt => opt.MapFrom(courseCr => courseCr.UserId))
+                .ForMember(courseVm => courseVm.Status,
+                opt => opt.MapFrom(courseCr => courseCr.Status));
         }
     }
 }

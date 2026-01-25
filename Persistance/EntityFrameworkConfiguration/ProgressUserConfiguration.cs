@@ -21,10 +21,13 @@ namespace Persistance.EntityFrameworkConfiguration
 
             builder.HasOne(user => user.User)
                 .WithMany(progs => progs.ProgressUsers)
-                .HasForeignKey(k => k.UserId);
+                .HasForeignKey(k => k.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
             builder.HasOne(course => course.Course)
                 .WithMany(progs => progs.ProgressUsers)
-                .HasForeignKey(k => k.CourseId);
+                .HasForeignKey(k => k.CourseId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

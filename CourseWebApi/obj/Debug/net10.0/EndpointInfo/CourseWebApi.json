@@ -5,10 +5,21 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Answer/All": {
+    "/api/Answer/All/{questionId}": {
       "get": {
         "tags": [
           "Answer"
+        ],
+        "parameters": [
+          {
+            "name": "questionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -481,6 +492,55 @@
         }
       }
     },
+    "/api/Course/Drafted": {
+      "get": {
+        "tags": [
+          "Course"
+        ],
+        "parameters": [
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseListVm"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseListVm"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseListVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Course/{id}": {
       "get": {
         "tags": [
@@ -624,10 +684,21 @@
         }
       }
     },
-    "/api/Matherial/All": {
+    "/api/Matherial/All/{moduleId}": {
       "get": {
         "tags": [
           "Matherial"
+        ],
+        "parameters": [
+          {
+            "name": "moduleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -794,10 +865,21 @@
         }
       }
     },
-    "/api/Module/All": {
+    "/api/Module/All/{courseId}": {
       "get": {
         "tags": [
           "Module"
+        ],
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -964,12 +1046,21 @@
         }
       }
     },
-    "/api/ProgressUser/All": {
+    "/api/ProgressUser/All/{userId}": {
       "get": {
         "tags": [
           "ProgressUser"
         ],
         "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
           {
             "name": "searchText",
             "in": "query",
@@ -1161,10 +1252,21 @@
         }
       }
     },
-    "/api/Question/All": {
+    "/api/Question/All/{testId}": {
       "get": {
         "tags": [
           "Question"
+        ],
+        "parameters": [
+          {
+            "name": "testId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -2136,6 +2238,10 @@
             "type": "string",
             "format": "uuid"
           },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
           "user": {
             "$ref": "#/components/schemas/User"
           },
@@ -2385,10 +2491,6 @@
         "type": "object",
         "properties": {
           "matherialId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "courseId": {
             "type": "string",
             "format": "uuid"
           },
@@ -2967,7 +3069,7 @@
             "format": "uuid",
             "nullable": true
           },
-          "cousreId": {
+          "courseId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
@@ -2979,9 +3081,6 @@
           "description": {
             "type": "string",
             "nullable": true
-          },
-          "course": {
-            "$ref": "#/components/schemas/Course"
           },
           "matherial": {
             "$ref": "#/components/schemas/Matherial"
@@ -3026,9 +3125,6 @@
           },
           "matherial": {
             "$ref": "#/components/schemas/MatherialLookupDto"
-          },
-          "course": {
-            "$ref": "#/components/schemas/CourseLookupDto"
           }
         },
         "additionalProperties": false
@@ -3059,6 +3155,7 @@
         "required": [
           "id",
           "rait",
+          "status",
           "title",
           "userId"
         ],
@@ -3083,6 +3180,10 @@
           "userId": {
             "type": "string",
             "format": "uuid"
+          },
+          "status": {
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -3323,6 +3424,9 @@
           "phoneNumber": {
             "type": "string",
             "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
           },
           "role": {
             "$ref": "#/components/schemas/Role"

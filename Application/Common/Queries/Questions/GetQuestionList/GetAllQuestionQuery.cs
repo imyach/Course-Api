@@ -8,5 +8,6 @@ namespace Application.Common.Queries.Questions.GetQuestionList
 {
     public class GetAllQuestionQuery : IRequest<QuestionListVm>
     {
+        public Guid TestId { get; set; }
     }
 }

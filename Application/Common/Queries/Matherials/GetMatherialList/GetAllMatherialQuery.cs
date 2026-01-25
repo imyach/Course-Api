@@ -8,5 +8,6 @@ namespace Application.Common.Queries.Matherials.GetMatherialList
 {
     public class GetAllMatherialQuery : IRequest<MatherialListVm>
     {
+        public Guid ModuleId { get; set; }
     }
 }

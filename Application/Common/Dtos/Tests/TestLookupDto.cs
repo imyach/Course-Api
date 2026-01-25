@@ -17,21 +17,18 @@ namespace Application.Common.Dtos.Tests
         public string? Description { get; set; }
 
         public MatherialLookupDto? Matherial {  get; set; }
-        public CourseLookupDto? Course {  get; set; }
 
         public void Mapping(Profile profile) 
         {
             profile.CreateMap<Test, TestLookupDto>()
-                .ForMember(testVm=> testVm.Id,
-                opt=>opt.MapFrom(test=>test.Id))
-                .ForMember(testVm=> testVm.Title,
-                opt=>opt.MapFrom(test=>test.Title))
+                .ForMember(testVm => testVm.Id,
+                opt => opt.MapFrom(test => test.Id))
+                .ForMember(testVm => testVm.Title,
+                opt => opt.MapFrom(test => test.Title))
                 .ForMember(testVm => testVm.Description,
                 opt => opt.MapFrom(test => test.Description))
                 .ForMember(testVm => testVm.Matherial,
-                opt => opt.MapFrom(test => test.Matherial))
-                .ForMember(testVm => testVm.Course,
-                opt => opt.MapFrom(test => test.Course));
+                opt => opt.MapFrom(test => test.Matherial));
         }
     }
 }

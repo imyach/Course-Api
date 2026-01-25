@@ -9,8 +9,6 @@ namespace Application.Common.Commands.Tests.CreateTest
     {
         public CreateTestCommandValidator()
         {
-            RuleFor(createTestCommand => createTestCommand.CourseId)
-                .NotNull().NotEqual(Guid.Empty);
             RuleFor(createTestCommand => createTestCommand.CurrentUserId)
                 .NotNull().NotEqual(Guid.Empty);
             RuleFor(createTestCommand => createTestCommand.MatherialId)

@@ -28,14 +28,17 @@ namespace Application.Common.Queries.ProgressUsers.GetProgressUserList
                 .Include(m => m.Course)
                 .Include(m => m.User).AsQueryable();
 
+            query = query.Where(m => m.UserId == request.UserId);
+
+            var complited = await query.CountAsync(q => q.Status == "Завершен", cancellationToken);
+            var inPassage = await query.CountAsync(q => q.Status == "В прохождении", cancellationToken);
+
             if (!string.IsNullOrEmpty(request.SearchText))
             {
                 query = query.Where(x => x.Course.Title.ToLower().Contains(request.SearchText.ToLower()) 
                 || x.Course.Description.ToLower().Contains(request.SearchText.ToLower()) 
                 || x.Course.User.NameUser.ToLower().Contains(request.SearchText.ToLower()));
             }
-
-            query = query.Where(m => m.UserId == currentUser.Id);
 
             var totalItems = await query.CountAsync(cancellationToken);
             var totalPages = (int)Math.Ceiling(totalItems / (double)request.PageSize);
@@ -48,10 +51,17 @@ namespace Application.Common.Queries.ProgressUsers.GetProgressUserList
 
 
             return [new ProgressUserListVm { ProgressUsers = progressUsers },
-                        new PagerInfoDto { TotalItems = totalItems,
+                        new ProgressInfo
+                        {
+                            CompletedCourse = complited,
+                            CourseInPassage = inPassage
+                        },
+                        new PagerInfoDto {
+                            TotalItems = totalItems,
                             TotalPages = totalPages,
                             PageSize = request.PageSize,
-                            PageNumber = request.PageNumber} ];
+                            PageNumber = request.PageNumber
+                        }];
         }
     }
 }

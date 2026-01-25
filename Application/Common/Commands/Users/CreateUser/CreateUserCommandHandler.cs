@@ -35,7 +35,8 @@ namespace Application.Common.Commands.Users.CreateUser
                     Email = request.Email,
                     HashPassword = passwordHasher.HashPasword(request.Password),
                     CreatedAt = DateTime.UtcNow,
-                    PhoneNumber = request.PhoneNumber
+                    PhoneNumber = request.PhoneNumber,
+                    IsActive = true
                 };
                 await context.Users.AddAsync(user, cancellationToken);
                 await context.SaveChangesAsync(cancellationToken);

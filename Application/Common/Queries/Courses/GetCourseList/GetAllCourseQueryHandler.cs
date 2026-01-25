@@ -18,7 +18,9 @@ namespace Application.Common.Queries.Courses.GetCourseList
         {
 
             var query = context.Courses
-                .Include(c => c.User).AsQueryable();
+                .Include(c => c.User)
+                .Where(c=> c.Status == "Published")
+                .AsQueryable();
 
             if(!string.IsNullOrEmpty(request.SearchText))
             {

@@ -15,7 +15,7 @@ namespace Application.Common.Commands.Auth.Login
         public async Task<TokensDto?> Handle(LoginUserCommand request, CancellationToken cancellationToken)
         {
             var users = await context.Users.Where(user=> 
-                user.Login == request.Login || user.Email == request.Login).ToListAsync(cancellationToken);
+                user.Login == request.Login || user.Email == request.Login && user.IsActive == true).ToListAsync(cancellationToken);
             if (users == null)
                 return null;
 

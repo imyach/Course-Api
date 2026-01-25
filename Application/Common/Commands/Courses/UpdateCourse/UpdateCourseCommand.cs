@@ -14,5 +14,7 @@ namespace Application.Common.Commands.Courses.UpdateCourse
         public string? Description { get; set; }
         public decimal Rait { get; set; } = 0;
         public Guid UserId { get; set; }
+        public string Status { get; set; } = string.Empty;
+
     }
 }

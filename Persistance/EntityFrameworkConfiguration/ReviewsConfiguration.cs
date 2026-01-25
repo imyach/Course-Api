@@ -22,11 +22,13 @@ namespace Persistance.EntityFrameworkConfiguration
 
             builder.HasOne(user => user.User)
                 .WithMany(reviews => reviews.Reviews)
-                .HasForeignKey(k => k.UserId);
+                .HasForeignKey(k => k.UserId)
+                .OnDelete(DeleteBehavior.Cascade); 
 
             builder.HasOne(course => course.Course)
                .WithMany(reviews => reviews.Reviews)
-               .HasForeignKey(k => k.CourseId);
+               .HasForeignKey(k => k.CourseId)
+                .OnDelete(DeleteBehavior.Cascade);
 
 
         }

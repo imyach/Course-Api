@@ -28,7 +28,6 @@ namespace Application.Common.Commands.Tests.CreateTest
                 var test = new Test
                 {
                     Id = Guid.NewGuid(),
-                    CousreId = request.CourseId,
                     MatherialId = request.MatherialId,
                     Title = request.Title,
                     Description = request.Description,

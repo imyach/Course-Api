@@ -22,12 +22,13 @@ namespace CourseWebApi.Controllers
     [Route("api/[controller]")]
     public class AnswerController(IMapper mapper) : BaseController
     {
-        [HttpGet("All")]
+        [HttpGet("All/{questionId}")]
         [Authorize(Roles = "Couch,Student,Admin")]
-        public async Task<ActionResult<AnswerListVm>> GetAll()
+        public async Task<ActionResult<AnswerListVm>> GetAll(Guid questionId)
         {
-            var query = new GetAllAnswerQuery()
+            var query = new GetAllAnswerQuery
             {
+                QuestionId = questionId
             };
 
             var vm = await Mediator.Send(query);

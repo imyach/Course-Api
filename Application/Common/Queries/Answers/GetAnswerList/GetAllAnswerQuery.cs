@@ -8,5 +8,6 @@ namespace Application.Common.Queries.Answers.GetAnswerList
 {
     public  class GetAllAnswerQuery : IRequest<AnswerListVm>
     {
+        public Guid QuestionId { get; set; }
     }
 }

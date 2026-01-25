@@ -8,5 +8,6 @@ namespace Application.Common.Queries.Modules.GetModuleList
 {
     public class GetAllModuleQuery : IRequest<ModuleListVm>
     {
+        public Guid CourseId { get; set; }
     }
 }

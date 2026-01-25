@@ -4,6 +4,7 @@ using Application.Common.Commands.Courses.UpdateCourse;
 using Application.Common.Dtos.Courses;
 using Application.Common.Queries.Courses.GetCourse;
 using Application.Common.Queries.Courses.GetCourseList;
+using Application.Common.Queries.Courses.GetCreatedCourse;
 using AutoMapper;
 using CourseWebApi.Models.Course;
 using Microsoft.AspNetCore.Authorization;
@@ -27,6 +28,21 @@ namespace CourseWebApi.Controllers
             var vm = await Mediator.Send(query);
             return Ok(vm);
         }
+
+        [HttpGet("Drafted")]
+        public async Task<ActionResult<CourseListVm>> GetAllCreated([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+        {
+            var query = new GetAllCreatedCoursesQuery
+            {
+                CurrentUserId = UserId,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+            };
+
+            var vm = await Mediator.Send(query);
+            return Ok(vm);
+        }
+
         [HttpGet("{id}")]
         [Authorize(Roles = "Admin,Couch,Student")]
         public async Task<ActionResult<CourseLookupDto>> Get(Guid id)

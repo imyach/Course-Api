@@ -26,6 +26,7 @@ namespace Application.Common.Commands.Courses.UpdateCourse
                 entity.Description = request.Description;
                 entity.Rait = request.Rait;
                 entity.UserId = request.UserId;
+                entity.Status = request.Status;
                 await context.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;

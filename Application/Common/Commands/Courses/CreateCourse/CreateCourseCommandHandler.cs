@@ -28,7 +28,8 @@ namespace Application.Common.Commands.Courses.CreateCourse
                     CreatedAt = DateTime.UtcNow,
                     Rait = 0,
                     UserId = request.CurrentUserId,
-                    UpdateAt = null
+                    UpdateAt = null,
+                    Status = "Draft"
                 };
 
                 await context.Courses.AddAsync(course, cancellationToken);

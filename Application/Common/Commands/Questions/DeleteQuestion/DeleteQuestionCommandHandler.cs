@@ -22,9 +22,9 @@ namespace Application.Common.Commands.Questions.DeleteQuestion
             var entity = await context.Questions.FindAsync([request.Id], cancellationToken)
                 ?? throw new NotFoundException(nameof(Question), request.Id);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Test.Course.UserId))
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Test.Matherial.Module.Course.UserId))
             {
-                entity.Test.Course.UpdateAt = DateTime.UtcNow;
+                entity.Test.Matherial.Module.Course.UpdateAt = DateTime.UtcNow;
                 context.Questions.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);
 

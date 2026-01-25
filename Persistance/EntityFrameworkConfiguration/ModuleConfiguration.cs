@@ -20,7 +20,8 @@ namespace Persistance.EntityFrameworkConfiguration
 
             builder.HasOne(course => course.Course)
                 .WithMany(modules => modules.Modules)
-                .HasForeignKey(k => k.CourseId);
+                .HasForeignKey(k => k.CourseId)
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

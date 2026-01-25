@@ -23,8 +23,15 @@ namespace Application.Common.Commands.Users.DeteleUser
 
             if (roleUser.RoleName == "Admin" || currentUser.Id == entity.Id)
             {
-                context.Users.Remove(entity);
-                await context.SaveChangesAsync(cancellationToken);
+                if (entity.Role.RoleName == "Student") 
+                { 
+                    context.Users.Remove(entity);
+                    await context.SaveChangesAsync(cancellationToken); 
+                }
+            else
+                entity.IsActive = false;
+                
+                
                 return Unit.Value;
             }
             throw new AccessException();

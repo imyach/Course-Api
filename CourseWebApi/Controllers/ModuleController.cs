@@ -14,12 +14,13 @@ namespace CourseWebApi.Controllers
     [Route("api/[controller]")]
     public class ModuleController(IMapper mapper) : BaseController
     {
-        [HttpGet("All")]
+        [HttpGet("All/{courseId}")]
         [Authorize(Roles = "Couch,Student,Admin")]
-        public async Task<ActionResult<ModuleListVm>> GetAll()
+        public async Task<ActionResult<ModuleListVm>> GetAll(Guid courseId)
         {
             var query = new GetAllModuleQuery
             {
+                CourseId = courseId,
             };
             var vm = await Mediator.Send(query);
             return Ok(vm);

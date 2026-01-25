@@ -24,8 +24,7 @@ namespace Application.Common.Commands.Courses.DeleteCourse
 
             if (roleUser.RoleName == "Admin" || (entity.UserId == currentUser.Id && roleUser.RoleName == "Couch"))
             {
-                context.Courses.Remove(entity);
-                await context.SaveChangesAsync(cancellationToken);
+                entity.Status = "Archived";
 
                 return Unit.Value;
             }

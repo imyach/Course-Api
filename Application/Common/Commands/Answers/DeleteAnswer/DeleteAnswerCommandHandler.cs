@@ -23,9 +23,9 @@ namespace Application.Common.Commands.Answers.DeleteAnswer
             var entity = await context.Answers.FindAsync([request.Id], cancellationToken)
                 ?? throw new NotFoundException(nameof(Answer), request.Id);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Question.Test.Course.UserId))
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Question.Test.Matherial.Module.Course.UserId))
             {
-                entity.Question.Test.Course.UpdateAt = DateTime.UtcNow;
+                entity.Question.Test.Matherial.Module.Course.UpdateAt = DateTime.UtcNow;
                 context.Answers.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);
 

@@ -15,6 +15,8 @@ namespace Domain.Model
         public Guid RoleId { get; set; }
         public DateTime CreatedAt { get; set; }
         public string? PhoneNumber { get; set; }
+        public bool IsActive { get; set; }
+
 
         public Role? Role { get; set; }
         public RefreshToken? RefreshToken { get; set; }

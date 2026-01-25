@@ -17,7 +17,9 @@ namespace Application.Common.Queries.Users.GetUsersList
         public async Task<object[]> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
         {
             var query = context.Users
-               .Include(u => u.Role).AsQueryable();
+               .Include(u => u.Role)
+               .Where(x=>x.IsActive == true)
+               .AsQueryable();
 
             if (!string.IsNullOrEmpty(request.SearchText))
             {

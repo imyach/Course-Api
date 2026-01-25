@@ -48,7 +48,6 @@ namespace CourseWebApi.Servises
         public async Task<Guid> GenerateRefreshToken(User user, CancellationToken cancellationToken = default)
         {
 
-            // СОЗДАЕМ новый Refresh Token
             var newToken = new RefreshToken
             {
                 Id = Guid.NewGuid(),

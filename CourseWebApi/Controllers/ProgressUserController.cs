@@ -8,6 +8,7 @@ using AutoMapper;
 using CourseWebApi.Models.ProgressUser;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.InteropServices;
 
 namespace CourseWebApi.Controllers
 {
@@ -15,14 +16,16 @@ namespace CourseWebApi.Controllers
     [Authorize]
     public class ProgressUserController(IMapper mapper) : BaseController
     {
-        [HttpGet("All")]
-        public async Task<ActionResult<ProgressUserListVm>> GetAll([FromQuery] string searchText = null, 
+        [HttpGet("All/{userId}")]
+        public async Task<ActionResult<ProgressUserListVm>> GetAll(Guid userId,
+            [FromQuery] string searchText = null, 
             [FromQuery] int pageNumber = 1, 
             [FromQuery] int pageSize = 10)
         {
             var query = new GetAllProgressUserQuery
             {
                 CurrentUserId = UserId,
+                UserId = userId,
                 SearchText = searchText,
                 PageNumber = pageNumber,
                 PageSize = pageSize,

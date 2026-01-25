@@ -1,6 +1,7 @@
 ﻿using Domain.Model.Base;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace Domain.Model
@@ -13,6 +14,7 @@ namespace Domain.Model
         public DateTime? UpdateAt { get; set; }
         public decimal Rait { get; set; } = 0;
         public Guid  UserId { get; set; }
+        public string Status { get; set; } = string.Empty;
 
         public User? User { get; set; }
 

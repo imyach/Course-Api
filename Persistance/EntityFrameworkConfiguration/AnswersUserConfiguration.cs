@@ -19,11 +19,13 @@ namespace Persistance.EntityFrameworkConfiguration
 
             builder.HasOne(user => user.User)
                 .WithMany(ansusrs => ansusrs.AnswersUsers)
-                .HasForeignKey(k => k.UserId);
+                .HasForeignKey(k => k.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(asn => asn.Answer)
                 .WithMany(tests => tests.AnswersUsers)
-                .HasForeignKey(k => k.AnswerId);
+                .HasForeignKey(k => k.AnswerId)
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

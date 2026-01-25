@@ -18,6 +18,7 @@ namespace Application.Common.Queries.Answers.GetAnswerList
         {
             var answerQuery = await context.Answers
                 .Include(c => c.Question)
+                .Where(a => a.QuestionId == request.QuestionId)
                 .ProjectTo<AnswerLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

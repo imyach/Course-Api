@@ -21,9 +21,6 @@ namespace Application.Common.Queries.Tests.GetTest
                     .ThenInclude(m=>m.Course)
                     .ThenInclude(c=>c.User)
                     .ThenInclude(u=>u.Role)
-                .Include(t=> t.Course)
-                    .ThenInclude(c => c.User)
-                    .ThenInclude(u => u.Role)
                 .FirstOrDefaultAsync(t=>t.Id == request.Id, cancellationToken)
                 ??throw new NotFoundException(nameof(Test),request.Id);
 
