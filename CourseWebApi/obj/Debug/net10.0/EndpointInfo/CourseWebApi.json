@@ -2055,7 +2055,7 @@
         }
       }
     },
-    "/api/User/admin": {
+    "/api/User/Admin": {
       "put": {
         "tags": [
           "User"
@@ -2301,6 +2301,10 @@
             "nullable": true
           },
           "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
             "type": "string",
             "nullable": true
           },
@@ -3155,7 +3159,6 @@
         "required": [
           "id",
           "rait",
-          "status",
           "title",
           "userId"
         ],
@@ -3182,8 +3185,8 @@
             "format": "uuid"
           },
           "status": {
-            "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3355,11 +3358,9 @@
       },
       "UpdateUserForAdminDto": {
         "required": [
-          "email",
           "id",
           "login",
           "nameUser",
-          "phoneNumber",
           "role"
         ],
         "type": "object",
@@ -3380,12 +3381,12 @@
             "$ref": "#/components/schemas/Role"
           },
           "email": {
-            "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "phoneNumber": {
-            "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

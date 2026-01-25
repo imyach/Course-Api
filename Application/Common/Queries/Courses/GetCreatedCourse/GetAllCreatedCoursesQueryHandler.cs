@@ -18,7 +18,7 @@ namespace Application.Common.Queries.Courses.GetCreatedCourse
         {
             var query = context.Courses
                 .Include(c => c.User)
-                .Where(c => c.Status == "Draft" && c.User.Id == request.CurrentUserId)
+                .Where(c => (c.Status == "Draft" || c.Status == "Published") && c.User.Id == request.CurrentUserId)
                 .AsQueryable();
 
 
@@ -26,7 +26,7 @@ namespace Application.Common.Queries.Courses.GetCreatedCourse
             var totalPages = (int)Math.Ceiling(totalItems / (double)request.PageSize);
 
             var courses = await query
-                .OrderBy(x => x.Id)
+                .OrderByDescending(x => x.CreatedAt)
                 .Skip((request.PageNumber - 1) * request.PageSize)
                 .Take(request.PageSize)
                 .ProjectTo<CourseLookupDto>(mapper.ConfigurationProvider)

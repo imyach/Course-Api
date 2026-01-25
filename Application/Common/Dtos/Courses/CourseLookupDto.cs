@@ -13,6 +13,7 @@ namespace Application.Common.Dtos.Courses
         public Guid Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
+        public string Status { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdateAt { get; set; }
         public decimal? Rait { get; set; }
@@ -28,6 +29,8 @@ namespace Application.Common.Dtos.Courses
                 opt => opt.MapFrom(course => course.Title))
                 .ForMember(courseVm => courseVm.Description,
                 opt => opt.MapFrom(course => course.Description))
+                .ForMember(courseVm => courseVm.Status,
+                opt => opt.MapFrom(course => course.Status))
                 .ForMember(courseVm => courseVm.CreatedAt,
                 opt => opt.MapFrom(course => course.CreatedAt))
                 .ForMember(courseVm => courseVm.UpdateAt,

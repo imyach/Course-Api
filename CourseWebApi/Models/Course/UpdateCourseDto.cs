@@ -15,7 +15,6 @@ namespace CourseWebApi.Models.Course
         public decimal Rait { get; set; } = 0;
         [Required]
         public Guid UserId { get; set; }
-        [Required]
         public string Status { get; set; } = string.Empty;
 
 

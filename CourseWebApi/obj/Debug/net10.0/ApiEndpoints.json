@@ -1212,7 +1212,7 @@
   {
     "ContainingType": "CourseWebApi.Controllers.UserController",
     "Method": "UpdateAdmin",
-    "RelativePath": "api/User/admin",
+    "RelativePath": "api/User/Admin",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,

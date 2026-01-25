@@ -15,11 +15,11 @@ namespace Application.Common.Commands.Auth.Login
         public async Task<TokensDto?> Handle(LoginUserCommand request, CancellationToken cancellationToken)
         {
             var users = await context.Users.Where(user=> 
-                user.Login == request.Login || user.Email == request.Login && user.IsActive == true).ToListAsync(cancellationToken);
+                user.Login == request.Login || user.Email == request.Login ).ToListAsync(cancellationToken);
             if (users == null)
                 return null;
 
-            var user = users.FirstOrDefault(user => passwordHasher.VerifyBcryptPassword(request.Password, user.HashPassword));
+            var user = users.FirstOrDefault(user => passwordHasher.VerifyBcryptPassword(request.Password, user.HashPassword) && user.IsActive == true);
             if (user == null)
                 return null;
 

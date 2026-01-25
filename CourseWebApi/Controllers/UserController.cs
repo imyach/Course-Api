@@ -85,7 +85,7 @@ namespace CourseWebApi.Controllers
             return Ok(new {accessToken = response.AccessToken, refreshToken = response.RefreshToken});
         }
 
-        [HttpPut("admin")]
+        [HttpPut("Admin")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateAdmin([FromBody] UpdateUserForAdminDto updateUserCommand)
         {
