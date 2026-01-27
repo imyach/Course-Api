@@ -19,11 +19,16 @@ namespace Application.Common.Commands.Modules.CreateModule
             var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            var course = await context.Courses.FirstOrDefaultAsync(r => r.Id == request.CourseId, cancellationToken)
-                ?? throw new NotFoundException(nameof(Course), request.CourseId);
+            var entity = await context.Courses
+               .FirstOrDefaultAsync(u => u.Id == request.CourseId, cancellationToken)
+               ?? throw new NotFoundException(nameof(Course), request.CourseId);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && course.UserId == currentUser.Id))
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && entity.UserId == currentUser.Id))
             {
+                int order = 0;
+                if (context.Modules.Any(m=>m.CourseId == request.CourseId))
+                    order = context.Modules.OrderBy(m=>m.Order).LastAsync(cancellationToken).Result.Order;
+
 
                 var module = new Module
                 {
@@ -31,10 +36,11 @@ namespace Application.Common.Commands.Modules.CreateModule
                     CourseId = request.CourseId,
                     Title = request.Title,
                     Description = request.Description,
-                    Order = request.Order,
+                    Order = ++order
                 };
 
-                course.UpdateAt = DateTime.UtcNow;
+                if(entity.Status == "Published")
+                    entity.UpdateAt = DateTime.UtcNow;
                 await context.Modules.AddAsync(module, cancellationToken);
                 await context.SaveChangesAsync(cancellationToken);
 

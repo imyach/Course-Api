@@ -1686,10 +1686,21 @@
         }
       }
     },
-    "/api/Test/All": {
+    "/api/Test/All/{materialId}": {
       "get": {
         "tags": [
           "Test"
+        ],
+        "parameters": [
+          {
+            "name": "materialId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -2383,7 +2394,6 @@
       "CreateMatherialDto": {
         "required": [
           "moduleId",
-          "order",
           "title"
         ],
         "type": "object",
@@ -2399,10 +2409,6 @@
           "description": {
             "type": "string",
             "nullable": true
-          },
-          "order": {
-            "type": "integer",
-            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -2410,7 +2416,6 @@
       "CreateModuleDto": {
         "required": [
           "courseId",
-          "order",
           "title"
         ],
         "type": "object",
@@ -2422,10 +2427,6 @@
           "description": {
             "type": "string",
             "nullable": true
-          },
-          "order": {
-            "type": "integer",
-            "format": "int32"
           },
           "courseId": {
             "type": "string",
@@ -2490,6 +2491,7 @@
       },
       "CreateTestDto": {
         "required": [
+          "matherialId",
           "title"
         ],
         "type": "object",
@@ -3157,10 +3159,7 @@
       },
       "UpdateCourseDto": {
         "required": [
-          "id",
-          "rait",
-          "title",
-          "userId"
+          "id"
         ],
         "type": "object",
         "properties": {
@@ -3169,20 +3168,12 @@
             "format": "uuid"
           },
           "title": {
-            "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "description": {
             "type": "string",
             "nullable": true
-          },
-          "rait": {
-            "type": "number",
-            "format": "double"
-          },
-          "userId": {
-            "type": "string",
-            "format": "uuid"
           },
           "status": {
             "type": "string",
@@ -3194,17 +3185,11 @@
       "UpdateMatherialDto": {
         "required": [
           "id",
-          "moduleId",
-          "order",
           "title"
         ],
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "moduleId": {
             "type": "string",
             "format": "uuid"
           },
@@ -3215,19 +3200,13 @@
           "description": {
             "type": "string",
             "nullable": true
-          },
-          "order": {
-            "type": "integer",
-            "format": "int32"
           }
         },
         "additionalProperties": false
       },
       "UpdateModuleDto": {
         "required": [
-          "courseId",
           "id",
-          "order",
           "title"
         ],
         "type": "object",
@@ -3243,14 +3222,6 @@
           "description": {
             "type": "string",
             "nullable": true
-          },
-          "order": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "courseId": {
-            "type": "string",
-            "format": "uuid"
           }
         },
         "additionalProperties": false

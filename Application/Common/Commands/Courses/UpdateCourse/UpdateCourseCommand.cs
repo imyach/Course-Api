@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Domain.Model;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,8 +13,6 @@ namespace Application.Common.Commands.Courses.UpdateCourse
 
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
-        public decimal Rait { get; set; } = 0;
-        public Guid UserId { get; set; }
         public string Status { get; set; } = string.Empty;
 
     }

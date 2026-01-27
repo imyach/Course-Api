@@ -23,12 +23,13 @@ namespace CourseWebApi.Controllers
     [Route("api/[controller]")]
     public class TestController(IMapper mapper) : BaseController
     {
-        [HttpGet("All")]
+        [HttpGet("All/{materialId}")]
         [Authorize(Roles = "Couch,Student,Admin")]
-        public async Task<ActionResult<TestListVm>> GetAll()
+        public async Task<ActionResult<TestListVm>> GetAll(Guid materialId)
         {
             var query = new GetAllTestQuery()
             {
+                MaterialId = materialId
             };
 
             var vm = await Mediator.Send(query);

@@ -20,13 +20,16 @@ namespace Application.Common.Commands.Matherials.DeleteMatherial
             var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            var entity = await context.Matherials.FindAsync([request.Id], cancellationToken)
-                ?? throw new NotFoundException(nameof(Matherial), request.Id);
+            var entity = await context.Matherials
+             .Include(u => u.Module)
+                .ThenInclude(m=>m.Course)
+             .FirstOrDefaultAsync(u => u.Id == request.Id, cancellationToken)
+             ?? throw new NotFoundException(nameof(Matherial), request.Id);
 
             if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Module.Course.UserId))
             {
-
-                entity.Module.Course.UpdateAt = DateTime.UtcNow;
+                if (entity.Module.Course.Status == "Published")
+                    entity.Module.Course.UpdateAt = DateTime.UtcNow;
                 context.Matherials.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);
 

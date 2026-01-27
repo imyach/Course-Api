@@ -12,10 +12,6 @@ namespace CourseWebApi.Models.Module
         [Required]
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
-        [Required]
-        public int Order { get; set; }
-        [Required]
-        public Guid CourseId { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -25,11 +21,7 @@ namespace CourseWebApi.Models.Module
                 .ForMember(moduleVm => moduleVm.Title,
                 opt => opt.MapFrom(module => module.Title))
                 .ForMember(moduleVm => moduleVm.Description,
-                opt => opt.MapFrom(module => module.Description))
-                .ForMember(moduleVm => moduleVm.Order,
-                opt => opt.MapFrom(module => module.Order))
-                .ForMember(moduleVm => moduleVm.CourseId,
-                opt => opt.MapFrom(module => module.CourseId));
+                opt => opt.MapFrom(module => module.Description));
 
         }
     }

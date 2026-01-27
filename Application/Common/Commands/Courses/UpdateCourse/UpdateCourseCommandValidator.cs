@@ -14,15 +14,7 @@ namespace Application.Common.Commands.Courses.UpdateCourse
             RuleFor(updateCourseCommand => updateCourseCommand.Id)
                .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateCourseCommand => updateCourseCommand.Title)
-                .NotNull().NotEmpty().MaximumLength(100);
-            RuleFor(updateCourseCommand => updateCourseCommand.Rait)
-                .NotNull().NotEmpty().InclusiveBetween(1, 5);
-            RuleFor(updateCourseCommand => updateCourseCommand.UserId)
-                .NotNull().NotEqual(Guid.Empty);
-            RuleFor(updateCourseCommand => updateCourseCommand.Description)
-                .MaximumLength(1000);
-            RuleFor(updateCourseCommand => updateCourseCommand.Status)
-                .NotNull().NotEmpty();
+                .MaximumLength(100);
         }
     }
 }

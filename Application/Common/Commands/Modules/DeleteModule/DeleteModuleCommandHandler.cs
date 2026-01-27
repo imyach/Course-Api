@@ -19,12 +19,15 @@ namespace Application.Common.Commands.Modules.DeleteModule
             var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            var entity = await context.Modules.FindAsync([request.Id], cancellationToken) 
+            var entity = await context.Modules
+                .Include(u => u.Course)
+                .FirstOrDefaultAsync(u => u.Id == request.Id, cancellationToken)
                 ?? throw new NotFoundException(nameof(Module), request.Id);
 
             if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Course.UserId))
             {
-                entity.Course.UpdateAt = DateTime.UtcNow;
+                if (entity.Course.Status == "Published")
+                    entity.Course.UpdateAt = DateTime.UtcNow;
                 context.Modules.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);
 

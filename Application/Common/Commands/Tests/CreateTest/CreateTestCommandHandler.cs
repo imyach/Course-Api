@@ -20,10 +20,13 @@ namespace Application.Common.Commands.Tests.CreateTest
             var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            var matherial = await context.Matherials.FirstOrDefaultAsync(r => r.Id == request.MatherialId, cancellationToken)
-                ?? throw new NotFoundException(nameof(Matherial), request.MatherialId);
+            var entity = await context.Matherials
+            .Include(u => u.Module)
+                .ThenInclude(m => m.Course)
+            .FirstOrDefaultAsync(u => u.Id == request.MatherialId, cancellationToken)
+            ?? throw new NotFoundException(nameof(Test), request.MatherialId);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && matherial.Module.Course.UserId == currentUser.Id))
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && entity.Module.Course.UserId == currentUser.Id))
             {
                 var test = new Test
                 {
@@ -33,7 +36,8 @@ namespace Application.Common.Commands.Tests.CreateTest
                     Description = request.Description,
                 };
 
-                matherial.Module.Course.UpdateAt = DateTime.UtcNow;
+                if (entity.Module.Course.Status == "Published")
+                    entity.Module.Course.UpdateAt = DateTime.UtcNow;
                 await context.Tests.AddAsync(test, cancellationToken);
                 await context.SaveChangesAsync(cancellationToken);
 

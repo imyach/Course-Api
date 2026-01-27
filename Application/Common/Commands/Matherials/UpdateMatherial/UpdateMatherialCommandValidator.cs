@@ -13,12 +13,8 @@ namespace Application.Common.Commands.Matherials.UpdateMatherial
                .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateMatherialCommand => updateMatherialCommand.CurrentUserId)
               .NotNull().NotEqual(Guid.Empty);
-            RuleFor(updateMatherialCommand => updateMatherialCommand.ModuleId)
-                .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateMatherialCommand => updateMatherialCommand.Title)
                 .NotEmpty().NotNull().MaximumLength(100);
-            RuleFor(updateMatherialCommand => updateMatherialCommand.Order)
-                .NotEmpty().NotNull();
             RuleFor(updateMatherialCommand => updateMatherialCommand.Description)
                 .MaximumLength(1000);
         }

@@ -17,6 +17,7 @@ namespace Application.Common.Queries.Tests.GetTestList
         {
             var testQuery = await context.Tests
                 .Include(t => t.Matherial)
+                .Where(q => q.MatherialId == request.MaterialId)
                 .ProjectTo<TestLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

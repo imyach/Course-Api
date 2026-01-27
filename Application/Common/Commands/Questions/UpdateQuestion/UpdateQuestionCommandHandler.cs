@@ -19,13 +19,19 @@ namespace Application.Common.Commands.Questions.UpdateQuestion
             var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            var entity = await context.Questions.FindAsync([request.Id], cancellationToken)
-                ?? throw new NotFoundException(nameof(Question), request.Id);
+            var entity = await context.Questions
+            .Include(u => u.Test)
+                .ThenInclude(t => t.Matherial)
+                .ThenInclude(m => m.Module)
+                .ThenInclude(m => m.Course)
+            .FirstOrDefaultAsync(u => u.Id == request.Id, cancellationToken)
+            ?? throw new NotFoundException(nameof(Question), request.Id);
 
             if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Test.Matherial.Module.Course.UserId))
             {
                 entity.Text = request.Text;
-                entity.Test.Matherial.Module.Course.UpdateAt = DateTime.UtcNow;
+                if(entity.Test.Matherial.Module.Course.Status == "Published")
+                    entity.Test.Matherial.Module.Course.UpdateAt = DateTime.UtcNow;
                 await context.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;

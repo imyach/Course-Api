@@ -21,12 +21,14 @@ namespace Application.Common.Commands.Courses.UpdateCourse
             var entity = await context.Courses.FindAsync([request.Id], cancellationToken) ?? throw new NotFoundException(nameof(Course), request.Id);
             if (roleUser.RoleName == "Admin" || (entity.UserId == currentUser.Id && roleUser.RoleName == "Couch"))
             {
-                entity.UpdateAt = DateTime.UtcNow;
-                entity.Title = request.Title;
-                entity.Description = request.Description;
-                entity.Rait = request.Rait;
-                entity.UserId = request.UserId;
-                entity.Status = request.Status;
+                if(entity.Status == "Published" && request.Status != "Draft")
+                    entity.UpdateAt = DateTime.UtcNow;
+                if (!string.IsNullOrEmpty(request.Title))
+                    entity.Title = request.Title;
+                if (!string.IsNullOrEmpty(request.Description))
+                    entity.Description = request.Description;
+                if(!string.IsNullOrEmpty(request.Status))
+                    entity.Status = request.Status;
                 await context.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;

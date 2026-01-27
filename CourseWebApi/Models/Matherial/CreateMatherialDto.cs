@@ -11,8 +11,6 @@ namespace CourseWebApi.Models.Matherial
         [Required]
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
-        [Required]
-        public int Order { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -22,9 +20,7 @@ namespace CourseWebApi.Models.Matherial
                 .ForMember(matherialCm => matherialCm.Title,
                 opt => opt.MapFrom(matherial => matherial.Title))
                 .ForMember(matherialCm => matherialCm.Description,
-                opt => opt.MapFrom(matherial => matherial.Description))
-                .ForMember(matherialCm => matherialCm.Order,
-                opt => opt.MapFrom(matherial => matherial.Order));
+                opt => opt.MapFrom(matherial => matherial.Description));
         }
 
 

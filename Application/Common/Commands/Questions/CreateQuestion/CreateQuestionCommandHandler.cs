@@ -19,10 +19,14 @@ namespace Application.Common.Commands.Questions.CreateQuestion
             var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            var test = await context.Tests.FirstOrDefaultAsync(r => r.Id == request.TestId, cancellationToken)
-                ?? throw new NotFoundException(nameof(Test), request.TestId);
+            var entity = await context.Tests
+            .Include(u => u.Matherial)
+                .ThenInclude(t => t.Module)
+                .ThenInclude(m => m.Course)
+            .FirstOrDefaultAsync(u => u.Id == request.TestId, cancellationToken)
+            ?? throw new NotFoundException(nameof(Question), request.TestId);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && test.Matherial.Module.Course.UserId == currentUser.Id))
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && entity.Matherial.Module.Course.UserId == currentUser.Id))
             {
                 var question = new Question
                 {
@@ -30,8 +34,9 @@ namespace Application.Common.Commands.Questions.CreateQuestion
                     TestId = request.TestId,
                     Text = request.Text,
                 };
-
-                test.Matherial.Module.Course.UpdateAt = DateTime.UtcNow;
+                
+                if (entity.Matherial.Module.Course.Status == "Published")
+                    entity.Matherial.Module.Course.UpdateAt = DateTime.UtcNow;
                 await context.Questions.AddAsync(question, cancellationToken);
                 await context.SaveChangesAsync(cancellationToken);
 

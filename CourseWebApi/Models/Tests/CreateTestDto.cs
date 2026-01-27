@@ -6,6 +6,7 @@ namespace CourseWebApi.Models.Tests
 {
     public class CreateTestDto : IMapWith<CreateTestCommand>
     {
+        [Required]
         public Guid MatherialId { get; set; }
         [Required]
         public string Title { get; set; } = string.Empty;

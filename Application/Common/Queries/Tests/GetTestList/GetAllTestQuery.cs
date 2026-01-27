@@ -8,5 +8,6 @@ namespace Application.Common.Queries.Tests.GetTestList
 {
     public class GetAllTestQuery : IRequest<TestListVm>
     {
+        public Guid MaterialId { get; set; }
     }
 }

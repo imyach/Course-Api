@@ -1108,11 +1108,17 @@
   {
     "ContainingType": "CourseWebApi.Controllers.TestController",
     "Method": "GetAll",
-    "RelativePath": "api/Test/All",
+    "RelativePath": "api/Test/All/{materialId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "materialId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "Application.Common.Dtos.Tests.TestListVm",
