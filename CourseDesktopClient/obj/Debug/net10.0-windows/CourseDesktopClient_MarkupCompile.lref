@@ -2,22 +2,28 @@
 
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\MainWindow.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CoursePanelElement.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CreateCoursePanelElement.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CreateMaterialElement.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CreateModulePanelElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CreateReveiwsElement.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CustomMessageBoxWindow.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\MyCoursePanelElement.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\MyCoursePanelForProfileElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\RatingStarsControl.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\ReviewPanelElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\UserPanelElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\AllCoursePage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\AllUsersPage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\CourseInformationPage.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\CreateCoursePage.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\CreateModulePage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\LoginPage.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\MistakePage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\MyCoursePage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\ProfilePage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\RegisterPage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\UpdateUserPasswordPage.xaml;;
-FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\MistakePage.xaml;;
-FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CustomMessageBoxWindow.xaml;;
-FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\MyCoursePanelForProfileElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\WorkshopPage.xaml;;
-FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CreateCoursePanelElement.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\CreateMaterialPage.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CreateTestElement.xaml;;
 

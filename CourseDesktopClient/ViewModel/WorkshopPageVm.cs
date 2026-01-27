@@ -34,6 +34,8 @@ namespace CourseDesktopClient.ViewModel
         }
 
         public ICommand PagerCommand { get; set; }
+        public ICommand LocalCreateCouseCommand { get; set; }
+        public ICommand DeleteCourseCommand { get; set; }
 
         private readonly ICourseApiClient courseApiClient;
         private readonly IPagerService pagerService;
@@ -46,6 +48,17 @@ namespace CourseDesktopClient.ViewModel
             set
             {
                 _visibleEmptyPage = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Visibility _visibleAddButton;
+        public Visibility VisibleAddButton
+        {
+            get { return _visibleAddButton; }
+            set
+            {
+                _visibleAddButton = value;
                 OnPropertyChanged();
             }
         }
@@ -63,7 +76,18 @@ namespace CourseDesktopClient.ViewModel
                     await LoadingWorkshopPage(pageNumber);
                 }
             });
-
+            LocalCreateCouseCommand = new RelayCommand(async sender => 
+            {
+                await navigationService.NavigateToCreateCourse((sender as CreateCoursePanelElementVm).Id);
+            });
+            DeleteCourseCommand = new RelayCommand(async sender => 
+            {
+                if (CustomMessageBox.ShowYesNo("Вы действительно хотите удалить этот курс?") == DialogResult.Yes) 
+                {
+                    await courseApiClient.DeleteCourseAsync((sender as CreateCoursePanelElementVm).Id);
+                    await navigationService.NavigateToWorkshop();
+                }
+            });
 
 
         }
@@ -75,6 +99,9 @@ namespace CourseDesktopClient.ViewModel
             var courseViewModel = courses.Courses.Select(x => new CreateCoursePanelElementVm(x)).ToList();
             GetCourses = courseViewModel;
 
+            VisibleAddButton = pager.TotalItems >    0
+                ? Visibility.Visible
+                : Visibility.Collapsed;
 
             VisibleEmptyPage = pager.TotalItems <= 0
                 ? Visibility.Visible

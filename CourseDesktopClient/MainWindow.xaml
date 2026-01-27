@@ -46,7 +46,7 @@
 
             <WrapPanel   HorizontalAlignment="Right" VerticalAlignment="Center" >
 
-                <Button Content="Создать курс" Visibility="{Binding CouchAdminVisible}" Command="{Binding CreateCouseCommand}" />
+                <Button Content="Создать курс" Visibility="{Binding CouchAdminVisible}" Command="{Binding CreateCourseCommand}" />
 
                 <Menu Cursor="Hand" Visibility="{Binding VisibilityInAuthorizedProfile}" 
                     Margin="0 0 30 0"

@@ -13,19 +13,21 @@
             <WrapPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center" Visibility="{Binding VisibleEmptyPage}">
                 <TextBlock Text="Вы ещё не создали ни одного курса" HorizontalAlignment="Center"/>
                 <TextBlock Text="Самое время начать" HorizontalAlignment="Center"/>
-                <Button Content="Создать первый курс" Command="{Binding CreateCouseCommand}"/>
+                <Button Content="Создать первый курс" Command="{Binding CreateCourseCommand }"/>
             </WrapPanel>
 
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0" Text="Мастерская" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-                
-                <ItemsControl Grid.Row="1" 
+
+                <Button Content="Создать курс" Grid.Row="1" Width="150" Height="30" Margin="10" HorizontalAlignment="Left" Command="{Binding CreateCourseCommand}" Visibility="{Binding VisibleAddButton}"/>
+                <ItemsControl Grid.Row="2" 
               ItemsSource="{Binding GetCourses}" 
               HorizontalContentAlignment="Center"  
               BorderThickness="0">
@@ -46,7 +48,7 @@
                 </ItemsControl>
 
 
-                <ItemsControl Grid.Row="2"  ItemsSource="{Binding ButtonPanel}" Visibility="{Binding VisibleButtonPanel}">
+                <ItemsControl Grid.Row="3"  ItemsSource="{Binding ButtonPanel}" Visibility="{Binding VisibleButtonPanel}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal" 

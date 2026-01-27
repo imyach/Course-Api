@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.Json.Serialization;
+
+namespace CourseDesktopClient.Models.DtosModel.Entities
+{
+    public class TestDto
+    {
+        [JsonPropertyName("id")]
+        public Guid Id { get; set; }
+        [JsonPropertyName("title")]
+        public string Title { get; set; } = string.Empty;
+        [JsonPropertyName("description")]
+        public string? Description { get; set; }
+
+        public Guid MaterialId { get; set; }
+    }
+}

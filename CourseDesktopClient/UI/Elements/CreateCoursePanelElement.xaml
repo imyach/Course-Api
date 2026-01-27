@@ -82,7 +82,18 @@
                         HorizontalAlignment="Center">
 
                 <Button Content="{Binding ContentButton}"
-                        Command="{Binding DataContext.CreateCouseCommand, 
+                        Command="{Binding DataContext.LocalCreateCouseCommand, 
+                                RelativeSource={RelativeSource 
+                                AncestorType=UserControl, 
+                                AncestorLevel=2}}"
+                        
+                        CommandParameter="{Binding}"
+                        Padding="12,6"
+                        Margin="0,0,8,0"/>
+
+
+                <Button Content="Удалить курс"
+                        Command="{Binding DataContext.DeleteCourseCommand, 
                                 RelativeSource={RelativeSource 
                                 AncestorType=UserControl, 
                                 AncestorLevel=2}}"

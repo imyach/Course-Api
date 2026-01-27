@@ -31,6 +31,9 @@ namespace CourseDesktopClient.Api.Client
         //COURSE
         Task<(CoursesDto?, PagerInfoDto?)> GetCoursesAsync(int pageNumber = 1, int pageSize = 10, string searchText= null, CancellationToken ct = default);
         Task<(CoursesDto?, PagerInfoDto?)> GetCreatedCoursesAsync(int pageNumber = 1, int pageSize = 10, CancellationToken ct = default);
+        Task<Guid?> CreateCourseAsync(CourseDto courseDto, CancellationToken ct = default);
+        Task<HttpStatusCode?> UpdateCourseAsync(CourseDto courseDto, CancellationToken ct = default);
+        Task<HttpStatusCode?> DeleteCourseAsync(Guid id, CancellationToken ct = default);
         Task<CourseDto> GetCourseByIdAsync(Guid id, CancellationToken ct = default);
 
         //REVIEW
@@ -45,5 +48,40 @@ namespace CourseDesktopClient.Api.Client
         Task<ProgressUserDto> GetProgressUserByIdAsync(Guid id, CancellationToken ct = default);
         Task<HttpStatusCode?> DeleteProgressUserAsync(Guid id, CancellationToken ct = default);
         Task<HttpStatusCode?> UpdateProgressUserAsync(ProgressUserRequestDto progressUserDto, CancellationToken ct = default);
+
+        //MODULE
+        Task<ModulesDto?> GetModulesAsync(Guid courseId, CancellationToken ct = default);
+        Task<ModuleDto?> GetModuleAsync(Guid moduleId, CancellationToken ct = default);
+        Task<HttpStatusCode?> DeleteModuleAsync(Guid id, CancellationToken ct = default);
+        Task<Guid?> CreateModuleAsync(ModuleDto moduleDto, CancellationToken ct = default);
+        Task<HttpStatusCode?> UpdateModuleAsync(ModuleDto moduleDto, CancellationToken ct = default);
+
+        //MATERIAL
+        Task<MaterialsDto?> GetMaterialsAsync(Guid moduleId, CancellationToken ct = default);
+        Task<MaterialDto?> GetMaterialAsync(Guid materialId, CancellationToken ct = default);
+        Task<HttpStatusCode?> DeleteMaterialAsync(Guid id, CancellationToken ct = default);
+        Task<Guid?> CreateMaterialAsync(MaterialDto materialDto, CancellationToken ct = default);
+        Task<HttpStatusCode?> UpdateMaterialAsync(MaterialDto materialDto, CancellationToken ct = default);
+
+        //TEST
+        Task<TestsDto?> GetTestsAsync(Guid materialId, CancellationToken ct = default);
+        Task<TestDto?> GetTestAsync(Guid testId, CancellationToken ct = default);
+        Task<HttpStatusCode?> DeleteTestAsync(Guid id, CancellationToken ct = default);
+        Task<Guid?> CreateTestAsync(TestDto testDto, CancellationToken ct = default);
+        Task<HttpStatusCode?> UpdateTestAsync(TestDto testDto, CancellationToken ct = default);
+
+        //QUESTION
+        Task<QuestionsDto?> GetQuestionsAsync(Guid testId, CancellationToken ct = default);
+        Task<QuestionDto?> GetQuestionAsync(Guid questionId, CancellationToken ct = default);
+        Task<HttpStatusCode?> DeleteQuestionAsync(Guid id, CancellationToken ct = default);
+        Task<Guid?> CreateQuestionAsync(QuestionDto questionDto, CancellationToken ct = default);
+        Task<HttpStatusCode?> UpdateQuestionAsync(QuestionDto questionDto, CancellationToken ct = default);
+
+        //ANSWER
+        Task<AnswersDto?> GetAnswersAsync(Guid questionId, CancellationToken ct = default);
+        Task<AnswerDto?> GetAnswerAsync(Guid answerId, CancellationToken ct = default);
+        Task<HttpStatusCode?> DeleteAnswerAsync(Guid id, CancellationToken ct = default);
+        Task<Guid?> CreateAnswerAsync(AnswerDto answerDto, CancellationToken ct = default);
+        Task<HttpStatusCode?> UpdateAnswerAsync(AnswerDto answerDto, CancellationToken ct = default);
     }
 }

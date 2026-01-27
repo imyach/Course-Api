@@ -33,7 +33,7 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
                 return courseDto.Status switch
                 {
                     "Draft" =>  "Продолжить создание",
-                    "Published" => "Обновить",
+                    "Published" => "Редактировать",
                     _ => "Ошибка",
                 };
                 

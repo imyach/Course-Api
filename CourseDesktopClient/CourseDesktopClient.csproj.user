@@ -11,7 +11,16 @@
     <Compile Update="UI\Elements\CreateCoursePanelElement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UI\Elements\CreateMaterialElement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Elements\CreateModulePanelElement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UI\Elements\CreateReveiwsElement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Elements\CreateTestElement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UI\Elements\CustomMessageBoxWindow.xaml.cs">
@@ -39,6 +48,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\CourseInformationPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CreateCoursePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CreateMaterialPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CreateModulePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\LoginPage.xaml.cs">

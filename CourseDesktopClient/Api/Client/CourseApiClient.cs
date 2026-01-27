@@ -14,8 +14,10 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Reflection;
 using System.Text;
 using System.Text.Json;
+using System.Windows.Media.Media3D;
 using static CourseDesktopClient.ViewModel.CourseInformationPageVm;
 
 namespace CourseDesktopClient.Api.Client
@@ -47,6 +49,15 @@ namespace CourseDesktopClient.Api.Client
 
 
         //COURSES
+        public async Task<Guid?> CreateCourseAsync(CourseDto courseDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_COURSE, courseDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<Guid>(jsonOptions, ct);
+        }
+
         public async Task<CourseDto> GetCourseByIdAsync(Guid id, CancellationToken ct = default)
         {
             var response = await httpClient.GetAsync(ApiPaths.API_GET_COURSE_BY_ID + $"{id}", ct);
@@ -83,6 +94,24 @@ namespace CourseDesktopClient.Api.Client
             var pagerInfo = JsonSerializer.Deserialize<PagerInfoDto>(dataArray[1]);
 
             return (courses, pagerInfo);
+        }
+
+        public async Task<HttpStatusCode?> UpdateCourseAsync(CourseDto courseDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PutAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_COURSE, courseDto , ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return response.StatusCode;
+        }
+
+        public async Task<HttpStatusCode?> DeleteCourseAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.DeleteAsync(ApiPaths.API_DELETE_UPDATE_CERATE_COURSE + $"/{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return response.StatusCode;
         }
 
 
@@ -254,7 +283,6 @@ namespace CourseDesktopClient.Api.Client
                 return null;
             return response.StatusCode;
         }
-
         public async Task<(UsersDto, PagerInfoDto)> GetUsersAsync(int pageNumber = 1, int pageSize = 20, string searchText = null, CancellationToken ct = default)
         {
             var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_USERS + $"?searchText={searchText}&pageSize={pageSize}&pageNumber={pageNumber}", ct);
@@ -267,6 +295,216 @@ namespace CourseDesktopClient.Api.Client
             var pagerInfo = JsonSerializer.Deserialize<PagerInfoDto>(dataArray[1]);
 
             return (users, pagerInfo);
+        }
+
+
+        //MODULE
+        public async Task<ModulesDto?> GetModulesAsync(Guid courseId, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_MODULE + $"/{courseId}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return await response.Content.ReadFromJsonAsync<ModulesDto?>(jsonOptions, ct);
+        }
+
+        public async Task<ModuleDto?> GetModuleAsync(Guid moduleId, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_MODULE_BY_ID + moduleId, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return await response.Content.ReadFromJsonAsync<ModuleDto?>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode?> DeleteModuleAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.DeleteAsync(ApiPaths.API_DELETE_UPDATE_CERATE_MODULE + $"/{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return response.StatusCode;
+        }
+
+        public async Task<Guid?> CreateModuleAsync(ModuleDto moduleDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_MODULE, moduleDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return await response.Content.ReadFromJsonAsync<Guid>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode?> UpdateModuleAsync(ModuleDto moduleDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PutAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_MODULE, moduleDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return response.StatusCode;
+        }
+
+
+        //MATERIAL
+        public async Task<MaterialsDto?> GetMaterialsAsync(Guid moduleId, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_MATERIAL + $"/{moduleId}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return await response.Content.ReadFromJsonAsync<MaterialsDto?>(jsonOptions, ct);
+        }
+
+        public async Task<MaterialDto?> GetMaterialAsync(Guid materialId, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_MATERIAL_BY_ID + materialId, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return await response.Content.ReadFromJsonAsync<MaterialDto?>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode?> DeleteMaterialAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.DeleteAsync(ApiPaths.API_DELETE_UPDATE_CERATE_MATERIAL + $"/{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return response.StatusCode;
+        }
+
+        public async Task<Guid?> CreateMaterialAsync(MaterialDto materialDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_MATERIAL, materialDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return await response.Content.ReadFromJsonAsync<Guid>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode?> UpdateMaterialAsync(MaterialDto materialDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PutAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_MATERIAL, materialDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return response.StatusCode;
+        }
+
+
+        //TEST
+        public async Task<TestsDto?> GetTestsAsync(Guid materialId, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_TEST + $"/{materialId}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return await response.Content.ReadFromJsonAsync<TestsDto?>(jsonOptions, ct);
+        }
+
+        public async Task<TestDto?> GetTestAsync(Guid testId, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_TEST_BY_ID + testId, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return await response.Content.ReadFromJsonAsync<TestDto?>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode?> DeleteTestAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.DeleteAsync(ApiPaths.API_DELETE_UPDATE_CERATE_TEST + $"/{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return response.StatusCode;
+        }
+
+        public async Task<Guid?> CreateTestAsync(TestDto testDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_TEST, testDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return await response.Content.ReadFromJsonAsync<Guid>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode?> UpdateTestAsync(TestDto testDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PutAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_TEST, testDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return response.StatusCode;
+        }
+
+
+        //QUESTION
+        public async Task<QuestionsDto?> GetQuestionsAsync(Guid testId, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_QUESTION + $"/{testId}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return await response.Content.ReadFromJsonAsync<QuestionsDto?>(jsonOptions, ct);
+        }
+
+        public async Task<QuestionDto?> GetQuestionAsync(Guid questionId, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_QUESTION_BY_ID + questionId, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return await response.Content.ReadFromJsonAsync<QuestionDto?>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode?> DeleteQuestionAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.DeleteAsync(ApiPaths.API_DELETE_UPDATE_CERATE_QUESTION + $"/{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return response.StatusCode;
+        }
+
+        public async Task<Guid?> CreateQuestionAsync(QuestionDto questionDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_QUESTION, questionDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return await response.Content.ReadFromJsonAsync<Guid>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode?> UpdateQuestionAsync(QuestionDto questionDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PutAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_QUESTION, questionDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return response.StatusCode;
+        }
+
+
+        //ANSWER
+        public async Task<AnswersDto?> GetAnswersAsync(Guid questionId, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_ANSWER + $"/{questionId}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return await response.Content.ReadFromJsonAsync<AnswersDto?>(jsonOptions, ct);
+        }
+
+        public async Task<AnswerDto?> GetAnswerAsync(Guid answerId, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ANSWER_BY_ID + answerId, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return await response.Content.ReadFromJsonAsync<AnswerDto?>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode?> DeleteAnswerAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.DeleteAsync(ApiPaths.API_DELETE_UPDATE_CERATE_ANSWER + $"/{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return response.StatusCode;
+        }
+
+        public async Task<Guid?> CreateAnswerAsync(AnswerDto answerDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_ANSWER, answerDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return await response.Content.ReadFromJsonAsync<Guid>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode?> UpdateAnswerAsync(AnswerDto answerDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PutAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_ANSWER, answerDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            return response.StatusCode;
         }
 
 

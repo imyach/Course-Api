@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -127,6 +128,40 @@ namespace CourseDesktopClient.Services
             NavigateTo(workshopPage);
         }
 
+        public async Task NavigateToCreateCourse(Guid Id = default)
+        {
+            var createCoursePage = serviceProvider.GetRequiredService<CreateCoursePage>();
+
+            if (createCoursePage.DataContext is CreateCoursePageVm vm)
+            {
+                await vm.LoadCourse(Id);
+            }
+
+            NavigateTo(createCoursePage);
+        }
+
+        public async Task NavigateToCreateModule(Guid courseId,Guid idModule = default)
+        {
+            var createModulePage = serviceProvider.GetRequiredService<CreateModulePage>();
+
+            if (createModulePage.DataContext is CreateModulePageVm vm)
+            {
+                await vm.LoadModule(courseId, idModule);
+            }
+
+            NavigateTo(createModulePage);
+        }
+        public async Task NavigateToCreateMaterial(Guid moduleId, Guid idMaterial = default)
+        {
+            var createMaterialPage = serviceProvider.GetRequiredService<CreateMaterialPage>();
+
+            if (createMaterialPage.DataContext is CreateMaterialPageVm vm)
+            {
+                await vm.LoadMaterial(idMaterial, moduleId);
+            }
+
+            NavigateTo(createMaterialPage);
+        }
 
 
         public bool CanGoBack => _navigationStack.Count > 1;
@@ -166,6 +201,6 @@ namespace CourseDesktopClient.Services
             _navigationStack.Clear();
         }
 
-        
+
     }
 }
