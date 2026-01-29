@@ -11,8 +11,6 @@ namespace Application.Common.Commands.Answers.CreateAnswer
         {
             RuleFor(createAnswerCommand => createAnswerCommand.Text)
                 .NotEmpty().MaximumLength(1000).NotNull();
-            RuleFor(createAnswerCommand => createAnswerCommand.IsCorrect)
-                .NotEmpty().NotNull();
             RuleFor(createAnswerCommand => createAnswerCommand.QuestionId)
                 .NotEqual(Guid.Empty).NotNull();
             RuleFor(createAnswerCommand => createAnswerCommand.CurrentUserId)
