@@ -15,7 +15,7 @@ namespace CourseDesktopClient.ViewModel
     public class CreateMaterialPageVm : NavigationVm
     {
         private IList<CreateTestElementVm>? _getTest;
-        public IList<CreateTestElementVm>? GetTest { get => _getTest; set { _getTest = value; OnPropertyChanged(nameof(_getTest)); } }
+        public IList<CreateTestElementVm>? GetTest { get => _getTest; set { _getTest = value; OnPropertyChanged(nameof(GetTest)); } }
 
         private string _titleOfMaterial = string.Empty;
         public string TitleOfMaterial
@@ -73,30 +73,35 @@ namespace CourseDesktopClient.ViewModel
         public ICommand DeleteMaterialCommand { get; set; }
         public ICommand LocalCreateTestCommand { get; set; }
         public ICommand LocalDeleteTestCommand { get; set; }
-        public ICommand LocalModuleTestCommand { get; set; }
+        public ICommand LocalTestCommand { get; set; }
 
         public CreateMaterialPageVm(INavigationService navigationService, ICourseApiClient courseApiClient) : base(navigationService)
         {
             this.courseApiClient = courseApiClient;
 
-            LocalModuleTestCommand = new RelayCommand(async sender =>
+            LocalTestCommand = new RelayCommand(async sender =>
             {
                 await navigationService.NavigateToCreateModule(CreateCoursePageVm.courseId,moduleId);
             });
 
             CreateTestCommand = new RelayCommand(async sender =>
             {
-                //await navigationService.NavigateToCreateTest(materialId);
+                await navigationService.NavigateToCreateTest(materialId);
             });
 
             LocalCreateTestCommand = new RelayCommand(async sender =>
             {
-                //await navigationService.NavigateToCreateTest(materialId, (sender as CreateTestElementVm).Id);
+                await navigationService.NavigateToCreateTest(materialId, (sender as CreateTestElementVm).Id);
             });
 
             LocalDeleteTestCommand = new RelayCommand(async sender =>
             {
-                //await navigationService.NavigateToCreateTest(materialId, (sender as CreateTestElementVm).Id);
+                if (CustomMessageBox.ShowYesNo("Вы дествительно хотите удалить данный тест? \nПосле этого произойдет автоматическое сохранеие!") == DialogResult.Yes)
+                {
+                    await courseApiClient.DeleteTestAsync((sender as CreateTestElementVm).Id);
+                    await LoadMaterial(materialId, moduleId);
+                    CustomMessageBox.ShowInfo("Тест удален");
+                }
             });
 
             SaveUpdateCommand = new RelayCommand(async sender =>
@@ -165,7 +170,7 @@ namespace CourseDesktopClient.ViewModel
         }
         private void CheckEnableSave()
         {
-            if (GetTest?.Count > 0 && !string.IsNullOrEmpty(DescroptionOfMaterial) && !string.IsNullOrEmpty(TitleOfMaterial))
+            if (GetTest?.Count > 0 && !string.IsNullOrEmpty(TitleOfMaterial))
                 IsSaveEnable = true;
             else
                 IsSaveEnable = false;

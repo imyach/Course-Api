@@ -8,6 +8,9 @@
     <Compile Update="UI\Elements\CoursePanelElement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UI\Elements\CreateAnswerElement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UI\Elements\CreateCoursePanelElement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -15,6 +18,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UI\Elements\CreateModulePanelElement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Elements\CreateQuestionElement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UI\Elements\CreateReveiwsElement.xaml.cs">
@@ -57,6 +63,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\CreateModulePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CreateQuestionPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CreateTestPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\LoginPage.xaml.cs">

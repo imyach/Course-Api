@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Media3D;
 
 namespace CourseDesktopClient.Services
 {
@@ -163,6 +164,31 @@ namespace CourseDesktopClient.Services
             NavigateTo(createMaterialPage);
         }
 
+        public async Task NavigateToCreateTest(Guid idMaterial, Guid idTest = default)
+        {
+            var createTestPage = serviceProvider.GetRequiredService<CreateTestPage>();
+
+            if (createTestPage.DataContext is CreateTestPageVm vm)
+            {
+                await vm.LoadTest(idTest, idMaterial);
+            }
+
+            NavigateTo(createTestPage);
+        }
+
+        public async Task NavigateToCreateQuestion(Guid idTest, Guid idQuestion = default)
+        {
+            var createQuestionPage = serviceProvider.GetRequiredService<CreateQuestionPage>();
+
+            if (createQuestionPage.DataContext is CreateQuestionPageVm vm)
+            {
+                await vm.LoadQuestion(idQuestion, idTest);
+            }
+
+            NavigateTo(createQuestionPage);
+        }
+
+
 
         public bool CanGoBack => _navigationStack.Count > 1;
 
@@ -201,6 +227,6 @@ namespace CourseDesktopClient.Services
             _navigationStack.Clear();
         }
 
-
+      
     }
 }

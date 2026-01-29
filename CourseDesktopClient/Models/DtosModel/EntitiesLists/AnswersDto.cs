@@ -8,7 +8,7 @@ namespace CourseDesktopClient.Models.DtosModel.EntitiesLists
 {
     public class AnswersDto
     {
-        [JsonPropertyName("answer")]
+        [JsonPropertyName("answers")]
         public IList<AnswerDto>? Answers { get; set; }
     }
 }

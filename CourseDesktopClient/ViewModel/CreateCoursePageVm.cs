@@ -223,7 +223,7 @@ namespace CourseDesktopClient.ViewModel
 
         private void CheckEnablePublish()
         {
-            if (GetModules?.Count > 0 && !string.IsNullOrEmpty(DescroptionOfCourse) && !string.IsNullOrEmpty(TitleOfCourse))
+            if (GetModules?.Count > 0 && !string.IsNullOrEmpty(TitleOfCourse))
                 IsPublishEnable = true;
             else
                 IsPublishEnable = false;

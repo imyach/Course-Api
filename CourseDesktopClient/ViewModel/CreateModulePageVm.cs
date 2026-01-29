@@ -173,7 +173,7 @@ namespace CourseDesktopClient.ViewModel
 
         private void CheckEnableSave()
         {
-            if (GetMaterial?.Count > 0 && !string.IsNullOrEmpty(DescroptionOfModule) && !string.IsNullOrEmpty(TitleOfModule))
+            if (GetMaterial?.Count > 0 && !string.IsNullOrEmpty(TitleOfModule))
                 IsSaveEnable = true;
             else
                 IsSaveEnable = false;

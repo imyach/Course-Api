@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="CourseDesktopClient.View.CreateQuestionPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CourseDesktopClient.View"             
+             xmlns:controls="clr-namespace:CourseDesktopClient.UI.Elements"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+        <Grid Margin="0 10 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Редактор вопроса" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <StackPanel Grid.Row="1" Orientation="Vertical" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Текст"  Margin="10"/>
+                    <TextBox Text="{Binding TextOfQuestion, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="10"/>
+                </StackPanel>
+            </StackPanel>
+            <Button Content="Добaвить ответ" Grid.Row="2" Width="150" Height="30" Margin="10" Visibility="{Binding VisibleAddAnswerButton}" HorizontalAlignment="Left" Command="{Binding CreateAnswerCommand}"/>
+
+            <Grid  Grid.Row="3" MinHeight="200"   Visibility="{Binding VisibleEmptyPage}">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="В данном вопросе нет ответов" HorizontalAlignment="Center"/>
+                    <Button Content="Создать ответ" Command="{Binding CreateAnswerCommand }"/>
+                </StackPanel>
+            </Grid>
+
+            <ItemsControl Grid.Row="3" ItemsSource="{Binding GetAnswer}" 
+     HorizontalContentAlignment="Center"
+     BorderThickness="0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <controls:CreateAnswerElement/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+
+                <Button Content="К тесту"  Width="150" Height="30" Margin="10"  Command="{Binding LocalCreataeTestCommand}"/>
+                <Button Content="Сохранить изменения" Width="150" Height="30" Margin="10" Command="{Binding SaveUpdateCommand}" IsEnabled="{Binding IsSaveEnable}"/>
+                <Button Content="Удалить восрос"  Width="150" Height="30" Margin="10"  Command="{Binding DeleteQuestionCommand}"/>
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>
+
