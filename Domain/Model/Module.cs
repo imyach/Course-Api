@@ -14,7 +14,7 @@ namespace Domain.Model
 
         public Course? Course { get; set; }
 
-        public IEnumerable<Matherial>? Matherials { get; set; }
-
+        public IEnumerable<Material>? Materials { get; set; }
+        public IEnumerable<ProgressModule>? ProgressModules { get; set; }
     }
 }

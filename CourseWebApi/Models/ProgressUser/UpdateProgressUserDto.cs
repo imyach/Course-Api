@@ -10,6 +10,7 @@ namespace CourseWebApi.Models.ProgressUser
 {
     public class UpdateProgressUserDto : IMapWith<UpdateProgressUserCommand>
     {
+        [Required]
         public Guid Id { get; set; }
         public string Status { get; set; } = string.Empty;
         public DateTime FinishedAt { get; set; }

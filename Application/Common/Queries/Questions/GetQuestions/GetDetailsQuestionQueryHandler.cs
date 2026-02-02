@@ -18,7 +18,7 @@ namespace Application.Common.Queries.Questions.GetQuestions
         {
             var entity = await context.Questions
                 .Include(q => q.Test)
-                    .ThenInclude(t => t.Matherial)
+                    .ThenInclude(t => t.Material)
                     .ThenInclude(m => m.Module)
                     .ThenInclude(m => m.Course)
                     .ThenInclude(c => c.User)

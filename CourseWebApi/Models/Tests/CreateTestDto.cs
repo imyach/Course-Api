@@ -7,7 +7,7 @@ namespace CourseWebApi.Models.Tests
     public class CreateTestDto : IMapWith<CreateTestCommand>
     {
         [Required]
-        public Guid MatherialId { get; set; }
+        public Guid MaterialId { get; set; }
         [Required]
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
@@ -15,8 +15,8 @@ namespace CourseWebApi.Models.Tests
         public void Mapping(Profile profile)
         {
             profile.CreateMap<CreateTestDto, CreateTestCommand>()
-                .ForMember(testCm => testCm.MatherialId,
-                opt => opt.MapFrom(test => test.MatherialId))
+                .ForMember(testCm => testCm.MaterialId,
+                opt => opt.MapFrom(test => test.MaterialId))
                 .ForMember(testCm => testCm.Title,
                 opt => opt.MapFrom(test => test.Title))
                 .ForMember(testCm => testCm.Description,

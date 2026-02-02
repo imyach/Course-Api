@@ -7,13 +7,13 @@ namespace Domain.Model
 {
     public class Test : BaseModel
     {
-        public Guid? MatherialId { get; set; }
-        public Guid? CourseId { get; set; }
+        public Guid? MaterialId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
 
-        public Matherial? Matherial { get; set; }
+        public Material? Material { get; set; }
 
         public IEnumerable<Question>? Questions { get; set; }
+        public IEnumerable<TestResult>? TestResult { get; set; }
     }
 }

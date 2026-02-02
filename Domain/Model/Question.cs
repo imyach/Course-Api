@@ -12,7 +12,7 @@ namespace Domain.Model
 
         public Test? Test { get; set; }
 
-        public IEnumerable<Answer>? Answers { get; set; }
         public IEnumerable<AnswersUser>? AnswersUsers { get; set; }
+        public IEnumerable<Answer>? Answers { get; set; }
     }
 }

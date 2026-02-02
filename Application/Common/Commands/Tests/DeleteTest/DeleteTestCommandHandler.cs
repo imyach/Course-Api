@@ -20,16 +20,16 @@ namespace Application.Common.Commands.Tests.DeleteTest
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
             var entity = await context.Tests
-            .Include(u => u.Matherial)
+            .Include(u => u.Material)
                 .ThenInclude(m=>m.Module)
                 .ThenInclude(m => m.Course)
             .FirstOrDefaultAsync(u => u.Id == request.Id, cancellationToken)
             ?? throw new NotFoundException(nameof(Test), request.Id);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Matherial.Module.Course.UserId))
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Material.Module.Course.UserId))
             {
-                if (entity.Matherial.Module.Course.Status == "Published")
-                    entity.Matherial.Module.Course.UpdateAt = DateTime.UtcNow;
+                if (entity.Material.Module.Course.Status == "Published")
+                    entity.Material.Module.Course.UpdateAt = DateTime.UtcNow;
                 context.Tests.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);
 

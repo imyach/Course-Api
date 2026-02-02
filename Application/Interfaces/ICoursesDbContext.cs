@@ -12,11 +12,14 @@ namespace Application.Interfaces
         DbSet<Role> Roles { get; set; }
         DbSet<RefreshToken> RefreshTokens { get; set; }
         DbSet<ProgressUser> ProgressUsers { get; set; }
+        DbSet<ProgressModule> ProgressModules { get; set; }
+        DbSet<ProgressMaterial> ProgressMaterials { get; set; }
         DbSet<Review> Reviews { get; set; }
         DbSet<Course> Courses { get; set; }
         DbSet<Module> Modules { get; set; }
-        DbSet<Matherial> Matherials { get; set; }
+        DbSet<Material> Materials { get; set; }
         DbSet<Test> Tests { get; set; }
+        DbSet<TestResult> TestResults { get; set; }
         DbSet<Question> Questions { get; set; }
         DbSet<Answer> Answers { get; set; }
         DbSet<AnswersUser> AnswersUsers { get; set; }

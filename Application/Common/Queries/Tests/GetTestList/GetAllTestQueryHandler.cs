@@ -16,8 +16,8 @@ namespace Application.Common.Queries.Tests.GetTestList
         public async Task<TestListVm> Handle(GetAllTestQuery request, CancellationToken cancellationToken)
         {
             var testQuery = await context.Tests
-                .Include(t => t.Matherial)
-                .Where(q => q.MatherialId == request.MaterialId)
+                .Include(t => t.Material)
+                .Where(q => q.MaterialId == request.MaterialId)
                 .ProjectTo<TestLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

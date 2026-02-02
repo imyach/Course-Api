@@ -15,5 +15,7 @@ namespace Domain.Model
 
         public Course? Course { get; set; } 
         public User? User { get; set; }
+
+        public IEnumerable<ProgressModule>? ProgressModule { get; set; }
     }
 }

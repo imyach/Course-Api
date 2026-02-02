@@ -18,12 +18,15 @@ namespace Persistance
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Module> Modules { get; set; }
-        public DbSet<Matherial> Matherials { get; set; }
+        public DbSet<Material> Materials { get; set; }
         public DbSet<Test> Tests { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
         public DbSet<AnswersUser> AnswersUsers { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
+        public DbSet<ProgressMaterial> ProgressMaterials { get; set; }
+        public DbSet<ProgressModule> ProgressModules { get; set; }
+        public DbSet<TestResult> TestResults { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -31,7 +34,7 @@ namespace Persistance
             builder.ApplyConfiguration(new AnswerConfiguration());
             builder.ApplyConfiguration(new AnswersUserConfiguration());
             builder.ApplyConfiguration(new CourseConfiguration());
-            builder.ApplyConfiguration(new MatherialConfiguration());
+            builder.ApplyConfiguration(new MaterialConfiguration());
             builder.ApplyConfiguration(new ModuleConfiguration());
             builder.ApplyConfiguration(new ProgressUserConfiguration());
             builder.ApplyConfiguration(new QuestionsConfiguration());
@@ -39,6 +42,9 @@ namespace Persistance
             builder.ApplyConfiguration(new TestConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new RefreshTokenConfiguration());
+            builder.ApplyConfiguration(new MaterialConfiguration());
+            builder.ApplyConfiguration(new ModuleConfiguration());
+            builder.ApplyConfiguration(new TestResultConfiguration());
             base.OnModelCreating(builder);
         }
     }

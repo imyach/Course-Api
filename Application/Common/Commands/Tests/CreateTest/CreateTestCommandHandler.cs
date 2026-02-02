@@ -20,18 +20,18 @@ namespace Application.Common.Commands.Tests.CreateTest
             var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            var entity = await context.Matherials
+            var entity = await context.Materials
             .Include(u => u.Module)
                 .ThenInclude(m => m.Course)
-            .FirstOrDefaultAsync(u => u.Id == request.MatherialId, cancellationToken)
-            ?? throw new NotFoundException(nameof(Test), request.MatherialId);
+            .FirstOrDefaultAsync(u => u.Id == request.MaterialId, cancellationToken)
+            ?? throw new NotFoundException(nameof(Test), request.MaterialId);
 
             if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && entity.Module.Course.UserId == currentUser.Id))
             {
                 var test = new Test
                 {
                     Id = Guid.NewGuid(),
-                    MatherialId = request.MatherialId,
+                    MaterialId = request.MaterialId,
                     Title = request.Title,
                     Description = request.Description,
                 };

@@ -1,0 +1,13 @@
+﻿using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Application.Common.Commands.TestResults.DeleteTestResults
+{
+    public class DeleteTestResultCommand : IRequest
+    {
+        public Guid Id { get; set; }
+        public Guid CurrentUserId { get; set; }
+    }
+}

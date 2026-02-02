@@ -16,6 +16,8 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.Property(ansusr => ansusr.Id).HasMaxLength(250);
             builder.Property(ansusr => ansusr.AnswerId).IsRequired();
             builder.Property(ansusr => ansusr.UserId).IsRequired();
+            builder.Property(ansusr => ansusr.QuestionId).IsRequired();
+            builder.Property(ansusr => ansusr.TestResultId).IsRequired();
 
             builder.HasOne(user => user.User)
                 .WithMany(ansusrs => ansusrs.AnswersUsers)
@@ -25,6 +27,16 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.HasOne(asn => asn.Answer)
                 .WithMany(tests => tests.AnswersUsers)
                 .HasForeignKey(k => k.AnswerId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(asn => asn.Question)
+                .WithMany(tests => tests.AnswersUsers)
+                .HasForeignKey(k => k.QuestionId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(asn => asn.TestResult)
+                .WithMany(tests => tests.AnswersUsers)
+                .HasForeignKey(k => k.TestResultId)
                 .OnDelete(DeleteBehavior.Cascade);
 
         }

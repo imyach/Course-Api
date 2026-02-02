@@ -1,4 +1,4 @@
-﻿using Application.Common.Commands.Matherials.DeleteMatherial;
+﻿using Application.Common.Commands.Materials.DeleteMaterial;
 using Application.Common.Exceptions;
 using Application.Interfaces;
 using Domain.Model;

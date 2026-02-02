@@ -1,4 +1,4 @@
-﻿using Application.Common.Commands.Matherials.CreateMatherial;
+﻿using Application.Common.Commands.Materials.CreateMaterial;
 using Application.Interfaces;
 using Domain.Model;
 using MediatR;

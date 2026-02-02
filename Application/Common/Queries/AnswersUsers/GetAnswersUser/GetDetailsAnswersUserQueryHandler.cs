@@ -27,7 +27,7 @@ namespace Application.Common.Queries.AnswersUsers.GetAnswersUser
                 .Include(a => a.Answer)
                     .ThenInclude(a => a.Question)
                     .ThenInclude(q => q.Test)
-                    .ThenInclude(t => t.Matherial)
+                    .ThenInclude(t => t.Material)
                     .ThenInclude(m => m.Module)
                     .ThenInclude(m => m.Course)
                     .ThenInclude(c => c.User)

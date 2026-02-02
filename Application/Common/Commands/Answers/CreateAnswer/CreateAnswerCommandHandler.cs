@@ -1,4 +1,4 @@
-﻿using Application.Common.Commands.Matherials.CreateMatherial;
+﻿using Application.Common.Commands.Materials.CreateMaterial;
 using Application.Common.Exceptions;
 using Application.Interfaces;
 using Domain.Model;
@@ -22,13 +22,13 @@ namespace Application.Common.Commands.Answers.CreateAnswer
 
             var entity = await context.Questions
            .Include(a => a.Test)
-               .ThenInclude(q => q.Matherial)
+               .ThenInclude(q => q.Material)
                .ThenInclude(t => t.Module)
                .ThenInclude(m => m.Course)
            .FirstOrDefaultAsync(u => u.Id == request.QuestionId, cancellationToken)
            ?? throw new NotFoundException(nameof(Answer), request.QuestionId);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && entity.Test.Matherial.Module.Course.UserId == currentUser.Id))
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && entity.Test.Material.Module.Course.UserId == currentUser.Id))
             {
                 var answer = new Answer
                 {
@@ -38,8 +38,8 @@ namespace Application.Common.Commands.Answers.CreateAnswer
                     IsCorrect = request.IsCorrect,
                 };
                 
-                if (entity.Test.Matherial.Module.Course.Status == "Published")
-                    entity.Test.Matherial.Module.Course.UpdateAt = DateTime.UtcNow;
+                if (entity.Test.Material.Module.Course.Status == "Published")
+                    entity.Test.Material.Module.Course.UpdateAt = DateTime.UtcNow;
 
                 await context.Answers.AddAsync(answer, cancellationToken);
                 await context.SaveChangesAsync(cancellationToken);

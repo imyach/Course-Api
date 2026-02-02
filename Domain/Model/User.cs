@@ -22,8 +22,11 @@ namespace Domain.Model
         public RefreshToken? RefreshToken { get; set; }
 
         public IEnumerable<Course>? Courses { get; set; }
-        public IEnumerable<ProgressUser>? ProgressUsers { get; set; }
         public IEnumerable<Review>? Reviews { get; set; }
         public IEnumerable<AnswersUser>? AnswersUsers { get; set; }
+        public IEnumerable<ProgressUser>? ProgressUsers { get; set; }
+        public IEnumerable<ProgressModule>? ProgressModule { get; set; }
+        public IEnumerable<ProgressMaterial>? ProgressMaterial { get; set; }
+        public IEnumerable<TestResult>? TestResult { get; set; }
     }
 }

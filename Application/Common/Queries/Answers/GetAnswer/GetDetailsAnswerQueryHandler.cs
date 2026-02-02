@@ -20,7 +20,7 @@ namespace Application.Common.Queries.Answers.GetAnswer
             var entity = await context.Answers
                 .Include(a => a.Question)
                     .ThenInclude(q => q.Test)
-                    .ThenInclude(t => t.Matherial)
+                    .ThenInclude(t => t.Material)
                     .ThenInclude(m => m.Module)
                     .ThenInclude(m => m.Course)
                     .ThenInclude(c => c.User)

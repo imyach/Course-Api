@@ -16,7 +16,7 @@ namespace Application.Common.Queries.Tests.GetTest
         public async Task<TestLookupDto> Handle(GetDetailsTestQuery request, CancellationToken cancellationToken)
         {
             var entity = await context.Tests
-                .Include(t=> t.Matherial)
+                .Include(t=> t.Material)
                     .ThenInclude(m=> m.Module)
                     .ThenInclude(m=>m.Course)
                     .ThenInclude(c=>c.User)

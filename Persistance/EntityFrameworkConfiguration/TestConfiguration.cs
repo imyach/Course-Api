@@ -16,9 +16,9 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.Property(test => test.Id).HasMaxLength(250);
             builder.Property(test => test.Title).IsRequired().HasMaxLength(250);
 
-            builder.HasOne(math => math.Matherial)
+            builder.HasOne(math => math.Material)
                 .WithMany(tests => tests.Tests)
-                .HasForeignKey(k => k.MatherialId)
+                .HasForeignKey(k => k.MaterialId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired(false);
         }

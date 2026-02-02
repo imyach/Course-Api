@@ -1,5 +1,5 @@
 ﻿using Application.Common.Dtos.Courses;
-using Application.Common.Dtos.Matherials;
+using Application.Common.Dtos.Materials;
 using Application.Common.Dtos.Modules;
 using Application.Common.Mappings;
 using AutoMapper;
@@ -16,7 +16,7 @@ namespace Application.Common.Dtos.Tests
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
 
-        public MatherialLookupDto? Matherial {  get; set; }
+        public MaterialLookupDto? Matherial {  get; set; }
 
         public void Mapping(Profile profile) 
         {
@@ -28,7 +28,7 @@ namespace Application.Common.Dtos.Tests
                 .ForMember(testVm => testVm.Description,
                 opt => opt.MapFrom(test => test.Description))
                 .ForMember(testVm => testVm.Matherial,
-                opt => opt.MapFrom(test => test.Matherial));
+                opt => opt.MapFrom(test => test.Material));
         }
     }
 }

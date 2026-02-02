@@ -21,16 +21,16 @@ namespace Application.Common.Commands.Questions.DeleteQuestion
 
             var entity = await context.Questions
             .Include(u => u.Test)
-                .ThenInclude(t=>t.Matherial)
+                .ThenInclude(t=>t.Material)
                 .ThenInclude(m => m.Module)
                 .ThenInclude(m => m.Course)
             .FirstOrDefaultAsync(u => u.Id == request.Id, cancellationToken)
             ?? throw new NotFoundException(nameof(Question), request.Id);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Test.Matherial.Module.Course.UserId))
+            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Test.Material.Module.Course.UserId))
             {
-                if(entity.Test.Matherial.Module.Course.Status == "Published")
-                    entity.Test.Matherial.Module.Course.UpdateAt = DateTime.UtcNow;
+                if(entity.Test.Material.Module.Course.Status == "Published")
+                    entity.Test.Material.Module.Course.UpdateAt = DateTime.UtcNow;
                 context.Questions.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);
 

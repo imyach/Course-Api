@@ -684,10 +684,10 @@
         }
       }
     },
-    "/api/Matherial/All/{moduleId}": {
+    "/api/Material/All/{moduleId}": {
       "get": {
         "tags": [
-          "Matherial"
+          "Material"
         ],
         "parameters": [
           {
@@ -706,17 +706,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/MatherialListVm"
+                  "$ref": "#/components/schemas/MaterialListVm"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MatherialListVm"
+                  "$ref": "#/components/schemas/MaterialListVm"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MatherialListVm"
+                  "$ref": "#/components/schemas/MaterialListVm"
                 }
               }
             }
@@ -724,10 +724,10 @@
         }
       }
     },
-    "/api/Matherial/{id}": {
+    "/api/Material/{id}": {
       "get": {
         "tags": [
-          "Matherial"
+          "Material"
         ],
         "parameters": [
           {
@@ -746,17 +746,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/MatherialLookupDto"
+                  "$ref": "#/components/schemas/MaterialLookupDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MatherialLookupDto"
+                  "$ref": "#/components/schemas/MaterialLookupDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MatherialLookupDto"
+                  "$ref": "#/components/schemas/MaterialLookupDto"
                 }
               }
             }
@@ -765,7 +765,7 @@
       },
       "delete": {
         "tags": [
-          "Matherial"
+          "Material"
         ],
         "parameters": [
           {
@@ -785,26 +785,26 @@
         }
       }
     },
-    "/api/Matherial": {
+    "/api/Material": {
       "post": {
         "tags": [
-          "Matherial"
+          "Material"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateMatherialDto"
+                "$ref": "#/components/schemas/CreateMaterialDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateMatherialDto"
+                "$ref": "#/components/schemas/CreateMaterialDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateMatherialDto"
+                "$ref": "#/components/schemas/CreateMaterialDto"
               }
             }
           }
@@ -837,23 +837,23 @@
       },
       "put": {
         "tags": [
-          "Matherial"
+          "Material"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateMatherialDto"
+                "$ref": "#/components/schemas/UpdateMaterialDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateMatherialDto"
+                "$ref": "#/components/schemas/UpdateMaterialDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateMatherialDto"
+                "$ref": "#/components/schemas/UpdateMaterialDto"
               }
             }
           }
@@ -2179,11 +2179,25 @@
             "type": "string",
             "format": "uuid"
           },
+          "questionId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "testResultId": {
+            "type": "string",
+            "format": "uuid"
+          },
           "answer": {
             "$ref": "#/components/schemas/Answer"
           },
           "user": {
             "$ref": "#/components/schemas/User"
+          },
+          "question": {
+            "$ref": "#/components/schemas/Question"
+          },
+          "testResult": {
+            "$ref": "#/components/schemas/TestResult"
           }
         },
         "additionalProperties": false
@@ -2391,7 +2405,7 @@
         },
         "additionalProperties": false
       },
-      "CreateMatherialDto": {
+      "CreateMaterialDto": {
         "required": [
           "moduleId",
           "title"
@@ -2491,12 +2505,12 @@
       },
       "CreateTestDto": {
         "required": [
-          "matherialId",
+          "materialId",
           "title"
         ],
         "type": "object",
         "properties": {
-          "matherialId": {
+          "materialId": {
             "type": "string",
             "format": "uuid"
           },
@@ -2565,7 +2579,7 @@
         },
         "additionalProperties": false
       },
-      "Matherial": {
+      "Material": {
         "type": "object",
         "properties": {
           "id": {
@@ -2597,24 +2611,31 @@
               "$ref": "#/components/schemas/Test"
             },
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "MatherialListVm": {
-        "type": "object",
-        "properties": {
-          "matherials": {
+          },
+          "progressMaterial": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MatherialLookupDto"
+              "$ref": "#/components/schemas/ProgressMaterial"
             },
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "MatherialLookupDto": {
+      "MaterialListVm": {
+        "type": "object",
+        "properties": {
+          "materials": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MaterialLookupDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MaterialLookupDto": {
         "type": "object",
         "properties": {
           "id": {
@@ -2665,10 +2686,17 @@
           "course": {
             "$ref": "#/components/schemas/Course"
           },
-          "matherials": {
+          "materials": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Matherial"
+              "$ref": "#/components/schemas/Material"
+            },
+            "nullable": true
+          },
+          "progressModules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgressModule"
             },
             "nullable": true
           }
@@ -2713,6 +2741,98 @@
         },
         "additionalProperties": false
       },
+      "ProgressMaterial": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "materialId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "progressModuleId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "matherial": {
+            "$ref": "#/components/schemas/Material"
+          },
+          "progressModule": {
+            "$ref": "#/components/schemas/ProgressModule"
+          },
+          "testResult": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TestResult"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProgressModule": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "moduleId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "progressUserId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "module": {
+            "$ref": "#/components/schemas/Module"
+          },
+          "progressUser": {
+            "$ref": "#/components/schemas/ProgressUser"
+          },
+          "progressMaterial": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgressMaterial"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ProgressUser": {
         "type": "object",
         "properties": {
@@ -2746,6 +2866,13 @@
           },
           "user": {
             "$ref": "#/components/schemas/User"
+          },
+          "progressModule": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgressModule"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2810,17 +2937,17 @@
           "test": {
             "$ref": "#/components/schemas/Test"
           },
-          "answers": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Answer"
-            },
-            "nullable": true
-          },
           "answersUsers": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AnswersUser"
+            },
+            "nullable": true
+          },
+          "answers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Answer"
             },
             "nullable": true
           }
@@ -3070,12 +3197,7 @@
             "type": "string",
             "format": "uuid"
           },
-          "matherialId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "courseId": {
+          "materialId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
@@ -3088,13 +3210,20 @@
             "type": "string",
             "nullable": true
           },
-          "matherial": {
-            "$ref": "#/components/schemas/Matherial"
+          "material": {
+            "$ref": "#/components/schemas/Material"
           },
           "questions": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Question"
+            },
+            "nullable": true
+          },
+          "testResult": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TestResult"
             },
             "nullable": true
           }
@@ -3130,7 +3259,56 @@
             "nullable": true
           },
           "matherial": {
-            "$ref": "#/components/schemas/MatherialLookupDto"
+            "$ref": "#/components/schemas/MaterialLookupDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TestResult": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "testId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "progressMaterialId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "score": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isPassed": {
+            "type": "boolean"
+          },
+          "complitedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "test": {
+            "$ref": "#/components/schemas/Test"
+          },
+          "progressMaterial": {
+            "$ref": "#/components/schemas/ProgressMaterial"
+          },
+          "answersUsers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnswersUser"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3182,7 +3360,7 @@
         },
         "additionalProperties": false
       },
-      "UpdateMatherialDto": {
+      "UpdateMaterialDto": {
         "required": [
           "id",
           "title"
@@ -3413,13 +3591,6 @@
             },
             "nullable": true
           },
-          "progressUsers": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProgressUser"
-            },
-            "nullable": true
-          },
           "reviews": {
             "type": "array",
             "items": {
@@ -3431,6 +3602,34 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AnswersUser"
+            },
+            "nullable": true
+          },
+          "progressUsers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgressUser"
+            },
+            "nullable": true
+          },
+          "progressModule": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgressModule"
+            },
+            "nullable": true
+          },
+          "progressMaterial": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgressMaterial"
+            },
+            "nullable": true
+          },
+          "testResult": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TestResult"
             },
             "nullable": true
           }
@@ -3503,7 +3702,7 @@
       "name": "Course"
     },
     {
-      "name": "Matherial"
+      "name": "Material"
     },
     {
       "name": "Module"

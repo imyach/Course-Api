@@ -1,4 +1,4 @@
-﻿using Application.Common.Queries.Matherials.GetMatherialList;
+﻿using Application.Common.Queries.Materials.GetMaterialList;
 using FluentValidation;
 using System;
 using System.Collections.Generic;

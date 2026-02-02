@@ -407,16 +407,16 @@
     ]
   },
   {
-    "ContainingType": "CourseWebApi.Controllers.MatherialController",
+    "ContainingType": "CourseWebApi.Controllers.MaterialController",
     "Method": "Create",
-    "RelativePath": "api/Matherial",
+    "RelativePath": "api/Material",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "createMatherialDto",
-        "Type": "CourseWebApi.Models.Matherial.CreateMatherialDto",
+        "Name": "createMaterialDto",
+        "Type": "CourseWebApi.Models.Material.CreateMaterialDto",
         "IsRequired": true
       }
     ],
@@ -433,25 +433,25 @@
     ]
   },
   {
-    "ContainingType": "CourseWebApi.Controllers.MatherialController",
+    "ContainingType": "CourseWebApi.Controllers.MaterialController",
     "Method": "Update",
-    "RelativePath": "api/Matherial",
+    "RelativePath": "api/Material",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "updateMatherialDto",
-        "Type": "CourseWebApi.Models.Matherial.UpdateMatherialDto",
+        "Name": "updateMaterialDto",
+        "Type": "CourseWebApi.Models.Material.UpdateMaterialDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CourseWebApi.Controllers.MatherialController",
+    "ContainingType": "CourseWebApi.Controllers.MaterialController",
     "Method": "Get",
-    "RelativePath": "api/Matherial/{id}",
+    "RelativePath": "api/Material/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -464,7 +464,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.Common.Dtos.Matherials.MatherialLookupDto",
+        "Type": "Application.Common.Dtos.Materials.MaterialLookupDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -475,9 +475,9 @@
     ]
   },
   {
-    "ContainingType": "CourseWebApi.Controllers.MatherialController",
+    "ContainingType": "CourseWebApi.Controllers.MaterialController",
     "Method": "Delete",
-    "RelativePath": "api/Matherial/{id}",
+    "RelativePath": "api/Material/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -491,9 +491,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CourseWebApi.Controllers.MatherialController",
+    "ContainingType": "CourseWebApi.Controllers.MaterialController",
     "Method": "GetAll",
-    "RelativePath": "api/Matherial/All/{moduleId}",
+    "RelativePath": "api/Material/All/{moduleId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -506,7 +506,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.Common.Dtos.Matherials.MatherialListVm",
+        "Type": "Application.Common.Dtos.Materials.MaterialListVm",
         "MediaTypes": [
           "text/plain",
           "application/json",
