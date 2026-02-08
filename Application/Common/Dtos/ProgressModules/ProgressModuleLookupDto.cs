@@ -1,5 +1,6 @@
 ﻿using Application.Common.Dtos.Modules;
 using Application.Common.Dtos.ProgressMaterials;
+using Application.Common.Dtos.ProgressUsers;
 using Application.Common.Dtos.Users;
 using Application.Common.Mappings;
 using AutoMapper;
@@ -17,7 +18,7 @@ namespace Application.Common.Dtos.ProgressModules
         public string Status { get; set; } = string.Empty;
         public DateTime? StartedAt { get; set; }
 
-        public ProgressUser? ProgressUser { get; set; }
+        public ProgressUserLookupDto? ProgressUser { get; set; }
         public UserLookupDto? User { get; set; }
         public ModuleLookupDto? Module { get; set; }
 

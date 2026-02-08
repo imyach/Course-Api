@@ -188,10 +188,21 @@
         }
       }
     },
-    "/api/AnswersUser/All": {
+    "/api/AnswersUser/All/{testResultsId}": {
       "get": {
         "tags": [
           "AnswersUser"
+        ],
+        "parameters": [
+          {
+            "name": "testResultsId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -1046,6 +1057,278 @@
         }
       }
     },
+    "/api/ProgressMaterial/All/{progressModuleId}": {
+      "get": {
+        "tags": [
+          "ProgressMaterial"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "progressModuleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressMaterialListVm"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressMaterialListVm"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressMaterialListVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ProgressMaterial/{id}": {
+      "get": {
+        "tags": [
+          "ProgressMaterial"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressMaterialLookupDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressMaterialLookupDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressMaterialLookupDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ProgressMaterial"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ProgressMaterial": {
+      "put": {
+        "tags": [
+          "ProgressMaterial"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProgressMaterialDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProgressMaterialDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProgressMaterialDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ProgressModule/All/{progressUserId}": {
+      "get": {
+        "tags": [
+          "ProgressModule"
+        ],
+        "parameters": [
+          {
+            "name": "progressUserId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressModuleListVm"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressModuleListVm"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressModuleListVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ProgressModule/{id}": {
+      "get": {
+        "tags": [
+          "ProgressModule"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressModuleLookupDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressModuleLookupDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressModuleLookupDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ProgressModule"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ProgressModule": {
+      "put": {
+        "tags": [
+          "ProgressModule"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProgressModuleDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProgressModuleDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProgressModuleDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/ProgressUser/All/{userId}": {
       "get": {
         "tags": [
@@ -1869,6 +2152,187 @@
         }
       }
     },
+    "/api/TestResult/All/{progressMaterialId}": {
+      "get": {
+        "tags": [
+          "TestResult"
+        ],
+        "parameters": [
+          {
+            "name": "progressMaterialId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestResultListVm"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestResultListVm"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestResultListVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/TestResult/{id}": {
+      "get": {
+        "tags": [
+          "TestResult"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestResultLookupDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestResultLookupDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestResultLookupDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "TestResult"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/TestResult": {
+      "post": {
+        "tags": [
+          "TestResult"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTestResultDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTestResultDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTestResultDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "TestResult"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTestResultDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTestResultDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTestResultDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/User/All": {
       "get": {
         "tags": [
@@ -2164,6 +2628,23 @@
         },
         "additionalProperties": false
       },
+      "AnswerSimpleDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "isCorrect": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "AnswersUser": {
         "type": "object",
         "properties": {
@@ -2227,6 +2708,12 @@
           },
           "answer": {
             "$ref": "#/components/schemas/AnswerLookupDto"
+          },
+          "question": {
+            "$ref": "#/components/schemas/QuestionLookupDto"
+          },
+          "testResult": {
+            "$ref": "#/components/schemas/TestResultLookupDto"
           }
         },
         "additionalProperties": false
@@ -2288,13 +2775,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Module"
-            },
-            "nullable": true
-          },
-          "tests": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Test"
             },
             "nullable": true
           }
@@ -2377,11 +2857,21 @@
       },
       "CreateAnswersUserDto": {
         "required": [
-          "answerId"
+          "answerId",
+          "questionId",
+          "testResultId"
         ],
         "type": "object",
         "properties": {
           "answerId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "questionId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "testResultId": {
             "type": "string",
             "format": "uuid"
           }
@@ -2521,6 +3011,24 @@
           "description": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateTestResultDto": {
+        "required": [
+          "progressMaterialId",
+          "testId"
+        ],
+        "type": "object",
+        "properties": {
+          "progressMaterialId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "testId": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -2766,12 +3274,17 @@
           },
           "startedAt": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
           },
           "user": {
             "$ref": "#/components/schemas/User"
           },
-          "matherial": {
+          "material": {
             "$ref": "#/components/schemas/Material"
           },
           "progressModule": {
@@ -2783,6 +3296,47 @@
               "$ref": "#/components/schemas/TestResult"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProgressMaterialListVm": {
+        "type": "object",
+        "properties": {
+          "progressMaterials": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgressMaterialLookupDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProgressMaterialLookupDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "progressModule": {
+            "$ref": "#/components/schemas/ProgressModuleLookupDto"
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserLookupDto"
+          },
+          "material": {
+            "$ref": "#/components/schemas/MaterialLookupDto"
           }
         },
         "additionalProperties": false
@@ -2812,7 +3366,12 @@
           },
           "startedAt": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
           },
           "user": {
             "$ref": "#/components/schemas/User"
@@ -2829,6 +3388,47 @@
               "$ref": "#/components/schemas/ProgressMaterial"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProgressModuleListVm": {
+        "type": "object",
+        "properties": {
+          "progressModules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgressModuleLookupDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProgressModuleLookupDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "progressUser": {
+            "$ref": "#/components/schemas/ProgressUserLookupDto"
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserLookupDto"
+          },
+          "module": {
+            "$ref": "#/components/schemas/ModuleLookupDto"
           }
         },
         "additionalProperties": false
@@ -2980,6 +3580,13 @@
           },
           "test": {
             "$ref": "#/components/schemas/TestLookupDto"
+          },
+          "answers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnswerSimpleDto"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3210,6 +3817,10 @@
             "type": "string",
             "nullable": true
           },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
           "material": {
             "$ref": "#/components/schemas/Material"
           },
@@ -3290,9 +3901,10 @@
           "isPassed": {
             "type": "boolean"
           },
-          "complitedAt": {
+          "completedAt": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "user": {
             "$ref": "#/components/schemas/User"
@@ -3309,6 +3921,49 @@
               "$ref": "#/components/schemas/AnswersUser"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TestResultListVm": {
+        "type": "object",
+        "properties": {
+          "testResults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TestResultLookupDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TestResultLookupDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "score": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isPassed": {
+            "type": "boolean"
+          },
+          "completedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "progressMaterial": {
+            "$ref": "#/components/schemas/ProgressMaterialLookupDto"
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserLookupDto"
+          },
+          "test": {
+            "$ref": "#/components/schemas/TestLookupDto"
           }
         },
         "additionalProperties": false
@@ -3404,7 +4059,52 @@
         },
         "additionalProperties": false
       },
+      "UpdateProgressMaterialDto": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateProgressModuleDto": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateProgressUserDto": {
+        "required": [
+          "id"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -3455,6 +4155,31 @@
           },
           "description": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateTestResultDto": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "score": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isPassed": {
+            "type": "boolean"
+          },
+          "complitedAt": {
+            "type": "string",
+            "format": "date-time",
             "nullable": true
           }
         },
@@ -3708,6 +4433,12 @@
       "name": "Module"
     },
     {
+      "name": "ProgressMaterial"
+    },
+    {
+      "name": "ProgressModule"
+    },
+    {
       "name": "ProgressUser"
     },
     {
@@ -3721,6 +4452,9 @@
     },
     {
       "name": "Test"
+    },
+    {
+      "name": "TestResult"
     },
     {
       "name": "User"

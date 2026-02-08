@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Persistance.EntityFrameworkConfiguration
 {
@@ -15,6 +16,7 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.HasIndex(test => test.Id).IsUnique();
             builder.Property(test => test.Id).HasMaxLength(250);
             builder.Property(test => test.Title).IsRequired().HasMaxLength(250);
+            builder.Property(test => test.Order).IsRequired();
 
             builder.HasOne(math => math.Material)
                 .WithMany(tests => tests.Tests)

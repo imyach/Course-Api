@@ -22,7 +22,7 @@ namespace Application.Common.Commands.TestResults.UpdateTestResults
             if (request.Score != 0)
                 entity.Score = request.Score;
             if (request.ComplitedAt is not null)
-                entity.ComplitedAt = request.ComplitedAt;
+                entity.CompletedAt = request.ComplitedAt;
             if (request.IsPassed is not false)
                 entity.IsPassed = request.IsPassed;
 

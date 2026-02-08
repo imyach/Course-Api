@@ -17,6 +17,8 @@ namespace Application.Common.Commands.AnswersUsers.CreateAnswersUser
                 Id = Guid.NewGuid(),
                 AnswerId = request.AnswerId,
                 UserId = request.CurrentUserId,
+                QuestionId = request.QuestionId,
+                TestResultId = request.TestResultId
             };
 
             await context.AnswersUsers.AddAsync(answersUser, cancellationToken);

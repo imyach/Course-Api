@@ -13,7 +13,7 @@ namespace Domain.Model
         public Guid ProgressMaterialId { get; set; }
         public int Score { get; set; }
         public bool IsPassed { get; set; }
-        public DateTime? ComplitedAt { get; set; }
+        public DateTime? CompletedAt { get; set; }
 
         public User? User { get; set; }
         public Test? Test { get; set; }

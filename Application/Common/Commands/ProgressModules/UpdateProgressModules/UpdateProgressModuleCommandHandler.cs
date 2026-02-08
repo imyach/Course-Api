@@ -21,7 +21,7 @@ namespace Application.Common.Commands.ProgressModules.UpdateProgressModules
 
             entity.Status = request.Status;
 
-            if(request.Status is not null)
+            if(entity.StartedAt is null)
                 entity.StartedAt = request.StartedAt;
 
             await context.SaveChangesAsync(cancellationToken);

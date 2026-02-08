@@ -180,11 +180,17 @@
   {
     "ContainingType": "CourseWebApi.Controllers.AnswersUserController",
     "Method": "GetAll",
-    "RelativePath": "api/AnswersUser/All",
+    "RelativePath": "api/AnswersUser/All/{testResultsId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "testResultsId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "Application.Common.Dtos.AnswersUsers.AnswersUserListVm",
@@ -617,6 +623,179 @@
     "ReturnTypes": [
       {
         "Type": "Application.Common.Dtos.Modules.ModuleListVm",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.ProgressMaterialController",
+    "Method": "Update",
+    "RelativePath": "api/ProgressMaterial",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateProgressMaterialDto",
+        "Type": "CourseWebApi.Models.ProgressMaterial.UpdateProgressMaterialDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.ProgressMaterialController",
+    "Method": "Get",
+    "RelativePath": "api/ProgressMaterial/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Common.Dtos.ProgressMaterials.ProgressMaterialLookupDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.ProgressMaterialController",
+    "Method": "Delete",
+    "RelativePath": "api/ProgressMaterial/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.ProgressMaterialController",
+    "Method": "GetAll",
+    "RelativePath": "api/ProgressMaterial/All/{progressModuleId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "progressModuleId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Common.Dtos.ProgressMaterials.ProgressMaterialListVm",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.ProgressModuleController",
+    "Method": "Update",
+    "RelativePath": "api/ProgressModule",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateProgressModuleDto",
+        "Type": "CourseWebApi.Models.ProgressModule.UpdateProgressModuleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.ProgressModuleController",
+    "Method": "Get",
+    "RelativePath": "api/ProgressModule/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Common.Dtos.ProgressModules.ProgressModuleLookupDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.ProgressModuleController",
+    "Method": "Delete",
+    "RelativePath": "api/ProgressModule/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.ProgressModuleController",
+    "Method": "GetAll",
+    "RelativePath": "api/ProgressModule/All/{progressUserId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "progressUserId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Common.Dtos.ProgressModules.ProgressModuleListVm",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1122,6 +1301,116 @@
     "ReturnTypes": [
       {
         "Type": "Application.Common.Dtos.Tests.TestListVm",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.TestResultController",
+    "Method": "Create",
+    "RelativePath": "api/TestResult",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createTestResultDto",
+        "Type": "CourseWebApi.Models.TestResult.CreateTestResultDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.TestResultController",
+    "Method": "Update",
+    "RelativePath": "api/TestResult",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateTestResultDto",
+        "Type": "CourseWebApi.Models.TestResult.UpdateTestResultDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.TestResultController",
+    "Method": "Get",
+    "RelativePath": "api/TestResult/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Common.Dtos.TestResults.TestResultLookupDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.TestResultController",
+    "Method": "Delete",
+    "RelativePath": "api/TestResult/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.TestResultController",
+    "Method": "GetAll",
+    "RelativePath": "api/TestResult/All/{progressMaterialId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "progressMaterialId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Common.Dtos.TestResults.TestResultListVm",
         "MediaTypes": [
           "text/plain",
           "application/json",

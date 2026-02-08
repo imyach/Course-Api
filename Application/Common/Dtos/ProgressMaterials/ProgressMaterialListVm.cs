@@ -6,6 +6,6 @@ namespace Application.Common.Dtos.ProgressMaterials
 {
     public class ProgressMaterialListVm
     {
-        public IList<ProgressMaterialLookupDto> ProgressMaterial {  get; set; } = [];
+        public IList<ProgressMaterialLookupDto> ProgressMaterials {  get; set; } = [];
     }
 }

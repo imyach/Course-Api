@@ -25,14 +25,14 @@ namespace Application.Common.Queries.TestResults.GetTestResultsList
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
             var query = await context.TestResults
-                .Where(m => m.UserId == request.UserId && m.ProgressMaterialId == request.ProgressMaterialId)
+                .Where(m => m.UserId == request.CurrentUserId && m.ProgressMaterialId == request.ProgressMaterialId)
                 .Include(pm => pm.Test)
                 .Include(m => m.ProgressMaterial)
                 .Include(m => m.User)
                 .ProjectTo<TestResultLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
-            return new TestResultListVm { TestResult = query };
+            return new TestResultListVm { TestResults = query };
         }
     }
 }

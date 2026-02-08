@@ -20,6 +20,7 @@ namespace Application.Common.Dtos.Courses
 
         public UserLookupDto? User { get; set; }
 
+
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Course, CourseLookupDto>()
@@ -38,8 +39,7 @@ namespace Application.Common.Dtos.Courses
                 .ForMember(courseVm => courseVm.Rait,
                 opt => opt.MapFrom(course => course.Rait))
                 .ForMember(courseVm => courseVm.User,
-                opt => opt.MapFrom(course => course.User));
-
+                opt => opt.MapFrom(course => course.User)); 
         }
     }
 }

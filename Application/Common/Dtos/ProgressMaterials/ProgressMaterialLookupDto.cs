@@ -1,5 +1,6 @@
 ﻿using Application.Common.Dtos.Courses;
 using Application.Common.Dtos.Materials;
+using Application.Common.Dtos.ProgressModules;
 using Application.Common.Dtos.ProgressUsers;
 using Application.Common.Dtos.Users;
 using Application.Common.Mappings;
@@ -17,7 +18,7 @@ namespace Application.Common.Dtos.ProgressMaterials
         public string Status { get; set; } = string.Empty;
         public DateTime? StartedAt { get; set; }
 
-        public ProgressModule? ProgressModule { get; set; }
+        public ProgressModuleLookupDto? ProgressModule { get; set; }
         public UserLookupDto? User { get; set; }
         public MaterialLookupDto? Material { get; set; }
 

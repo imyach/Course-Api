@@ -30,7 +30,7 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.HasOne(test => test.Test)
                 .WithMany(testRes => testRes.TestResult)
                 .HasForeignKey(k => k.TestId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(progMat => progMat.ProgressMaterial)
                .WithMany(testRes => testRes.TestResult)

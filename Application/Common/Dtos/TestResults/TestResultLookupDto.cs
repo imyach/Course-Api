@@ -17,7 +17,7 @@ namespace Application.Common.Dtos.TestResults
         public Guid Id { get; set; }
         public int Score { get; set; }
         public bool IsPassed { get; set; }
-        public DateTime ComplitedAt { get; set; }
+        public DateTime CompletedAt { get; set; }
 
         public ProgressMaterialLookupDto? ProgressMaterial { get; set; }
         public UserLookupDto? User { get; set; }
@@ -32,8 +32,8 @@ namespace Application.Common.Dtos.TestResults
                 opt => opt.MapFrom(testResult => testResult.IsPassed))
                 .ForMember(testResultVm => testResultVm.Score,
                 opt => opt.MapFrom(testResult => testResult.Score))
-                .ForMember(testResultVm => testResultVm.ComplitedAt,
-                opt => opt.MapFrom(testResult => testResult.ComplitedAt))
+                .ForMember(testResultVm => testResultVm.CompletedAt,
+                opt => opt.MapFrom(testResult => testResult.CompletedAt))
                 .ForMember(testResultVm => testResultVm.ProgressMaterial,
                 opt => opt.MapFrom(testResult => testResult.ProgressMaterial))
                 .ForMember(testResultVm => testResultVm.User,

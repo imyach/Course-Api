@@ -1,5 +1,6 @@
 ﻿using Domain.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,5 +26,6 @@ namespace Application.Interfaces
         DbSet<AnswersUser> AnswersUsers { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+        DatabaseFacade Database { get; }
     }
 }

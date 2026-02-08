@@ -15,10 +15,11 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.HasIndex(prog => prog.Id).IsUnique();
             builder.Property(prog => prog.Id).HasMaxLength(250);
             builder.Property(prop => prop.Status).HasMaxLength(20).IsRequired();
-            builder.Property(prog => prog.StartedAt).IsRequired(false);
             builder.Property(prog => prog.UserId).IsRequired();
             builder.Property(prog => prog.ModuleId).IsRequired();
             builder.Property(prog => prog.ProgressUserId).IsRequired();
+            builder.Property(prog => prog.StartedAt).IsRequired(false);
+            builder.Property(prog => prog.Order).IsRequired();
 
             builder.HasOne(user => user.User)
                 .WithMany(progs => progs.ProgressModule)

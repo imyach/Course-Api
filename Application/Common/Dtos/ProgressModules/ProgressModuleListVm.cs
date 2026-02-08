@@ -7,6 +7,6 @@ namespace Application.Common.Dtos.ProgressModules
 {
     public class ProgressModuleListVm
     {
-        public IList<ProgressModuleLookupDto> ProgressModule { get; set; } = [];
+        public IList<ProgressModuleLookupDto> ProgressModules { get; set; } = [];
     }
 }

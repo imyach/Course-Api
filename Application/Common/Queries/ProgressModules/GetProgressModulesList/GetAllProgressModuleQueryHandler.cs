@@ -25,7 +25,7 @@ namespace Application.Common.Queries.ProgressModules.GetProgressModulesList
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
             var query = await context.ProgressModules
-                .Where(m => m.UserId == request.UserId && m.ProgressUserId == request.ProgressUserId)
+                .Where(m => m.UserId == request.CurrentUserId && m.ProgressUserId == request.ProgressUserId)
                 .Include(pm => pm.Module)
                 .Include(m => m.ProgressUser)
                 .Include(m => m.User)
@@ -33,7 +33,7 @@ namespace Application.Common.Queries.ProgressModules.GetProgressModulesList
                 .ProjectTo<ProgressModuleLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
-            return new ProgressModuleListVm { ProgressModule = query };
+            return new ProgressModuleListVm { ProgressModules = query };
         }
     }
 }

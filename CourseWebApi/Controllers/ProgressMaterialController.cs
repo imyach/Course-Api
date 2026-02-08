@@ -1,5 +1,4 @@
-﻿using Application.Common.Commands.ProgressMaterials.CreateProgressMaterials;
-using Application.Common.Commands.ProgressMaterials.DeleteProgressMaterials;
+﻿using Application.Common.Commands.ProgressMaterials.DeleteProgressMaterials;
 using Application.Common.Commands.ProgressMaterials.UpdateProgressMaterials;
 using Application.Common.Commands.ProgressUsers.CreateProgressUser;
 using Application.Common.Commands.ProgressUsers.DeleteProgressUser;
@@ -22,13 +21,12 @@ namespace CourseWebApi.Controllers
     [Authorize]
     public class ProgressMaterialController(IMapper mapper) : BaseController
     {
-        [HttpGet("All/{userId}")]
+        [HttpGet("All/{progressModuleId}")]
         public async Task<ActionResult<ProgressMaterialListVm>> GetAll(Guid userId, Guid progressModuleId)
         {
             var query = new GetAllProgressMaterialQuery
             {
                 CurrentUserId = UserId,
-                UserId = userId,
                 ProgressModuleId = progressModuleId
             };
 
@@ -60,15 +58,6 @@ namespace CourseWebApi.Controllers
 
             await Mediator.Send(command);
             return NoContent();
-        }
-
-        [HttpPost]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateProgressMaterialDto createProgressMaterialDto)
-        {
-            var command = mapper.Map<CreateProgressMaterialCommand>(createProgressMaterialDto);
-            command.CurrentUserId = UserId;
-            var progressMaterialId = await Mediator.Send(command);
-            return Ok(progressMaterialId);
         }
 
         [HttpPut]

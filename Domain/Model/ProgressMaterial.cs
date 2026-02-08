@@ -13,6 +13,8 @@ namespace Domain.Model
         public Guid ProgressModuleId { get; set; }
         public string Status { get; set; } = string.Empty;
         public DateTime? StartedAt { get; set; }
+        public int Order { get; set; }
+        
 
 
         public User? User { get; set; }

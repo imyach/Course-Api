@@ -28,12 +28,17 @@ namespace Application.Common.Commands.Tests.CreateTest
 
             if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && entity.Module.Course.UserId == currentUser.Id))
             {
+                int order = 0;
+                if (context.Tests.Any(m => m.MaterialId == request.MaterialId))
+                    order = context.Tests.OrderBy(m => m.Order).LastAsync(cancellationToken).Result.Order;
+
                 var test = new Test
                 {
                     Id = Guid.NewGuid(),
                     MaterialId = request.MaterialId,
                     Title = request.Title,
                     Description = request.Description,
+                    Order = ++order
                 };
 
                 if (entity.Module.Course.Status == "Published")

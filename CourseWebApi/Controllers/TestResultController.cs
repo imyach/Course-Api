@@ -1,5 +1,4 @@
-﻿using Application.Common.Commands.ProgressModules.CreateProgressModules;
-using Application.Common.Commands.ProgressModules.DeleteProgressModules;
+﻿using Application.Common.Commands.ProgressModules.DeleteProgressModules;
 using Application.Common.Commands.ProgressModules.UpdateProgressModules;
 using Application.Common.Commands.TestResults.CreateTestResults;
 using Application.Common.Commands.TestResults.DeleteTestResults;
@@ -22,13 +21,12 @@ namespace CourseWebApi.Controllers
     [Authorize]
     public class TestResultController(IMapper mapper) : BaseController
     {
-        [HttpGet("All/{userId}")]
-        public async Task<ActionResult<TestResultListVm>> GetAll(Guid userId, Guid progressMaterialId)
+        [HttpGet("All/{progressMaterialId}")]
+        public async Task<ActionResult<TestResultListVm>> GetAll(Guid progressMaterialId)
         {
             var query = new GetAllTestResultQuery
             {
                 CurrentUserId = UserId,
-                UserId = userId,
                 ProgressMaterialId = progressMaterialId
             };
 

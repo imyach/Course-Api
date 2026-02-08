@@ -1,5 +1,4 @@
-﻿using Application.Common.Commands.ProgressMaterials.CreateProgressMaterials;
-using Application.Common.Commands.TestResults.CreateTestResults;
+﻿using Application.Common.Commands.TestResults.CreateTestResults;
 using AutoMapper;
 using CourseWebApi.Models.ProgressMaterial;
 using System.ComponentModel.DataAnnotations;

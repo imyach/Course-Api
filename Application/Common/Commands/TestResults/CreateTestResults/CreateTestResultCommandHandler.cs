@@ -1,4 +1,4 @@
-﻿using Application.Common.Commands.ProgressModules.CreateProgressModules;
+﻿
 using Application.Interfaces;
 using Domain.Model;
 using MediatR;
@@ -20,7 +20,7 @@ namespace Application.Common.Commands.TestResults.CreateTestResults
                 UserId = request.CurrentUserId,
                 Score = 0,
                 IsPassed = false,
-                ComplitedAt = null
+                CompletedAt = null
             };
 
 

@@ -9,7 +9,6 @@ namespace Application.Common.Queries.ProgressModules.GetProgressModulesList
     public class GetAllProgressModuleQuery : IRequest<ProgressModuleListVm>
     {
         public Guid CurrentUserId { get; set; }
-        public Guid UserId { get; set; }
         public Guid ProgressUserId { get; set; }
     }
 }

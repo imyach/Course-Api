@@ -26,7 +26,7 @@ namespace Application.Common.Queries.ProgressMaterials.GetProgressMaterialsList
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
             var query = await context.ProgressMaterials
-                .Where(m => m.UserId == request.UserId && m.ProgressModuleId == request.ProgressModuleId)
+                .Where(m => m.UserId == request.CurrentUserId && m.ProgressModuleId == request.ProgressModuleId)
                 .Include(pm => pm.Material)
                 .Include(m => m.ProgressModule)
                 .Include(m => m.User)
@@ -34,7 +34,7 @@ namespace Application.Common.Queries.ProgressMaterials.GetProgressMaterialsList
                 .ProjectTo<ProgressMaterialLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
-            return new ProgressMaterialListVm { ProgressMaterial = query };
+            return new ProgressMaterialListVm { ProgressMaterials = query };
         }
     }
 }

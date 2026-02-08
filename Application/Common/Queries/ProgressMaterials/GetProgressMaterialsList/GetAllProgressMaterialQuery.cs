@@ -10,7 +10,6 @@ namespace Application.Common.Queries.ProgressMaterials.GetProgressMaterialsList
     public class GetAllProgressMaterialQuery : IRequest<ProgressMaterialListVm>
     {
         public Guid CurrentUserId { get; set; }
-        public Guid UserId { get; set; }
         public Guid ProgressModuleId { get; set; }
     }
 }

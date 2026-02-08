@@ -7,6 +7,6 @@ namespace Application.Common.Dtos.TestResults
 {
     public class TestResultListVm
     {
-        public IList<TestResultLookupDto> TestResult { get; set; } = [];
+        public IList<TestResultLookupDto> TestResults { get; set; } = [];
     }
 }

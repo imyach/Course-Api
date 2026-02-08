@@ -1,7 +1,5 @@
-﻿using Application.Common.Commands.ProgressMaterials.CreateProgressMaterials;
-using Application.Common.Commands.ProgressMaterials.DeleteProgressMaterials;
+﻿using Application.Common.Commands.ProgressMaterials.DeleteProgressMaterials;
 using Application.Common.Commands.ProgressMaterials.UpdateProgressMaterials;
-using Application.Common.Commands.ProgressModules.CreateProgressModules;
 using Application.Common.Commands.ProgressModules.DeleteProgressModules;
 using Application.Common.Commands.ProgressModules.UpdateProgressModules;
 using Application.Common.Dtos.ProgressMaterials;
@@ -22,13 +20,12 @@ namespace CourseWebApi.Controllers
     [Authorize]
     public class ProgressModuleController(IMapper mapper) : BaseController
     {
-        [HttpGet("All/{userId}")]
-        public async Task<ActionResult<ProgressModuleListVm>> GetAll(Guid userId, Guid progressUserId)
+        [HttpGet("All/{progressUserId}")]
+        public async Task<ActionResult<ProgressModuleListVm>> GetAll(Guid progressUserId)
         {
             var query = new GetAllProgressModuleQuery
             {
                 CurrentUserId = UserId,
-                UserId = userId,
                 ProgressUserId = progressUserId
             };
 
@@ -60,15 +57,6 @@ namespace CourseWebApi.Controllers
 
             await Mediator.Send(command);
             return NoContent();
-        }
-
-        [HttpPost]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateProgressModuleDto createProgressModuleDto)
-        {
-            var command = mapper.Map<CreateProgressModuleCommand>(createProgressModuleDto);
-            command.CurrentUserId = UserId;
-            var progressModuleId = await Mediator.Send(command);
-            return Ok(progressModuleId);
         }
 
         [HttpPut]

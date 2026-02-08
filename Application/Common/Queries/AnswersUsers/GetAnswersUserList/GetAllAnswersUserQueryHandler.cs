@@ -26,21 +26,23 @@ namespace Application.Common.Queries.AnswersUsers.GetAnswersUserList
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
 
-            if (roleUser.RoleName == "Admin" || roleUser.RoleName == "Couch")
-            {
-                var answersUserQueryA = await context.AnswersUsers
-                    .Include(c => c.Answer)
-                    .Include(c => c.User)
-                    .ProjectTo<AnswersUserLookupDto>(mapper.ConfigurationProvider)
-                    .ToListAsync(cancellationToken);
+            //if (roleUser.RoleName == "Admin" || roleUser.RoleName == "Couch")
+            //{
+            //    var answersUserQueryA = await context.AnswersUsers
+            //        .Include(c => c.Answer)
+            //        .Include(c => c.User)
+            //        .ProjectTo<AnswersUserLookupDto>(mapper.ConfigurationProvider)
+            //        .ToListAsync(cancellationToken);
 
-                return new AnswersUserListVm { AnswersUsers = answersUserQueryA };
-            }
+            //    return new AnswersUserListVm { AnswersUsers = answersUserQueryA };
+            //}
 
             var answersUserQuery = await context.AnswersUsers
                     .Include(c => c.Answer)
                     .Include(c => c.User)
-                    .Where(c => c.UserId == currentUser.Id)
+                    .Include(c => c.TestResult)
+                    .Include(c => c.Question)
+                    .Where(c => c.UserId == currentUser.Id && c.TestResult.Id == request.TestResultsId)
                     .ProjectTo<AnswersUserLookupDto>(mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
 
