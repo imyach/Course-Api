@@ -14,6 +14,6 @@ namespace CourseDesktopClient.Models.DtosModel.Entities
         [JsonPropertyName("description")]
         public string? Description { get; set; }
 
-        public Guid MatherialId { get; set; }
+        public Guid MaterialId { get; set; }
     }
 }

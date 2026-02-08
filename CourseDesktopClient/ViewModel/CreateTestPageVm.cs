@@ -157,7 +157,7 @@ namespace CourseDesktopClient.ViewModel
             }
             else
             {
-                var newTest = new TestDto() { Description = "Описание теста", Title = "Новый тест", MatherialId = materialId };
+                var newTest = new TestDto() { Description = "Описание теста", Title = "Новый тест", MaterialId = materialId };
 
                 var idNewTest = await courseApiClient.CreateTestAsync(newTest);
 

@@ -24,18 +24,16 @@
                 </StackPanel>
 
                 <ItemsControl ItemsSource="{Binding GetProgressUsers}"
-                          HorizontalAlignment="Center"
                           BorderThickness="0">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <controll:MyCoursePanelElement/>
+                            <controll:MyCoursePanelElement />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
-                    <ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemsPanel >
                         <ItemsPanelTemplate>
                             <UniformGrid Columns="2" 
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Top"/>
+                        VerticalAlignment="Top"  HorizontalAlignment="Center"/>
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>

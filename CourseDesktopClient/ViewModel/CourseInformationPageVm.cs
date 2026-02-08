@@ -188,6 +188,17 @@ namespace CourseDesktopClient.ViewModel
         private ObservableCollection<ButtonItem>? _buttonPanel = [];
         public ObservableCollection<ButtonItem>? ButtonPanel { get => _buttonPanel; set { _buttonPanel = value; OnPropertyChanged(nameof(ButtonPanel)); } }
 
+        private Visibility _visibleButtonPanel;
+        public Visibility VisibleButtonPanel
+        {
+            get { return _visibleButtonPanel; }
+            set
+            {
+                _visibleButtonPanel = value;
+                OnPropertyChanged();
+            }
+        }
+
         private readonly ICourseApiClient courseApiClient;
         private readonly IPagerService pagerService;
         private readonly IAuthService authService;
@@ -228,6 +239,11 @@ namespace CourseDesktopClient.ViewModel
                 .ToList();
 
             GetReviews = reviewViewModels;
+
+            VisibleButtonPanel = pager.TotalItems <= pager.PageSize
+               ? Visibility.Collapsed
+               : Visibility.Visible;
+
             GenerateButtonPanel(pager);
         }
 

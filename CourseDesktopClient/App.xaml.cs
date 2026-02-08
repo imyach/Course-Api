@@ -46,7 +46,7 @@ namespace CourseDesktopClient
             {
                 if (isAuthenticated)
                 {
-                    navService.NavigateToCourses();
+                    await navService.NavigateToCourses();
                 }
                 else
                     navService.NavigateToLogin();

@@ -5,6 +5,12 @@
     <Compile Update="MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UI\Elements\CompliteMaterialElement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Elements\CompliteModuleElement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UI\Elements\CoursePanelElement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -44,6 +50,9 @@
     <Compile Update="UI\Elements\ReviewPanelElement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UI\Elements\TestResultElement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UI\Elements\UserPanelElement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -51,6 +60,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\AllUsersPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CompletingCoursePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CompletingMaterialPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CompletingModulePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CompletingTestResultPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\CourseInformationPage.xaml.cs">

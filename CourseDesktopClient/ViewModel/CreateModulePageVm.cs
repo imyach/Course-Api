@@ -142,7 +142,7 @@ namespace CourseDesktopClient.ViewModel
                 DescroptionOfModule = module.Description;
 
                 var matherials = await courseApiClient.GetMaterialsAsync(idModule);
-                var matherialViewModel = matherials.Matherials.Select(x => new CreateMaterialElementVm(x)).ToList();
+                var matherialViewModel = matherials.Materials.Select(x => new CreateMaterialElementVm(x)).ToList();
                 GetMaterial = matherialViewModel;
 
                 VisibleAddMaterialButton = GetMaterial.Count > 0

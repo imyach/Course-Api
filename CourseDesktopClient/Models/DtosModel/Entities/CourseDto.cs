@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
 
@@ -23,5 +24,7 @@ namespace CourseDesktopClient.Models.DtosModel.Entities
         public UserDto User { get; set; } = new();
         [JsonPropertyName("status")]
         public string Status { get; set; } = string.Empty;
+        [JsonPropertyName("modules")]
+        public IEnumerable<Module>? Modules { get; set; }
     }
 }

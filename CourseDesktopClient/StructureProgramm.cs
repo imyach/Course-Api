@@ -52,6 +52,10 @@ namespace CourseDesktopClient
 
             services.AddTransient<LoginPageVm>();
             services.AddTransient<CreateTestPageVm>();
+            services.AddTransient<CompletingCoursePageVm>();
+            services.AddTransient<CompletingMaterialPageVm>();
+            services.AddTransient<CompletingTestResultPageVm>();
+            services.AddTransient<CompletingModulePageVm>();
             services.AddTransient<CreateQuestionPageVm>();
             services.AddTransient<CreateMaterialPageVm>();
             services.AddTransient<CreateCoursePageVm>();
@@ -68,8 +72,6 @@ namespace CourseDesktopClient
 
 
             //VIEWS
-
-   
 
             services.AddTransient(provider =>
             {
@@ -151,6 +153,26 @@ namespace CourseDesktopClient
             {
                 var createQuestionPageVm = provider.GetRequiredService<CreateQuestionPageVm>();
                 return new CreateQuestionPage { DataContext = createQuestionPageVm };
+            });
+            services.AddTransient(provider =>
+            {
+                var completingCoursePageVm = provider.GetRequiredService<CompletingCoursePageVm>();
+                return new CompletingCoursePage { DataContext = completingCoursePageVm };
+            });
+            services.AddTransient(provider =>
+            {
+                var completingModulePageVm = provider.GetRequiredService<CompletingModulePageVm>();
+                return new CompletingModulePage { DataContext = completingModulePageVm };
+            });
+            services.AddTransient(provider =>
+            {
+                var completingMaterialPageVm = provider.GetRequiredService<CompletingMaterialPageVm>();
+                return new CompletingMaterialPage { DataContext = completingMaterialPageVm };
+            });
+            services.AddTransient(provider =>
+            {
+                var completingTestResultPageVm = provider.GetRequiredService<CompletingTestResultPageVm>();
+                return new CompletingTestResultPage { DataContext = completingTestResultPageVm };
             });
 
 

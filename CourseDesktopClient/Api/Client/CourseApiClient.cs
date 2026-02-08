@@ -212,57 +212,6 @@ namespace CourseDesktopClient.Api.Client
             return response.StatusCode;
         }
 
-
-        //PROGRESSUSER
-        public async Task<(ProgressUsersDto,ProgerssInfoDto,PagerInfoDto)> GetProgressUsersAsync(Guid userId, int pageNumber = 1, int pageSize = 20, string searchText = null, CancellationToken ct = default)
-        {
-            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_PROGRESSUSER + $"{userId}?searchText={searchText}&pageSize={pageSize}&pageNumber={pageNumber}", ct);
-
-            if (!CheckOnAvalibleSever(response))
-                return (null,null,null);
-            response.EnsureSuccessStatusCode();
-
-            var dataArray = await response.Content.ReadFromJsonAsync<JsonElement[]>(jsonOptions, ct);
-            var progressUsers = JsonSerializer.Deserialize<ProgressUsersDto>(dataArray[0]);
-            var progressInfo = JsonSerializer.Deserialize<ProgerssInfoDto>(dataArray[1]);
-            var pagerInfo = JsonSerializer.Deserialize<PagerInfoDto>(dataArray[2]);
-
-            return (progressUsers, progressInfo, pagerInfo);
-        }
-        public async Task<Guid?> CreateProgressUserAsync(ProgressUserRequestDto progressUserDto, CancellationToken ct = default)
-        {
-            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_PROGRESSUSER, progressUserDto, ct);
-            if (!CheckOnAvalibleSever(response))
-                return null;
-            response.EnsureSuccessStatusCode();
-            return await response.Content.ReadFromJsonAsync<Guid>(jsonOptions, ct);
-        }
-        public async Task<ProgressUserDto> GetProgressUserByIdAsync(Guid id, CancellationToken ct = default)
-        {
-            var response = await httpClient.GetAsync(ApiPaths.API_GET_PROGRESSUSER_BY_ID + $"{id}", ct);
-            if (!CheckOnAvalibleSever(response))
-                return null;
-            response.EnsureSuccessStatusCode();
-            return await response.Content.ReadFromJsonAsync<ProgressUserDto>(jsonOptions, ct);
-        }
-        public async Task<HttpStatusCode?> DeleteProgressUserAsync(Guid id, CancellationToken ct = default)
-        {
-            var response = await httpClient.DeleteAsync(ApiPaths.API_DELETE_UPDATE_CERATE_PROGRESSUSER + $"/{id}", ct);
-            if (!CheckOnAvalibleSever(response))
-                return null;
-            response.EnsureSuccessStatusCode();
-            return response.StatusCode;
-        }
-        public async Task<HttpStatusCode?> UpdateProgressUserAsync(ProgressUserRequestDto progressUserDto, CancellationToken ct = default)
-        {
-            var response = await httpClient.PutAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_PROGRESSUSER, progressUserDto, ct);
-            if (!CheckOnAvalibleSever(response))
-                return null;
-            response.EnsureSuccessStatusCode();
-            return response.StatusCode;
-        }
-
-
         //USER
         public async Task<TokensDto?> UpdateUserAsync(UpdateUserRequestDto userDto, CancellationToken ct = default)
         {
@@ -513,6 +462,240 @@ namespace CourseDesktopClient.Api.Client
             if (response.StatusCode == HttpStatusCode.ServiceUnavailable)
                 return false;
             return true;
+        }
+
+        //PROGRESSUSER
+        public async Task<(ProgressUsersDto, ProgerssInfoDto, PagerInfoDto)> GetProgressUsersAsync(Guid userId, int pageNumber = 1, int pageSize = 20, string searchText = null, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_PROGRESSUSER + $"{userId}?searchText={searchText}&pageSize={pageSize}&pageNumber={pageNumber}", ct);
+
+            if (!CheckOnAvalibleSever(response))
+                return (null, null, null);
+            response.EnsureSuccessStatusCode();
+
+            var dataArray = await response.Content.ReadFromJsonAsync<JsonElement[]>(jsonOptions, ct);
+            var progressUsers = JsonSerializer.Deserialize<ProgressUsersDto>(dataArray[0]);
+            var progressInfo = JsonSerializer.Deserialize<ProgerssInfoDto>(dataArray[1]);
+            var pagerInfo = JsonSerializer.Deserialize<PagerInfoDto>(dataArray[2]);
+
+            return (progressUsers, progressInfo, pagerInfo);
+        }
+        public async Task<Guid?> CreateProgressUserAsync(ProgressUserRequestDto progressUserDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_PROGRESSUSER, progressUserDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<Guid>(jsonOptions, ct);
+        }
+        public async Task<ProgressUserDto> GetProgressUserByIdAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_PROGRESSUSER_BY_ID + $"{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<ProgressUserDto>(jsonOptions, ct);
+        }
+        public async Task<HttpStatusCode?> DeleteProgressUserAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.DeleteAsync(ApiPaths.API_DELETE_UPDATE_CERATE_PROGRESSUSER + $"/{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return response.StatusCode;
+        }
+        public async Task<HttpStatusCode?> UpdateProgressUserAsync(ProgressUserRequestDto progressUserDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PutAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_PROGRESSUSER, progressUserDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return response.StatusCode;
+        }
+
+
+        //PROGRESSMODULE
+        public async Task<ProgressModulesDto?> GetProgressModulesAsync(Guid progressUserId, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_PROGRESSMODULE + progressUserId, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<ProgressModulesDto>(jsonOptions, ct);
+        }
+
+        public async Task<Guid?> CreateProgressModuleAsync(ProgressModuleDto progressModuleDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_PROGRESSMODULE, progressModuleDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<Guid>(jsonOptions, ct);
+        }
+
+        public async Task<ProgressModuleDto?> GetProgressModuleByIdAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_PROGRESSMODULE_BY_ID + $"{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<ProgressModuleDto>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode?> DeleteProgressModuleAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.DeleteAsync(ApiPaths.API_DELETE_UPDATE_CERATE_PROGRESSMODULE + $"/{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return response.StatusCode;
+        }
+
+        public async Task<HttpStatusCode?> UpdateProgressModuleAsync(ProgressModuleDto progressModuleDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PutAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_PROGRESSMODULE, progressModuleDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return response.StatusCode;
+        }
+
+        //PROGRESSMATERIAL
+        public async Task<ProgressMaterialsDto?> GetProgressMaterialsAsync(Guid progressModuleId, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_PROGRESSMATERIAL + progressModuleId, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<ProgressMaterialsDto>(jsonOptions, ct);
+        }
+
+        public async Task<Guid?> CreateProgressMaterialAsync(ProgressMaterialDto progressMaterialDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_PROGRESSMATERIAL, progressMaterialDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<Guid>(jsonOptions, ct);
+        }
+
+        public async Task<ProgressMaterialDto?> GetProgressMaterialByIdAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_PROGRESSMATERIAL_BY_ID + $"{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<ProgressMaterialDto>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode?> DeleteProgressMaterialAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.DeleteAsync(ApiPaths.API_DELETE_UPDATE_CERATE_PROGRESSMATERIAL + $"/{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return response.StatusCode;
+        }
+
+        public async Task<HttpStatusCode?> UpdateProgressMaterialAsync(ProgressMaterialDto progressMaterialDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PutAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_PROGRESSMATERIAL, progressMaterialDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return response.StatusCode;
+        }
+
+        //TESTRESULT
+        public async Task<TestResultsDto?> GetTestResultsAsync(Guid progressMaterialId, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_TESTRESULT + progressMaterialId, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<TestResultsDto>(jsonOptions, ct);
+        }
+
+        public async Task<Guid?> CreateTestResultAsync(TestResultDto testResultDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_TESTRESULT, testResultDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<Guid>(jsonOptions, ct);
+        }
+
+        public async Task<TestResultDto?> GetTestResultByIdAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_TESTRESULT_BY_ID + $"{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<TestResultDto>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode?> DeleteTestResultAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.DeleteAsync(ApiPaths.API_DELETE_UPDATE_CERATE_TESTRESULT + $"/{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return response.StatusCode;
+        }
+
+        public async Task<HttpStatusCode?> UpdateTestResultAsync(TestResultDto testResultDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PutAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_TESTRESULT, testResultDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return response.StatusCode;
+        }
+
+        //ANSWERSUSER
+        public async Task<AnswersUsersDto?> GetAnswersUsersAsync(Guid testResultsId, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_ANSWERSUSER + testResultsId, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<AnswersUsersDto>(jsonOptions, ct);
+        }
+
+        public async Task<Guid?> CreateAnswersUserAsync(AnswersUserDto answersUserDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_ANSWERSUSER, answersUserDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<Guid>(jsonOptions, ct);
+        }
+
+        public async Task<AnswersUserDto?> GetAnswersUserByIdAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_ANSWERSUSER_BY_ID + $"{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<AnswersUserDto>(jsonOptions, ct);
+        }
+
+        public async Task<HttpStatusCode?> DeleteAnswersUserAsync(Guid id, CancellationToken ct = default)
+        {
+            var response = await httpClient.DeleteAsync(ApiPaths.API_DELETE_UPDATE_CERATE_ANSWERSUSER + $"/{id}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return response.StatusCode;
+        }
+
+        public async Task<HttpStatusCode?> UpdateAnswersUserAsync(AnswersUserDto answersUserDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PutAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_ANSWERSUSER, answersUserDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return response.StatusCode;
         }
     }
 }

@@ -81,9 +81,9 @@ namespace CourseDesktopClient.ViewModel
                 }
             });
 
-            ContinueCousre = new RelayCommand(_ =>
+            ContinueCousre = new RelayCommand( async sender =>
             {
-                ///
+                await navigationService.NavigateToProgressCourse((sender as MyCoursePanelElementVm).Id);
             });
 
             ViewDetailsCommand = new RelayCommand(async sender =>

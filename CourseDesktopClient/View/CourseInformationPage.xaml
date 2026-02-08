@@ -45,7 +45,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button Content="Назад" Command="{Binding GoBackCommand}"/>
+                <Button Content="Назад" Command="{Binding AllCourseCommand}"/>
             </StackPanel>
 
             <StackPanel Grid.Row="1" 
@@ -91,7 +91,7 @@ MaxWidth="800">
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
 
-                <ItemsControl Grid.Row="1"  ItemsSource="{Binding ButtonPanel}">
+                <ItemsControl Grid.Row="1"  ItemsSource="{Binding ButtonPanel}"  Visibility="{Binding VisibleButtonPanel}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal" 

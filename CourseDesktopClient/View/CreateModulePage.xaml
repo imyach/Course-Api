@@ -24,7 +24,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Описание модуля"  Margin="10"/>
-                    <TextBox Text="{Binding DescroptionOfModule, UpdateSourceTrigger=PropertyChanged}" TextWrapping="WrapWithOverflow" Width="500" Height="300" Margin="10"/>
+                    <TextBox Text="{Binding DescroptionOfModule, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Width="500" Height="300" Margin="10"/>
                 </StackPanel>
             </StackPanel>
             <Button Content="Добaвить материал" Grid.Row="2" Width="150" Height="30" Margin="10" Visibility="{Binding VisibleAddMaterialButton}" HorizontalAlignment="Left" Command="{Binding CreateMaterialCommand}"/>

@@ -8,7 +8,7 @@ namespace CourseDesktopClient.Models.DtosModel.EntitiesLists
 {
     public class MaterialsDto
     {
-        [JsonPropertyName("matherials")]
-        public IList<MaterialDto>? Matherials { get; set; }
+        [JsonPropertyName("materials")]
+        public IList<MaterialDto>? Materials { get; set; }
     }
 }

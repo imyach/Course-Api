@@ -15,6 +15,13 @@ namespace CourseDesktopClient.Interfaces
         Task NavigateToCreateMaterial(Guid moduleId, Guid idMaterial = default);
         Task NavigateToCreateTest(Guid idMaterial, Guid idTest = default);
         Task NavigateToCreateQuestion(Guid idTest, Guid idQuestion = default);
+        Task NavigateToProgressCourse(Guid Id = default);
+        Task NavigateToProgressModule(Guid progressCourseId, Guid progressModuleId);
+        Task NavigateToProgressMaterial(Guid progressModuleId, Guid progressMaterialId);
+        Task NavigateToTestResult(Guid progressMaterialId, Guid testResultId);
+
+
+
         Task NavigateToInformationCourse(Guid Id);
         Task NavigateToMyCourses();
         Task NavigateToProfile(Guid idUser);

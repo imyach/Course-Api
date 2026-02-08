@@ -178,3 +178,17 @@ C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\CreateQuestionPage.g.cs
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\CreateAnswerElement.baml
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\CreateQuestionPage.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\CompletingCoursePage.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\CompletingCoursePage.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\CompliteModuleElement.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\CompliteModuleElement.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\CompliteMaterialElement.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\CompletingModulePage.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\CompliteMaterialElement.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\CompletingModulePage.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\TestResultElement.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\CompletingMaterialPage.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\TestResultElement.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\CompletingMaterialPage.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\CompletingTestResultPage.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\CompletingTestResultPage.baml

@@ -188,6 +188,53 @@ namespace CourseDesktopClient.Services
             NavigateTo(createQuestionPage);
         }
 
+        public async Task NavigateToProgressCourse(Guid Id = default)
+        {
+            var compliteCoursePage = serviceProvider.GetRequiredService<CompletingCoursePage>();
+
+            if (compliteCoursePage.DataContext is CompletingCoursePageVm vm)
+            {
+                await vm.LoadProgressCourse(Id);
+            }
+
+            NavigateTo(compliteCoursePage);
+        }
+
+        public async Task NavigateToProgressModule(Guid progressCourseId, Guid progressModuleId)
+        {
+            var completingModulePage = serviceProvider.GetRequiredService<CompletingModulePage>();
+
+            if (completingModulePage.DataContext is CompletingModulePageVm vm)
+            {
+                await vm.LoadProgressModule(progressCourseId, progressModuleId);
+            }
+
+            NavigateTo(completingModulePage);
+        }
+
+        public async Task NavigateToProgressMaterial(Guid progressModuleId, Guid progressMaterialId)
+        {
+            var completingModulePage = serviceProvider.GetRequiredService<CompletingMaterialPage>();
+
+            if (completingModulePage.DataContext is CompletingMaterialPageVm vm)
+            {
+                await vm.LoadProgressMaterial(progressModuleId, progressMaterialId);
+            }
+
+            NavigateTo(completingModulePage);
+        }
+
+        public async Task NavigateToTestResult(Guid progressMaterialId, Guid testResultId)
+        {
+            var completingTestResultPage = serviceProvider.GetRequiredService<CompletingTestResultPage>();
+
+            if (completingTestResultPage.DataContext is CompletingTestResultPageVm vm)
+            {
+                await vm.LoadTestResult(progressMaterialId, testResultId);
+            }
+
+            NavigateTo(completingTestResultPage);
+        }
 
 
         public bool CanGoBack => _navigationStack.Count > 1;

@@ -12,6 +12,11 @@ namespace CourseDesktopClient.Models.DtosModel.Entities
         [JsonPropertyName("text")]
         public string Text { get; set; } = string.Empty;
 
+        [JsonPropertyName("test")]
+        public TestDto? Test { get; set; }
         public Guid TestId { get; set; }
+        
+        [JsonPropertyName("answers")]
+        public IList<AnswerDto>? Answers { get; set; }
     }
 }

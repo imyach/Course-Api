@@ -42,13 +42,6 @@ namespace CourseDesktopClient.Api.Client
         Task<Guid?> CreateReviewAsync(ReviewDto reviewDto, CancellationToken ct = default);
         Task<HttpStatusCode?> DeleteReviewAsync(Guid id, CancellationToken ct = default);
 
-        //PROGRESS USER
-        Task<(ProgressUsersDto, ProgerssInfoDto, PagerInfoDto)> GetProgressUsersAsync(Guid userId ,int pageNumber = 1, int pageSize = 10, string searchText = null, CancellationToken ct = default);
-        Task<Guid?> CreateProgressUserAsync(ProgressUserRequestDto progressUserDto, CancellationToken ct = default);
-        Task<ProgressUserDto> GetProgressUserByIdAsync(Guid id, CancellationToken ct = default);
-        Task<HttpStatusCode?> DeleteProgressUserAsync(Guid id, CancellationToken ct = default);
-        Task<HttpStatusCode?> UpdateProgressUserAsync(ProgressUserRequestDto progressUserDto, CancellationToken ct = default);
-
         //MODULE
         Task<ModulesDto?> GetModulesAsync(Guid courseId, CancellationToken ct = default);
         Task<ModuleDto?> GetModuleAsync(Guid moduleId, CancellationToken ct = default);
@@ -83,5 +76,40 @@ namespace CourseDesktopClient.Api.Client
         Task<HttpStatusCode?> DeleteAnswerAsync(Guid id, CancellationToken ct = default);
         Task<Guid?> CreateAnswerAsync(AnswerDto answerDto, CancellationToken ct = default);
         Task<HttpStatusCode?> UpdateAnswerAsync(AnswerDto answerDto, CancellationToken ct = default);
+
+        //PROGRESS USER
+        Task<(ProgressUsersDto, ProgerssInfoDto, PagerInfoDto)> GetProgressUsersAsync(Guid userId, int pageNumber = 1, int pageSize = 10, string searchText = null, CancellationToken ct = default);
+        Task<Guid?> CreateProgressUserAsync(ProgressUserRequestDto progressUserDto, CancellationToken ct = default);
+        Task<ProgressUserDto> GetProgressUserByIdAsync(Guid id, CancellationToken ct = default);
+        Task<HttpStatusCode?> DeleteProgressUserAsync(Guid id, CancellationToken ct = default);
+        Task<HttpStatusCode?> UpdateProgressUserAsync(ProgressUserRequestDto progressUserDto, CancellationToken ct = default);
+
+        //PROGRESS MODULE
+        Task<ProgressModulesDto?> GetProgressModulesAsync(Guid progressUserId, CancellationToken ct = default);
+        Task<Guid?> CreateProgressModuleAsync(ProgressModuleDto progressModuleDto, CancellationToken ct = default);
+        Task<ProgressModuleDto?> GetProgressModuleByIdAsync(Guid id, CancellationToken ct = default);
+        Task<HttpStatusCode?> DeleteProgressModuleAsync(Guid id, CancellationToken ct = default);
+        Task<HttpStatusCode?> UpdateProgressModuleAsync(ProgressModuleDto progressModuleDto, CancellationToken ct = default);
+
+        //PROGRESS MATERIAL
+        Task<ProgressMaterialsDto?> GetProgressMaterialsAsync(Guid progressModuleId, CancellationToken ct = default);
+        Task<Guid?> CreateProgressMaterialAsync(ProgressMaterialDto progressMaterialDto, CancellationToken ct = default);
+        Task<ProgressMaterialDto?> GetProgressMaterialByIdAsync(Guid id, CancellationToken ct = default);
+        Task<HttpStatusCode?> DeleteProgressMaterialAsync(Guid id, CancellationToken ct = default);
+        Task<HttpStatusCode?> UpdateProgressMaterialAsync(ProgressMaterialDto progressMaterialDto, CancellationToken ct = default);
+
+        //TEST RESULT
+        Task<TestResultsDto?> GetTestResultsAsync(Guid progressMaterialId, CancellationToken ct = default);
+        Task<Guid?> CreateTestResultAsync(TestResultDto testResultDto, CancellationToken ct = default);
+        Task<TestResultDto?> GetTestResultByIdAsync(Guid id, CancellationToken ct = default);
+        Task<HttpStatusCode?> DeleteTestResultAsync(Guid id, CancellationToken ct = default);
+        Task<HttpStatusCode?> UpdateTestResultAsync(TestResultDto testResultDto, CancellationToken ct = default);
+
+        //ANSWER USER
+        Task<AnswersUsersDto?> GetAnswersUsersAsync(Guid testResultsId, CancellationToken ct = default);
+        Task<Guid?> CreateAnswersUserAsync(AnswersUserDto answersUserDto, CancellationToken ct = default);
+        Task<AnswersUserDto?> GetAnswersUserByIdAsync(Guid id, CancellationToken ct = default);
+        Task<HttpStatusCode?> DeleteAnswersUserAsync(Guid id, CancellationToken ct = default);
+        Task<HttpStatusCode?> UpdateAnswersUserAsync(AnswersUserDto answersUserDto, CancellationToken ct = default);
     }
 }
