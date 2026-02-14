@@ -118,14 +118,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "createAnswersUserDto",
-        "Type": "CourseWebApi.Models.AnswersUsers.CreateAnswersUserDto",
+        "Name": "request",
+        "Type": "Application.Common.Dtos.AnswersUsers.TestResult.CheckingResponsesDto\u002BCompleteTestRequestDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Guid",
+        "Type": "Application.Common.Dtos.AnswersUsers.TestResult.CheckingResponsesDto\u002BCompleteTestResponseDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

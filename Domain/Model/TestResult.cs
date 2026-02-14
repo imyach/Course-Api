@@ -11,7 +11,7 @@ namespace Domain.Model
         public Guid UserId { get; set; }
         public Guid TestId { get; set; }
         public Guid ProgressMaterialId { get; set; }
-        public int Score { get; set; }
+        public int Score { get; set; } = 0;
         public bool IsPassed { get; set; }
         public DateTime? CompletedAt { get; set; }
 

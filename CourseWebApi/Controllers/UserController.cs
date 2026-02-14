@@ -47,7 +47,6 @@ namespace CourseWebApi.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateUserDto createUserCommand)
-
         {
             var command = mapper.Map<CreateUserCommand>(createUserCommand);
             command.CurrentUserId = UserId;

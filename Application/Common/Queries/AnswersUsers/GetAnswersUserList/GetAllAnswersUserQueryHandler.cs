@@ -11,43 +11,50 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static Application.Common.Dtos.AnswersUsers.TestResult.CheckingResponsesDto;
 
 namespace Application.Common.Queries.AnswersUsers.GetAnswersUserList
 {
-    public class GetAllAnswersUserQueryHandler(ICoursesDbContext context, IMapper mapper) : IRequestHandler<GetAllAnswersUserQuery, AnswersUserListVm>
+    public class GetAllAnswersUserQueryHandler : IRequestHandler<GetAllAnswersUserQuery, TestHistoryVm>
     {
-        public async Task<AnswersUserListVm> Handle(GetAllAnswersUserQuery request, CancellationToken cancellationToken)
+        private readonly ICoursesDbContext _context;
+
+        public GetAllAnswersUserQueryHandler(ICoursesDbContext context)
         {
+            _context = context;
+        }
 
-            var currentUser = await context.Users.FindAsync([request.CurrentUserId], cancellationToken)
-                ?? throw new NotFoundException(nameof(User), request.CurrentUserId);
+        public async Task<TestHistoryVm> Handle(GetAllAnswersUserQuery request, CancellationToken cancellationToken)
+        {
+            // 1. Сначала находим все TestResult для этого теста и пользователя
+            var testResults = await _context.TestResults
+                .Include(tr => tr.Test)
+                .Where(tr => tr.TestId == request.TestId && tr.UserId == request.CurrentUserId)
+                .OrderByDescending(tr => tr.CompletedAt)
+                .Select(tr => new TestAttemptDto
+                {
+                    Id = tr.Id,
+                    TestId = tr.TestId,
+                    TestTitle = tr.Test != null ? tr.Test.Title : "Тест",
+                    Score = tr.Score,
+                    IsPassed = tr.IsPassed,
+                    CompletedAt = tr.CompletedAt,
+                })
+                .ToListAsync(cancellationToken);
 
-            var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
-                ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
+            // 2. Получаем информацию о тесте
+            var test = await _context.Tests
+                .FirstOrDefaultAsync(t => t.Id == request.TestId, cancellationToken);
 
-
-            //if (roleUser.RoleName == "Admin" || roleUser.RoleName == "Couch")
-            //{
-            //    var answersUserQueryA = await context.AnswersUsers
-            //        .Include(c => c.Answer)
-            //        .Include(c => c.User)
-            //        .ProjectTo<AnswersUserLookupDto>(mapper.ConfigurationProvider)
-            //        .ToListAsync(cancellationToken);
-
-            //    return new AnswersUserListVm { AnswersUsers = answersUserQueryA };
-            //}
-
-            var answersUserQuery = await context.AnswersUsers
-                    .Include(c => c.Answer)
-                    .Include(c => c.User)
-                    .Include(c => c.TestResult)
-                    .Include(c => c.Question)
-                    .Where(c => c.UserId == currentUser.Id && c.TestResult.Id == request.TestResultsId)
-                    .ProjectTo<AnswersUserLookupDto>(mapper.ConfigurationProvider)
-                    .ToListAsync(cancellationToken);
-
-            return new AnswersUserListVm { AnswersUsers = answersUserQuery };
-
+            return new TestHistoryVm
+            {
+                TestId = request.TestId,
+                TestTitle = test?.Title ?? "Тест",
+                TotalQuestions = test?.Questions?.Count() ?? 0,
+                Attempts = testResults,
+                BestScore = testResults.Any() ? testResults.Max(tr => tr.Score) : 0,
+                IsTestPassed = testResults.Any(tr => tr.IsPassed)
+            };
         }
     }
 }

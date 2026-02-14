@@ -11,8 +11,8 @@ namespace Application.Common.Commands.AnswersUsers.CreateAnswersUser
         {
             RuleFor(createAnswersUserCommand => createAnswersUserCommand.CurrentUserId)
                 .NotEqual(Guid.Empty).NotNull();
-            RuleFor(createAnswersUserCommand => createAnswersUserCommand.AnswerId)
-                .NotEqual(Guid.Empty).NotNull();
+            //RuleFor(createAnswersUserCommand => createAnswersUserCommand.AnswerId)
+            //    .NotEqual(Guid.Empty).NotNull();
         }
 
     }

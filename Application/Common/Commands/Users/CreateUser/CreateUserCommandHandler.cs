@@ -21,7 +21,7 @@ namespace Application.Common.Commands.Users.CreateUser
 
             if (roleUser.RoleName == "Admin")
             {
-                var dublicate = await context.Users.AnyAsync(x => x.Email == request.Email || x.Login == request.Login, cancellationToken);
+                var dublicate = await context.Users.AnyAsync(x => x.Email == request.Email && x.Login == request.Login, cancellationToken);
 
                 if (dublicate)
                     return Guid.Empty;
@@ -29,7 +29,7 @@ namespace Application.Common.Commands.Users.CreateUser
                 var user = new User
                 {
                     Id = Guid.NewGuid(),
-                    RoleId = request.RoleId,
+                    RoleId = request.Role.Id,
                     NameUser = request.NameUser,
                     Login = request.Login,
                     Email = request.Email,

@@ -277,17 +277,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateAnswersUserDto"
+                "$ref": "#/components/schemas/CompleteTestRequestDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateAnswersUserDto"
+                "$ref": "#/components/schemas/CompleteTestRequestDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateAnswersUserDto"
+                "$ref": "#/components/schemas/CompleteTestRequestDto"
               }
             }
           }
@@ -298,20 +298,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "$ref": "#/components/schemas/CompleteTestResponseDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "$ref": "#/components/schemas/CompleteTestResponseDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "$ref": "#/components/schemas/CompleteTestResponseDto"
                 }
               }
             }
@@ -2628,6 +2625,23 @@
         },
         "additionalProperties": false
       },
+      "AnswerResultDto": {
+        "type": "object",
+        "properties": {
+          "answerId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "answerText": {
+            "type": "string",
+            "nullable": true
+          },
+          "isSelectedByUser": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "AnswerSimpleDto": {
         "type": "object",
         "properties": {
@@ -2714,6 +2728,63 @@
           },
           "testResult": {
             "$ref": "#/components/schemas/TestResultLookupDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompleteTestRequestDto": {
+        "type": "object",
+        "properties": {
+          "testResultId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "selectedAnswers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SelectedAnswerDto"
+            },
+            "nullable": true
+          },
+          "completedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompleteTestResponseDto": {
+        "type": "object",
+        "properties": {
+          "isPassed": {
+            "type": "boolean"
+          },
+          "score": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalQuestions": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "correctAnswers": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "testId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "testTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "questionResults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuestionResultDto"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2851,29 +2922,6 @@
           },
           "isCorrect": {
             "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateAnswersUserDto": {
-        "required": [
-          "answerId",
-          "questionId",
-          "testResultId"
-        ],
-        "type": "object",
-        "properties": {
-          "answerId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "questionId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "testResultId": {
-            "type": "string",
-            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -3038,7 +3086,7 @@
           "login",
           "nameUser",
           "password",
-          "roleId"
+          "role"
         ],
         "type": "object",
         "properties": {
@@ -3054,9 +3102,8 @@
             "minLength": 1,
             "type": "string"
           },
-          "roleId": {
-            "type": "string",
-            "format": "uuid"
+          "role": {
+            "$ref": "#/components/schemas/Role"
           },
           "email": {
             "type": "string",
@@ -3591,6 +3638,48 @@
         },
         "additionalProperties": false
       },
+      "QuestionResultDto": {
+        "type": "object",
+        "properties": {
+          "questionId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "questionText": {
+            "type": "string",
+            "nullable": true
+          },
+          "score": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isFullyCorrect": {
+            "type": "boolean"
+          },
+          "correctAnswers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnswerResultDto"
+            },
+            "nullable": true
+          },
+          "incorrectAnswersSelected": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnswerResultDto"
+            },
+            "nullable": true
+          },
+          "correctAnswersMissed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnswerResultDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "RefreshDto": {
         "required": [
           "refreshToken"
@@ -3793,6 +3882,20 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SelectedAnswerDto": {
+        "type": "object",
+        "properties": {
+          "questionId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "answerId": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false

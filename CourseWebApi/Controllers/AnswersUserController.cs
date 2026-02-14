@@ -17,6 +17,7 @@ using CourseWebApi.Models.AnswersUsers;
 using CourseWebApi.Models.Course;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static Application.Common.Dtos.AnswersUsers.TestResult.CheckingResponsesDto;
 
 namespace CourseWebApi.Controllers
 {
@@ -30,7 +31,7 @@ namespace CourseWebApi.Controllers
             var query = new GetAllAnswersUserQuery()
             {
                 CurrentUserId = UserId,
-                TestResultsId = testResultsId
+                //TestResultsId = testResultsId
             };
 
             var vm = await Mediator.Send(query);
@@ -48,12 +49,29 @@ namespace CourseWebApi.Controllers
             return Ok(vm);
         }
         [HttpPost]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateAnswersUserDto createAnswersUserDto)
+        public async Task<ActionResult<CompleteTestResponseDto>> Create([FromBody] CompleteTestRequestDto request)
         {
-            var command = mapper.Map<CreateAnswersUserCommand>(createAnswersUserDto);
-            command.CurrentUserId = UserId;
-            var commandId = await Mediator.Send(command);
-            return Ok(commandId);
+            try
+            {
+                var command = new CreateAnswersUserCommand
+                {
+                    CurrentUserId = UserId,
+                    TestResultId = request.TestResultId,
+                    SelectedAnswers = request.SelectedAnswers,
+                    CompletedAt = request.CompletedAt
+                };
+
+                var result = await Mediator.Send(command);
+                return Ok(result);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Forbid();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
         }
         [HttpDelete("{Id}")]
         public async Task<IActionResult> Delete(Guid id)

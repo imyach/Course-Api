@@ -30,7 +30,7 @@ namespace Application.Common.Queries.ProgressUsers.GetProgressUserList
 
             query = query.Where(m => m.UserId == request.UserId);
 
-            var complited = await query.CountAsync(q => q.Status == "Завершен", cancellationToken);
+            var complited = await query.CountAsync(q => q.Status == "Пройден", cancellationToken);
             var inPassage = await query.CountAsync(q => q.Status == "В прохождении", cancellationToken);
 
             if (!string.IsNullOrEmpty(request.SearchText))

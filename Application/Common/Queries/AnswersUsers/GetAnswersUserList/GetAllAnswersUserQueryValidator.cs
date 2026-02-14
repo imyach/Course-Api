@@ -12,8 +12,8 @@ namespace Application.Common.Queries.AnswersUsers.GetAnswersUser
         {
             RuleFor(getDetailsAnswersUserQuery => getDetailsAnswersUserQuery.CurrentUserId)
                 .NotNull().NotEqual(Guid.Empty);
-            RuleFor(getDetailsAnswersUserQuery => getDetailsAnswersUserQuery.TestResultsId)
-                .NotNull().NotEqual(Guid.Empty);
+            //RuleFor(getDetailsAnswersUserQuery => getDetailsAnswersUserQuery.TestResultsId)
+            //    .NotNull().NotEqual(Guid.Empty);
         }
     }
 }
