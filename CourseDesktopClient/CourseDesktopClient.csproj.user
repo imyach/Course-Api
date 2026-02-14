@@ -92,6 +92,9 @@
     <Compile Update="View\CreateTestPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\CreateUserPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\LoginPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

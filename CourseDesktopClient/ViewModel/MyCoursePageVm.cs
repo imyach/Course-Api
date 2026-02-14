@@ -89,7 +89,7 @@ namespace CourseDesktopClient.ViewModel
             ViewDetailsCommand = new RelayCommand(async sender =>
             {
                 var idCourse = (sender as MyCoursePanelElementVm).CourseId;
-                navigationService.NavigateToInformationCourse(idCourse);
+                await navigationService.NavigateToInformationCourse(idCourse);
             });
             PagerCommand = new RelayCommand(async pageNumberStr =>
             {

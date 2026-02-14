@@ -101,6 +101,17 @@ namespace CourseDesktopClient.Services
             NavigateTo(loginPage);
         }
 
+        public async Task NavigateToCreateUser()
+        {
+            var createUserPage = serviceProvider.GetRequiredService<CreateUserPage>();
+
+            if (createUserPage.DataContext is CreateUserPageVm vm)
+            {
+                await vm.LoadCreateUserPage();
+            }
+            NavigateTo(createUserPage);
+        }
+
         public async Task NavigateToProfile(Guid idUser)
         {
             var profilePage = serviceProvider.GetRequiredService<ProfilePage>();

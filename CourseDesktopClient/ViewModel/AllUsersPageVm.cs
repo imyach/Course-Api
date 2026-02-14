@@ -30,6 +30,7 @@ namespace CourseDesktopClient.ViewModel
 
         public ICommand PagerCommand { get; set; }
         public ICommand LookProfile { get; set; }
+        public ICommand AddUserCommand { get; set; }
 
         private Visibility _visibleButtonPanel;
         public Visibility VisibleButtonPanel
@@ -42,12 +43,20 @@ namespace CourseDesktopClient.ViewModel
             }
         }
 
+        public Visibility AddUserButtonVisaible => authService.CurrentUser.Role.Name == "Admin" ? Visibility.Visible : Visibility.Collapsed; 
+
+
         public AllUsersPageVm(INavigationService navigationService, ICourseApiClient courseApiClient, IAuthService authService, IPagerService pagerService) :base(navigationService)
         {
             this.courseApiClient = courseApiClient;
             this.authService = authService;
             this.pagerService = pagerService;
 
+
+            AddUserCommand = new RelayCommand(async _ =>
+            {
+                await navigationService.NavigateToCreateUser();
+            });
             PagerCommand = new RelayCommand(async pageNumberStr =>
             {
                 if (int.TryParse((pageNumberStr as ButtonItem).Text, out int pageNumber))

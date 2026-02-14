@@ -35,6 +35,17 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
             set => SetProperty(ref _isEnrolled, value);
         }
 
+        private Visibility _updateCourseAdminVisible;
+        public Visibility UpdateCourseAdminVisible
+        {
+            get { return _updateCourseAdminVisible; }
+            set
+            {
+                _updateCourseAdminVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
         public CoursePanelElementVm(CourseDto courseDto, ICourseApiClient courseApiClient, ProgressUsersDto? progress, IAuthService? authService)
         {
             Title = courseDto.Title;
@@ -44,6 +55,8 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
             CreatedAt = courseDto.CreatedAt;
             UpdateAt = courseDto.UpdateAt;
             Rait = courseDto.Rait;
+            UpdateCourseAdminVisible = authService.CurrentUser.Role.Name == "Admin" || authService.CurrentUser.Id == User.Id ? Visibility.Visible : Visibility.Collapsed;
+
 
             Task.Run(async () =>
             {

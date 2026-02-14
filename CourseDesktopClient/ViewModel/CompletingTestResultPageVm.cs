@@ -77,21 +77,23 @@ namespace CourseDesktopClient.ViewModel
             var selectedAnswers = CollectSelectedAnswers();
 
             // 3. Проверяем, на все ли вопросы ответили
-            if (IsAllQuestionsAnswered())
+            if (!IsAllQuestionsAnswered())
             {
-                // 4. Отправляем данные на сервер
-                await SendTestResultsToServer(selectedAnswers);
-
-                // 5. Показываем результат
-                ShowTestResult(selectedAnswers);
-
-                // 6. Возвращаемся к материалу
-                await navigationService.NavigateToProgressMaterial(
-                    CompletingMaterialPageVm.localIdProgressModule,
-                    localIdProgressMaterial);
-            }
-            else
                 CustomMessageBox.ShowInfo("Вы ответили не на все вопросы");
+                return;
+            }
+
+            // 4. Подтверждение завершения
+            if (CustomMessageBox.ShowYesNo("Вы уверены, что хотите завершить тест?", "Подтверждение") != DialogResult.Yes)
+                return;
+
+            // 5. Отправляем данные на сервер
+            await SendTestResultsToServer(selectedAnswers);
+
+            // 6. Возвращаемся к материалу (убрано из SendTestResultsToServer)
+            await navigationService.NavigateToProgressMaterial(
+                CompletingMaterialPageVm.localIdProgressModule,
+                localIdProgressMaterial);
         }
 
         private List<SelectedAnswerDto> CollectSelectedAnswers()
@@ -141,27 +143,55 @@ namespace CourseDesktopClient.ViewModel
         // Отправка результатов на сервер
         private async Task SendTestResultsToServer(List<SelectedAnswerDto> selectedAnswers)
         {
-            // Создаем DTO для отправки
-            var testResultRequest = new CompleteTestRequestDto
+            try
             {
-                TestResultId = localIdTestResult,
-                SelectedAnswers = selectedAnswers,
-                CompletedAt = DateTime.UtcNow
-            };
+                // Создаем DTO для отправки
+                var testResultRequest = new CompleteTestRequestDto
+                {
+                    TestResultId = localIdTestResult,
+                    SelectedAnswers = selectedAnswers,
+                    CompletedAt = DateTime.UtcNow
+                };
 
-            // Отправляем на сервер
-            //await courseApiClient.CompleteTestAsync(testResultRequest);
+                // Отправляем на сервер
+                var result = await courseApiClient.CompleteTestAsync(testResultRequest);
+
+                if (result != null)
+                {
+                    // Показываем результат с сервера
+                    ShowTestResult(result);
+                }
+                else
+                {
+                    CustomMessageBox.ShowError("Не удалось завершить тест. Попробуйте снова.");
+                }
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.ShowError($"Ошибка при отправке результатов: {ex.Message}");
+            }
         }
 
         // Показ результатов теста
-        private void ShowTestResult(List<SelectedAnswerDto> selectedAnswers)
+        private void ShowTestResult(CompleteTestResponseDto result)
         {
-            // Сделать вывод прошел ли пользователь тест, принимаю ответ о результатах с сервера
-            CustomMessageBox.ShowInfo(
-                $"Тест завершен!\n" +
-                $"Ответов выбрано: {selectedAnswers.Count}\n" +
-                $"Вопросов в тесте: {GetQuestion?.Count ?? 0}",
-                "Тест завершен");
+            if (result.IsPassed)
+            {
+                CustomMessageBox.ShowInfo(
+                    $"✅ ТЕСТ ПРОЙДЕН!\n\n" +
+                    $"Результат: {result.Score}%\n" +
+                    $"Правильных ответов: {result.CorrectAnswers}/{result.TotalQuestions}",
+                    "Тест пройден");
+            }
+            else
+            {
+                CustomMessageBox.ShowInfo(
+                    $"❌ ТЕСТ НЕ ПРОЙДЕН\n\n" +
+                    $"Результат: {result.Score}%\n" +
+                    $"Нужно набрать 80%\n" +
+                    $"Правильных ответов: {result.CorrectAnswers}/{result.TotalQuestions}",
+                    "Тест не пройден");
+            }
         }
     }
     public class SelectedAnswerDto

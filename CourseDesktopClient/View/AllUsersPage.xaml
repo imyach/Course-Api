@@ -12,8 +12,11 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <ItemsControl ItemsSource="{Binding GetUsers}" 
+            <Button Grid.Row="0" Command="{Binding AddUserCommand}" Content = "Добавить пользователя" Visibility = "{Binding AddUserButtonVisaible}" Height="30" Width="auto" Padding="5" HorizontalAlignment="Left" Margin="10 10 0 0"/>
+
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding GetUsers}" 
      HorizontalContentAlignment="Center"
      BorderThickness="0">
                 <ItemsControl.ItemTemplate>
@@ -23,7 +26,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
 
-            <ItemsControl Grid.Row="1"  ItemsSource="{Binding ButtonPanel}" Visibility="{Binding VisibleButtonPanel}">
+            <ItemsControl Grid.Row="2"  ItemsSource="{Binding ButtonPanel}" Visibility="{Binding VisibleButtonPanel}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal" 

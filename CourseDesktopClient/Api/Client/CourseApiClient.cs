@@ -156,6 +156,15 @@ namespace CourseDesktopClient.Api.Client
             return await response.Content.ReadFromJsonAsync<TokensDto>(jsonOptions, ct);
         }
 
+        public async Task<Guid?> CreateUserAsync(UserRequestDto userDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CREATE_USER, userDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<Guid>(jsonOptions, ct);
+        }
+
         public async Task<HttpStatusCode?> DeleteProfileAsync(Guid idUser, CancellationToken ct = default)
         {
             var (access, _) = await tokenService.GetTokensAsync();
@@ -662,13 +671,18 @@ namespace CourseDesktopClient.Api.Client
             return await response.Content.ReadFromJsonAsync<AnswersUsersDto>(jsonOptions, ct);
         }
 
-        public async Task<Guid?> CreateAnswersUserAsync(AnswersUserDto answersUserDto, CancellationToken ct = default)
+        public async Task<CompleteTestResponseDto?> CompleteTestAsync(CompleteTestRequestDto request, CancellationToken ct = default)
         {
-            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_ANSWERSUSER, answersUserDto, ct);
-            if (!CheckOnAvalibleSever(response))
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_DELETE_UPDATE_CERATE_ANSWERSUSER, request, ct);
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = await response.Content.ReadAsStringAsync(ct);
+                Console.WriteLine($"Ошибка при завершении теста: {response.StatusCode} - {error}");
                 return null;
-            response.EnsureSuccessStatusCode();
-            return await response.Content.ReadFromJsonAsync<Guid>(jsonOptions, ct);
+            }
+
+            var result = await response.Content.ReadFromJsonAsync<CompleteTestResponseDto?>(cancellationToken: ct);
+            return result;
         }
 
         public async Task<AnswersUserDto?> GetAnswersUserByIdAsync(Guid id, CancellationToken ct = default)

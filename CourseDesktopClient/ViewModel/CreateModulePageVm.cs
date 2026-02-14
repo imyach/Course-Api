@@ -166,7 +166,8 @@ namespace CourseDesktopClient.ViewModel
                 DescroptionOfModule = module.Description;
                 TitleOfModule = module.Title;
 
-
+                VisibleEmptyPage = Visibility.Visible;
+                VisibleAddMaterialButton = Visibility.Collapsed;
 
             }
         }

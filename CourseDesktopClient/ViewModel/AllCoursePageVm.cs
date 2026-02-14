@@ -38,6 +38,7 @@ namespace CourseDesktopClient.ViewModel
         public ICommand PagerCommand { get; set; }
         public ICommand EnrollCommand {  get; set; }
         public ICommand ViewDetailsCommand {  get; set; }
+        public ICommand UpdateCourseCommand {  get; set; }
 
         private readonly ICourseApiClient courseApiClient;
         private readonly IPagerService pagerService;
@@ -78,6 +79,11 @@ namespace CourseDesktopClient.ViewModel
             this.pagerService = pagerService;
             this.authService = authService;
 
+            UpdateCourseCommand = new RelayCommand(async sender =>
+            {
+                await navigationService.NavigateToCreateCourse((sender as CoursePanelElementVm).Id);
+            });
+
             PagerCommand = new RelayCommand(async pageNumberStr =>
             {
                 if (int.TryParse((pageNumberStr as ButtonItem).Text, out int pageNumber))
@@ -89,7 +95,7 @@ namespace CourseDesktopClient.ViewModel
             ViewDetailsCommand = new RelayCommand(async sender =>
             {
                 var idCourse = (sender as CoursePanelElementVm).Id;
-                navigationService.NavigateToInformationCourse(idCourse);
+                await navigationService.NavigateToInformationCourse(idCourse);
             });
 
             EnrollCommand = new RelayCommand(async sender => 

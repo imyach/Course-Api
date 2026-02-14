@@ -24,6 +24,7 @@ namespace CourseDesktopClient.Api.Client
         //USER
         Task<UserDto> GetUserProfileAsync(Guid id, CancellationToken ct = default);
         Task<HttpStatusCode?> DeleteProfileAsync(Guid idUser, CancellationToken ct = default);
+        Task<Guid?> CreateUserAsync(UserRequestDto userDto, CancellationToken ct = default);
         Task<TokensDto?> UpdateUserAsync(UpdateUserRequestDto userDto, CancellationToken ct = default);
         Task<HttpStatusCode?> UpdateUserForAdminAsync(UpdateUserRequestDto userDto, CancellationToken ct = default);
         Task<(UsersDto, PagerInfoDto)> GetUsersAsync(int pageNumber = 1, int pageSize = 20, string searchText = null, CancellationToken ct = default);
@@ -107,7 +108,7 @@ namespace CourseDesktopClient.Api.Client
 
         //ANSWER USER
         Task<AnswersUsersDto?> GetAnswersUsersAsync(Guid testResultsId, CancellationToken ct = default);
-        Task<Guid?> CreateAnswersUserAsync(AnswersUserDto answersUserDto, CancellationToken ct = default);
+        Task<CompleteTestResponseDto?> CompleteTestAsync(CompleteTestRequestDto request, CancellationToken ct = default);
         Task<AnswersUserDto?> GetAnswersUserByIdAsync(Guid id, CancellationToken ct = default);
         Task<HttpStatusCode?> DeleteAnswersUserAsync(Guid id, CancellationToken ct = default);
         Task<HttpStatusCode?> UpdateAnswersUserAsync(AnswersUserDto answersUserDto, CancellationToken ct = default);

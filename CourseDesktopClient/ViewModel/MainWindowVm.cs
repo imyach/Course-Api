@@ -158,6 +158,8 @@ namespace CourseDesktopClient.ViewModel
                 }
 
 
+                VisibleControlPanel = mainWindowVm.CurrentView is not MistakePage ? Visibility.Visible : Visibility.Collapsed;
+
                 CouchAdminVisible = authService.IsAuthenticated && authService.CurrentUser.Role.Name is "Admin" or "Couch"
                     ? Visibility.Visible
                     : Visibility.Collapsed;

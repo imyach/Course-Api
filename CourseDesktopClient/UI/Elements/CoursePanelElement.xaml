@@ -109,11 +109,11 @@
                         Margin="0,0,8,0"/>
 
                 <Button Content="Записаться"
+                         Margin="0,0,8,0"
                         Command="{Binding DataContext.EnrollCommand, 
                                 RelativeSource={RelativeSource 
                                 AncestorType=UserControl, 
                                 AncestorLevel=2}}"
-                         
                         CommandParameter="{Binding}"
                         Padding="12,6">
                     <Button.Style>
@@ -128,6 +128,15 @@
                     </Button.Style>
                 </Button>
 
+
+                <Button Content="Редактировать"
+        Command="{Binding DataContext.UpdateCourseCommand, 
+                RelativeSource={RelativeSource 
+                AncestorType=UserControl, 
+                AncestorLevel=2}}"
+         Visibility="{Binding UpdateCourseAdminVisible}"
+        CommandParameter="{Binding}"
+        Padding="12,6"/>
             </StackPanel>
         </Grid>
     </Border>

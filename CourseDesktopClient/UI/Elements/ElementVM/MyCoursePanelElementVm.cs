@@ -4,6 +4,7 @@ using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 
 namespace CourseDesktopClient.UI.Elements.ElementVM
 {
@@ -17,5 +18,6 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
         public string CreatedBy => progressUserDto.User.NameUser;
         public DateTime StartedAt => progressUserDto.StartedAt;
         public DateTime? FinishedAt => progressUserDto.FineshedAt;
+        public Visibility ContinueCousreVisible => Status == "Пройден" ? Visibility.Collapsed : Visibility.Visible;
     }
 }
