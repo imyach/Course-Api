@@ -5,6 +5,9 @@
     <Compile Update="MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UI\Elements\AnswerUserElement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UI\Elements\CompliteMaterialElement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -108,6 +111,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\RegisterPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\TestResultPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\UpdateUserPasswordPage.xaml.cs">

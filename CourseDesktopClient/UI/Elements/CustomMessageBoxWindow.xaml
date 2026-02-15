@@ -13,7 +13,7 @@
         MinWidth="340"
         MaxWidth="500"
         MinHeight="150"
-        MaxHeight="200"
+        MaxHeight="400"
         Title="CustomMessageBox">
 
     <!-- Используем Loaded вместо ContentRendered, это более надежно -->

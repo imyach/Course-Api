@@ -107,9 +107,8 @@ namespace CourseDesktopClient.Api.Client
         Task<HttpStatusCode?> UpdateTestResultAsync(TestResultDto testResultDto, CancellationToken ct = default);
 
         //ANSWER USER
-        Task<AnswersUsersDto?> GetAnswersUsersAsync(Guid testResultsId, CancellationToken ct = default);
+        Task<TestHistoryVm?> GetAnswersUsersAsync(Guid testResultsId, CancellationToken ct = default);
         Task<CompleteTestResponseDto?> CompleteTestAsync(CompleteTestRequestDto request, CancellationToken ct = default);
-        Task<AnswersUserDto?> GetAnswersUserByIdAsync(Guid id, CancellationToken ct = default);
         Task<HttpStatusCode?> DeleteAnswersUserAsync(Guid id, CancellationToken ct = default);
         Task<HttpStatusCode?> UpdateAnswersUserAsync(AnswersUserDto answersUserDto, CancellationToken ct = default);
     }

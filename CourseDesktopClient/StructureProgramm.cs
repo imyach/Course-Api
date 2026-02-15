@@ -51,6 +51,7 @@ namespace CourseDesktopClient
             services.AddSingleton<MainWindowVm>();
 
             services.AddTransient<LoginPageVm>();
+            services.AddTransient<TestResultPageVm>();
             services.AddTransient<CreateUserPageVm>();
             services.AddTransient<CreateTestPageVm>();
             services.AddTransient<CompletingCoursePageVm>();
@@ -78,6 +79,12 @@ namespace CourseDesktopClient
             {
                 var loginVm = provider.GetRequiredService<LoginPageVm>();
                 return new LoginPage { DataContext = loginVm };
+            });
+
+            services.AddTransient(provider =>
+            {
+                var testResultPageVm = provider.GetRequiredService<TestResultPageVm>();
+                return new TestResultPage { DataContext = testResultPageVm };
             });
 
             services.AddTransient(provider =>

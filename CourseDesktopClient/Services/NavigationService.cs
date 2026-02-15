@@ -211,6 +211,18 @@ namespace CourseDesktopClient.Services
             NavigateTo(compliteCoursePage);
         }
 
+        public async Task NavigateToResultsTest(Guid testId)
+        {
+            var testResultPage = serviceProvider.GetRequiredService<TestResultPage>();
+
+            if (testResultPage.DataContext is TestResultPageVm vm)
+            {
+                await vm.LoadTestHistory(testId);
+            }
+
+            NavigateTo(testResultPage);
+        }
+
         public async Task NavigateToProgressModule(Guid progressCourseId, Guid progressModuleId)
         {
             var completingModulePage = serviceProvider.GetRequiredService<CompletingModulePage>();

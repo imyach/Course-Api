@@ -1,6 +1,7 @@
-﻿C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\GeneratedInternalTypeHelper.g.cs
+﻿
 
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\MainWindow.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\AnswerUserElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CompliteMaterialElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CompliteModuleElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CoursePanelElement.xaml;;
@@ -36,6 +37,7 @@ FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\MistakePage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\MyCoursePage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\ProfilePage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\RegisterPage.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\TestResultPage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\UpdateUserPasswordPage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\WorkshopPage.xaml;;
 

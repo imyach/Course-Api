@@ -50,7 +50,23 @@ HorizontalAlignment="Right">
                         HorizontalAlignment="Center"
                         Grid.Column="1">
 
-
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" 
+                           Margin=" 0 0 8 0" Foreground="#666"
+                            TextWrapping="WrapWithOverflow"
+                            TextTrimming="CharacterEllipsis"
+                            MaxHeight="89" 
+                            Height="Auto">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Text" Value="Статус: Не завершен"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsPassed}" Value="True">
+                                    <Setter Property="Text" Value="Статус: Завершен"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
 
                 <Button Content="Пройти"
                         Command="{Binding DataContext.PassTestCommand, 
@@ -61,6 +77,26 @@ HorizontalAlignment="Right">
                         CommandParameter="{Binding}"
                         Padding="12,6"
                         Margin="0,0,8,0"/>
+
+                <Button Content="Посмотреть результаты"
+                    Command="{Binding DataContext.LookTestResults, 
+                            RelativeSource={RelativeSource 
+                            AncestorType=UserControl, 
+                            AncestorLevel=2}}"
+                    CommandParameter="{Binding}"
+                    Padding="12,6"
+                    Margin="0,0,8,0">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsPassed}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
 
             </StackPanel>
         </Grid>

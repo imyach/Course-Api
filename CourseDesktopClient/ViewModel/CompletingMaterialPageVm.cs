@@ -34,10 +34,16 @@ namespace CourseDesktopClient.ViewModel
         public static Guid localIdProgressMaterial;
         public ICommand PassTestCommand { get; set; }
         public ICommand PassModuleCommand { get; set; }
+        public ICommand LookTestResults { get; set; }
 
         public CompletingMaterialPageVm(INavigationService navigationService, ICourseApiClient courseApiClient) : base(navigationService)
         {
             this.courseApiClient = courseApiClient;
+
+            LookTestResults = new RelayCommand(async sender =>
+            {
+                await navigationService.NavigateToResultsTest((sender as TestResultElementVm).Id);
+            });
 
             PassTestCommand = new RelayCommand(async sender =>
             {   

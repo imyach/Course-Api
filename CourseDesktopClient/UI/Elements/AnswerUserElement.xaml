@@ -1,0 +1,170 @@
+﻿<UserControl x:Class="CourseDesktopClient.UI.Elements.AnswerUserElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+ xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <Border BorderBrush="#E0E0E0" 
+                BorderThickness="1"
+                CornerRadius="5"
+                Padding="15"
+                Margin="0,0,0,15"
+                Background="White">
+
+            <StackPanel>
+                <!-- Вопрос и результат -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0"
+                               Text="{Binding QuestionText}"
+                               FontSize="14" 
+                               FontWeight="Bold"
+                               TextWrapping="Wrap"/>
+
+                    <Border Grid.Column="1"
+                            Background="{Binding IsCorrect}"
+                            CornerRadius="3"
+                            Padding="8,3">
+                        <TextBlock Text="{Binding Score, StringFormat='{}{0}%'}" 
+                                   Foreground="White"
+                                   FontWeight="Bold"/>
+                    </Border>
+                </Grid>
+
+                <!-- Правильные ответы (из БД) -->
+                <TextBlock Text="Правильные ответы:" 
+                           FontSize="12" 
+                           FontWeight="SemiBold"
+                           Foreground="Green"
+                           Margin="0,10,0,5"/>
+
+                <ItemsControl ItemsSource="{Binding CorrectAnswers}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="#F0F8F0"
+                                    BorderBrush="Green"
+                                    BorderThickness="1"
+                                    CornerRadius="3"
+                                    Padding="10,5"
+                                    Margin="0,2,0,2">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Галочка правильного ответа -->
+                                    <TextBlock Grid.Column="0"
+                                               Text="✓"
+                                               Foreground="Green"
+                                               FontSize="14"
+                                               FontWeight="Bold"
+                                               Margin="0,0,10,0"/>
+
+                                    <!-- Текст ответа -->
+                                    <TextBlock Grid.Column="1"
+                                               Text="{Binding AnswerText}"
+                                               TextWrapping="Wrap"
+                                               VerticalAlignment="Center"
+                                               Foreground="DarkGreen"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <!-- Разделитель -->
+                <Border Height="1" 
+                        Background="#E0E0E0" 
+                        Margin="0,15,0,15"/>
+
+                <!-- Ваши ответы -->
+                <TextBlock Text="Ваши ответы:" 
+                           FontSize="12" 
+                           FontWeight="SemiBold"
+                           Foreground="Gray"
+                           Margin="0,0,0,5"/>
+
+                <ItemsControl ItemsSource="{Binding UserAnswers}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="1"
+                                    CornerRadius="3"
+                                    Padding="10,5"
+                                    Margin="0,2,0,2">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="White"/>
+                                        <Setter Property="BorderBrush" Value="#CCCCCC"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsCorrect}" Value="True">
+                                                <Setter Property="Background" Value="#F0F8F0"/>
+                                                <Setter Property="BorderBrush" Value="Green"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding IsCorrect}" Value="False">
+                                                <Setter Property="Background" Value="#FFF0F0"/>
+                                                <Setter Property="BorderBrush" Value="Red"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Иконка статуса (✓ или ✗) -->
+                                    <TextBlock Grid.Column="0"
+                                               FontSize="14"
+                                               FontWeight="Bold"
+                                               Margin="0,0,10,0">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Text" Value="✗"/>
+                                                <Setter Property="Foreground" Value="Red"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsCorrect}" Value="True">
+                                                        <Setter Property="Text" Value="✓"/>
+                                                        <Setter Property="Foreground" Value="Green"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+
+                                    <!-- Текст ответа -->
+                                    <TextBlock Grid.Column="1"
+                                               Text="{Binding AnswerText}"
+                                               TextWrapping="Wrap"
+                                               VerticalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Foreground" Value="DarkRed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsCorrect}" Value="True">
+                                                        <Setter Property="Foreground" Value="DarkGreen"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

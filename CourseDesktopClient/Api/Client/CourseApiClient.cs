@@ -662,13 +662,13 @@ namespace CourseDesktopClient.Api.Client
         }
 
         //ANSWERSUSER
-        public async Task<AnswersUsersDto?> GetAnswersUsersAsync(Guid testResultsId, CancellationToken ct = default)
+        public async Task<TestHistoryVm?> GetAnswersUsersAsync(Guid testResultsId, CancellationToken ct = default)
         {
             var response = await httpClient.GetAsync(ApiPaths.API_GET_ALL_ANSWERSUSER + testResultsId, ct);
             if (!CheckOnAvalibleSever(response))
                 return null;
             response.EnsureSuccessStatusCode();
-            return await response.Content.ReadFromJsonAsync<AnswersUsersDto>(jsonOptions, ct);
+            return await response.Content.ReadFromJsonAsync<TestHistoryVm>(jsonOptions, ct);
         }
 
         public async Task<CompleteTestResponseDto?> CompleteTestAsync(CompleteTestRequestDto request, CancellationToken ct = default)
@@ -683,15 +683,6 @@ namespace CourseDesktopClient.Api.Client
 
             var result = await response.Content.ReadFromJsonAsync<CompleteTestResponseDto?>(cancellationToken: ct);
             return result;
-        }
-
-        public async Task<AnswersUserDto?> GetAnswersUserByIdAsync(Guid id, CancellationToken ct = default)
-        {
-            var response = await httpClient.GetAsync(ApiPaths.API_GET_ANSWERSUSER_BY_ID + $"{id}", ct);
-            if (!CheckOnAvalibleSever(response))
-                return null;
-            response.EnsureSuccessStatusCode();
-            return await response.Content.ReadFromJsonAsync<AnswersUserDto>(jsonOptions, ct);
         }
 
         public async Task<HttpStatusCode?> DeleteAnswersUserAsync(Guid id, CancellationToken ct = default)

@@ -89,11 +89,6 @@ namespace CourseDesktopClient.ViewModel
 
             // 5. Отправляем данные на сервер
             await SendTestResultsToServer(selectedAnswers);
-
-            // 6. Возвращаемся к материалу (убрано из SendTestResultsToServer)
-            await navigationService.NavigateToProgressMaterial(
-                CompletingMaterialPageVm.localIdProgressModule,
-                localIdProgressMaterial);
         }
 
         private List<SelectedAnswerDto> CollectSelectedAnswers()
@@ -182,6 +177,8 @@ namespace CourseDesktopClient.ViewModel
                     $"Результат: {result.Score}%\n" +
                     $"Правильных ответов: {result.CorrectAnswers}/{result.TotalQuestions}",
                     "Тест пройден");
+
+                navigationService.NavigateToResultsTest(localIdTestResult);
             }
             else
             {
