@@ -11,6 +11,6 @@ namespace Application.Common.Queries.AnswersUsers.GetAnswersUserList
     public class GetAllAnswersUserQuery : IRequest<TestHistoryVm>
     {
         public Guid CurrentUserId { get; set; }
-        public Guid TestId { get; set; } 
+        public Guid TestResultId { get; set; } 
     }
 }

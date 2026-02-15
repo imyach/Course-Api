@@ -51,23 +51,31 @@ namespace Application.Common.Dtos.AnswersUsers.TestResult
         {
             public Guid TestId { get; set; }
             public string TestTitle { get; set; } = string.Empty;
+            public string TestDescription { get; set; } = string.Empty;
             public int TotalQuestions { get; set; }
             public int PassingScore { get; set; }
-            public int BestScore { get; set; }
             public bool IsTestPassed { get; set; }
-            public List<TestAttemptDto> Attempts { get; set; } = new();
+            public int BestScore { get; set; }
+            public DateTime? CompletedAt { get; set; }
+            public List<QuestionHistoryDto> Questions { get; set; } = new();
         }
 
-        public class TestAttemptDto
+        public class QuestionHistoryDto
         {
-            public Guid Id { get; set; }
-            public Guid TestId { get; set; }
-            public string TestTitle { get; set; } = string.Empty;
-            public int Score { get; set; }
-            public bool IsPassed { get; set; }
-            public DateTime? StartedAt { get; set; }
-            public DateTime? CompletedAt { get; set; }
-            public TimeSpan? Duration { get; set; }
+            public Guid QuestionId { get; set; }
+            public string QuestionText { get; set; } = string.Empty;
+            public bool IsCorrect { get; set; } 
+            public int Score { get; set; } 
+            public List<AnswerHistoryDto> Answers { get; set; } = new();
+        }
+
+        public class AnswerHistoryDto
+        {
+            public Guid AnswerId { get; set; }
+            public string AnswerText { get; set; } = string.Empty;
+            public bool IsCorrect { get; set; } 
+            public bool IsSelectedByUser { get; set; } 
+            public bool IsCorrectlySelected { get; set; }
         }
     }
 }

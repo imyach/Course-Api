@@ -179,21 +179,21 @@
   },
   {
     "ContainingType": "CourseWebApi.Controllers.AnswersUserController",
-    "Method": "GetAll",
-    "RelativePath": "api/AnswersUser/All/{testResultsId}",
+    "Method": "GetTestHistory",
+    "RelativePath": "api/AnswersUser/all/{testResultId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "testResultsId",
+        "Name": "testResultId",
         "Type": "System.Guid",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.Common.Dtos.AnswersUsers.AnswersUserListVm",
+        "Type": "Application.Common.Dtos.AnswersUsers.TestResult.CheckingResponsesDto\u002BTestHistoryVm",
         "MediaTypes": [
           "text/plain",
           "application/json",

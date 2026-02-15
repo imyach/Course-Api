@@ -25,13 +25,13 @@ namespace CourseWebApi.Controllers
     [Authorize]
     public class AnswersUserController(IMapper mapper) : BaseController
     {
-        [HttpGet("All/{testResultsId}")]
-        public async Task<ActionResult<AnswersUserListVm>> GetAll(Guid testResultsId)
+        [HttpGet("all/{testResultId}")]
+        public async Task<ActionResult<TestHistoryVm>> GetTestHistory(Guid testResultId)
         {
             var query = new GetAllAnswersUserQuery()
             {
                 CurrentUserId = UserId,
-                //TestResultsId = testResultsId
+                TestResultId = testResultId
             };
 
             var vm = await Mediator.Send(query);
