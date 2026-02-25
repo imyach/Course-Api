@@ -3,9 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
- xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
+             xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
+             xmlns:converters="clr-namespace:CourseDesktopClient.UI.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <!-- Конвертеры -->
+        <converters:BooleanToBrushConverter x:Key="BooleanToBrushConverter"
+                                            TrueBrush="{StaticResource PrimaryGreenBrush}"
+                                            FalseBrush="{StaticResource AccentRedBrush}"/>
+
+        <converters:BooleanToIconConverter x:Key="BooleanToIconConverter"
+                                           TrueIcon="✓"
+                                           FalseIcon="✗"/>
+
+        <!-- Добавлен недостающий конвертер для цвета текста -->
+        <converters:BooleanToBrushConverter x:Key="BooleanToTextColorConverter"
+                                            TrueBrush="{StaticResource PrimaryGreenBrush}"
+                                            FalseBrush="{StaticResource AccentRedBrush}"/>
+    </UserControl.Resources>
 
     <Grid>
         <Border BorderBrush="#E0E0E0" 
@@ -29,8 +46,9 @@
                                FontWeight="Bold"
                                TextWrapping="Wrap"/>
 
+                    <!-- Бейдж с результатом -->
                     <Border Grid.Column="1"
-                            Background="{Binding IsCorrect}"
+                            Background="{Binding IsCorrect, Converter={StaticResource BooleanToBrushConverter}}"
                             CornerRadius="3"
                             Padding="8,3">
                         <TextBlock Text="{Binding Score, StringFormat='{}{0}%'}" 
@@ -43,14 +61,14 @@
                 <TextBlock Text="Правильные ответы:" 
                            FontSize="12" 
                            FontWeight="SemiBold"
-                           Foreground="Green"
+                           Foreground="{StaticResource PrimaryGreenBrush}"
                            Margin="0,10,0,5"/>
 
                 <ItemsControl ItemsSource="{Binding CorrectAnswers}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="#F0F8F0"
-                                    BorderBrush="Green"
+                            <Border Background="{StaticResource SoftGreenBrush}"
+                                    BorderBrush="{StaticResource PrimaryGreenBrush}"
                                     BorderThickness="1"
                                     CornerRadius="3"
                                     Padding="10,5"
@@ -64,7 +82,7 @@
                                     <!-- Галочка правильного ответа -->
                                     <TextBlock Grid.Column="0"
                                                Text="✓"
-                                               Foreground="Green"
+                                               Foreground="{StaticResource PrimaryGreenBrush}"
                                                FontSize="14"
                                                FontWeight="Bold"
                                                Margin="0,0,10,0"/>
@@ -74,7 +92,7 @@
                                                Text="{Binding AnswerText}"
                                                TextWrapping="Wrap"
                                                VerticalAlignment="Center"
-                                               Foreground="DarkGreen"/>
+                                               Foreground="{StaticResource TextPrimaryBrush}"/>
                                 </Grid>
                             </Border>
                         </DataTemplate>
@@ -83,14 +101,15 @@
 
                 <!-- Разделитель -->
                 <Border Height="1" 
-                        Background="#E0E0E0" 
+                        Background="{StaticResource BorderGrayBrush}" 
+                        Opacity="0.3"
                         Margin="0,15,0,15"/>
 
                 <!-- Ваши ответы -->
                 <TextBlock Text="Ваши ответы:" 
                            FontSize="12" 
                            FontWeight="SemiBold"
-                           Foreground="Gray"
+                           Foreground="{StaticResource TextSecondaryBrush}"
                            Margin="0,0,0,5"/>
 
                 <ItemsControl ItemsSource="{Binding UserAnswers}">
@@ -102,16 +121,16 @@
                                     Margin="0,2,0,2">
                                 <Border.Style>
                                     <Style TargetType="Border">
-                                        <Setter Property="Background" Value="White"/>
-                                        <Setter Property="BorderBrush" Value="#CCCCCC"/>
+                                        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+                                        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding IsCorrect}" Value="True">
-                                                <Setter Property="Background" Value="#F0F8F0"/>
-                                                <Setter Property="BorderBrush" Value="Green"/>
+                                                <Setter Property="Background" Value="{StaticResource SoftGreenBrush}"/>
+                                                <Setter Property="BorderBrush" Value="{StaticResource PrimaryGreenBrush}"/>
                                             </DataTrigger>
                                             <DataTrigger Binding="{Binding IsCorrect}" Value="False">
-                                                <Setter Property="Background" Value="#FFF0F0"/>
-                                                <Setter Property="BorderBrush" Value="Red"/>
+                                                <Setter Property="Background" Value="{StaticResource SoftRedBrush}"/>
+                                                <Setter Property="BorderBrush" Value="{StaticResource AccentRedBrush}"/>
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
@@ -121,39 +140,27 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <!-- Иконка статуса (✓ или ✗) -->
+                                    <!-- Иконка статуса с использованием конвертера -->
                                     <TextBlock Grid.Column="0"
+                                               Text="{Binding IsCorrect, Converter={StaticResource BooleanToIconConverter}}"
+                                               Foreground="{Binding IsCorrect, Converter={StaticResource BooleanToBrushConverter}}"
                                                FontSize="14"
                                                FontWeight="Bold"
-                                               Margin="0,0,10,0">
-                                        <TextBlock.Style>
-                                            <Style TargetType="TextBlock">
-                                                <Setter Property="Text" Value="✗"/>
-                                                <Setter Property="Foreground" Value="Red"/>
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding IsCorrect}" Value="True">
-                                                        <Setter Property="Text" Value="✓"/>
-                                                        <Setter Property="Foreground" Value="Green"/>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </TextBlock.Style>
-                                    </TextBlock>
+                                               Margin="0,0,10,0"/>
 
-                                    <!-- Текст ответа -->
+                                    <!-- Текст ответа - ИСПРАВЛЕНО: Используем стиль вместо конвертера -->
                                     <TextBlock Grid.Column="1"
                                                Text="{Binding AnswerText}"
                                                TextWrapping="Wrap"
                                                VerticalAlignment="Center">
                                         <TextBlock.Style>
                                             <Style TargetType="TextBlock">
-                                                <Setter Property="Foreground" Value="DarkRed"/>
+                                                <Setter Property="Foreground" Value="{StaticResource AccentRedBrush}"/>
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{Binding IsCorrect}" Value="True">
-                                                        <Setter Property="Foreground" Value="DarkGreen"/>
+                                                        <Setter Property="Foreground" Value="{StaticResource PrimaryGreenBrush}"/>
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>

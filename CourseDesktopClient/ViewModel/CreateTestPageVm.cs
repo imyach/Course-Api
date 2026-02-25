@@ -42,7 +42,19 @@ namespace CourseDesktopClient.ViewModel
                 OnPropertyChanged();
             }
         }
+        private Visibility? _visibleMisstake = Visibility.Collapsed;
+        public Visibility? VisibleMisstake
+        {
 
+            get { return _visibleMisstake; }
+            set { _visibleMisstake = value; OnPropertyChanged(); }
+        }
+        private string? _mistakeText = string.Empty;
+        public string? MistakeText
+        {
+            get { return _mistakeText; }
+            set { _mistakeText = value; OnPropertyChanged(); }
+        }
         private Visibility _visibleAddQuestionButton;
         public Visibility VisibleAddQuestionButton
         {
@@ -108,6 +120,24 @@ namespace CourseDesktopClient.ViewModel
 
             SaveUpdateCommand = new RelayCommand(async sender =>
             {
+                if (string.IsNullOrEmpty(TitleOfTest))
+                {
+                    MistakeText = "Введите название теста";
+                    VisibleMisstake = Visibility.Visible;
+                    return;
+                }
+                else if (TitleOfTest.Length > 100)
+                {
+                    MistakeText = "Название теста не может превышать 100 символов";
+                    VisibleMisstake = Visibility.Visible;
+                    return;
+                }
+                else
+                {
+                    MistakeText = string.Empty;
+                    VisibleMisstake = Visibility.Collapsed;
+                }
+
                 var updateTest = new TestDto
                 {
                     Id = testId,
@@ -132,6 +162,8 @@ namespace CourseDesktopClient.ViewModel
 
         public async Task LoadTest(Guid idTest, Guid idMaterial)
         {
+            MistakeText = string.Empty;
+            VisibleMisstake = Visibility.Collapsed;
             materialId = idMaterial;
             if (idTest != default)
             {

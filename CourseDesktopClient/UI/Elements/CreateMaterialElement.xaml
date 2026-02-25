@@ -4,63 +4,93 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
+             xmlns:converters="clr-namespace:CourseDesktopClient.UI.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Border Background="LightGray" 
-            BorderBrush="#E0E0E0" 
-            BorderThickness="0 0 0 1"
-            Padding="14"
-            CornerRadius="20"
+             d:DesignHeight="180" d:DesignWidth="300"
+             Background="Transparent"
+             UseLayoutRounding="True">
+
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <Border Style="{StaticResource CourseCardBorderStyle}"
+            Width="300"
             Height="Auto"
-            MaxHeight="130"
-            Margin="20">
+            MinHeight="150"
+            MaxHeight="180"
+            Margin="15"
+            Padding="20"
+            SnapsToDevicePixels="True">
 
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Vertical" >
-                <TextBlock Grid.Row="0"
-                       Text="{Binding Title, StringFormat='Тема: {0}'}" 
-                       FontSize="18"
-                       FontWeight="Bold"
-                       Foreground="#333"
-                       Margin="0,0,0,8"/>
 
-            <TextBlock Grid.Row="2"
-                       Text="{Binding Order, StringFormat='Порядковый номер: {0}'}" 
-                       Foreground="#666"
-                       TextWrapping="Wrap"
-                       Margin="0,0,0,8"/>
+            <!-- Левая часть с информацией -->
+            <StackPanel Grid.Column="0" 
+                        Orientation="Vertical"
+                        Margin="0,0,10,0">
+
+                <!-- Заголовок материала -->
+                <TextBlock Text="{Binding Title, StringFormat='Тема: {0}'}"
+                           Style="{StaticResource H4Style}"
+                           FontSize="15"
+                           FontWeight="SemiBold"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,6"/>
+
+                <!-- Порядковый номер -->
+                <StackPanel Orientation="Horizontal"
+                            Margin="0,0,0,0">
+                    <TextBlock Text="🔢" 
+                               FontSize="12"
+                               Foreground="{StaticResource PrimaryGreenBrush}"
+                               Margin="0,0,5,0"
+                               VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding Order, StringFormat='Порядковый номер: {0}'}" 
+                               Style="{StaticResource SmallTextStyle}"
+                               Foreground="{StaticResource TextSecondaryBrush}"
+                               FontSize="11"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
             </StackPanel>
 
-            <StackPanel Grid.Row="6"
+            <!-- Правая часть с кнопками -->
+            <StackPanel Grid.Column="1"
                         Orientation="Horizontal"
                         VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Grid.Column="1">
+                        HorizontalAlignment="Right">
 
-                <Button Content="Редактировать"
+                <!-- Кнопка редактирования -->
+                <Button Content="✎"
                         Command="{Binding DataContext.LocalCreateMaterialCommand, 
                                 RelativeSource={RelativeSource 
                                 AncestorType=UserControl, 
                                 AncestorLevel=2}}"
-                        
                         CommandParameter="{Binding}"
-                        Padding="12,6"
-                        Margin="0,0,8,0"/>
+                        Style="{StaticResource EditIconButtonStyle}"
+                        Width="32"
+                        Height="32"
+                        Padding="0"
+                        Margin="0,0,5,0"
+                        ToolTip="Редактировать материал"/>
 
-                <Button Content="Удалить"
-                    Command="{Binding DataContext.LocalDeleteMaterialCommand, 
-                            RelativeSource={RelativeSource 
-                            AncestorType=UserControl, 
-                            AncestorLevel=2}}"
-                    
-                    CommandParameter="{Binding}"
-                    Padding="12,6"
-        Margin="0,0,8,0"/>
-
+                <!-- Кнопка удаления -->
+                <Button Content="🗑️"
+                        Command="{Binding DataContext.LocalDeleteMaterialCommand, 
+                                RelativeSource={RelativeSource 
+                                AncestorType=UserControl, 
+                                AncestorLevel=2}}"
+                        CommandParameter="{Binding}"
+                        Style="{StaticResource DeleteIconButtonStyle}"
+                        Width="32"
+                        Height="32"
+                        Padding="0"
+                        ToolTip="Удалить материал"/>
             </StackPanel>
         </Grid>
     </Border>

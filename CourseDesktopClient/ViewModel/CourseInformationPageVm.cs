@@ -42,9 +42,6 @@ namespace CourseDesktopClient.ViewModel
 
             SendReviewCommand = new RelayCommand(async _ =>
             {
-                if (raitReview != 0 && !string.IsNullOrEmpty(ReviewUserText))
-                {
-
                     var reviewDto = new ReviewDto
                     {
                         CourseId = idCourse,
@@ -52,13 +49,15 @@ namespace CourseDesktopClient.ViewModel
                         Rait = raitReview
                     };
 
+                if (!FillingVerification(reviewDto))
+                    return;
 
                     await courseApiClient.CreateReviewAsync(reviewDto);
 
                     ResetReviewForm();
 
                     await LoadCourse(idCourse);
-                }
+                
             });
 
             DeleteReviewCommand = new RelayCommand(async button => 
@@ -112,7 +111,12 @@ namespace CourseDesktopClient.ViewModel
             get => _visibleSendReview;
             set  { _visibleSendReview = value; OnPropertyChanged(); }
         }
-
+        private Visibility _visibleDescriptionBorder { get; set; }
+        public Visibility VisibleDescriptionBorder
+        {
+            get => _visibleDescriptionBorder;
+            set { _visibleDescriptionBorder = value; OnPropertyChanged(); }
+        }
         public bool IsCurrentUserReview { get; set; } = true;
 
         private bool _shouldResetRating;
@@ -121,7 +125,20 @@ namespace CourseDesktopClient.ViewModel
             get => _shouldResetRating;
             set => SetProperty(ref _shouldResetRating, value);
         }
+        private string _misstakeText = string.Empty;
+        public string MisstakeText
+        {
+            get { return _misstakeText; }
+            set { _misstakeText = value; OnPropertyChanged(); }
+        }
 
+        private Visibility? _visibleMisstake = Visibility.Collapsed;
+        public Visibility? VisibleMisstake
+        {
+
+            get { return _visibleMisstake; }
+            set { _visibleMisstake = value; OnPropertyChanged(); }
+        }
         private bool _sortByDate = true;
         public bool SortByDate
         {
@@ -244,6 +261,10 @@ namespace CourseDesktopClient.ViewModel
                ? Visibility.Collapsed
                : Visibility.Visible;
 
+            VisibleDescriptionBorder = string.IsNullOrEmpty(Description)
+               ? Visibility.Collapsed
+               : Visibility.Visible;
+
             GenerateButtonPanel(pager);
         }
 
@@ -254,7 +275,33 @@ namespace CourseDesktopClient.ViewModel
         }
 
 
+        private bool FillingVerification(ReviewDto reviewDto)
+        {
+            if (reviewDto.Rait == 0)
+            {
+                MisstakeText = "Поставьте оценку";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
 
+            if (string.IsNullOrEmpty(reviewDto.Text))
+            {
+                MisstakeText = "Напишите текст отзыва";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+
+            if (reviewDto.Text.Length >3000)
+            {
+                MisstakeText = "Отзыв не может превышать 3000 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+
+            MisstakeText = string.Empty;
+            VisibleMisstake = Visibility.Collapsed;
+            return true;
+        }
         private SortEnum ApplySorting()
         {
             if (SortByDate)

@@ -18,6 +18,6 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
         public string CreatedBy => progressUserDto.User.NameUser;
         public DateTime StartedAt => progressUserDto.StartedAt;
         public DateTime? FinishedAt => progressUserDto.FineshedAt;
-        public Visibility ContinueCousreVisible => Status == "Пройден" ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility ContinueCousreVisible => Status == "Пройден" ? Visibility.Hidden : Visibility.Visible;
     }
 }

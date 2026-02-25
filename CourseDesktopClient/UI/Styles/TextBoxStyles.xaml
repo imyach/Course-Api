@@ -1,0 +1,564 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:converter ="clr-namespace:CourseDesktopClient.UI.Converters">
+
+    <!-- ========== БАЗОВЫЙ СТИЛЬ ДЛЯ TEXTBOX ========== -->
+    <Style x:Key="BaseTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Height" Value="45"/>
+        <Setter Property="Padding" Value="15,5"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Border.CornerRadius" Value="8"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource LightGreenBrush}"/>
+                <Setter Property="BorderThickness" Value="1.5"/>
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource PrimaryGreenBrush}"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Background" Value="#F9F9F9"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{StaticResource LightGrayBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource DarkGrayBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- ========== БАЗОВЫЙ СТИЛЬ ДЛЯ PASSWORDBOX ========== -->
+    <Style x:Key="BasePasswordBoxStyle" TargetType="PasswordBox">
+        <Setter Property="Height" Value="45"/>
+        <Setter Property="Padding" Value="15,5"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Border.CornerRadius" Value="8"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource LightGreenBrush}"/>
+                <Setter Property="BorderThickness" Value="1.5"/>
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource PrimaryGreenBrush}"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Background" Value="#F9F9F9"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{StaticResource LightGrayBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- ========== TEXTBOX С ПОДСКАЗКОЙ ========== -->
+    <Style x:Key="TextBoxWithHintStyle" TargetType="TextBox" BasedOn="{StaticResource BaseTextBoxStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <Border x:Name="MainBorder"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="8">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="6" 
+                                              ShadowDepth="1" 
+                                              Opacity="0.17" 
+                                              Direction="270"
+                                              Color="#000000"/>
+                            </Border.Effect>
+                            <Grid>
+                                <TextBox x:Name="textBox" 
+                                     Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                     Background="Transparent"
+                                     BorderBrush="Transparent"
+                                     BorderThickness="0"
+                                     Padding="{TemplateBinding Padding}"
+                                     FontSize="{TemplateBinding FontSize}"
+                                     Foreground="{TemplateBinding Foreground}"
+                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                     CaretBrush="{StaticResource PrimaryGreenBrush}"/>
+
+                                <TextBlock x:Name="hintText" 
+                                       Text="{TemplateBinding Tag}"
+                                       Foreground="{StaticResource DarkGrayBrush}"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Padding="{TemplateBinding Padding}"
+                                       IsHitTestVisible="False"
+                                       VerticalAlignment="Center"
+                                       FontStyle="Italic"
+                                       Opacity="0.7"
+                                       Visibility="Collapsed"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <!-- Показываем подсказку если текст пустой И нет фокуса -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition SourceName="textBox" Property="Text" Value=""/>
+                                <Condition SourceName="textBox" Property="IsFocused" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="hintText" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+                            <Setter TargetName="MainBorder" Property="BorderThickness" Value="1"/>
+                        </MultiTrigger>
+
+                        <!-- При фокусе - рамка зеленая (всегда, независимо от текста) -->
+                        <Trigger SourceName="textBox" Property="IsFocused" Value="True">
+                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource PrimaryGreenBrush}"/>
+                            <Setter TargetName="MainBorder" Property="BorderThickness" Value="2"/>
+                            <Setter TargetName="hintText" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+
+                        <!-- При наведении мыши (если не в фокусе и нет текста) -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition SourceName="textBox" Property="IsMouseOver" Value="True"/>
+                                <Condition SourceName="textBox" Property="IsFocused" Value="False"/>
+                                <Condition SourceName="textBox" Property="Text" Value=""/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource LightGreenBrush}"/>
+                            <Setter TargetName="MainBorder" Property="BorderThickness" Value="1.5"/>
+                        </MultiTrigger>
+
+                        <!-- Убираем старый триггер на Text="" который вызывал проблему -->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== PASSWORDBOX С ПОДСКАЗКОЙ ========== -->
+    <Style x:Key="PasswordBoxWithHintStyle" TargetType="PasswordBox" BasedOn="{StaticResource BasePasswordBoxStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="PasswordBox">
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="8">
+                            <Grid>
+                                <PasswordBox x:Name="passwordBox" 
+                                         Background="Transparent"
+                                         BorderBrush="Transparent"
+                                         BorderThickness="0"
+                                         Padding="{TemplateBinding Padding}"
+                                         FontSize="{TemplateBinding FontSize}"
+                                         Foreground="{TemplateBinding Foreground}"
+                                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                         CaretBrush="{StaticResource PrimaryGreenBrush}"/>
+
+                                <TextBlock x:Name="hintText" 
+                                       Text="{TemplateBinding Tag}"
+                                       Foreground="{StaticResource DarkGrayBrush}"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Padding="{TemplateBinding Padding}"
+                                       IsHitTestVisible="False"
+                                       VerticalAlignment="Center"
+                                       FontStyle="Italic"
+                                       Opacity="0.7"
+                                       Visibility="Collapsed"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <!-- Скрываем подсказку если есть фокус (наивысший приоритет) -->
+                        <Trigger SourceName="passwordBox" Property="IsFocused" Value="True">
+                            <Setter TargetName="hintText" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+
+                        <!-- Скрываем подсказку если пароль не пустой -->
+                        <DataTrigger Binding="{Binding Password, ElementName=passwordBox}" Value="">
+                            <Setter TargetName="hintText" Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+
+                        <!-- Показываем подсказку только если пароль пустой И нет фокуса -->
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Password, ElementName=passwordBox}" Value=""/>
+                                <Condition Binding="{Binding IsFocused, ElementName=passwordBox}" Value="False"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="hintText" Property="Visibility" Value="Visible"/>
+                        </MultiDataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ С ИКОНКОЙ  ========== -->
+    <Style x:Key="TextBoxWithIconAndHintStyle" TargetType="TextBox" BasedOn="{StaticResource TextBoxWithHintStyle}">
+        <Setter Property="Tag" Value="Поиск..."/>
+        <Setter Property="Padding" Value="15,5,15,5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <Border x:Name="MainBorder"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="8">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="6" 
+                                          ShadowDepth="1" 
+                                          Opacity="0.17" 
+                                          Direction="270"
+                                          Color="#000000"/>
+                            </Border.Effect>
+
+                            <Grid>
+                                <!-- TextBox с отступом справа для иконки -->
+                                <TextBox x:Name="textBox" 
+             Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+             Background="Transparent"
+             BorderBrush="Transparent"
+             BorderThickness="0"
+             Padding="{TemplateBinding Padding}"
+             FontSize="{TemplateBinding FontSize}"
+             Foreground="{TemplateBinding Foreground}"
+             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+             CaretBrush="{StaticResource PrimaryGreenBrush}"
+             Margin="0,0,40,0"/>
+                                <!-- Добавлен отступ справа 40px -->
+
+                                <!-- Подсказка тоже должна иметь отступ справа -->
+                                <TextBlock x:Name="hintText" 
+               Text="{TemplateBinding Tag}"
+               Foreground="{StaticResource DarkGrayBrush}"
+               FontSize="{TemplateBinding FontSize}"
+               Padding="{TemplateBinding Padding}"
+               IsHitTestVisible="False"
+               VerticalAlignment="Center"
+               FontStyle="Italic"
+               Opacity="0.7"
+               Visibility="Collapsed"
+               Margin="0,0,40,0"/>
+                                <!-- Тот же отступ справа -->
+
+                                <!-- Иконка справа -->
+                                <Image x:Name="icon" 
+           Source="{Binding RelativeSource={RelativeSource TemplatedParent}, 
+                            Path=(converter:TextBoxExtensions.IconSource)}"
+           VerticalAlignment="Center"
+           HorizontalAlignment="Right"
+           Margin="0,0,15,0"
+           Width="23"
+           Height="23"
+           Opacity="0.6"
+           IsHitTestVisible="False"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <!-- Триггеры -->
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition SourceName="textBox" Property="Text" Value=""/>
+                                <Condition SourceName="textBox" Property="IsFocused" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="hintText" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+                            <Setter TargetName="MainBorder" Property="BorderThickness" Value="1"/>
+                        </MultiTrigger>
+
+                        <Trigger SourceName="textBox" Property="IsFocused" Value="True">
+                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource PrimaryGreenBrush}"/>
+                            <Setter TargetName="MainBorder" Property="BorderThickness" Value="2"/>
+                            <Setter TargetName="hintText" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition SourceName="textBox" Property="IsMouseOver" Value="True"/>
+                                <Condition SourceName="textBox" Property="IsFocused" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource LightGreenBrush}"/>
+                            <Setter TargetName="MainBorder" Property="BorderThickness" Value="1.5"/>
+                        </MultiTrigger>
+
+                        <!-- Скрываем иконку если Source не задан -->
+                        <Trigger SourceName="icon" Property="Source" Value="{x:Null}">
+                            <Setter TargetName="icon" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!-- ========== СТИЛЬ С ИКОНКОЙ (ДЛЯ ПОИСКА) ========== -->
+    <Style x:Key="SearchBoxWithIconStyle" TargetType="TextBox" BasedOn="{StaticResource TextBoxWithHintStyle}">
+        <Setter Property="Tag" Value="Поиск..."/>
+        <Setter Property="Padding" Value="40,5,15,5"/>
+        <Setter Property="Margin" Value="10,5,15,5"/>
+        <Setter Property="Height" Value="34"/>
+        <Setter Property="Width" Value="350"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <Border x:Name="MainBorder"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="8">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="6" 
+                                          ShadowDepth="1" 
+                                          Opacity="0.17" 
+                                          Direction="270"
+                                          Color="#000000"/>
+                            </Border.Effect>
+
+                            <!-- Canvas для наложения иконки поверх TextBox -->
+                            <Grid>
+                                <!-- TextBox на весь элемент -->
+                                <TextBox x:Name="textBox" 
+                                     Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                     Background="Transparent"
+                                     BorderBrush="Transparent"
+                                     BorderThickness="0"
+                                     Padding="{TemplateBinding Padding}"
+                                     FontSize="{TemplateBinding FontSize}"
+                                     Foreground="{TemplateBinding Foreground}"
+                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                     CaretBrush="{StaticResource PrimaryGreenBrush}"/>
+
+                                <!-- Подсказка (поверх TextBox) -->
+                                <TextBlock x:Name="hintText" 
+                                       Text="{TemplateBinding Tag}"
+                                       Foreground="{StaticResource DarkGrayBrush}"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Padding="{TemplateBinding Padding}"
+                                       IsHitTestVisible="False"
+                                       VerticalAlignment="Center"
+                                       FontStyle="Italic"
+                                       Opacity="0.7"
+                                       Visibility="Collapsed"/>
+
+                                <!-- Иконка поиска (поверх всего, слева) -->
+                                <TextBlock x:Name="searchIcon" 
+                                       Text="🔍" 
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Margin="15,0,0,0"
+                                       Opacity="0.5"
+                                       IsHitTestVisible="False"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <!-- Показываем подсказку если текст пустой И нет фокуса -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition SourceName="textBox" Property="Text" Value=""/>
+                                <Condition SourceName="textBox" Property="IsFocused" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="hintText" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+                            <Setter TargetName="MainBorder" Property="BorderThickness" Value="1"/>
+                        </MultiTrigger>
+
+                        <!-- При фокусе - рамка зеленая, подсказка скрыта -->
+                        <Trigger SourceName="textBox" Property="IsFocused" Value="True">
+                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource PrimaryGreenBrush}"/>
+                            <Setter TargetName="MainBorder" Property="BorderThickness" Value="2"/>
+                            <Setter TargetName="hintText" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+
+                        <!-- При наведении мыши (если не в фокусе) -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition SourceName="textBox" Property="IsMouseOver" Value="True"/>
+                                <Condition SourceName="textBox" Property="IsFocused" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource LightGreenBrush}"/>
+                            <Setter TargetName="MainBorder" Property="BorderThickness" Value="1.5"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== ГОТОВЫЕ СТИЛИ ДЛЯ ЛОГИНА И ПАРОЛЯ ========== -->
+    <Style x:Key="LoginTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource TextBoxWithHintStyle}">
+        <Setter Property="Tag" Value="Введите логин или email"/>
+        <Setter Property="MaxLength" Value="50"/>
+    </Style>
+
+    <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox" BasedOn="{StaticResource PasswordBoxWithHintStyle}">
+        <Setter Property="Tag" Value="Введите пароль"/>
+        <Setter Property="MaxLength" Value="50"/>
+    </Style>
+
+    <!-- ========== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ========== -->
+    <Style x:Key="ErrorTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseTextBoxStyle}">
+        <Setter Property="BorderBrush" Value="#EF5350"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="#EF5350"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="SuccessTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseTextBoxStyle}">
+        <Setter Property="BorderBrush" Value="{StaticResource LightGreenBrush}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+
+    <Style x:Key="SearchBoxStyle" TargetType="TextBox" BasedOn="{StaticResource SearchBoxWithIconStyle}"/>
+
+    <!-- ========== СТИЛЬ ДЛЯ ТЕКСТОВОГО ПОЛЯ С ТЕНЬЮ ========== -->
+    <Style x:Key="ElevatedTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseTextBoxStyle}">
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" 
+                                  ShadowDepth="2" 
+                                  Opacity="0.1" 
+                                  Direction="270"
+                                  Color="Black"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- ========== СТИЛЬ ДЛЯ ТЕКСТОВОГО ПОЛЯ ОТЗЫВА ========== -->
+    <Style x:Key="ReviewTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseTextBoxStyle}">
+        <Setter Property="Padding" Value="12,8"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Background" Value="{StaticResource OffWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="VerticalContentAlignment" Value="Top"/>
+        <Setter Property="AcceptsReturn" Value="True"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="MinHeight" Value="30"/>
+        <Setter Property="MaxHeight" Value="200"/>
+        <Setter Property="Height" Value="auto"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="8">
+
+                        <Grid>
+                            <!-- ScrollViewer на всю высоту Border -->
+                            <ScrollViewer x:Name="PART_ContentHost" 
+                                      Margin="2"
+                                           Style="{StaticResource TextBoxScrollViewerStyle}"
+ Background="{StaticResource OffWhiteBrush}"
+                                      VerticalAlignment="Stretch"
+                                      HorizontalAlignment="Stretch"
+                                      VerticalScrollBarVisibility="Hidden"
+                                      HorizontalScrollBarVisibility="Hidden"
+                                      PanningMode="VerticalOnly"/>
+
+                            <!-- Подсказка - поверх ScrollViewer -->
+                            <TextBlock x:Name="hintText" 
+                                   Text="{TemplateBinding Tag}"
+                                   Foreground="{StaticResource DarkGrayBrush}"
+                                   FontSize="{TemplateBinding FontSize}"
+                                   Margin="{TemplateBinding Padding}"
+                                   IsHitTestVisible="False"
+                                   VerticalAlignment="Top"
+                                   FontStyle="Italic"
+                                   Opacity="0.7"
+                                   Visibility="Collapsed"/>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <!-- Показываем подсказку если текст пустой И нет фокуса -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Text" Value=""/>
+                                <Condition Property="IsFocused" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="hintText" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+                        </MultiTrigger>
+
+                        <!-- При фокусе - рамка зеленая -->
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource PrimaryGreenBrush}"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="2"/>
+                            <Setter TargetName="hintText" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+
+                        <!-- При наведении мыши -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsFocused" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource LightGreenBrush}"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="1.5"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!-- ========== СТИЛЬ ДЛЯ ТЕКСТОВОГО ПОЛЯ ОПИСАНИЯ ========== -->
+    <Style x:Key="DescriptionTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseTextBoxStyle}">
+        <Setter Property="Padding" Value="12,8"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Background" Value="{StaticResource OffWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="VerticalContentAlignment" Value="Top"/>
+        <Setter Property="AcceptsReturn" Value="True"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="MinHeight" Value="120"/>
+        <Setter Property="MaxHeight" Value="300"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ ТЕКСТОВОГО ПОЛЯ ОТВЕТА ========== -->
+    <Style x:Key="AnswerTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseTextBoxStyle}">
+        <Setter Property="Padding" Value="10,6"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Background" Value="{StaticResource OffWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Height" Value="36"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource PrimaryGreenBrush}"/>
+                <Setter Property="BorderThickness" Value="2"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource LightGreenBrush}"/>
+                <Setter Property="BorderThickness" Value="1.5"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

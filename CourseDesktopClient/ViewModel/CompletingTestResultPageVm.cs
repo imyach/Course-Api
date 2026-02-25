@@ -6,6 +6,7 @@ using CourseDesktopClient.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -36,6 +37,14 @@ namespace CourseDesktopClient.ViewModel
         public static Guid localIdTestResult;
         public ICommand PassMaterialCommand { get; set; }
         public ICommand СompletionTestCommand { get; set; }
+
+        private Visibility _visibleDescriptionBorder { get; set; }
+        public Visibility VisibleDescriptionBorder
+        {
+            get => _visibleDescriptionBorder;
+            set { _visibleDescriptionBorder = value; OnPropertyChanged(); }
+        }
+
         public CompletingTestResultPageVm(INavigationService navigationService, ICourseApiClient courseApiClient) : base(navigationService) 
         {
             this.navigationService = navigationService;
@@ -62,6 +71,11 @@ namespace CourseDesktopClient.ViewModel
 
             var questionViewModel = questions.Questions.Select(x => new PassQuestionElementVm(x)).ToList();
             GetQuestion = questionViewModel;
+
+            VisibleDescriptionBorder = string.IsNullOrEmpty(Description)
+                ? Visibility.Collapsed
+                : Visibility.Visible;
+ 
         }
 
         private async Task СompletionTestAsync(object? sender)

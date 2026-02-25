@@ -2,27 +2,92 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:controlls="clr-namespace:CourseDesktopClient.UI.Elements"
+             xmlns:converters="clr-namespace:CourseDesktopClient.UI.Converters"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
              mc:Ignorable="d" 
-             d:DesignHeight="450">
-    <Border 
-         Margin="10" 
-        Height="auto"  >
-        <Grid >
-            <StackPanel Orientation="Vertical"
-                        HorizontalAlignment="Stretch" 
-                        MaxWidth="800">
-                <Grid Width="auto" >
-                    <TextBlock Text="Написать отзыв" HorizontalAlignment="Left"/>
-                    <controlls:RatingStarsControl HorizontalAlignment="Right" 
+             d:DesignHeight="200" d:DesignWidth="400"
+             Background="Transparent">
+
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <Border Style="{StaticResource ReviewCardBorderStyle}"
+            Margin="15"
+            Padding="20"
+            MaxWidth="1000">
+
+        <StackPanel Orientation="Vertical"
+                    HorizontalAlignment="Stretch">
+
+            <!-- Заголовок и рейтинг -->
+            <Grid Margin="0,0,0,15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Заголовок с иконкой -->
+                <StackPanel Grid.Column="0" 
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Left">
+                    <TextBlock Text="✍️" 
+                               FontSize="18"
+                               Foreground="{StaticResource PrimaryGreenBrush}"
+                               Margin="0,0,8,0"
+                               VerticalAlignment="Center"/>
+                    <TextBlock Text="Написать отзыв" 
+                               Style="{StaticResource H4Style}"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               Foreground="{StaticResource TextPrimaryBrush}"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <!-- Звезды рейтинга справа -->
+                <Border Grid.Column="1"
+                        Background="{StaticResource SoftGreenBrush}"
+                        CornerRadius="20"
+                        Padding="10,5"
+                        HorizontalAlignment="Right">
+                    <controlls:RatingStarsControl 
                         RatingCommand="{Binding RatingCommand}"
-                        ResetRating="{Binding ShouldResetRating}"/>
-                </Grid>
-                <TextBox  Height="18" Text="{Binding ReviewUserText}" />
-                <Button Content="Отправить" Command="{Binding SendReviewCommand}"/>
-            </StackPanel>
-        </Grid>
+                        ResetRating="{Binding ShouldResetRating}"
+                        Foreground="{StaticResource StarsYellowBrush}"
+                        FontSize="18"/>
+                </Border>
+            </Grid>
+
+            <!-- Текстовое поле для отзыва -->
+            <TextBox Text="{Binding ReviewUserText, UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource ReviewTextBoxStyle}"
+                     Tag="Поделитесь своими впечатлениями о курсе..."
+                     TextWrapping="Wrap"
+                     AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Auto"
+                     Margin="0,0,0,15"/>
+
+            <!-- Кнопка отправки -->
+            <Button Content="Отправить отзыв"
+                    Command="{Binding SendReviewCommand}"
+                    Style="{StaticResource SendReviewButtonStyle}"
+                    Height="42"
+                    FontSize="13"
+                    FontWeight="SemiBold"
+                    HorizontalAlignment="Right"
+                    Padding="20,0"/>
+
+                       <!-- Сообщение об ошибке -->
+                       <TextBlock Text="{Binding MisstakeText}" 
+                Visibility="{Binding VisibleMisstake}"
+                Style="{StaticResource ErrorTextStyle}" 
+                HorizontalAlignment="Center"
+                Margin="0,0,0,15"/>
+        </StackPanel>
+
+        
+
     </Border>
-</UserControl>
+</UserControl>  

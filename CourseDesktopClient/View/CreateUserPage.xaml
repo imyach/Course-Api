@@ -5,28 +5,162 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.View"
+             xmlns:conveters="clr-namespace:CourseDesktopClient.UI.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Создание пользователя" HorizontalAlignment="Center"/>
-            <TextBlock Text="Логин"/>
-            <TextBox x:Name="LoginTbx" Text="{Binding UserLoginText}" Width="300"/>
-            <TextBlock Text="Email (необязательно)"/>
-            <TextBox x:Name="EmailTbx" Text="{Binding UserEmailText}" Width="300"/>
-            <TextBlock Text="Имя пользователя"/>
-            <TextBox x:Name="NameUserTbx" Text="{Binding UserNameText}" Width="300"/>
-            <TextBlock Text="Пароль"/>
-            <TextBox x:Name="PasswordTbx" Text="{Binding UserPasswordText}" Width="300"/>
-            <TextBlock Text="Номер телефона (необязательно)"/>
-            <TextBox x:Name="PhoneTbx" Text="{Binding UserPhoneNumber}" Width="300"/>
-            <TextBlock Text="Роль:" />
-            <ComboBox ItemsSource="{Binding GetRoles}" DisplayMemberPath="Name" SelectedItem="{Binding UserRole}" SelectedIndex="0"/>
-            <Button Content="Создать пользователя" Command="{Binding CreateUserCommand}"/>
-            <Button Content="Назад" Command="{Binding BackBtnCommand}"/>
-            <TextBlock Text="{Binding MisstakeText}" Visibility="{Binding VisibleMisstake}"/>
+             d:DesignHeight="650" d:DesignWidth="800"
+             Background="Transparent">
 
-        </StackPanel>
+    <UserControl.Resources>
+        <conveters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource OffWhiteBrush}">
+        <!-- Основной контейнер -->
+        <Border Background="{StaticResource PureWhiteBrush}"
+                Width="540"
+                Padding="30"
+                CornerRadius="20"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Effect="{StaticResource CardShadowEffect}">
+
+            <StackPanel Orientation="Vertical" Margin="20 0 20 0">
+
+                <!-- Заголовок с иконкой -->
+                <Grid Margin="0,0,0,30" HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="СОЗДАНИЕ ПОЛЬЗОВАТЕЛЯ" 
+                                   Grid.Column="0" 
+                                   VerticalAlignment="Center" 
+                                   Style="{StaticResource PageTitleStyle}"
+                                   FontSize="22"/>
+
+                    <Image Source="/UI/Images/icons8-add-user-100.png" 
+                               Grid.Column="1" 
+                               VerticalAlignment="Center" 
+                               Style="{StaticResource IconStyle}"
+                               Margin="10,-14,0,0"
+                               Width="40"
+                               Height="40"
+                               Opacity="0.7"/>
+                </Grid>
+
+                <!-- Декоративная линия под заголовком -->
+                <Border Height="2" 
+                            Width="80" 
+                            Background="{StaticResource LightGreenBrush}" 
+                            HorizontalAlignment="Center"
+                            Margin="0,0,0,30"
+                            CornerRadius="1"/>
+
+                <!-- Поле Логин -->
+                <TextBlock Text="Логин" 
+                               Style="{StaticResource BodyTextStyle}"
+                               Margin="0,0,0,5"/>
+
+                <TextBox Text="{Binding UserLoginText, UpdateSourceTrigger=PropertyChanged}" 
+                             Style="{StaticResource TextBoxWithHintStyle}" 
+                             Tag="Введите логин"
+                             Margin="0,0,0,15"/>
+
+                <!-- Поле Email (необязательно) -->
+                <TextBlock Text="Email (необязательно)"  
+                               Style="{StaticResource BodyTextStyle}"
+                               Margin="0,0,0,5"/>
+
+                <TextBox Text="{Binding UserEmailText, UpdateSourceTrigger=PropertyChanged}" 
+                             Style="{StaticResource TextBoxWithHintStyle}"   
+                             Tag="Введите email"
+                             Margin="0,0,0,15"/>
+
+                <!-- Поле Имя пользователя -->
+                <TextBlock Text="Имя пользователя"  
+                               Style="{StaticResource BodyTextStyle}"
+                               Margin="0,0,0,5"/>
+
+                <TextBox Text="{Binding UserNameText, UpdateSourceTrigger=PropertyChanged}" 
+                             Style="{StaticResource TextBoxWithHintStyle}"   
+                             Tag="Введите имя пользователя"
+                             Margin="0,0,0,15"/>
+
+                <!-- Поле Пароль -->
+                <TextBlock Text="Пароль"  
+                               Style="{StaticResource BodyTextStyle}"
+                               Margin="0,0,0,5"/>
+
+                <TextBox Text="{Binding UserPasswordText, UpdateSourceTrigger=PropertyChanged}" 
+                             Style="{StaticResource TextBoxWithHintStyle}"   
+                             Tag="Введите пароль"
+                             Margin="0,0,0,15"/>
+
+                <!-- Поле Номер телефона (необязательно) -->
+                <TextBlock Text="Номер телефона (необязательно)"  
+                               Style="{StaticResource BodyTextStyle}"
+                               Margin="0,0,0,5"/>
+
+                <TextBox Text="{Binding UserPhoneNumber, UpdateSourceTrigger=PropertyChanged}" 
+                             Style="{StaticResource TextBoxWithHintStyle}"   
+                             Tag="+7 (999) 999-99-99"
+                             Margin="0,0,0,15"/>
+
+                <!-- Поле Роль -->
+                <TextBlock Text="Роль"  
+                               Style="{StaticResource BodyTextStyle}"
+                               Margin="0,0,0,5"/>
+
+                <ComboBox ItemsSource="{Binding GetRoles}" 
+                              DisplayMemberPath="Name" 
+                              SelectedItem="{Binding UserRole}"
+                              SelectedIndex="0"
+                          Width="440"
+                              Style="{StaticResource ComboBoxStyle}"
+                              Margin="0,0,0,25"/>
+
+                <!-- Сообщение об ошибке -->
+                           <TextBlock Text="{Binding MisstakeText}" 
+                        Visibility="{Binding VisibleMisstake}"
+                        Style="{StaticResource ErrorTextStyle}" 
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,15"/>
+
+                <!-- Кнопки -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Кнопка создания пользователя -->
+                    <Button Grid.Column="0"
+                                Content="Создать"
+                                Command="{Binding CreateUserCommand}"
+                                Style="{StaticResource CreateUserButtonStyle}"
+                                Height="42"
+                                Margin="5,0,5,0"
+                                FontSize="13"/>
+
+                    <!-- Кнопка назад -->
+                    <Button Grid.Column="1"
+                                Content="Назад"
+                                Command="{Binding BackBtnCommand}"
+                                Style="{StaticResource BackButtonStyle}"
+                                Height="42"
+                                Margin="5,0,5,0"
+                                FontSize="13"/>
+                </Grid>
+
+                <!-- Подсказка по безопасности -->
+                <TextBlock Text="Пароль должен содержать не менее 6 символов"
+                               Style="{StaticResource SmallTextStyle}"
+                               Foreground="{StaticResource TextSecondaryBrush}"
+                               HorizontalAlignment="Center"
+                               Margin="0,20,0,0"
+                               FontSize="11"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>
-

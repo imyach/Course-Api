@@ -4,12 +4,72 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.View"
+             xmlns:conveters="clr-namespace:CourseDesktopClient.UI.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Сервер недоступен"/>
-            <Button Content="Обновить" Command="{Binding RestartCommand}"/>
-        </WrapPanel>
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="Transparent">
+
+    <Grid Background="{StaticResource OffWhiteBrush}">
+        <Border Style="{StaticResource ErrorPageBorderStyle}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Padding="40"
+                MaxWidth="500">
+
+            <StackPanel Orientation="Vertical" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center">
+
+                <!-- Иконка ошибки с анимацией -->
+                <Border Background="{StaticResource SoftRedBrush}"
+                        Width="100"
+                        Height="100"
+                        CornerRadius="50"
+                        Margin="0,0,0,25"
+                        HorizontalAlignment="Center">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="15" 
+                                          ShadowDepth="3" 
+                                          Opacity="0.2" 
+                                          Direction="270"
+                                          Color="{StaticResource AccentRed}"/>
+                    </Border.Effect>
+                    <TextBlock Text="⚠️" 
+                               FontSize="48"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Opacity="0.9"/>
+                </Border>
+
+                <!-- Заголовок ошибки -->
+                <TextBlock Text="Сервер недоступен" 
+                           Style="{StaticResource H2Style}"
+                           FontSize="28"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,10"/>
+
+                <!-- Описание -->
+                <TextBlock Text="Не удалось установить соединение с сервером. Пожалуйста, проверьте подключение к интернету и попробуйте снова." 
+                           Style="{StaticResource BodyTextStyle}"
+                           Foreground="{StaticResource TextSecondaryBrush}"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           LineHeight="22"
+                           Margin="0,0,0,30"/>
+
+                <!-- Кнопка обновления -->
+                <Button Content="Обновить"
+                        Command="{Binding RestartCommand}"
+                        Style="{StaticResource RefreshButtonStyle}"
+                        Width="200"
+                        Height="44"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        HorizontalAlignment="Center"
+                        Effect="{StaticResource CardShadowEffect}"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>

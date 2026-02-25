@@ -4,105 +4,196 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
+             xmlns:converters="clr-namespace:CourseDesktopClient.UI.Converters"
              mc:Ignorable="d" 
-                          d:DesignHeight="300" d:DesignWidth="380" >
+             d:DesignHeight="350" d:DesignWidth="400"
+             Background="Transparent">
 
-    <Border Background="LightGray" 
-            BorderBrush="#E0E0E0" 
-            BorderThickness="0 0 0 1"
-            Padding="20"
-            CornerRadius="20"
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <converters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"/>
+        <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <Border Style="{StaticResource CourseCardBorderStyle}"
             Width="380"
             Height="Auto"
-            MaxHeight="300"
-            Margin="20">
+            MinHeight="260"
+            MaxHeight="350"
+            Margin="15"
+            Padding="20">
 
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto" MaxHeight="121"/>
+                <!-- Заголовок с кнопкой удаления -->
                 <RowDefinition Height="Auto"/>
+                <!-- Статус -->
                 <RowDefinition Height="Auto"/>
+                <!-- Описание -->
                 <RowDefinition Height="Auto"/>
+                <!-- Даты -->
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <!-- Разделитель -->
+                <RowDefinition Height="Auto"/>
+                <!-- Кнопка создания -->
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0"
-                       Text="{Binding Title}" 
-                       FontSize="18"
-                       FontWeight="Bold"
-                       Foreground="#333"
-                       Margin="0,0,0,8"/>
-
-            <TextBlock Grid.Row="1"
-                       Text="{Binding Description}" 
-                       Foreground="#666"
-                       TextWrapping="WrapWithOverflow"
-                       TextTrimming="CharacterEllipsis"
-                       MaxHeight="89" 
-                       Height="Auto"
-                       Margin="0,0,0,8"/>
-
-            <TextBlock Grid.Row="2"
-                       Text="{Binding Status, StringFormat='Статус: {0}'}" 
-                       Foreground="#666"
-                       TextWrapping="Wrap"
-                       Margin="0,0,0,8"/>
-
-            <Grid Grid.Row="3" Margin="0,0,0,8">
+            <!-- Заголовок курса с кнопкой удаления -->
+            <Grid Grid.Row="0" Margin="0,0,0,12">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Заголовок -->
                 <TextBlock Grid.Column="0"
-                           Text="{Binding CreatedAt, StringFormat='Создан: {0:dd.MM.yyyy}'}" 
-                           Foreground="#666"/>
+                           Text="{Binding Title}"
+                           Style="{StaticResource H4Style}"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           TextWrapping="Wrap"
+                           VerticalAlignment="Center"/>
 
-                <TextBlock Grid.Column="1"
-                           Text="{Binding UpdateAt, StringFormat='Обновлён: {0:dd.MM.yyyy}'}" 
-                           Foreground="#666"
-                           HorizontalAlignment="Right">
+                <!-- Кнопка удаления (иконка) -->
+                <Button Grid.Column="1"
+                        Command="{Binding DataContext.DeleteCourseCommand, 
+                                RelativeSource={RelativeSource 
+                                AncestorType=UserControl, 
+                                AncestorLevel=2}}"
+                        CommandParameter="{Binding}"
+                        Style="{StaticResource DeleteIconButtonStyle}"
+                        Width="32"
+                        Height="32"
+                        Padding="0"
+                        Margin="5,0,0,0"
+                        ToolTip="Удалить курс"/>
+            </Grid>
+
+            <!-- Статус курса -->
+            <Border Grid.Row="1"
+                    x:Name="StatusBorder"
+                    CornerRadius="12"
+                    Padding="8,2"
+                    HorizontalAlignment="Left"
+                    Margin="0,0,0,12">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <!-- Статус по умолчанию (опубликован) - зеленый -->
+                        <Setter Property="Background" Value="{StaticResource SoftGreenBrush}"/>
+
+                        <Style.Triggers>
+                            <!-- Статус "В разработке" - синий -->
+                            <DataTrigger Binding="{Binding Status}" Value="В разработке">
+                                <Setter Property="Background" Value="{StaticResource SoftBlueBrush}"/>
+                            </DataTrigger>
+
+                            <!-- Статус "Опубликован" - зеленый -->
+                            <DataTrigger Binding="{Binding Status}" Value="Опубликован">
+                                <Setter Property="Background" Value="{StaticResource SoftGreenBrush}"/>
+                            </DataTrigger>
+
+                            <!-- Статус "В архиве" - серый -->
+                            <DataTrigger Binding="{Binding Status}" Value="В архиве">
+                                <Setter Property="Background" Value="{StaticResource LightGrayBrush}"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+
+                <TextBlock Text="{Binding Status, StringFormat='Статус: {0}'}"
+                           FontSize="11"
+                           FontWeight="Medium">
                     <TextBlock.Style>
                         <Style TargetType="TextBlock">
-                            <Setter Property="Visibility" Value="Visible"/>
+                            <!-- Цвет текста по умолчанию (опубликован) - зеленый -->
+                            <Setter Property="Foreground" Value="{StaticResource PrimaryGreenBrush}"/>
+
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding UpdateAt}" Value="{x:Null}">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                <!-- Статус "В разработке" - синий текст -->
+                                <DataTrigger Binding="{Binding Status}" Value="В разработке">
+                                    <Setter Property="Foreground" Value="{StaticResource AccentBlueBrush}"/>
+                                </DataTrigger>
+
+                                <!-- Статус "Опубликован" - зеленый текст -->
+                                <DataTrigger Binding="{Binding Status}" Value="Опубликован">
+                                    <Setter Property="Foreground" Value="{StaticResource PrimaryGreenBrush}"/>
+                                </DataTrigger>
+
+                                <!-- Статус "В архиве" - серый текст -->
+                                <DataTrigger Binding="{Binding Status}" Value="В архиве">
+                                    <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
                     </TextBlock.Style>
                 </TextBlock>
+            </Border>
+
+            <!-- Описание курса -->
+            <TextBlock Grid.Row="2"
+                       Text="{Binding Description}"
+                       Style="{StaticResource BodyTextStyle}"
+                       Foreground="{StaticResource TextSecondaryBrush}"
+                       TextWrapping="Wrap"
+                       TextTrimming="CharacterEllipsis"
+                       MaxHeight="80"
+                       Margin="0,0,0,12"/>
+
+            <!-- Даты создания и обновления -->
+            <Grid Grid.Row="3" Margin="0,0,0,16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Vertical">
+                    <TextBlock Text="Создан" 
+                               Style="{StaticResource SmallTextStyle}"
+                               Foreground="{StaticResource TextSecondaryBrush}"/>
+                    <TextBlock Text="{Binding CreatedAt, StringFormat=\{0:dd.MM.yyyy\}}"
+                               Style="{StaticResource BodyTextStyle}"
+                               Foreground="{StaticResource TextPrimaryBrush}"
+                               FontWeight="SemiBold"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" 
+                            Orientation="Vertical"
+                            Visibility="{Binding UpdateAt, Converter={StaticResource NullToVisibilityConverter}}">
+                    <TextBlock Text="Обновлён" 
+                               Style="{StaticResource SmallTextStyle}"
+                               Foreground="{StaticResource TextSecondaryBrush}"
+                               HorizontalAlignment="Right"/>
+                    <TextBlock Text="{Binding UpdateAt, StringFormat=\{0:dd.MM.yyyy\}}"
+                               Style="{StaticResource BodyTextStyle}"
+                               Foreground="{StaticResource TextPrimaryBrush}"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Right"/>
+                </StackPanel>
             </Grid>
-            <StackPanel Grid.Row="6"
-                        Orientation="Horizontal"
-                        VerticalAlignment="Bottom"
-                        HorizontalAlignment="Center">
 
-                <Button Content="{Binding ContentButton}"
-                        Command="{Binding DataContext.LocalCreateCouseCommand, 
-                                RelativeSource={RelativeSource 
-                                AncestorType=UserControl, 
-                                AncestorLevel=2}}"
-                        
-                        CommandParameter="{Binding}"
-                        Padding="12,6"
-                        Margin="0,0,8,0"/>
+            <!-- Разделитель -->
+            <Rectangle Grid.Row="4" 
+                       Height="1" 
+                       Fill="{StaticResource BorderGrayBrush}" 
+                       Opacity="0.3"
+                       Margin="0,0,0,12"/>
 
-
-                <Button Content="Удалить курс"
-                        Command="{Binding DataContext.DeleteCourseCommand, 
-                                RelativeSource={RelativeSource 
-                                AncestorType=UserControl, 
-                                AncestorLevel=2}}"
-                        
-                        CommandParameter="{Binding}"
-                        Padding="12,6"
-                        Margin="0,0,8,0"/>
-
-            </StackPanel>
+            <!-- Кнопка создания/сохранения -->
+            <Button Grid.Row="5"
+                    Content="{Binding ContentButton}"
+                    Command="{Binding DataContext.LocalCreateCouseCommand, 
+                            RelativeSource={RelativeSource 
+                            AncestorType=UserControl, 
+                            AncestorLevel=2}}"
+                    CommandParameter="{Binding}"
+                    Style="{StaticResource EditButtonStyle}"
+                    Height="36"
+                    Padding="15,8"
+                    FontSize="12"
+                    HorizontalAlignment="Center"
+                    Margin="0,5,0,0"/>
         </Grid>
     </Border>
 </UserControl>

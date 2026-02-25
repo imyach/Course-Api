@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- В ресурсах определяем анимации -->
+    <Storyboard x:Key="MouseEnterAnimation" x:Shared="False">
+        <ColorAnimation Storyboard.TargetProperty="Background.Color" 
+                    To="{StaticResource PaleGreen}" 
+                    Duration="0:0:0.2">
+            <ColorAnimation.EasingFunction>
+                <CubicEase EasingMode="EaseOut"/>
+            </ColorAnimation.EasingFunction>
+        </ColorAnimation>
+        <ColorAnimation Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
+                    To="White" 
+                    Duration="0:0:0.2"/>
+    </Storyboard>
+
+    <Storyboard x:Key="MouseLeaveAnimation" x:Shared="False">
+        <ColorAnimation Storyboard.TargetProperty="Background.Color" 
+                    To="Transparent" 
+                    Duration="0:0:0.2"/>
+        <ColorAnimation Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
+                    To="{StaticResource TextPrimary}" 
+                    Duration="0:0:0.2"/>
+    </Storyboard>
+</ResourceDictionary>

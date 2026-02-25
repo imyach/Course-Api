@@ -4,8 +4,10 @@ using CourseDesktopClient.Models.DtosModel.Auth;
 using CourseDesktopClient.Models.DtosModel.Entities;
 using CourseDesktopClient.Models.DtosModel.Entities.RequestDto;
 using CourseDesktopClient.Utilities;
+using PhoneNumbers;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
@@ -84,7 +86,7 @@ namespace CourseDesktopClient.ViewModel
         private IList<RoleDto>? _getRoles;
         public IList<RoleDto>? GetRoles { get => _getRoles; set { _getRoles = value; OnPropertyChanged(); } }
 
-        private bool FillingVerificationRegister(UserRequestDto userDto)
+        private bool FillingVerification(UserRequestDto userDto)
         {
             if (string.IsNullOrEmpty(userDto.Login)
                 || string.IsNullOrEmpty(userDto.NameUser)
@@ -94,15 +96,105 @@ namespace CourseDesktopClient.ViewModel
                 VisibleMisstake = Visibility.Visible;
                 return false;
             }
+            if (userDto.NameUser.Length < 2)
+            {
+                MisstakeText = "Имя не может быть менее 2 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
 
+            if (userDto.Login.Length < 5)
+            {
+                MisstakeText = "Логин не может быть менее 5 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+
+
+            if (userDto.Login.Length > 30)
+            {
+                MisstakeText = "Логин не может быть больше 30 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+            if (userDto.Email?.Length > 50)
+            {
+                MisstakeText = "Почта не может быть больше 50 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+            if (userDto.NameUser.Length > 50)
+            {
+                MisstakeText = "Имя пользователя не может быть больше 50 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+            if (userDto.Password.Length < 5)
+            {
+                MisstakeText = "Пароль не может быть менее 5 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+            if (userDto.Password.Length > 30)
+            {
+                MisstakeText = "Пароль не может быть больше 30 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+            if (userDto.PhoneNumber is not null)
+                if (!IsValidPhoneWithLib(userDto.PhoneNumber))
+                {
+                    MisstakeText = "Введите корректный номер";
+                    VisibleMisstake = Visibility.Visible;
+                    return false;
+                }
+
+            if (userDto.Email is not null)
+            {
+
+            }
+                if (!IsValidEmail(userDto.Email))
+                {
+                    MisstakeText = "Введите корректную почту";
+                    VisibleMisstake = Visibility.Visible;
+                    return false;
+                }
             MisstakeText = string.Empty;
             VisibleMisstake = Visibility.Collapsed;
             return true;
         }
 
+
+        public static bool IsValidPhoneWithLib(string phoneNumber, string region = "RU")
+        {
+            if (string.IsNullOrWhiteSpace(phoneNumber))
+                return true;
+
+            var phoneUtil = PhoneNumberUtil.GetInstance();
+
+            try
+            {
+                var number = phoneUtil.Parse(phoneNumber, region);
+                return phoneUtil.IsValidNumber(number);
+            }
+            catch (NumberParseException)
+            {
+                return false;
+            }
+        }
+
+        public static bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return true;
+
+            var emailAttribute = new EmailAddressAttribute();
+            return emailAttribute.IsValid(email);
+        }
+
         public async Task CreateUser(UserRequestDto userDto)
         {
-            if (!FillingVerificationRegister(userDto))
+            if (!FillingVerification(userDto))
                 return;
 
             var userId = await courseApiClient.CreateUserAsync(userDto);

@@ -4,74 +4,249 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
+             xmlns:conveters="clr-namespace:CourseDesktopClient.UI.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <StackPanel Margin="20">
+             d:DesignHeight="600" d:DesignWidth="900"
+             Background="Transparent"
+             UseLayoutRounding="True"
+             SnapsToDevicePixels="True">
 
-            <!-- Заголовок -->
-            <TextBlock Text="{Binding TestTitle}" 
-                       FontSize="24" 
-                       FontWeight="Bold"
-                       TextWrapping="Wrap"
-                       Margin="0,0,0,10"/>
+    <UserControl.Resources>
+        <conveters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <conveters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"/>
+    </UserControl.Resources>
 
-            <!-- Статус и результат -->
-            <Border Background="{Binding TestStatusColor}"
-                    Padding="15"
-                    CornerRadius="5"
-                    Margin="0,0,0,20">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" 
+                  VerticalScrollBarVisibility="Auto"
+                  Style="{StaticResource BaseScrollViewerStyle}"
+                  Background="{StaticResource OffWhiteBrush}"
+                  SnapsToDevicePixels="True"
+                  UseLayoutRounding="True">
+
+        <Grid Margin="0,0,0,30" SnapsToDevicePixels="True" UseLayoutRounding="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Заголовок -->
+                <RowDefinition Height="Auto"/>
+                <!-- Результат теста -->
+                <RowDefinition Height="Auto"/>
+                <!-- Детали по вопросам -->
+                <RowDefinition Height="Auto"/>
+                <!-- Кнопка назад -->
+            </Grid.RowDefinitions>
+
+            <!-- ===== ЗАГОЛОВОК СТРАНИЦЫ ===== -->
+            <StackPanel Grid.Row="0" 
+                        Orientation="Vertical" 
+                        Margin="0,30,0,20"
+                        SnapsToDevicePixels="True">
+
+                <Grid HorizontalAlignment="Center" SnapsToDevicePixels="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Левая декоративная линия -->
+                    <Border Width="40" 
+                            Height="2" 
+                            Background="{StaticResource LightGreenBrush}" 
+                            Opacity="0.3"
+                            Margin="0,0,15,0"
+                            VerticalAlignment="Center"/>
+
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <TextBlock Text="РЕЗУЛЬТАТЫ ТЕСТА" 
+                                   Style="{StaticResource PageTitleStyle}" 
+                                   FontSize="26"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <!-- Правая декоративная линия -->
+                    <Border Grid.Column="2"
+                            Width="40" 
+                            Height="2" 
+                            Background="{StaticResource LightGreenBrush}" 
+                            Opacity="0.3"
+                            Margin="15,0,0,0"
+                            VerticalAlignment="Center"/>
+                </Grid>
+
+                <!-- Декоративная линия под заголовком -->
+                <Border Height="4" 
+                        Width="100" 
+                        Background="{StaticResource LightGreenBrush}" 
+                        HorizontalAlignment="Center"
+                        Margin="0,15,0,0"
+                        CornerRadius="2"
+                        Opacity="0.8"/>
+            </StackPanel>
+
+            <!-- ===== ЗАГОЛОВОК ТЕСТА ===== -->
+            <StackPanel Grid.Row="0"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,120,0,0"
+                        SnapsToDevicePixels="True">
+                <TextBlock Text="{Binding TestTitle}" 
+                           Style="{StaticResource H2Style}"
+                           FontSize="28"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Center"
+                           Margin="20,0,20,30"/>
+            </StackPanel>
+
+            <!-- ===== КАРТОЧКА РЕЗУЛЬТАТА ===== -->
+            <Border Grid.Row="1"
+                    Style="{StaticResource TestResultCardStyle}"
+                    Margin="50,0,50,30"
+                    Padding="25"
+                    Background="{Binding TestStatusColor}"
+                    SnapsToDevicePixels="True">
+
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="0">
-                        <TextBlock Text="{Binding TestStatus}" 
-                                   FontSize="18" 
-                                   FontWeight="Bold"
-                                   Foreground="White"/>
-                        <TextBlock Text="{Binding CompletionDateText,  StringFormat=' {0} (Utc)'}" 
-                                   Foreground="White"
-                                   Margin="0,5,0,0"/>
+                    <!-- Левая часть: статус и дата -->
+                    <StackPanel Grid.Column="0" 
+                                Orientation="Vertical"
+                                VerticalAlignment="Center">
+
+                        <!-- Статус с иконкой -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                            <TextBlock Text="{Binding TestStatusIcon}" 
+                                       FontSize="20"
+                                       Foreground="White"
+                                       Margin="0,0,8,0"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding TestStatus}" 
+                                       Style="{StaticResource H3Style}"
+                                       FontSize="22"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       TextWrapping="Wrap"/>
+                        </StackPanel>
+
+                        <!-- Дата завершения -->
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="📅" 
+                                       FontSize="14"
+                                       Foreground="White"
+                                       Margin="0,0,8,0"
+                                       Opacity="0.9"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding CompletionDateText, StringFormat='\{0} (UTC)'}" 
+                                       Style="{StaticResource BodyTextStyle}"
+                                       Foreground="White"
+                                       FontSize="14"
+                                       Opacity="0.9"/>
+                        </StackPanel>
                     </StackPanel>
 
+                    <!-- Правая часть: баллы -->
                     <StackPanel Grid.Column="1" 
-                                HorizontalAlignment="Right">
+                                Orientation="Vertical"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center">
+
+                        <!-- Набранные баллы -->
                         <TextBlock Text="{Binding ScoreText}" 
-                                   FontSize="28" 
+                                   Style="{StaticResource H1Style}"
+                                   FontSize="36"
                                    FontWeight="Bold"
                                    Foreground="White"
                                    HorizontalAlignment="Right"/>
-                        <TextBlock Text="{Binding PassingScoreText}" 
+
+                        <!-- Проходной балл -->
+                        <TextBlock Text="{Binding PassingScoreText, StringFormat='Проходной балл: {0}'}" 
+                                   Style="{StaticResource SmallTextStyle}"
                                    Foreground="White"
+                                   FontSize="12"
+                                   Opacity="0.9"
                                    HorizontalAlignment="Right"/>
                     </StackPanel>
                 </Grid>
             </Border>
 
-            <!-- Список вопросов -->
-            <TextBlock Text="Детали по вопросам:" 
-                       FontSize="16" 
-                       FontWeight="Bold"
-                       Margin="0,0,0,10"/>
+            <!-- ===== ЗАГОЛОВОК ДЕТАЛЕЙ ===== -->
+            <StackPanel Grid.Row="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        Margin="50,0,0,15"
+                        SnapsToDevicePixels="True">
+                <Border Background="{StaticResource SoftGreenBrush}"
+                        Width="32"
+                        Height="32"
+                        CornerRadius="16"
+                        Margin="0,0,10,0">
+                    <TextBlock Text="❓" 
+                               FontSize="16"
+                               Foreground="{StaticResource PrimaryGreenBrush}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                </Border>
+                <TextBlock Text="Детали по вопросам"
+                           Style="{StaticResource H4Style}"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           VerticalAlignment="Center"/>
 
-            <ItemsControl ItemsSource="{Binding AnswerUserElements}">
+                <!-- Счетчик вопросов -->
+                <Border Background="{StaticResource SoftGreenBrush}"
+                        CornerRadius="12"
+                        Padding="8,2"
+                        Margin="15,0,0,0"
+                        VerticalAlignment="Center">
+                    <TextBlock Text="{Binding AnswerUserElements.Count, StringFormat='Всего: {0}'}" 
+                               Foreground="{StaticResource PrimaryGreenBrush}"
+                               FontSize="11"
+                               FontWeight="Medium"/>
+                </Border>
+            </StackPanel>
+
+            <!-- ===== СПИСОК ВОПРОСОВ ===== -->
+            <ItemsControl Grid.Row="2"
+                          ItemsSource="{Binding AnswerUserElements}"
+                          Margin="30,0,30,30"
+                          SnapsToDevicePixels="True">
+
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <local:AnswerUserElement/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" 
+                                    HorizontalAlignment="Stretch"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
             </ItemsControl>
 
-            <!-- Кнопка назад -->
-            <Button Content="Назад"
-                    Command="{Binding PassMaterialCommand}"
+            <!-- ===== КНОПКА НАЗАД ===== -->
+            <Border Grid.Row="3"
+                    Margin="30,0,30,30"
+                    Padding="0"
                     HorizontalAlignment="Center"
-                    Margin="0,20,0,0"
-                    Padding="30,10"/>
+                    SnapsToDevicePixels="True">
 
-        </StackPanel>
+                <Button Content="← Назад к материалу"
+                        Command="{Binding PassMaterialCommand}"
+                        Style="{StaticResource SecondaryButtonStyle}"
+                        Height="44"
+                        Padding="30,0"
+                        FontSize="13"
+                        FontWeight="Medium"
+                        SnapsToDevicePixels="True"/>
+            </Border>
+        </Grid>
     </ScrollViewer>
 </UserControl>

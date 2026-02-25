@@ -11,7 +11,8 @@
           "CredentialManagement": "1.0.2",
           "Microsoft.Extensions.DependencyInjection": "10.0.1",
           "Microsoft.Xaml.Behaviors.Wpf": "1.1.135",
-          "System.IdentityModel.Tokens.Jwt": "8.15.0"
+          "System.IdentityModel.Tokens.Jwt": "8.15.0",
+          "libphonenumber-csharp": "9.0.24"
         },
         "runtime": {
           "CourseDesktopClient.dll": {}
@@ -22,6 +23,14 @@
           "lib/net35/CredentialManagement.dll": {
             "assemblyVersion": "1.0.2.0",
             "fileVersion": "1.0.2.0"
+          }
+        }
+      },
+      "libphonenumber-csharp/9.0.24": {
+        "runtime": {
+          "lib/net9.0/PhoneNumbers.dll": {
+            "assemblyVersion": "9.0.24.0",
+            "fileVersion": "9.0.24.0"
           }
         }
       },
@@ -131,6 +140,13 @@
       "sha512": "sha512-VkP04/jFXaxT3TkcRhzETYtOrznQxRmQ2J1XJdbXz47Bir7hIzPR7mFZk4GJQ4An4gozW+vonpf+iqTHomAkQw==",
       "path": "credentialmanagement/1.0.2",
       "hashPath": "credentialmanagement.1.0.2.nupkg.sha512"
+    },
+    "libphonenumber-csharp/9.0.24": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-F74y/VZmi77laQMiGj9Z03g7UyTKu+mahnafDyw8Bt7VtT8V4Sa2EIJNHXddZ0QhCkaBNt04dHYkZ3gTviaVRg==",
+      "path": "libphonenumber-csharp/9.0.24",
+      "hashPath": "libphonenumber-csharp.9.0.24.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection/10.0.1": {
       "type": "package",

@@ -16,6 +16,7 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
         public string TestTitle => testResultDto.Test.Title;
         public string TestDescription => testResultDto.Test.Description;
 
+        public string StatusText => IsPassed ? "Завершен" : "Не завершен";
         public Visibility ButtonVisible => IsPassed == false ? Visibility.Visible : Visibility.Collapsed;
     }
 }

@@ -30,7 +30,19 @@ namespace CourseDesktopClient.ViewModel
             get { return _descroptionOfMaterial; }
             set { _descroptionOfMaterial = value; OnPropertyChanged(); CheckEnableSave(); }
         }
+                private Visibility? _visibleMisstake = Visibility.Collapsed;
+        public Visibility? VisibleMisstake
+        {
 
+            get { return _visibleMisstake; }
+            set { _visibleMisstake = value; OnPropertyChanged(); }
+        }
+        private string? _mistakeText = string.Empty;
+        public string? MistakeText
+        {
+            get { return _mistakeText; }
+            set { _mistakeText = value; OnPropertyChanged(); }
+        }
         private bool _isSaveEnable;
         public bool IsSaveEnable
         {
@@ -106,6 +118,25 @@ namespace CourseDesktopClient.ViewModel
 
             SaveUpdateCommand = new RelayCommand(async sender =>
             {
+
+                if (string.IsNullOrEmpty(TitleOfMaterial))
+                {
+                    MistakeText = "Введите название материала";
+                    VisibleMisstake = Visibility.Visible;
+                    return;
+                }
+                else if (TitleOfMaterial.Length > 100)
+                {
+                    MistakeText = "Название материала не может превышать 100 символов";
+                    VisibleMisstake = Visibility.Visible;
+                    return;
+                }
+                else
+                {
+                    MistakeText = string.Empty;
+                    VisibleMisstake = Visibility.Collapsed;
+                }
+
                 var updateMaterial = new MaterialDto
                 {
                     Id = materialId,
@@ -130,6 +161,8 @@ namespace CourseDesktopClient.ViewModel
 
         public async Task LoadMaterial(Guid idMaterial, Guid idModule)
         {
+            MistakeText = string.Empty;
+            VisibleMisstake = Visibility.Collapsed;
             moduleId = idModule;
             if (idMaterial != default)
             {

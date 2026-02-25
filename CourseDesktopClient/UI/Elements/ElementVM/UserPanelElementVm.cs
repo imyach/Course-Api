@@ -14,16 +14,6 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
         public DateTime CreatedAt => userDto.CreatedAt;
         public RoleDto Role => userDto.Role;
 
-        public string IsCurrentUser 
-        {
-            get
-            {
-                if (currentUser.Id == Id)
-                    return "Это вы";
-                else 
-                    return string.Empty;
-            } 
-            set; 
-        }
+        public bool IsCurrentUser => currentUser?.Id == userDto.Id;
     }
 }

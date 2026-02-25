@@ -4,100 +4,151 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
+             xmlns:converters="clr-namespace:CourseDesktopClient.UI.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Border Background="LightGray" 
-            BorderBrush="#E0E0E0" 
-            BorderThickness="0 0 0 1"
-            Padding="14"
-            CornerRadius="20"
+             d:DesignHeight="120" d:DesignWidth="600"
+             Background="Transparent"
+             UseLayoutRounding="True">
+
+    <UserControl.Resources>
+        <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <converters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <Border Style="{StaticResource TestResultCardBorderStyle}"
+            Width="Auto"
+            MinWidth="500"
+            MaxWidth="700"
+            HorizontalAlignment="Stretch"
             Height="Auto"
-            MaxHeight="130"
-            Margin="20">
+            MinHeight="90"
+            MaxHeight="120"
+            Margin="10,0,10,10"
+            Padding="15"
+            SnapsToDevicePixels="True">
 
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Vertical" Grid.Row="0">
-                <TextBlock 
-                       Text="{Binding TestTitle}" 
-                       FontSize="18"
-                       FontWeight="Bold"
-                       Foreground="#333"
-                       Margin="0,0,0,8"/>
-                <TextBlock
-Text="{Binding CompletedAt, StringFormat='Завершен: {0:dd.MM.yyyy}'}" 
-Foreground="#666"
-HorizontalAlignment="Right">
-                    <TextBlock.Style>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="Visibility" Value="Collapsed"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding CompletedAt}" Value="{x:Null}">
-                                    <Setter Property="Visibility" Value="Visible"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBlock.Style>
-                </TextBlock>
+
+            <!-- Левая часть с информацией о тесте -->
+            <StackPanel Grid.Column="0" 
+                        Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        Margin="0,0,15,0">
+
+                <!-- Заголовок теста с иконкой -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                    <TextBlock Text="📝" 
+                               FontSize="16"
+                               Foreground="{StaticResource PrimaryGreenBrush}"
+                               Margin="0,0,8,0"
+                               VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding TestTitle}" 
+                               Style="{StaticResource H4Style}"
+                               FontSize="15"
+                               FontWeight="SemiBold"
+                               Foreground="{StaticResource TextPrimaryBrush}"
+                               TextWrapping="Wrap"
+                               TextTrimming="CharacterEllipsis"
+                               MaxWidth="350"/>
+                </StackPanel>
+
+                <!-- Статус теста с цветовой индикацией -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                    <Border x:Name="StatusBorder"
+                            CornerRadius="10"
+                            Padding="6,2"
+                            HorizontalAlignment="Left">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Background" Value="{StaticResource SoftGreenBrush}"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsPassed}" Value="False">
+                                        <Setter Property="Background" Value="{StaticResource LightGrayBrush}"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsPassed}" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource SoftGreenBrush}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+
+                        <TextBlock Text="{Binding StatusText}"
+                                   FontSize="11"
+                                   FontWeight="Medium">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Foreground" Value="{StaticResource PrimaryGreenBrush}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsPassed}" Value="False">
+                                            <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsPassed}" Value="True">
+                                            <Setter Property="Foreground" Value="{StaticResource PrimaryGreenBrush}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Border>
+                </StackPanel>
+
+                <!-- Дата завершения (если тест пройден) -->
+                <StackPanel Orientation="Horizontal" 
+                            Visibility="{Binding IsPassed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <TextBlock Text="📅" 
+                               FontSize="11"
+                               Foreground="{StaticResource TextSecondaryBrush}"
+                               Margin="0,0,4,0"
+                               VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding CompletedAt, StringFormat='Завершен: {0:dd.MM.yyyy}'}" 
+                               Style="{StaticResource SmallTextStyle}"
+                               Foreground="{StaticResource TextSecondaryBrush}"
+                               FontSize="10"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
             </StackPanel>
 
-            <StackPanel 
+            <!-- Правая часть с кнопками -->
+            <StackPanel Grid.Column="1"
                         Orientation="Horizontal"
                         VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Grid.Column="1">
+                        HorizontalAlignment="Right">
 
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" 
-                           Margin=" 0 0 8 0" Foreground="#666"
-                            TextWrapping="WrapWithOverflow"
-                            TextTrimming="CharacterEllipsis"
-                            MaxHeight="89" 
-                            Height="Auto">
-                    <TextBlock.Style>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="Text" Value="Статус: Не завершен"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsPassed}" Value="True">
-                                    <Setter Property="Text" Value="Статус: Завершен"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBlock.Style>
-                </TextBlock>
-
-                <Button Content="Пройти"
+                <!-- Кнопка "Пройти" (показывается если тест не пройден) -->
+                <Button Content="▶ Пройти тест"
                         Command="{Binding DataContext.PassTestCommand, 
                                 RelativeSource={RelativeSource 
                                 AncestorType=UserControl, 
                                 AncestorLevel=2}}"
-                        Visibility="{Binding ButtonVisible}"
                         CommandParameter="{Binding}"
-                        Padding="12,6"
-                        Margin="0,0,8,0"/>
+                        Style="{StaticResource TestActionButtonStyle}"
+                        Height="34"
+                        Padding="15,0"
+                        FontSize="11"
+                        FontWeight="SemiBold"
+                        Margin="0,0,8,0"
+                        Visibility="{Binding IsPassed, Converter={StaticResource InverseBooleanToVisibilityConverter}}"
+                        SnapsToDevicePixels="True"/>
 
-                <Button Content="Посмотреть результаты"
-                    Command="{Binding DataContext.LookTestResults, 
-                            RelativeSource={RelativeSource 
-                            AncestorType=UserControl, 
-                            AncestorLevel=2}}"
-                    CommandParameter="{Binding}"
-                    Padding="12,6"
-                    Margin="0,0,8,0">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Visibility" Value="Collapsed"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsPassed}" Value="True">
-                                    <Setter Property="Visibility" Value="Visible"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-
+                <!-- Кнопка "Посмотреть результаты" (показывается если тест пройден) -->
+                <Button Content="📊 Результаты"
+                        Command="{Binding DataContext.LookTestResults, 
+                                RelativeSource={RelativeSource 
+                                AncestorType=UserControl, 
+                                AncestorLevel=2}}"
+                        CommandParameter="{Binding}"
+                        Style="{StaticResource TestResultsButtonStyle}"
+                        Height="34"
+                        Padding="15,0"
+                        FontSize="11"
+                        FontWeight="SemiBold"
+                        Visibility="{Binding IsPassed, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        SnapsToDevicePixels="True"/>
             </StackPanel>
         </Grid>
     </Border>

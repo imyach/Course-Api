@@ -5,119 +5,235 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="380" >
-    
-    <Border Background="LightGray" 
-            BorderBrush="#E0E0E0" 
-            BorderThickness="0 0 0 1"
-            Padding="20"
-            CornerRadius="20"
-            Width="380"
-            Height="Auto"
-            MaxHeight="300"
-            Margin="20">
+             d:DesignHeight="300" d:DesignWidth="380" 
+             UseLayoutRounding="True">
+
+    <!-- Основная карточка -->
+    <Border Style="{StaticResource CourseCardBorderStyle}" >
 
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto" MaxHeight="121"/>
+                <!-- Заголовок и кнопка редактирования -->
                 <RowDefinition Height="Auto"/>
+                <!-- Разделитель -->
                 <RowDefinition Height="Auto"/>
+                <!-- Описание -->
                 <RowDefinition Height="Auto"/>
+                <!-- Автор -->
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <!-- Даты -->
+                <RowDefinition Height="Auto"/>
+                <!-- Статистика -->
+                <RowDefinition Height="Auto"/>
+                <!-- Разделитель -->
+                <RowDefinition Height="Auto"/>
+                <!-- Кнопки -->
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0"
-                       Text="{Binding Title}" 
-                       FontSize="18"
-                       FontWeight="Bold"
-                       Foreground="#333"
-                       Margin="0,0,0,8"/>
+            <!-- Заголовок курса и кнопка редактирования + подробнее -->
+            <Grid Grid.Row="0" Margin="0,0,0,8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="1"
-                       Text="{Binding Description}" 
-                       Foreground="#666"
-                       TextWrapping="WrapWithOverflow"
-                       TextTrimming="CharacterEllipsis"
-                       MaxHeight="89" 
-                       Height="Auto"
-                       Margin="0,0,0,8"/>
+                <!-- Заголовок курса -->
+                <TextBlock Grid.Column="0"
+                           Text="{Binding Title}"
+                           Style="{StaticResource H4Style}"
+                           FontWeight="Bold"
+                           TextWrapping="Wrap"
+                           MaxHeight="60"
+                           VerticalAlignment="Center"/>
 
+                <!-- Кнопка подробнее (справа сверху) -->
+                <Button Grid.Column="2"
+                        Command="{Binding DataContext.ViewDetailsCommand, 
+                                RelativeSource={RelativeSource 
+                                AncestorType=UserControl, 
+                                AncestorLevel=2}}"
+                        CommandParameter="{Binding}"
+                        Style="{StaticResource MoreDetailedButtonStyle}"
+                        Width="30"
+                        Height="30"
+                        Padding="0"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        
+                        Margin="5,0,0,0"
+                        ToolTip="Подробнее о курсе"/>
+
+                <!-- Кнопка редактирования -->
+                <Button Grid.Column="1"
+                        Command="{Binding DataContext.UpdateCourseCommand, 
+                                RelativeSource={RelativeSource 
+                                AncestorType=UserControl, 
+                                AncestorLevel=2}}"
+                        CommandParameter="{Binding}"
+                        Visibility="{Binding UpdateCourseAdminVisible}"
+                        Style="{StaticResource EditImageButtonStyle}"
+                        Width="30"
+                        Height="30"
+                        Padding="0"
+                        FontSize="16"
+                        Margin="0,0,5,0"
+                        ToolTip="Редактировать курс"/>
+            </Grid>
+
+            <!-- Разделитель -->
+            <Rectangle Grid.Row="1" 
+                       Style="{StaticResource CardSeparatorStyle}"/>
+
+            <!-- Описание курса -->
             <TextBlock Grid.Row="2"
-                       Text="{Binding User.NameUser, StringFormat='Создатель: {0}'}" 
-                       Foreground="#666"
+                       Text="{Binding Description}"
+                       Style="{StaticResource BodyTextStyle}"
+                       Foreground="{StaticResource TextSecondaryBrush}"
                        TextWrapping="Wrap"
-                       Margin="0,0,0,8"/>
+                       MaxHeight="80"
+                       Margin="0,0,0,12"/>
 
-            <Grid Grid.Row="3" Margin="0,0,0,8">
+            <!-- Информация об авторе -->
+            <Grid Grid.Row="3" Margin="0,0,0,12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" 
+                           Text="👤 " 
+                           FontSize="14"
+                           VerticalAlignment="Center"/>
+
+                <TextBlock Grid.Column="1"
+                           Text="{Binding User.NameUser, StringFormat='Создатель: {0}'}"
+                           Style="{StaticResource BodyTextStyle}"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           FontWeight="SemiBold"
+                           VerticalAlignment="Center"/>
+            </Grid>
+
+            <!-- Даты создания и обновления -->
+            <Grid Grid.Row="4" Margin="0,0,0,12">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0"
-                           Text="{Binding CreatedAt, StringFormat='Создан: {0:dd.MM.yyyy}'}" 
-                           Foreground="#666"/>
+                <StackPanel Grid.Column="0" Orientation="Vertical">
+                    <TextBlock Text="Создан" Style="{StaticResource SmallTextStyle}"/>
+                    <TextBlock Text="{Binding CreatedAt, StringFormat=\{0:dd.MM.yyyy\}}" 
+                               Style="{StaticResource BodyTextStyle}"
+                               FontWeight="SemiBold"/>
+                </StackPanel>
 
-                <TextBlock Grid.Column="1"
-                           Text="{Binding UpdateAt, StringFormat='Обновлён: {0:dd.MM.yyyy}'}" 
-                           Foreground="#666"
-                           HorizontalAlignment="Right">
-                    <TextBlock.Style>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="Visibility" Value="Visible"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding UpdateAt}" Value="{x:Null}">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBlock.Style>
-                </TextBlock>
+                <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <TextBlock Text="Обновлён">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock" BasedOn="{StaticResource SmallTextStyle}">
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding UpdateAt}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <TextBlock Text="{Binding UpdateAt, StringFormat=\{0:dd.MM.yyyy\}}" 
+                               FontWeight="SemiBold">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock" BasedOn="{StaticResource BodyTextStyle}">
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding UpdateAt}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </StackPanel>
             </Grid>
-            <Grid  Grid.Row="4"
-             VerticalAlignment="Bottom"
-                         Width="auto"
-             HorizontalAlignment="Stretch">
-                <TextBlock
-                       Text="{Binding ReviewsCount, StringFormat='Отзывов: {0}'}" 
-                       Foreground="#666"
-                       HorizontalAlignment="Left"
-                       Margin="0,0,0,8"/>
 
-                <TextBlock
-                       Text="{Binding Rait, StringFormat='Рейтинг: {0:F1}'}" 
-                       Foreground="#666"
-                       HorizontalAlignment="Right"
-                       Margin="0,0,0,8"/>
+            <!-- Статистика (рейтинг и отзывы) -->
+            <Grid Grid.Row="5" Margin="0,0,0,16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
+                <!-- Рейтинг со звездой -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock Text="★ " 
+                               FontSize="23" 
+                               Foreground="{StaticResource StarsYellowBrush}"
+                               VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding Rait, StringFormat=\{0:F1\}}" 
+                               Foreground="{StaticResource StarsYellowBrush}"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <!-- Количество отзывов с кнопкой подробнее -->
+                <StackPanel Grid.Column="1" 
+                            Orientation="Horizontal" 
+                            HorizontalAlignment="Right">
+                    <TextBlock Text="💬 " 
+                               FontSize="14" 
+                               Foreground="{StaticResource TextSecondaryBrush}"
+                               VerticalAlignment="Center">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ReviewsCount}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+
+                    <TextBlock Text="{Binding ReviewsCount, StringFormat={} {0} отзывов}" 
+                               VerticalAlignment="Center"
+                               Margin="0,0,10,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock" BasedOn="{StaticResource SmallTextStyle}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ReviewsCount}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </StackPanel>
             </Grid>
-            <StackPanel Grid.Row="6"
-                        Orientation="Horizontal"
-                        VerticalAlignment="Bottom"
-                        HorizontalAlignment="Center">
 
-                <Button Content="Подробнее"
-                        Command="{Binding DataContext.ViewDetailsCommand, 
-                                RelativeSource={RelativeSource 
-                                AncestorType=UserControl, 
-                                AncestorLevel=2}}"
-                        
-                        CommandParameter="{Binding}"
-                        Padding="12,6"
-                        Margin="0,0,8,0"/>
+            <!-- Разделитель перед кнопками -->
+            <Rectangle Grid.Row="6" 
+                       Style="{StaticResource CardSeparatorStyle}"/>
 
+            <!-- Кнопки действий -->
+            <StackPanel Grid.Row="7" 
+                        Orientation="Horizontal" 
+                        HorizontalAlignment="Center"
+                        Margin="0,8,0,0">
+
+                <!-- Кнопка "Записаться" -->
                 <Button Content="Записаться"
-                         Margin="0,0,8,0"
                         Command="{Binding DataContext.EnrollCommand, 
-                                RelativeSource={RelativeSource 
-                                AncestorType=UserControl, 
-                                AncestorLevel=2}}"
+                                RelativeSource={RelativeSource AncestorType=UserControl, AncestorLevel=2}}"
                         CommandParameter="{Binding}"
-                        Padding="12,6">
+                        Height="32"
+                        Padding="12,6"
+                        FontSize="12"
+                        Margin="0,0,8,0">
                     <Button.Style>
-                        <Style TargetType="Button">
+                        <Style TargetType="Button" BasedOn="{StaticResource EnrollButtonStyle}">
                             <Setter Property="Visibility" Value="Visible"/>
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding IsEnrolled}" Value="True">
@@ -127,16 +243,6 @@
                         </Style>
                     </Button.Style>
                 </Button>
-
-
-                <Button Content="Редактировать"
-        Command="{Binding DataContext.UpdateCourseCommand, 
-                RelativeSource={RelativeSource 
-                AncestorType=UserControl, 
-                AncestorLevel=2}}"
-         Visibility="{Binding UpdateCourseAdminVisible}"
-        CommandParameter="{Binding}"
-        Padding="12,6"/>
             </StackPanel>
         </Grid>
     </Border>

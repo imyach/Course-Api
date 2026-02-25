@@ -47,6 +47,22 @@ namespace CourseDesktopClient.ViewModel
             }
         }
 
+                private Visibility? _visibleMisstake = Visibility.Collapsed;
+        public Visibility? VisibleMisstake
+        {
+
+            get { return _visibleMisstake; }
+            set { _visibleMisstake = value; OnPropertyChanged(); }
+        }
+        private string? _mistakeText = string.Empty;
+        public string? MistakeText
+        {
+            get { return _mistakeText; }
+            set { _mistakeText = value; OnPropertyChanged(); }
+        }
+
+
+       
         private Visibility _visibleEmptyPage;
         public Visibility VisibleEmptyPage
         {
@@ -94,6 +110,24 @@ namespace CourseDesktopClient.ViewModel
             {
                 var answerElementVm = sender as CreateAnswerElementVm;
 
+                if (string.IsNullOrEmpty(answerElementVm.Text))
+                {
+                    answerElementVm.MistakeAnswerText = "Введите ответ";
+                    answerElementVm.VisibleAnswerMisstake = Visibility.Visible;
+                    return;
+                }
+                else if (answerElementVm.Text.Length >250)
+                {
+                    answerElementVm.MistakeAnswerText = "Ответ не может превышать 250 символов";
+                    answerElementVm.VisibleAnswerMisstake = Visibility.Visible;
+                    return;
+                }
+                else
+                {
+                    answerElementVm.MistakeAnswerText = string.Empty;
+                    answerElementVm.VisibleAnswerMisstake = Visibility.Collapsed;
+                }
+
                 var updateAnswer = new AnswerDto
                 {
                     Id = answerElementVm.Id,
@@ -118,6 +152,19 @@ namespace CourseDesktopClient.ViewModel
 
             SaveUpdateCommand = new RelayCommand(async sender =>
             {
+
+                if (string.IsNullOrEmpty(TextOfQuestion))
+                {
+                    MistakeText = "Введите вопрос";
+                    VisibleMisstake = Visibility.Visible;
+                    return;
+                }
+                else
+                {
+                    MistakeText = string.Empty;
+                    VisibleMisstake = Visibility.Collapsed;
+                }
+
                 var updateQuestion = new QuestionDto
                 {
                     Id = questionId,
@@ -140,6 +187,8 @@ namespace CourseDesktopClient.ViewModel
 
         public async Task LoadQuestion(Guid idQuestion, Guid idTest)
         {
+            MistakeText = string.Empty;
+            VisibleMisstake = Visibility.Collapsed;
             testId = idTest;
             if (idQuestion != default)
             {

@@ -10,33 +10,38 @@
         Background="Transparent"
         WindowStartupLocation="CenterOwner"
         SizeToContent="WidthAndHeight"
-        MinWidth="340"
-        MaxWidth="500"
-        MinHeight="150"
+        MinWidth="360"
+        MaxWidth="520"
+        MinHeight="160"
         MaxHeight="400"
-        Title="CustomMessageBox">
+        Title="CustomMessageBox"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Topmost="True"
+            RenderOptions.EdgeMode="Unspecified"  
+RenderOptions.BitmapScalingMode="NearestNeighbor">
 
-    <!-- Используем Loaded вместо ContentRendered, это более надежно -->
+    <!-- Анимация появления -->
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>
                 <Storyboard>
                     <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
-                                     From="0.8" To="1.0" Duration="0:0:0.3">
+                                     From="0.9" To="1.0" Duration="0:0:0.2">
                         <DoubleAnimation.EasingFunction>
-                            <QuadraticEase EasingMode="EaseOut"/>
+                            <CubicEase EasingMode="EaseOut"/>
                         </DoubleAnimation.EasingFunction>
                     </DoubleAnimation>
                     <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
-                                     From="0.8" To="1.0" Duration="0:0:0.3">
+                                     From="0.9" To="1.0" Duration="0:0:0.2">
                         <DoubleAnimation.EasingFunction>
-                            <QuadraticEase EasingMode="EaseOut"/>
+                            <CubicEase EasingMode="EaseOut"/>
                         </DoubleAnimation.EasingFunction>
                     </DoubleAnimation>
                     <DoubleAnimation Storyboard.TargetProperty="Opacity"
-                                     From="0" To="1" Duration="0:0:0.15">
+                                     From="0" To="1" Duration="0:0:0.2">
                         <DoubleAnimation.EasingFunction>
-                            <QuadraticEase EasingMode="EaseOut"/>
+                            <CubicEase EasingMode="EaseOut"/>
                         </DoubleAnimation.EasingFunction>
                     </DoubleAnimation>
                 </Storyboard>
@@ -44,66 +49,103 @@
         </EventTrigger>
     </Window.Triggers>
 
-    <Border CornerRadius="8" 
-            Background="White" 
-            BorderThickness="1" 
-            BorderBrush="#E0E0E0"
-            RenderTransformOrigin="0.5,0.5">
+    <!-- Основной фон с затемнением -->
+    <Grid>
+        <!-- Полупрозрачный фон для затемнения -->
+        <Border Background="Transparent" Opacity="0.3"/>
 
-        <Border.RenderTransform>
-            <ScaleTransform ScaleX="1" ScaleY="1"/>
-        </Border.RenderTransform>
+        <!-- Основное окно сообщения -->
+        <Border CornerRadius="12" 
+                Background="{StaticResource PureWhiteBrush}" 
+                BorderThickness="1" 
+                BorderBrush="{StaticResource BorderGrayBrush}"
+                RenderTransformOrigin="0.5,0.5"
+                Margin="20"
+                Effect="{StaticResource CardShadowEffect}">
 
-        <Grid Margin="16">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+            <Border.RenderTransform>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+            </Border.RenderTransform>
 
-            <StackPanel Grid.Row="0" 
-                        Orientation="Horizontal" 
-                        Margin="0,0,0,12">
+            <Grid Margin="24">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-                <TextBlock Text="{Binding Title}"
-                           FontSize="18"
-                           FontWeight="Bold"
-                           Foreground="#333333"
-                           TextTrimming="CharacterEllipsis"
-                           VerticalAlignment="Center"/>
-            </StackPanel>
+                <!-- Заголовок с иконкой в зависимости от типа сообщения -->
+                <Grid Grid.Row="0" Margin="0,0,0,16">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
-            <ScrollViewer Grid.Row="1"
-                          VerticalScrollBarVisibility="Auto"
-                          MaxHeight="200"
-                          Margin="0,0,0,16">
-                <TextBlock Text="{Binding Message}"
-                           TextWrapping="WrapWithOverflow"
-                           TextTrimming="CharacterEllipsis"
-                           FontSize="15"
-                           Foreground="#555555"/>
-            </ScrollViewer>
+                    <!-- Иконка вопроса/информации/предупреждения -->
+                    <Border Grid.Column="0"
+                            Width="32"
+                            Height="32"
+                            CornerRadius="16"
+                            Background="{StaticResource SoftGreenBrush}"
+                            Margin="0,0,12,0">
+                        <TextBlock Text="?" 
+                                   FontSize="18"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource PrimaryGreenBrush}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                    </Border>
 
-            <StackPanel Grid.Row="2" 
-                        Orientation="Horizontal" 
-                        HorizontalAlignment="Center">
+                    <!-- Текст заголовка -->
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Title}"
+                               Style="{StaticResource H4Style}"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Foreground="{StaticResource TextPrimaryBrush}"
+                               TextTrimming="CharacterEllipsis"
+                               VerticalAlignment="Center"/>
+                </Grid>
 
-                <Button Content="{Binding OkButtonText}"
-                        Command="{Binding OkCommand}"
-                        Background="#2196F3"
-                        Foreground="White"
-                        Padding="16,8"
-                        MinWidth="80"
-                        Margin="0,0,8,0"/>
+                <!-- Сообщение -->
+                <ScrollViewer Grid.Row="1"
+                              VerticalScrollBarVisibility="Auto"
+                              MaxHeight="240"
+                              Margin="0,0,0,20">
+                    <TextBlock Text="{Binding Message}"
+                               TextWrapping="Wrap"
+                               Style="{StaticResource BodyTextStyle}"
+                               FontSize="14"
+                               Foreground="{StaticResource TextSecondaryBrush}"
+                               LineHeight="20"
+                               LineStackingStrategy="BlockLineHeight"/>
+                </ScrollViewer>
 
-                <Button Content="{Binding CancelButtonText}"
-                        Command="{Binding CancelCommand}"
-                        Background="#9E9E9E"
-                        Foreground="White"
-                        Padding="16,8"
-                        MinWidth="80"
-                        Visibility="{Binding CancelButtonVisibility}"/>
-            </StackPanel>
-        </Grid>
-    </Border>
+                <!-- Кнопки действий -->
+                <StackPanel Grid.Row="2" 
+                            Orientation="Horizontal" 
+                            HorizontalAlignment="Center">
+
+                    <!-- Кнопка подтверждения (OK/Yes) -->
+                    <Button Content="{Binding OkButtonText}"
+                            Command="{Binding OkCommand}"
+                            Style="{StaticResource YesButtonStyle}"
+                            Height="38"
+                            Padding="20,0"
+                            MinWidth="90"
+                            Margin="0,0,8,0"/>
+
+                    <!-- Кнопка отмены (Cancel/No) -->
+                    <Button Content="{Binding CancelButtonText}"
+                            Command="{Binding CancelCommand}"
+                            Style="{StaticResource SecondaryButtonStyle}"
+                            Height="38"
+                            Padding="20,0"
+                            MinWidth="90"
+                            Visibility="{Binding CancelButtonVisibility}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
 </Window>

@@ -4,6 +4,35 @@
              xmlns:local="clr-namespace:CourseDesktopClient"
              Startup="OnStartup">
     <Application.Resources>
-        
+
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="/UI/Effects/ShadowEffects.xaml"/>
+
+                <ResourceDictionary Source="/UI/Animation/CadrAnimation.xaml"/>
+                <ResourceDictionary Source="/UI/Animation/PaginationAnimation.xaml"/>
+                
+                <ResourceDictionary Source="/UI/Styles/Colors.xaml"/>
+                <ResourceDictionary Source="/UI/Styles/ScrollViewerStyle.xaml"/>
+                <ResourceDictionary Source="/UI/Styles/TextBlockStyles.xaml"/>
+                <ResourceDictionary Source="/UI/Styles/ButtonStyles.xaml"/>
+                <ResourceDictionary Source="/UI/Styles/CheckBoxStyles.xaml"/>
+                <ResourceDictionary Source="/UI/Styles/TextBoxStyles.xaml"/>
+                <ResourceDictionary Source="/UI/Styles/ImageStyles.xaml"/>
+                <ResourceDictionary Source="/UI/Styles/SeparatorStyle.xaml"/>
+                <ResourceDictionary Source="/UI/Styles/MenuStyle.xaml"/>
+                <ResourceDictionary Source="/UI/Styles/BorderStyle.xaml"/>
+                <ResourceDictionary Source="/UI/Styles/RadioButtonStyles.xaml"/>
+                <ResourceDictionary Source="/UI/Styles/PasswordBoxStyles.xaml"/>
+                <ResourceDictionary Source="/UI/Styles/ComboBoxStyle.xaml"/>
+                <ResourceDictionary Source="/UI/Styles/ToggleButtonStyles.xaml"/>
+
+
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>

@@ -5,6 +5,7 @@ using CourseDesktopClient.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 
 namespace CourseDesktopClient.UI.Elements.ElementVM
 {
@@ -34,6 +35,19 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
                     OnPropertyChanged();
                 }
             }
+        }
+        private Visibility? _visibleAnswerMisstake = Visibility.Collapsed;
+        public Visibility? VisibleAnswerMisstake
+        {
+
+            get { return _visibleAnswerMisstake; }
+            set { _visibleAnswerMisstake = value; OnPropertyChanged(); }
+        }
+        private string? _mistakeAnswerText = string.Empty;
+        public string? MistakeAnswerText
+        {
+            get { return _mistakeAnswerText; }
+            set { _mistakeAnswerText = value; OnPropertyChanged(); }
         }
     }
 }

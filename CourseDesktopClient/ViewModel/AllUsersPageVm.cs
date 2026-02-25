@@ -8,6 +8,7 @@ using CourseDesktopClient.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
@@ -42,8 +43,9 @@ namespace CourseDesktopClient.ViewModel
                 OnPropertyChanged();
             }
         }
-
-        public Visibility AddUserButtonVisaible => authService.CurrentUser.Role.Name == "Admin" ? Visibility.Visible : Visibility.Collapsed; 
+        public Visibility AddUserButtonVisible =>
+    authService.CurrentUser.Role.Name == "Admin" ? Visibility.Visible : Visibility.Hidden;
+         
 
 
         public AllUsersPageVm(INavigationService navigationService, ICourseApiClient courseApiClient, IAuthService authService, IPagerService pagerService) :base(navigationService)
@@ -57,10 +59,19 @@ namespace CourseDesktopClient.ViewModel
             {
                 await navigationService.NavigateToCreateUser();
             });
-            PagerCommand = new RelayCommand(async pageNumberStr =>
+            PagerCommand = new RelayCommand(async parameter =>
             {
-                if (int.TryParse((pageNumberStr as ButtonItem).Text, out int pageNumber))
+                if (parameter is ButtonItem buttonItem && int.TryParse(buttonItem.Text, out int pageNumber))
                 {
+                    // Обновляем IsSelected для всех кнопок
+                    if (ButtonPanel != null)
+                    {
+                        foreach (var btn in ButtonPanel)
+                        {
+                            btn.IsSelected = btn.Text == pageNumber.ToString();
+                        }
+                    }
+
                     await Update(pageNumber);
                 }
             });

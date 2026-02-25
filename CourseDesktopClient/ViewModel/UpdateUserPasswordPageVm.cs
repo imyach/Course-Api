@@ -42,6 +42,14 @@ namespace CourseDesktopClient.ViewModel
 
         public ICommand SaveNewPassword { get; set; }
 
+
+        private Visibility? _visibleMisstake = Visibility.Collapsed;
+        public Visibility? VisibleMisstake
+        {
+
+            get { return _visibleMisstake; }
+            set { _visibleMisstake = value; OnPropertyChanged(); }
+        }
         public UpdateUserPasswordPageVm(INavigationService navigationService, IAuthService authService): base(navigationService) 
         {
             SaveNewPassword = new RelayCommand(async _ =>
@@ -74,23 +82,26 @@ namespace CourseDesktopClient.ViewModel
                || string.IsNullOrEmpty(oldPassword))
             {
                 MistakeText = "Заполните все поля";
+                VisibleMisstake = Visibility.Visible;
                 return false;
             }
             else if (newPassword != newRepPassword)
             {
                 MistakeText = "Пароль введеный повторно не совпадает";
+                VisibleMisstake = Visibility.Visible;
                 return false;
             }
             else if (oldPassword == newPassword)
             {
                 MistakeText = "Введите разные пароли";
+                VisibleMisstake = Visibility.Visible;
                 return false;
             }
-            else
-            {
-                MistakeText = string.Empty;
-                return true;
-            }
+            
+            MistakeText = string.Empty;
+            VisibleMisstake = Visibility.Collapsed;
+            return true;
+            
         }
     }
 }

@@ -6,6 +6,7 @@ using CourseDesktopClient.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 
 namespace CourseDesktopClient.ViewModel
@@ -35,6 +36,12 @@ namespace CourseDesktopClient.ViewModel
         public ICommand PassTestCommand { get; set; }
         public ICommand PassModuleCommand { get; set; }
         public ICommand LookTestResults { get; set; }
+        private Visibility _visibleDescriptionBorder { get; set; }
+        public Visibility VisibleDescriptionBorder
+        {
+            get => _visibleDescriptionBorder;
+            set { _visibleDescriptionBorder = value; OnPropertyChanged(); }
+        }
 
         public CompletingMaterialPageVm(INavigationService navigationService, ICourseApiClient courseApiClient) : base(navigationService)
         {
@@ -70,7 +77,11 @@ namespace CourseDesktopClient.ViewModel
             var testResults = await courseApiClient.GetTestResultsAsync(progressMaterialId);
             var testResultViewModel = testResults.TestResults.Select(x => new TestResultElementVm(x)).ToList();
             GetTestsResults = testResultViewModel;
-        }   
+
+            VisibleDescriptionBorder = string.IsNullOrEmpty(Description)
+                ? Visibility.Collapsed
+                : Visibility.Visible;
+        }
 
     }
 }

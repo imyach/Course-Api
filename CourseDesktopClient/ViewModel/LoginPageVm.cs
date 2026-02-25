@@ -67,6 +67,33 @@ namespace CourseDesktopClient.ViewModel
                 return false;
             }
 
+            if (loginOrEmail.Length < 5)
+            {
+                MisstakeText = "Логин не может быть менее 5 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+
+            if (password.Length < 5)
+            {
+                MisstakeText = "Пароль не может быть менее 5 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+
+            if (loginOrEmail.Length>30)
+            {
+                MisstakeText = "Логин не может быть больше 30 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+            if (password.Length > 30)
+            {
+                MisstakeText = "Пароль не может быть больше 30 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+
             MisstakeText = string.Empty;
             VisibleMisstake = Visibility.Collapsed;
             return true;

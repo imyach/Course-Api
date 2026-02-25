@@ -1,0 +1,359 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ========== СТИЛЬ ДЛЯ КНОПКИ РАСКРЫТИЯ КОМБОБОКСА ========== -->
+    <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="24" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Основная рамка -->
+            <Border x:Name="Border" 
+                    Grid.ColumnSpan="2"
+                    CornerRadius="8"
+                    BorderBrush="{StaticResource BorderGrayBrush}"
+                    BorderThickness="1" 
+                    Background="{StaticResource PureWhiteBrush}"
+                    Effect="{StaticResource CardShadowEffect}">
+                <Border.Triggers>
+                    <EventTrigger RoutedEvent="Border.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                 From="0" To="1" Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Border.Triggers>
+            </Border>
+
+            <!-- Стрелка с анимацией -->
+            <Path x:Name="Arrow"
+                  Grid.Column="1"     
+                  Fill="{StaticResource PrimaryGreenBrush}"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Data="M0,0 L0,2 L4,6 L8,2 L8,0 L4,4 z"
+                  Margin="0,2,5,0"
+                  RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <RotateTransform Angle="0"/>
+                </Path.RenderTransform>
+            </Path>
+
+            <!-- Эффект свечения при наведении (будет виден через триггеры) -->
+            <Border x:Name="GlowBorder"
+                    Grid.ColumnSpan="2"
+                    CornerRadius="8"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    IsHitTestVisible="False"/>
+        </Grid>
+
+        <ControlTemplate.Triggers>
+            <!-- При наведении -->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource PrimaryGreenBrush}"/>
+                <Setter TargetName="Border" Property="BorderThickness" Value="1.5"/>
+                <Setter TargetName="Arrow" Property="Fill" Value="{StaticResource LightGreenBrush}"/>
+                <Setter TargetName="Arrow" Property="Margin" Value="0,2,5,0"/>
+            </Trigger>
+
+            <!-- При нажатии -->
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource SoftGreenBrush}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource PrimaryGreenBrush}"/>
+                <Setter TargetName="Border" Property="BorderThickness" Value="1.5"/>
+                <Setter TargetName="Arrow" Property="Fill" Value="{StaticResource PrimaryGreenBrush}"/>
+                <Setter TargetName="Arrow" Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+
+            <!-- При открытии -->
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="Arrow" Property="RenderTransform">
+                    <Setter.Value>
+                        <RotateTransform Angle="180"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter TargetName="Arrow" Property="Fill" Value="{StaticResource PrimaryGreenBrush}"/>
+            </Trigger>
+
+            <!-- При отключении -->
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource LightGrayBrush}"/>
+                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource LightGrayBrush}"/>
+                <Setter TargetName="Arrow" Property="Fill" Value="{StaticResource DarkGrayBrush}"/>
+                <Setter Property="Opacity" Value="0.6"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!-- ========== СТИЛЬ ДЛЯ ТЕКСТОВОГО ПОЛЯ КОМБОБОКСА ========== -->
+    <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
+        <Border x:Name="PART_ContentHost" 
+                Focusable="False"  
+                Background="{TemplateBinding Background}"
+                CornerRadius="4"/>
+    </ControlTemplate>
+
+    <!-- ========== ОСНОВНОЙ СТИЛЬ ДЛЯ КОМБОБОКСА ========== -->
+    <Style x:Key="CustomComboBoxStyle" TargetType="{x:Type ComboBox}">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="Height" Value="44"/>
+        <Setter Property="Width" Value="240"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+        <Setter Property="MinWidth" Value="140"/>
+        <Setter Property="MinHeight" Value="30"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBox}">
+                    <Grid x:Name="MainGrid" >
+                        <!-- Кнопка раскрытия (весь комбобокс) -->
+                        <ToggleButton x:Name="ToggleButton" 
+                                      Template="{StaticResource ComboBoxToggleButton}" 
+                                      Grid.ColumnSpan="2" 
+                                      Focusable="false"
+                                      IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                      ClickMode="Press"
+                                      Background="Transparent"/>
+
+                        <!-- Выбранный элемент -->
+                        <ContentPresenter x:Name="ContentSite" 
+                                          IsHitTestVisible="False"  
+                                          Content="{TemplateBinding SelectionBoxItem}"
+                                          ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                          ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                          Margin="14,0,30,0"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Left" />
+
+                        <!-- Редактируемое текстовое поле -->
+                        <TextBox x:Name="PART_EditableTextBox"
+                                 Style="{x:Null}" 
+                                 Template="{StaticResource ComboBoxTextBox}" 
+                                 HorizontalAlignment="Left" 
+                                 VerticalAlignment="Center" 
+                                 Margin="14,0,30,0"
+                                 Focusable="True" 
+                                 Foreground="{StaticResource TextPrimaryBrush}"
+                                 Background="Transparent"
+                                 BorderThickness="0"
+                                 Visibility="Hidden"
+                                 IsReadOnly="{TemplateBinding IsReadOnly}"/>
+
+                        <!-- Выпадающий список -->
+                        <Popup x:Name="Popup"
+       Placement="Bottom"
+       IsOpen="{TemplateBinding IsDropDownOpen}"
+       AllowsTransparency="True" 
+       Focusable="False"
+       PopupAnimation="Slide"
+       VerticalOffset="4">
+                            <Grid x:Name="DropDown"
+          SnapsToDevicePixels="True"                
+          MinWidth="{TemplateBinding ActualWidth}"
+          MaxHeight="{TemplateBinding MaxDropDownHeight}">
+
+                                <!-- Тень под выпадающим списком -->
+                                <Border x:Name="DropDownShadow"
+                Background="{StaticResource DarkGrayBrush}"
+                CornerRadius="8"
+                Margin="0,4,0,0"
+                Opacity="0.2">
+                                    <Border.Effect>
+                                        <BlurEffect Radius="8"/>
+                                    </Border.Effect>
+                                </Border>
+
+                                <!-- Основной фон выпадающего списка -->
+                                <Border x:Name="DropDownBorder"
+                Background="{StaticResource PureWhiteBrush}"
+                CornerRadius="8"
+                BorderThickness="1"
+                BorderBrush="{StaticResource BorderGrayBrush}"
+                Margin="0,2,0,0">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="10" 
+                                  ShadowDepth="2" 
+                                  Opacity="0.15" 
+                                  Direction="270"
+                                  Color="#000000"/>
+                                    </Border.Effect>
+
+                                    <ScrollViewer Margin="6,4,6,4"  
+                                        SnapsToDevicePixels="True"
+                          Background="Transparent"
+                          VerticalScrollBarVisibility="Auto">
+                                        <StackPanel IsItemsHost="True" 
+                            KeyboardNavigation.DirectionalNavigation="Contained" 
+                            Margin="0"/>
+                                    </ScrollViewer>
+                                </Border>
+                            </Grid>
+                        </Popup>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <!-- Когда нет элементов -->
+                        <Trigger Property="HasItems" Value="false">
+                            <Setter TargetName="DropDownBorder" Property="MinHeight" Value="60"/>
+                        </Trigger>
+
+                        <!-- Когда комбобокс отключен -->
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{StaticResource DarkGrayBrush}"/>
+                            <Setter TargetName="ToggleButton" Property="Opacity" Value="0.6"/>
+                        </Trigger>
+
+                        <!-- При группировке -->
+                        <Trigger Property="IsGrouping" Value="true">
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                        </Trigger>
+
+                        <!-- В режиме редактирования -->
+                        <Trigger Property="IsEditable" Value="true">
+                            <Setter Property="IsTabStop" Value="false"/>
+                            <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                        </Trigger>
+
+                        <!-- При получении фокуса -->
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="ToggleButton" Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition Width="24" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border Grid.ColumnSpan="2"
+                                                    CornerRadius="8"
+                                                    BorderBrush="{StaticResource PrimaryGreenBrush}"
+                                                    BorderThickness="2" 
+                                                    Background="{StaticResource PureWhiteBrush}"
+                                                    Effect="{StaticResource CardShadowEffect}"/>
+                                            <Path Grid.Column="1"     
+                                                  Fill="{StaticResource PrimaryGreenBrush}"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  Data="M0,0 L0,2 L4,6 L8,2 L8,0 L4,4 z"
+                                                  Margin="0,2,5,0"/>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ ЭЛЕМЕНТОВ КОМБОБОКСА ========== -->
+    <Style x:Key="CustomComboBoxItemStyle" TargetType="{x:Type ComboBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Height" Value="Auto"/>
+        <!-- Изменено с 42 на Auto -->
+        <Setter Property="MinHeight" Value="42"/>
+        <!-- Добавлена минимальная высота -->
+        <Setter Property="Padding" Value="14,10,14,10"/>
+        <!-- Увеличен вертикальный padding -->
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="0,2,0,2"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                    <Border x:Name="Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Padding="{TemplateBinding Padding}"
+                        CornerRadius="6"
+                        Height="{TemplateBinding Height}"
+                        MinHeight="{TemplateBinding MinHeight}"
+                        Margin="{TemplateBinding Margin}"
+                        SnapsToDevicePixels="true">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Иконка выбора (появляется при наведении/выборе) -->
+                            <TextBlock x:Name="CheckIcon" 
+                                   Grid.Column="0"
+                                   Text="✓" 
+                                   FontSize="14"
+                                   Foreground="{StaticResource PrimaryGreenBrush}"
+                                   Margin="0,0,8,0"
+                                   Opacity="0"
+                                   VerticalAlignment="Center"/>
+
+                            <!-- Контент элемента -->
+                            <ContentPresenter x:Name="Content"
+                                          Grid.Column="1"
+                                          HorizontalAlignment="Left" 
+                                          VerticalAlignment="Center" />
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <!-- При наведении мыши - ЗЕЛЕНОВАТЫЙ ФОН -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource SoftGreenBrush}"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource LightGreenBrush}"/>
+                            <Setter TargetName="Border" Property="BorderThickness" Value="0.5"/>
+                            <Setter Property="Foreground" Value="{StaticResource PrimaryGreenBrush}"/>
+                            <Setter TargetName="CheckIcon" Property="Opacity" Value="0.5"/>
+                            <Setter TargetName="CheckIcon" Property="Foreground" Value="{StaticResource PrimaryGreenBrush}"/>
+                        </Trigger>
+
+                        <!-- При выборе элемента -->
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource LightGreenBrush}"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter TargetName="CheckIcon" Property="Opacity" Value="1"/>
+                            <Setter TargetName="CheckIcon" Property="Foreground" Value="White"/>
+                        </Trigger>
+
+                        <!-- При отключении -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{StaticResource DarkGrayBrush}"/>
+                            <Setter TargetName="Border" Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== УПРОЩЕННЫЙ СТИЛЬ ДЛЯ БЫСТРОГО ИСПОЛЬЗОВАНИЯ ========== -->
+    <Style x:Key="ComboBoxStyle" TargetType="ComboBox" BasedOn="{StaticResource CustomComboBoxStyle}">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource CustomComboBoxItemStyle}"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+</ResourceDictionary>

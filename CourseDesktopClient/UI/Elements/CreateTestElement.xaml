@@ -4,56 +4,86 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
+             xmlns:converters="clr-namespace:CourseDesktopClient.UI.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Border Background="LightGray" 
-            BorderBrush="#E0E0E0" 
-            BorderThickness="0 0 0 1"
-            Padding="14"
-            CornerRadius="20"
-            MaxHeight="90"
-            Margin="20">
+             d:DesignHeight="100" d:DesignWidth="400"
+             Background="Transparent"
+             UseLayoutRounding="True">
+
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <Border Style="{StaticResource TestCardBorderStyle}"
+            Width="Auto"
+            Height="Auto"
+            MinHeight="80"
+            MaxHeight="100"
+            Margin="15"
+            Padding="15"
+            SnapsToDevicePixels="True">
 
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="0"
-                       Text="{Binding Title, StringFormat='Тест: {0}'}" 
-                       FontSize="18"
-                       FontWeight="Bold"
-                       Foreground="#333"
-                       Margin="0,0,0,8" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" />
 
-            <StackPanel Grid.Row="6"
+            <!-- Левая часть с информацией о тесте -->
+            <StackPanel Grid.Column="0" 
+                        Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        Margin="0,0,10,0">
+
+                <!-- Заголовок теста с иконкой -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                    <TextBlock Text="📝" 
+                               FontSize="16"
+                               Foreground="{StaticResource PrimaryGreenBrush}"
+                               Margin="0,0,8,0"
+                               VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding Title, StringFormat='Тест: {0}'}" 
+                               Style="{StaticResource H4Style}"
+                               FontSize="15"
+                               FontWeight="SemiBold"
+                               Foreground="{StaticResource TextPrimaryBrush}"
+                               TextWrapping="Wrap"
+                               TextTrimming="CharacterEllipsis"
+                               MaxWidth="200"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Правая часть с кнопками -->
+            <StackPanel Grid.Column="1"
                         Orientation="Horizontal"
                         VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Grid.Column="1">
+                        HorizontalAlignment="Right">
 
-                <Button Content="Редактировать"
-                        Command="{Binding DataContext.LocalCreateTestCommand, 
+                <!-- Кнопка редактирования (иконка) -->
+                <Button Command="{Binding DataContext.LocalCreateTestCommand, 
                                 RelativeSource={RelativeSource 
                                 AncestorType=UserControl, 
                                 AncestorLevel=2}}"
-                        
                         CommandParameter="{Binding}"
-                        Padding="12,6"
-                        Margin="0,0,8,0"/>
+                        Style="{StaticResource EditIconButtonStyle}"
+                        Width="32"
+                        Height="32"
+                        Padding="0"
+                        Margin="0,0,5,0"
+                        ToolTip="Редактировать тест"/>
 
-                <Button Content="Удалить"
-                    Command="{Binding DataContext.LocalDeleteTestCommand, 
-                            RelativeSource={RelativeSource 
-                            AncestorType=UserControl, 
-                            AncestorLevel=2}}"
-                    
-                    CommandParameter="{Binding}"
-                    Padding="12,6"
-        Margin="0,0,8,0"/>
-
+                <!-- Кнопка удаления (иконка) -->
+                <Button Command="{Binding DataContext.LocalDeleteTestCommand, 
+                                RelativeSource={RelativeSource 
+                                AncestorType=UserControl, 
+                                AncestorLevel=2}}"
+                        CommandParameter="{Binding}"
+                        Style="{StaticResource DeleteIconButtonStyle}"
+                        Width="32"
+                        Height="32"
+                        Padding="0"
+                        ToolTip="Удалить тест"/>
             </StackPanel>
         </Grid>
     </Border>
 </UserControl>
-

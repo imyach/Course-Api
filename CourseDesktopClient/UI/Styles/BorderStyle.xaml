@@ -1,0 +1,552 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controlls ="clr-namespace:CourseDesktopClient.UI.Elements">
+    <!-- Локальные стили для карточки -->
+    <Style x:Key="CourseCardBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="Padding" Value="20"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="12" 
+                                      ShadowDepth="2" 
+                                      Opacity="0.1" 
+                                      Direction="270"
+                                      Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Width" Value="450"/>
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="Margin" Value="16"/>
+    </Style>
+
+    <Style x:Key="EmptyPageStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="Padding" Value="40"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="20" 
+                                      ShadowDepth="4" 
+                                      Opacity="0.1" 
+                                      Direction="270"
+                                      Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Width" Value="auto"/>
+        <Setter Property="Height" Value="auto"/>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ ФОРМЫ МАТЕРИАЛА ========== -->
+    <Style x:Key="CreateMaterialFormStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="14"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" 
+                              ShadowDepth="3" 
+                              Opacity="0.08" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- ========== СТИЛЬ ДЛЯ КОНТЕЙНЕРА ПАГИНАЦИИ ========== -->
+    <Style x:Key="PaginationContainerStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Padding" Value="20,10"/>
+        <Setter Property="Margin" Value="20,10"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="8" 
+                              ShadowDepth="2" 
+                              Opacity="0.1" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- Стиль для контейнера статистики -->
+    <Style x:Key="StatsContainerStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Padding" Value="20"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="8" 
+                              ShadowDepth="2" 
+                              Opacity="0.08" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Стиль для элемента статистики -->
+    <Style x:Key="StatItemStyle" TargetType="Border">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Padding" Value="30,15"/>
+        <Setter Property="Margin" Value="20,0"/>
+        <Setter Property="CornerRadius" Value="8"/>
+    </Style>
+
+    <!-- Стиль для карточки пользователя -->
+    <Style x:Key="CardBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="Padding" Value="16"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="8" 
+                              ShadowDepth="2" 
+                              Opacity="0.08" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Стиль для статистики мастерской -->
+    <Style x:Key="WorkshopStatsStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Padding" Value="15,10"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="6" 
+                                      ShadowDepth="1" 
+                                      Opacity="0.08" 
+                                      Direction="270"
+                                      Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ProfileCardStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" 
+                              ShadowDepth="3" 
+                              Opacity="0.1" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Стиль для карточки редактирования -->
+    <Style x:Key="EditProfileCardStyle" TargetType="Border" BasedOn="{StaticResource ProfileCardStyle}">
+        <Setter Property="Background" Value="{StaticResource OffWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource LightGreenBrush}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+    <!-- ========== СТИЛЬ ДЛЯ КАРТОЧКИ ОТЗЫВА ========== -->
+    <Style x:Key="ReviewCardBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="8" 
+                              ShadowDepth="2" 
+                              Opacity="0.08" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Стиль для карточки статистики -->
+    <Style x:Key="StatCardStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Padding" Value="15"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="8" 
+                                      ShadowDepth="2" 
+                                      Opacity="0.05" 
+                                      Direction="270"
+                                      Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ ЗВЕЗД РЕЙТИНГА ========== -->
+    <Style x:Key="RatingStarsStyle" TargetType="controlls:RatingStarsControl">
+        <Setter Property="Foreground" Value="{StaticResource StarsYellowBrush}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Cursor" Value="Arrow"/>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ КАРТОЧКИ ДЕТАЛЕЙ КУРСА ========== -->
+    <Style x:Key="CourseDetailCardStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" 
+                              ShadowDepth="3" 
+                              Opacity="0.1" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ СЕКЦИИ ОТЗЫВОВ ========== -->
+    <Style x:Key="ReviewsSectionStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="8" 
+                              ShadowDepth="2" 
+                              Opacity="0.05" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ ПАНЕЛИ СОРТИРОВКИ ========== -->
+    <Style x:Key="SortPanelStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="6" 
+                              ShadowDepth="1" 
+                              Opacity="0.05" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ ГРАНИЦЫ СТРАНИЦЫ ОШИБКИ ========== -->
+    <Style x:Key="ErrorPageBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="24"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="15" 
+                              ShadowDepth="3" 
+                              Opacity="0.1" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!-- ========== СТИЛЬ ДЛЯ ПАНЕЛИ КНОПОК ДЕЙСТВИЙ ========== -->
+    <Style x:Key="ActionButtonsPanelStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="8" 
+                              ShadowDepth="2" 
+                              Opacity="0.05" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- ========== СТИЛЬ ДЛЯ ФОРМЫ СОЗДАНИЯ КУРСА ========== -->
+    <Style x:Key="CreateCourseFormStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" 
+                              ShadowDepth="3" 
+                              Opacity="0.1" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ КАРТОЧКИ ТЕСТА ========== -->
+    <Style x:Key="TestCardBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="8" 
+                              ShadowDepth="2" 
+                              Opacity="0.08" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ КАРТОЧКИ ВОПРОСА ========== -->
+    <Style x:Key="QuestionCardBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="8" 
+                              ShadowDepth="2" 
+                              Opacity="0.08" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ КАРТОЧКИ ОТВЕТА ========== -->
+    <Style x:Key="AnswerCardBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="8" 
+                              ShadowDepth="2" 
+                              Opacity="0.08" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ ФОРМЫ ТЕСТА ========== -->
+    <Style x:Key="CreateTestFormStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="14"/>
+        <Setter Property="Padding" Value="30"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" 
+                              ShadowDepth="3" 
+                              Opacity="0.08" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ ФОРМЫ ВОПРОСА ========== -->
+    <Style x:Key="CreateQuestionFormStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="14"/>
+        <Setter Property="Padding" Value="25"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" 
+                              ShadowDepth="3" 
+                              Opacity="0.08" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ КАРТОЧКИ МОДУЛЯ ========== -->
+    <Style x:Key="ModuleCardBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="8" 
+                              ShadowDepth="2" 
+                              Opacity="0.08" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- ========== СТИЛЬ ДЛЯ КАРТОЧКИ ИНФОРМАЦИИ О КУРСЕ ========== -->
+    <Style x:Key="CourseInfoCardStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="14"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" 
+                              ShadowDepth="3" 
+                              Opacity="0.08" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ КАРТОЧКИ МАТЕРИАЛА ========== -->
+    <Style x:Key="MaterialCardBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="6" 
+                              ShadowDepth="2" 
+                              Opacity="0.06" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- ========== СТИЛЬ ДЛЯ КАРТОЧКИ ИНФОРМАЦИИ О МОДУЛЕ ========== -->
+    <Style x:Key="ModuleInfoCardStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="14"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" 
+                              ShadowDepth="3" 
+                              Opacity="0.08" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- ========== СТИЛЬ ДЛЯ КАРТОЧКИ РЕЗУЛЬТАТА ТЕСТА ========== -->
+    <Style x:Key="TestResultCardBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="6" 
+                              ShadowDepth="2" 
+                              Opacity="0.06" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MaterialInfoCardStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="14"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" 
+                              ShadowDepth="3" 
+                              Opacity="0.08" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- ========== СТИЛЬ ДЛЯ КАРТОЧКИ РЕЗУЛЬТАТА ТЕСТА ========== -->
+    <Style x:Key="TestResultCardStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="12" 
+                              ShadowDepth="4" 
+                              Opacity="0.15" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ КАРТОЧКИ ИНФОРМАЦИИ О ТЕСТЕ ========== -->
+    <Style x:Key="TestInfoCardStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="14"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" 
+                              ShadowDepth="3" 
+                              Opacity="0.08" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ КАРТОЧКИ ВОПРОСА ========== -->
+    <Style x:Key="QuestionCardStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="6" 
+                              ShadowDepth="2" 
+                              Opacity="0.05" 
+                              Direction="270"
+                              Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ ВАРИАНТА ОТВЕТА ========== -->
+    <Style x:Key="AnswerOptionStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource OffWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                <Setter Property="Background" Value="{StaticResource SoftGreenBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource PrimaryGreenBrush}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

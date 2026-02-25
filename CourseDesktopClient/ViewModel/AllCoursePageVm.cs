@@ -16,6 +16,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Text.Json;
 using System.Windows;
@@ -84,32 +85,55 @@ namespace CourseDesktopClient.ViewModel
                 await navigationService.NavigateToCreateCourse((sender as CoursePanelElementVm).Id);
             });
 
-            PagerCommand = new RelayCommand(async pageNumberStr =>
+            PagerCommand = new RelayCommand(async parameter =>
             {
-                if (int.TryParse((pageNumberStr as ButtonItem).Text, out int pageNumber))
+                if (parameter is ButtonItem buttonItem && int.TryParse(buttonItem.Text, out int pageNumber))
                 {
+                    // Обновляем IsSelected для всех кнопок
+                    if (ButtonPanel != null)
+                    {
+                        foreach (var btn in ButtonPanel)
+                        {
+                            btn.IsSelected = btn.Text == pageNumber.ToString();
+                        }
+                    }
+
                     await Update(pageNumber);
                 }
             });
 
             ViewDetailsCommand = new RelayCommand(async sender =>
             {
-                var idCourse = (sender as CoursePanelElementVm).Id;
-                await navigationService.NavigateToInformationCourse(idCourse);
+                if (!authService.IsAuthenticated)
+                {
+                    CustomMessageBox.ShowError("Необходимо авторизироваться");
+                }
+                else
+                {
+                    var idCourse = (sender as CoursePanelElementVm).Id;
+                    await navigationService.NavigateToInformationCourse(idCourse);
+                }
             });
 
             EnrollCommand = new RelayCommand(async sender => 
             {
-                var idCourse = (sender as CoursePanelElementVm).Id;
-                var titleCourse = (sender as CoursePanelElementVm).Title;
-                var request = new ProgressUserRequestDto
+                if (!authService.IsAuthenticated)
                 {
-                    CourseId = idCourse,
-                };
-                var id = await courseApiClient.CreateProgressUserAsync(request);
+                    CustomMessageBox.ShowError("Необходимо аторизироваться");
+                }
+                else
+                {
+                    var idCourse = (sender as CoursePanelElementVm).Id;
+                    var titleCourse = (sender as CoursePanelElementVm).Title;
+                    var request = new ProgressUserRequestDto
+                    {
+                        CourseId = idCourse,
+                    };
+                    var id = await courseApiClient.CreateProgressUserAsync(request);
 
-                CustomMessageBox.ShowInfo($"Вы записаны на курс {titleCourse}");
-                await Update();
+                    CustomMessageBox.ShowInfo($"Вы записаны на курс {titleCourse}");
+                    await Update();
+                }
             });
 
         }

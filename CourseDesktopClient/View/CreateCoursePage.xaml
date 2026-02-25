@@ -5,41 +5,247 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.View"
              xmlns:controls="clr-namespace:CourseDesktopClient.UI.Elements"
+             xmlns:conveters="clr-namespace:CourseDesktopClient.UI.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
-        <Grid Margin="0 10 0 0">
+             d:DesignHeight="600" d:DesignWidth="900"
+             Background="Transparent"
+             UseLayoutRounding="True"
+             SnapsToDevicePixels="True">
+
+    <UserControl.Resources>
+        <conveters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" 
+                  VerticalScrollBarVisibility="Auto"
+                  Style="{StaticResource BaseScrollViewerStyle}"
+                  Background="{StaticResource OffWhiteBrush}"
+                  SnapsToDevicePixels="True"
+                  UseLayoutRounding="True">
+
+        <Grid Margin="0,0,0,30" SnapsToDevicePixels="True" UseLayoutRounding="True">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="Auto"/>
+                <!-- Заголовок -->
+                <RowDefinition Height="Auto"/>
+                <!-- Форма курса -->
+                <RowDefinition Height="Auto"/>
+                <!-- Кнопка добавления модуля -->
+                <RowDefinition Height="Auto"/>
+                <!-- Модули или пустая страница -->
+                <RowDefinition Height="Auto"/>
+                <!-- Кнопки действий -->
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="Редактор курса" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-            <StackPanel Grid.Row="1" Orientation="Vertical" >
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Название курса"  Margin="10"/>
-                    <TextBox Text="{Binding TitleOfCourse, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="10"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Описание курса"  Margin="10"/>
-                    <TextBox Text="{Binding DescroptionOfCourse, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Width="500" Height="300" Margin="10"/>
-                </StackPanel>
+
+            <!-- ===== ЗАГОЛОВОК СТРАНИЦЫ ===== -->
+            <StackPanel Grid.Row="0" 
+                        Orientation="Vertical" 
+                        Margin="0,30,0,30"
+                        SnapsToDevicePixels="True">
+
+                <Grid HorizontalAlignment="Center" SnapsToDevicePixels="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Левая декоративная линия -->
+                    <Border Width="40" 
+                            Height="2" 
+                            Background="{StaticResource LightGreenBrush}" 
+                            Opacity="0.3"
+                            Margin="0,0,15,0"
+                            VerticalAlignment="Center"/>
+
+                    <TextBlock Grid.Column="1"
+                               Text="РЕДАКТОР КУРСА" 
+                               Style="{StaticResource PageTitleStyle}" 
+                               VerticalAlignment="Center"/>
+
+                    <!-- Правая декоративная линия -->
+                    <Border Grid.Column="2"
+                            Width="40" 
+                            Height="2" 
+                            Background="{StaticResource LightGreenBrush}" 
+                            Opacity="0.3"
+                            Margin="15,0,0,0"
+                            VerticalAlignment="Center"/>
+                </Grid>
+
+                <!-- Декоративная линия под заголовком -->
+                <Border Height="4" 
+                        Width="100" 
+                        Background="{StaticResource LightGreenBrush}" 
+                        HorizontalAlignment="Center"
+                        Margin="0,15,0,0"
+                        CornerRadius="2"/>
             </StackPanel>
-            <Button Content="Добaвить модуль" Grid.Row="2" Width="150" Height="30" Margin="10" Visibility="{Binding VisibleAddModuleButton}" HorizontalAlignment="Left" Command="{Binding CreateModuleCommand}"/>
 
-            <Grid  Grid.Row="3" MinHeight="200"   Visibility="{Binding VisibleEmptyPage}">
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="В данном курсе нет модулей" HorizontalAlignment="Center"/>
-                    <Button Content="Создать первый модуль" Command="{Binding CreateModuleCommand }"/>
+            <!-- ===== ФОРМА КУРСА ===== -->
+            <Border Grid.Row="1"
+                    Style="{StaticResource CreateCourseFormStyle}"
+                    Margin="50,0,50,30"
+                    Padding="30"
+                    SnapsToDevicePixels="True">
+
+                <StackPanel Orientation="Vertical" SnapsToDevicePixels="True">
+
+                    <!-- Название курса -->
+                    <Grid Margin="0,0,0,20" SnapsToDevicePixels="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" 
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <TextBlock Text="📌" 
+                                       FontSize="16"
+                                       Foreground="{StaticResource PrimaryGreenBrush}"
+                                       Margin="0,0,8,0"/>
+                            <TextBlock Text="Название курса" 
+                                       Style="{StaticResource BodyTextStyle}"
+                                       Foreground="{StaticResource TextSecondaryBrush}"/>
+                        </StackPanel>
+
+                        <TextBox Grid.Column="1"
+                                 Text="{Binding TitleOfCourse, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource TextBoxWithHintStyle}"
+                                 Tag="Введите название курса"
+                                 Height="40"
+                                 SnapsToDevicePixels="True"/>
+                    </Grid>
+
+                    <!-- Описание курса -->
+                    <Grid Margin="0,0,0,10" SnapsToDevicePixels="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" 
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Top"
+                                    Margin="0,8,0,0">
+                            <TextBlock Text="📝" 
+                                       FontSize="16"
+                                       Foreground="{StaticResource PrimaryGreenBrush}"
+                                       Margin="0,0,8,0"/>
+                            <TextBlock Text="Описание курса" 
+                                       Style="{StaticResource BodyTextStyle}"
+                                       Foreground="{StaticResource TextSecondaryBrush}"/>
+                        </StackPanel>
+
+                        <TextBox Grid.Column="1"
+                                 Text="{Binding DescroptionOfCourse, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource ReviewTextBoxStyle}"
+                                 Tag="Введите описание курса..."
+                                 Height="auto"
+                                 MaxHeight="500"
+                                 TextWrapping="Wrap"
+                                 AcceptsReturn="True"
+                                 VerticalScrollBarVisibility="Auto"
+                                 SnapsToDevicePixels="True"/>
+                    </Grid>
+                    
+                    <!-- Сообщение об ошибке -->
+                    <TextBlock Text="{Binding MistakeText}" 
+                Style="{StaticResource ErrorTextStyle}"
+         Visibility="{Binding VisibleMisstake}"
+                TextWrapping="Wrap"
+                HorizontalAlignment="Center"
+             Margin="0,0,0,15"/>
+                    
                 </StackPanel>
-            </Grid>
+            </Border>
 
-            <ItemsControl Grid.Row="3" 
-ItemsSource="{Binding GetModules}" 
-HorizontalContentAlignment="Center"  
-BorderThickness="0">
+            <!-- ===== КНОПКА ДОБАВЛЕНИЯ МОДУЛЯ ===== -->
+            <Border Grid.Row="2"
+                    Margin="50,0,50,30"
+                    Padding="0"
+                    HorizontalAlignment="Left"
+                    Visibility="{Binding VisibleAddModuleButton}"
+                    SnapsToDevicePixels="True">
+
+                <Button Content="Добавить модуль"
+                        Command="{Binding CreateModuleCommand}"
+                        Style="{StaticResource AddModuleButtonStyle}"
+                        Height="42"
+                        Padding="20,0"
+                        FontSize="13"
+                        FontWeight="SemiBold"
+                        SnapsToDevicePixels="True"/>
+            </Border>
+
+            <!-- ===== ПУСТАЯ СТРАНИЦА (нет модулей) ===== -->
+            <Border Grid.Row="3"
+                    Style="{StaticResource EmptyPageStyle}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Visibility="{Binding VisibleEmptyPage}"
+                    Margin="50,0,50,40"
+                    Padding="40"
+                    Background="{StaticResource PureWhiteBrush}"
+                    CornerRadius="24"
+                    Effect="{StaticResource CardShadowEffect}"
+                    SnapsToDevicePixels="True">
+
+                <StackPanel Orientation="Vertical" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"
+                            MaxWidth="400"
+                            SnapsToDevicePixels="True">
+
+                    <Border Background="{StaticResource SoftGreenBrush}"
+                            Width="100"
+                            Height="100"
+                            CornerRadius="50"
+                            Margin="0,0,0,20"
+                            HorizontalAlignment="Center">
+                        <TextBlock Text="📚" 
+                                   FontSize="48"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Opacity="0.8"/>
+                    </Border>
+
+                    <TextBlock Text="В курсе пока нет модулей" 
+                               Style="{StaticResource H4Style}"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimaryBrush}"
+                               FontSize="20"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,8"/>
+
+                    <TextBlock Text="Добавьте модули, чтобы структурировать материал курса" 
+                               Style="{StaticResource BodyTextStyle}"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextSecondaryBrush}"
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"
+                               Margin="0,0,0,25"/>
+
+                    <Button Content="Создать первый модуль" 
+                            Command="{Binding CreateModuleCommand}"
+                            Style="{StaticResource AddModuleButtonStyle}"
+                            Width="auto"
+                            Height="44"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            HorizontalAlignment="Center"
+                            Effect="{StaticResource CardShadowEffect}"/>
+                </StackPanel>
+            </Border>
+
+            <!-- ===== КОНТЕЙНЕР ДЛЯ МОДУЛЕЙ ===== -->
+            <ItemsControl Grid.Row="3"
+                          ItemsSource="{Binding GetModules}"
+                          Margin="30,0,30,40"
+                          Visibility="{Binding VisibleEmptyPage, Converter={StaticResource InverseBooleanToVisibilityConverter}}"
+                          SnapsToDevicePixels="True">
 
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -49,21 +255,66 @@ BorderThickness="0">
 
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid Columns="3" 
-          HorizontalAlignment="Center"
-          VerticalAlignment="Top"/>
+                        <WrapPanel Orientation="Horizontal" 
+                                   HorizontalAlignment="Center"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
 
-            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+            <!-- ===== КНОПКИ ДЕЙСТВИЙ ===== -->
+            <Border Grid.Row="4"
+                    Style="{StaticResource ActionButtonsPanelStyle}"
+                    Margin="30,0,30,30"
+                    Padding="20"
+                    SnapsToDevicePixels="True">
 
-                <Button Content="В мастерскую"  Width="150" Height="30" Margin="10"  Command="{Binding WorkshopCommand}"/>
-                <Button Content="Сохранить изменения" Width="150" Height="30" Margin="10" Command="{Binding SaveUpdateCommand}"/>
-                <Button Content="Опубликовать"  Width="150" Height="30" Margin="10"  Command="{Binding PublicCourseCommand}" IsEnabled="{Binding IsPublishEnable}" Visibility="{Binding VisiblePublishButton}"/>
-                <Button Content="Снять с публикации"  Width="150" Height="30" Margin="10"  Command="{Binding UnPublicCourseCommand}" Visibility="{Binding VisibleUnPublishButton}"/>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Right"
+                            SnapsToDevicePixels="True">
 
+                    <!-- Кнопка "В мастерскую" -->
+                    <Button Content="← В мастерскую"
+                            Command="{Binding WorkshopCommand}"
+                            Style="{StaticResource SecondaryButtonStyle}"
+                            Height="40"
+                            Padding="20,0"
+                            Margin="0,0,10,0"
+                            FontSize="13"
+                            SnapsToDevicePixels="True"/>
+
+                    <!-- Кнопка "Сохранить изменения" -->
+                    <Button Content="💾 Сохранить"
+                            Command="{Binding SaveUpdateCommand}"
+                            Style="{StaticResource PublishButtonStyle}"
+                            Height="40"
+                            Padding="20,0"
+                            Margin="0,0,10,0"
+                            FontSize="13"
+                            SnapsToDevicePixels="True"/>
+
+                    <!-- Кнопка "Опубликовать" -->
+                    <Button Content="🚀 Опубликовать"
+                            Command="{Binding PublicCourseCommand}"
+                            Style="{StaticResource PublishButtonStyle}"
+                            Height="40"
+                            Padding="20,0"
+                            Margin="0,0,10,0"
+                            FontSize="13"
+                            IsEnabled="{Binding IsPublishEnable}"
+                            Visibility="{Binding VisiblePublishButton}"
+                            SnapsToDevicePixels="True"/>
+
+                    <!-- Кнопка "Снять с публикации" -->
+                    <Button Content="⏸️ Снять с публикации"
+                            Command="{Binding UnPublicCourseCommand}"
+                            Style="{StaticResource UnpublishButtonStyle}"
+                            Height="40"
+                            Padding="20,0"
+                            FontSize="13"
+                            Visibility="{Binding VisibleUnPublishButton}"
+                            SnapsToDevicePixels="True"/>
+                </StackPanel>
+            </Border>
         </Grid>
     </ScrollViewer>
 </UserControl>

@@ -5,53 +5,131 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
              mc:Ignorable="d" 
-                          d:DesignHeight="300" d:DesignWidth="380" >
+             d:DesignHeight="400" d:DesignWidth="380"
+             Background="Transparent">
 
-    <Border Background="LightGray" 
-            BorderBrush="#E0E0E0" 
-            BorderThickness="0 0 0 1"
+    <Border Background="{StaticResource PureWhiteBrush}"
+            BorderBrush="{StaticResource BorderGrayBrush}"
+            BorderThickness="1"
             Padding="20"
             CornerRadius="20"
-            Width="380"
+            Width="450"
             Height="Auto"
-            MaxHeight="300"
-            Margin="20">
+            MaxHeight="450"
+            Margin="20"
+            Effect="{StaticResource CardShadowEffect}">
 
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto" MaxHeight="121"/>
+                <!-- Кнопка Продолжить (сверху) -->
                 <RowDefinition Height="Auto"/>
+                <!-- Разделитель 1 -->
                 <RowDefinition Height="Auto"/>
+                <!-- Заголовок и кнопка подробнее -->
                 <RowDefinition Height="Auto"/>
+                <!-- Разделитель 2 -->
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <!-- Описание курса -->
+                <RowDefinition Height="Auto"/>
+                <!-- Автор курса -->
+                <RowDefinition Height="Auto"/>
+                <!-- Даты -->
+                <RowDefinition Height="Auto"/>
+                <!-- Статус курса -->
+                <RowDefinition Height="Auto"/>
+                <!-- Разделитель 3 -->
+                <RowDefinition Height="Auto"/>
+                <!-- Кнопка удаления -->
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0"
-                       Text="{Binding Title}"
-                       HorizontalAlignment="Center"
-                       FontSize="18"
-                       FontWeight="Bold"
-                       Foreground="#333"
-                       Margin="0,0,0,8"/>
+            <!-- Кнопка Продолжить (увеличенная, сверху) -->
+            <Border Grid.Row="0"
+                    CornerRadius="12"
+                    Margin="0,0,0,15"
+                    Padding="0">
+                <Button Content="Продолжить обучение →"
+                        Command="{Binding DataContext.ContinueCousre, 
+                                RelativeSource={RelativeSource 
+                                AncestorType=UserControl, 
+                                AncestorLevel=2}}"
+                        Visibility="{Binding ContinueCousreVisible}"
+                        CommandParameter="{Binding}"
+                        Style="{StaticResource ContinueButtonLargeStyle}"
+                        Height="45"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Cursor="Hand"/>
+            </Border>
 
-            <TextBlock Grid.Row="1"
+            <!-- Разделитель 1 -->
+            <Rectangle Grid.Row="1" 
+                       Style="{StaticResource CardSeparatorStyle}"
+                       Margin="0,0,0,15"/>
+
+            <!-- Заголовок и кнопка подробнее в одной строке -->
+            <Grid Grid.Row="2" Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Заголовок курса -->
+                <TextBlock Grid.Column="0"
+                           Text="{Binding Title}"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           TextWrapping="Wrap"
+                           TextTrimming="CharacterEllipsis"
+                           VerticalAlignment="Center"/>
+
+                <!-- Кнопка подробнее справа сверху -->
+                <Button Grid.Column="1"
+                        Content="⋯"
+                        Command="{Binding DataContext.ViewDetailsCommand, 
+                                RelativeSource={RelativeSource 
+                                AncestorType=UserControl, 
+                                AncestorLevel=2}}"
+                        CommandParameter="{Binding}"
+                        Style="{StaticResource MoreDetailedButtonStyle}"
+                        Width="32"
+                        Height="32"
+                        Padding="0"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Margin="5,0,0,0"
+                        ToolTip="Подробнее о курсе" 
+                        Cursor="Hand"/>
+            </Grid>
+
+            <!-- Разделитель 2 -->
+            <Rectangle Grid.Row="3" 
+                       Style="{StaticResource CardSeparatorStyle}"
+                       Margin="0,0,0,12"/>
+
+            <!-- Описание курса -->
+            <TextBlock Grid.Row="4"
                        Text="{Binding Description}" 
-                       Foreground="#666"
-                       TextWrapping="WrapWithOverflow"
+                       Foreground="{StaticResource TextSecondaryBrush}"
+                       TextWrapping="Wrap"
                        TextTrimming="CharacterEllipsis"
                        MaxHeight="89" 
                        Height="Auto"
-                       Margin="0,0,0,8"/>
+                       Margin="0,0,0,12"
+                       LineHeight="20"
+                       LineStackingStrategy="BlockLineHeight"/>
 
-            <TextBlock Grid.Row="2"
+            <!-- Автор курса -->
+            <TextBlock Grid.Row="5"
                        Text="{Binding CreatedBy, StringFormat='Автор: {0}'}" 
-                       Foreground="#666"
+                       Foreground="{StaticResource TextSecondaryBrush}"
                        TextWrapping="Wrap"
-                       Margin="0,0,0,8"/>
+                       Margin="0,0,0,8"
+                       FontSize="13"/>
 
-            <Grid Grid.Row="3" Margin="0,0,0,8">
+            <!-- Даты -->
+            <Grid Grid.Row="6" Margin="0,0,0,12">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -59,12 +137,15 @@
 
                 <TextBlock Grid.Column="0"
                            Text="{Binding StartedAt, StringFormat='Записан: {0:dd.MM.yyyy}'}" 
-                           Foreground="#666"/>
+                           Foreground="{StaticResource TextSecondaryBrush}"
+                           FontSize="12"/>
 
                 <TextBlock Grid.Column="1"
                            Text="{Binding FinishedAt, StringFormat='Пройден: {0:dd.MM.yyyy}'}" 
-                           Foreground="#666"
-                           HorizontalAlignment="Right">
+                           Foreground="{StaticResource PrimaryGreenBrush}"
+                           HorizontalAlignment="Right"
+                           FontSize="12"
+                           FontWeight="Medium">
                     <TextBlock.Style>
                         <Style TargetType="TextBlock">
                             <Setter Property="Visibility" Value="Visible"/>
@@ -78,47 +159,65 @@
                 </TextBlock>
             </Grid>
 
-            <TextBlock Grid.Row="4"
-           Text="{Binding Status}" 
-           Foreground="#666"
-           TextWrapping="WrapWithOverflow"
-           TextTrimming="CharacterEllipsis"
-           MaxHeight="89" 
-           Height="Auto"
-           Margin="0,0,0,8"/>
+            <!-- Статус курса -->
+            <Border Grid.Row="7"
+                    x:Name="StatusBorder"
+                    CornerRadius="15"
+                    Padding="8,4"
+                    Margin="0,0,0,15"
+                    HorizontalAlignment="Left"
+                    BorderThickness="1">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <!-- Стиль по умолчанию (курс не пройден) -->
+                        <Setter Property="Background" Value="{StaticResource SoftGreenBrush}"/>
+                        <Setter Property="BorderBrush" Value="{StaticResource PrimaryGreenBrush}"/>
+                        <Style.Triggers>
+                            <!-- Стиль для пройденного курса (FinishedAt НЕ null) -->
+                            <DataTrigger Binding="{Binding FinishedAt}" Value="{x:Null}">
+                                <Setter Property="Background" Value="{StaticResource LightGrayBrush}"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
 
-            <StackPanel Grid.Row="6"
-                        Orientation="Horizontal"
-                        VerticalAlignment="Bottom"
-                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding Status}" 
+                           FontSize="12"
+                           FontWeight="Medium">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <!-- Цвет текста по умолчанию (курс не пройден) -->
+                            <Setter Property="Foreground" Value="{StaticResource PrimaryGreenBrush}"/>
+                            <Style.Triggers>
+                                <!-- Цвет текста для пройденного курса -->
+                                <DataTrigger Binding="{Binding FinishedAt}" Value="{x:Null}">
+                                    <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Border>
 
-                <Button Content="Удалить курс"
-        Command="{Binding DataContext.DeleteProgressCourseCommand, 
-                RelativeSource={RelativeSource 
-                AncestorType=UserControl, 
-                AncestorLevel=2}}"
-        CommandParameter="{Binding}"
-        Padding="12,6"
-        Margin="0,0,8,0"/>
-                <Button Content="Продолжить прохождение"
-                        Command="{Binding DataContext.ContinueCousre, 
-                                RelativeSource={RelativeSource 
-                                AncestorType=UserControl, 
-                                AncestorLevel=2}}"
-                        Visibility="{Binding ContinueCousreVisible}"
-                        CommandParameter="{Binding}"
-                        Padding="12,6"
-                        Margin="0,0,8,0"/>
+            <!-- Разделитель 3 -->
+            <Rectangle Grid.Row="8" 
+                       Style="{StaticResource CardSeparatorStyle}"
+                       Margin="0,0,0,12"/>
 
-                <Button Content="Подробнее"
-                        Command="{Binding DataContext.ViewDetailsCommand, 
-                                RelativeSource={RelativeSource 
-                                AncestorType=UserControl, 
-                                AncestorLevel=2}}"
-                        CommandParameter="{Binding}"
-                        Padding="12,6"/>
-            </StackPanel>
+            <!-- Кнопка удаления (внизу) -->
+            <Button Grid.Row="9"
+                    Content="Прекратить обучение"
+                    Command="{Binding DataContext.DeleteProgressCourseCommand, 
+                            RelativeSource={RelativeSource 
+                            AncestorType=UserControl, 
+                            AncestorLevel=2}}"
+                    CommandParameter="{Binding}"
+                    Style="{StaticResource DeleteButtonStyle}"
+                    Height="37"
+                    Padding="12,8"
+                    HorizontalAlignment="Center"
+                    Margin="0,5,0,0"/>
         </Grid>
     </Border>
 </UserControl>
-

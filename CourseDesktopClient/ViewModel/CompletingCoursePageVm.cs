@@ -5,6 +5,7 @@ using CourseDesktopClient.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 
 namespace CourseDesktopClient.ViewModel
@@ -31,6 +32,13 @@ namespace CourseDesktopClient.ViewModel
         private readonly ICourseApiClient courseApiClient;
         public static Guid localIdProgressCourse;
         public ICommand PassModuleCommand { get; set; }
+
+        private Visibility _visibleDescriptionBorder { get; set; }
+        public Visibility VisibleDescriptionBorder
+        {
+            get => _visibleDescriptionBorder;
+            set { _visibleDescriptionBorder = value; OnPropertyChanged(); }
+        }
 
 
         public CompletingCoursePageVm(INavigationService navigationService, ICourseApiClient courseApiClient) : base(navigationService)
@@ -62,6 +70,10 @@ namespace CourseDesktopClient.ViewModel
             var progressModules = await courseApiClient.GetProgressModulesAsync(idProgressCourse);
             var progressModulesViewModel = progressModules.ProgressModules.Select(x => new CompliteModuleElementVm(x)).ToList();
             GetProgressModules = progressModulesViewModel;
+
+            VisibleDescriptionBorder = string.IsNullOrEmpty(Description)
+                  ? Visibility.Collapsed
+                  : Visibility.Visible;
 
         }
 

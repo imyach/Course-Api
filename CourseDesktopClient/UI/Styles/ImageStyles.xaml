@@ -1,0 +1,39 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ========== БАЗОВЫЙ СТИЛЬ ДЛЯ ИКОНКИ (БЕЗ АНИМАЦИИ) ========== -->
+    <Style x:Key="IconStyle" TargetType="Image">
+        <Setter Property="Stretch" Value="Uniform"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Margin" Value="5,0,0,0"/>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ МАЛЕНЬКОЙ ИКОНКИ ========== -->
+    <Style x:Key="SmallIconStyle" TargetType="Image" BasedOn="{StaticResource IconStyle}">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Width" Value="20"/>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ БОЛЬШОЙ ИКОНКИ ========== -->
+    <Style x:Key="LargeIconStyle" TargetType="Image" BasedOn="{StaticResource IconStyle}">
+        <Setter Property="Height" Value="48"/>
+        <Setter Property="Width" Value="48"/>
+    </Style>
+
+    <!-- ========== СТИЛЬ ДЛЯ ИКОНКИ С ТЕНЬЮ ========== -->
+    <Style x:Key="ShadowIconStyle" TargetType="Image" BasedOn="{StaticResource IconStyle}">
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="4" 
+                                  ShadowDepth="1" 
+                                  Opacity="0.2" 
+                                  Direction="270"
+                                  Color="#000000"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+   
+
+</ResourceDictionary>

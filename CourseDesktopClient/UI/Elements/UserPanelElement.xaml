@@ -3,59 +3,171 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:controlls="clr-namespace:CourseDesktopClient.UI.Elements"
              xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
+             xmlns:converters="clr-namespace:CourseDesktopClient.UI.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Border Background="#FFC1C1C1" 
-        BorderBrush="#E0E0E0" 
-        BorderThickness="0 0 0 1"
-        Padding="14"
-        CornerRadius="20"
-        HorizontalAlignment="Stretch"
-        Height="Auto"
-        MaxHeight="130"
-        Margin="20">
+             d:DesignHeight="200" d:DesignWidth="450"
+             Background="Transparent"
+             UseLayoutRounding="True">
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto" MaxHeight="121"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <converters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"/>
+        <converters:FirstLettersConverter x:Key="FirstLettersConverter"/>
+    </UserControl.Resources>
 
-                <Grid Grid.Row="0">
-                    
-                    <TextBlock Grid.Row="0"
-                       Text="{Binding NameUser}" 
-                       FontSize="18"
-                       FontWeight="Bold"
-                       Foreground="#333"
-                       VerticalAlignment="Center"
-                               HorizontalAlignment="Left"/>
-                    <TextBlock Grid.Row="0"
-                        Text="{Binding IsCurrentUser}" 
-                        FontSize="18"
-                        FontWeight="Bold"
-                        Foreground="#333"
-                        VerticalAlignment="Center"
-                               HorizontalAlignment="Right"/>
-                </Grid>
+    <Border Style="{StaticResource CardBorderStyle}"
+            Width="900"
+            Height="Auto"
+            MinHeight="180"
+            MaxHeight="220"
+            Margin="15"
+            Padding="18"
+            RenderOptions.EdgeMode="Aliased"  
+        RenderOptions.BitmapScalingMode="NearestNeighbor">
 
-                <TextBlock Grid.Row="1"
-                   Text="{Binding Role.Name, StringFormat='Роль: {0}'}" 
-                   Foreground="#666"
-                   TextWrapping="WrapWithOverflow"
-                   Margin="0,8,0,8"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Верхняя строка с аватаром, именем и статусом -->
+                <RowDefinition Height="Auto"/>
+                <!-- Разделитель -->
+                <RowDefinition Height="Auto"/>
+                <!-- Роль -->
+                <RowDefinition Height="Auto"/>
+                <!-- Дата регистрации -->
+                <RowDefinition Height="Auto"/>
+                <!-- Кнопка -->
+            </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="2"
-                   Text="{Binding CreatedAt, StringFormat='Зарегестрирован: {0:dd.MM.yyyy}'}" 
-                   Foreground="#666"
-                   HorizontalAlignment="Right"/>
-                <Button Content="Посмотреть профиль" Grid.Row="3" Command="{Binding DataContext.LookProfile, RelativeSource={RelativeSource AncestorType=ItemsControl} }" CommandParameter="{Binding}"/>
+            <!-- Верхняя строка с аватаром, именем и индикатором -->
+            <Grid Grid.Row="0" Margin="0,0,0,12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Аватар с инициалами -->
+                <Border Grid.Column="0"
+                        Background="{StaticResource SoftGreenBrush}"
+                        Width="45"
+                        Height="45"
+                        CornerRadius="22.5"
+                        Margin="0,0,12,0">
+                    <TextBlock Text="{Binding NameUser, Converter={StaticResource FirstLettersConverter}}"
+                               Foreground="{StaticResource PrimaryGreenBrush}"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                </Border>
+
+                <!-- Имя пользователя -->
+                <TextBlock Grid.Column="1"
+                           Text="{Binding NameUser}"
+                           Style="{StaticResource H4Style}"
+                           FontSize="16"
+                           FontWeight="SemiBold"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           VerticalAlignment="Center"
+                           TextWrapping="Wrap"
+                           Margin="0,0,8,0"/>
+
+                <!-- Индикатор текущего пользователя -->
+                <Border Grid.Column="2"
+        Background="{StaticResource SoftGreenBrush}"
+        CornerRadius="18"
+        Padding="14,6"
+        MinWidth="60"
+        HorizontalAlignment="Right"
+        Visibility="{Binding IsCurrentUser, Converter={StaticResource BooleanToVisibilityConverter}}">
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+
+                        <TextBlock Text="Вы"
+                   Foreground="{StaticResource PrimaryGreenBrush}"
+                   FontSize="12"
+                   FontWeight="ExtraBold"
+                   VerticalAlignment="Center"/>
+
+                        <!-- Маленькая иконка справа (опционально) -->
+                        <TextBlock Text="✓" 
+                   Foreground="{StaticResource PrimaryGreenBrush}"
+                   FontSize="14"
+                   FontWeight="Bold"
+                   Margin="4,0,0,0"
+                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
             </Grid>
-        </Border>
-    </Grid>
+
+            <!-- Разделитель -->
+            <Rectangle Grid.Row="1" 
+                       Height="1" 
+                       Fill="{StaticResource BorderGrayBrush}" 
+                       Opacity="0.25"
+                       Margin="0,0,0,10"/>
+
+            <!-- Роль пользователя -->
+            <Grid Grid.Row="2" Margin="0,0,0,8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="22"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" 
+                           Text="🔹" 
+                           FontSize="14"
+                           Foreground="{StaticResource PrimaryGreenBrush}"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+
+                <TextBlock Grid.Column="1"
+                           Text="{Binding Role.Name, StringFormat='Роль: {0}'}" 
+                           Style="{StaticResource BodyTextStyle}"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           FontWeight="Medium"
+                           VerticalAlignment="Center"
+                           TextWrapping="Wrap"
+                           FontSize="13"/>
+            </Grid>
+
+            <!-- Дата регистрации -->
+            <Grid Grid.Row="3" Margin="0,0,0,12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="22"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" 
+                           Text="📅" 
+                           FontSize="14"
+                           Foreground="{StaticResource PrimaryGreenBrush}"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+
+                <TextBlock Grid.Column="1"
+                           Text="{Binding CreatedAt, StringFormat='Зарегистрирован: {0:dd.MM.yyyy}'}" 
+                           Style="{StaticResource BodyTextStyle}"
+                           Foreground="{StaticResource TextSecondaryBrush}"
+                           FontSize="12"
+                           VerticalAlignment="Center"/>
+            </Grid>
+
+            <!-- Кнопка просмотра профиля -->
+            <Button Grid.Row="4"
+        Content="👤 Посмотреть профиль"
+        Command="{Binding DataContext.LookProfile, 
+                RelativeSource={RelativeSource 
+                AncestorType=UserControl, 
+                AncestorLevel=2}}"
+        CommandParameter="{Binding}"
+        Style="{StaticResource ProfileViewButtonStyle}"
+        Height="36"
+        FontSize="12"
+        HorizontalAlignment="Stretch"
+        Margin="0,5,0,0"/>
+        </Grid>
+    </Border>
 </UserControl>

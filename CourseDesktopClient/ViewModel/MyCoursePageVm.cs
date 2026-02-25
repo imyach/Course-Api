@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing.Printing;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -91,12 +92,20 @@ namespace CourseDesktopClient.ViewModel
                 var idCourse = (sender as MyCoursePanelElementVm).CourseId;
                 await navigationService.NavigateToInformationCourse(idCourse);
             });
-            PagerCommand = new RelayCommand(async pageNumberStr =>
+            PagerCommand = new RelayCommand(async parameter =>
             {
-                if (int.TryParse((pageNumberStr as ButtonItem).Text, out int pageNumber))
+                if (parameter is ButtonItem buttonItem && int.TryParse(buttonItem.Text, out int pageNumber))
                 {
-                    await Update(pageNumber);
+                    // Обновляем IsSelected для всех кнопок
+                    if (ButtonPanel != null)
+                    {
+                        foreach (var btn in ButtonPanel)
+                        {
+                            btn.IsSelected = btn.Text == pageNumber.ToString();
+                        }
+                    }
 
+                    await Update(pageNumber);
                 }
             });
 

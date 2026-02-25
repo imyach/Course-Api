@@ -2,11 +2,11 @@
 using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Models.DtosModel.Entities;
 using CourseDesktopClient.Models.DtosModel.EntitiesLists;
-using CourseDesktopClient.UI.Elements.ElementVM; // Добавь этот using
+using CourseDesktopClient.UI.Elements.ElementVM;
 using CourseDesktopClient.Utilities;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel; // Добавь этот using
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
@@ -16,9 +16,8 @@ namespace CourseDesktopClient.ViewModel
     public class TestResultPageVm : NavigationVm
     {
         private readonly ICourseApiClient _courseApiClient;
-        private readonly INavigationService _navigationService;
 
-        // Добавь это свойство - коллекция для элементов
+        // Коллекция для элементов ответов
         private ObservableCollection<AnswerUserElementVm> _answerUserElements = new();
         public ObservableCollection<AnswerUserElementVm> AnswerUserElements
         {
@@ -30,7 +29,7 @@ namespace CourseDesktopClient.ViewModel
             }
         }
 
-        // Основные свойства
+        // История теста
         private TestHistoryVm _testHistory;
         public TestHistoryVm TestHistory
         {
@@ -43,33 +42,47 @@ namespace CourseDesktopClient.ViewModel
                 OnPropertyChanged(nameof(TestTitle));
                 OnPropertyChanged(nameof(TestStatus));
                 OnPropertyChanged(nameof(TestStatusColor));
+                OnPropertyChanged(nameof(TestStatusIcon));
                 OnPropertyChanged(nameof(ScoreText));
                 OnPropertyChanged(nameof(PassingScoreText));
                 OnPropertyChanged(nameof(CompletionDateText));
+                OnPropertyChanged(nameof(IsPassed));
             }
         }
 
-        // Вычисляемые свойства для удобства
+        // Вычисляемые свойства
         public bool HasData => TestHistory != null;
         public string TestTitle => TestHistory?.TestTitle ?? "Тест";
-        public string TestStatus => TestHistory?.IsTestPassed == true ? "ПРОЙДЕН" : "НЕ ПРОЙДЕН";
-        public string TestStatusColor => TestHistory?.IsTestPassed == true ? "Green" : "Red";
+        public bool IsPassed => TestHistory?.IsTestPassed == true;
+        public string TestStatus => IsPassed ? "ПРОЙДЕН" : "НЕ ПРОЙДЕН";
+
+        // Иконка статуса (для отображения в UI)
+        public string TestStatusIcon => IsPassed ? "✓" : "✗";
+
+        // Цвет статуса (для фона карточки)
+        public string TestStatusColor => IsPassed ? "#4CAF50" : "#F44336";
+
+        // Текст с баллами
         public string ScoreText => TestHistory != null ? $"{TestHistory.BestScore}%" : "0%";
         public string PassingScoreText => TestHistory != null ? $"Проходной балл: {TestHistory.PassingScore}%" : "";
+
+        // Дата завершения
         public string CompletionDateText => TestHistory?.CompletedAt != null
             ? $"Завершен: {TestHistory.CompletedAt.Value:dd.MM.yyyy HH:mm}"
             : "Не завершен";
 
         // Команды
         public ICommand PassMaterialCommand { get; set; }
+
         public TestResultPageVm(INavigationService navigationService, ICourseApiClient courseApiClient) : base(navigationService)
         {
-            _navigationService = navigationService;
             _courseApiClient = courseApiClient;
 
-            PassMaterialCommand = new RelayCommand(async sender =>
+            PassMaterialCommand = new RelayCommand(async _ =>
             {
-                await navigationService.NavigateToProgressMaterial(CompletingModulePageVm.localIdProgressModule, CompletingMaterialPageVm.localIdProgressMaterial);
+                await navigationService.NavigateToProgressMaterial(
+                    CompletingModulePageVm.localIdProgressModule,
+                    CompletingMaterialPageVm.localIdProgressMaterial);
             });
         }
 
@@ -77,26 +90,25 @@ namespace CourseDesktopClient.ViewModel
         {
             try
             {
-                // Получаем историю теста
                 var testHistory = await _courseApiClient.GetAnswersUsersAsync(testResultId);
 
                 if (testHistory != null)
                 {
                     TestHistory = testHistory;
 
-                    // Добавь это - преобразование данных в элементы
+                    // Очищаем и заполняем коллекцию
                     AnswerUserElements.Clear();
 
                     if (testHistory.Questions != null)
                     {
                         foreach (var question in testHistory.Questions)
                         {
-                            var element = new AnswerUserElementVm();
-
-                            // Заполняем свойства вопроса
-                            element.QuestionText = question.QuestionText;
-                            element.Score = question.Score;
-                            element.IsCorrect = question.IsCorrect;
+                            var element = new AnswerUserElementVm
+                            {
+                                QuestionText = question.QuestionText,
+                                Score = question.Score,
+                                IsCorrect = question.IsCorrect
+                            };
 
                             // Заполняем правильные ответы (ВСЕ правильные ответы из БД)
                             element.CorrectAnswers.Clear();

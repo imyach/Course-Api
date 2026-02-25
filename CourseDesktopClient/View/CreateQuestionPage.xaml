@@ -3,53 +3,314 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CourseDesktopClient.View"             
+             xmlns:local="clr-namespace:CourseDesktopClient.View"
              xmlns:controls="clr-namespace:CourseDesktopClient.UI.Elements"
+             xmlns:conveters="clr-namespace:CourseDesktopClient.UI.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
-        <Grid Margin="0 10 0 0">
+             d:DesignHeight="600" d:DesignWidth="900"
+             Background="Transparent"
+             UseLayoutRounding="True"
+             SnapsToDevicePixels="True">
+
+    <UserControl.Resources>
+        <conveters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" 
+                  VerticalScrollBarVisibility="Auto"
+                  Style="{StaticResource BaseScrollViewerStyle}"
+                  Background="{StaticResource OffWhiteBrush}"
+                  SnapsToDevicePixels="True"
+                  UseLayoutRounding="True">
+
+        <Grid Margin="0,0,0,30" SnapsToDevicePixels="True" UseLayoutRounding="True">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="Auto"/>
+                <!-- Заголовок -->
+                <RowDefinition Height="Auto"/>
+                <!-- Форма вопроса -->
+                <RowDefinition Height="Auto"/>
+                <!-- Кнопка добавления ответа -->
+                <RowDefinition Height="Auto"/>
+                <!-- Ответы или пустая страница -->
+                <RowDefinition Height="Auto"/>
+                <!-- Кнопки действий -->
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="Редактор вопроса" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-            <StackPanel Grid.Row="1" Orientation="Vertical" >
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Текст"  Margin="10"/>
-                    <TextBox Text="{Binding TextOfQuestion, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="10"/>
-                </StackPanel>
+
+            <!-- ===== ЗАГОЛОВОК СТРАНИЦЫ ===== -->
+            <StackPanel Grid.Row="0" 
+                        Orientation="Vertical" 
+                        Margin="0,25,0,25"
+                        SnapsToDevicePixels="True">
+
+                <Grid HorizontalAlignment="Center" SnapsToDevicePixels="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Левая декоративная линия -->
+                    <Border Width="35" 
+                            Height="2" 
+                            Background="{StaticResource LightGreenBrush}" 
+                            Opacity="0.3"
+                            Margin="0,0,12,0"
+                            VerticalAlignment="Center"/>
+
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <TextBlock Text="РЕДАКТОР ВОПРОСА" 
+                                   Style="{StaticResource PageTitleStyle}" 
+                                   Foreground="{StaticResource TextPrimaryBrush}"
+                                   FontSize="26"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <!-- Правая декоративная линия -->
+                    <Border Grid.Column="2"
+                            Width="35" 
+                            Height="2" 
+                            Background="{StaticResource LightGreenBrush}" 
+                            Opacity="0.3"
+                            Margin="12,0,0,0"
+                            VerticalAlignment="Center"/>
+                </Grid>
+
+                <!-- Декоративная линия под заголовком -->
+                <Border Height="4" 
+                        Width="90" 
+                        Background="{StaticResource LightGreenBrush}" 
+                        HorizontalAlignment="Center"
+                        Margin="0,12,0,0"
+                        CornerRadius="2"
+                        Opacity="0.8"/>
             </StackPanel>
-            <Button Content="Добaвить ответ" Grid.Row="2" Width="150" Height="30" Margin="10" Visibility="{Binding VisibleAddAnswerButton}" HorizontalAlignment="Left" Command="{Binding CreateAnswerCommand}"/>
 
-            <Grid  Grid.Row="3" MinHeight="200"   Visibility="{Binding VisibleEmptyPage}">
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="В данном вопросе нет ответов" HorizontalAlignment="Center"/>
-                    <Button Content="Создать ответ" Command="{Binding CreateAnswerCommand }"/>
+            <!-- ===== ФОРМА ВОПРОСА ===== -->
+            <Border Grid.Row="1"
+                    Style="{StaticResource CreateQuestionFormStyle}"
+                    Margin="40,0,40,25"
+                    Padding="25"
+                    SnapsToDevicePixels="True">
+
+                <StackPanel Orientation="Vertical" SnapsToDevicePixels="True">
+
+                    <!-- Текст вопроса -->
+                    <Grid Margin="0,0,0,5" SnapsToDevicePixels="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" 
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <Border Background="{StaticResource SoftGreenBrush}"
+                                    Width="28"
+                                    Height="28"
+                                    CornerRadius="14"
+                                    Margin="0,0,8,0">
+                                <TextBlock Text="📝" 
+                                           FontSize="14"
+                                           Foreground="{StaticResource PrimaryGreenBrush}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                            </Border>
+                            <TextBlock Text="Текст вопроса"
+                                       Style="{StaticResource BodyTextStyle}"
+                                       Foreground="{StaticResource TextSecondaryBrush}"
+                                       FontWeight="Medium"/>
+                        </StackPanel>
+
+                        <TextBox Grid.Column="1"
+                                 Text="{Binding TextOfQuestion, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource ReviewTextBoxStyle}"
+                                 Tag="Введите текст вопроса..."
+                                 Height="auto"
+                                 MaxHeight="150"
+                                 Margin="15 0 0 0"
+                                 FontSize="13"
+                                 TextWrapping="Wrap"
+                                 AcceptsReturn="True"
+                                 VerticalScrollBarVisibility="Auto"
+                                 SnapsToDevicePixels="True"/>
+                    </Grid>
+                    <!-- Сообщение об ошибке -->
+                    <TextBlock Text="{Binding MistakeText}" 
+                Style="{StaticResource ErrorTextStyle}"
+         Visibility="{Binding VisibleMisstake}"
+                TextWrapping="Wrap"
+                HorizontalAlignment="Center"
+             Margin="0,0,0,15"/>
                 </StackPanel>
-            </Grid>
+            </Border>
 
-            <ItemsControl Grid.Row="3" ItemsSource="{Binding GetAnswer}" 
-     HorizontalContentAlignment="Center"
-     BorderThickness="0">
+            <!-- ===== КНОПКА ДОБАВЛЕНИЯ ОТВЕТА ===== -->
+            <Border Grid.Row="2"
+                    Margin="40,0,40,25"
+                    Padding="0"
+                    HorizontalAlignment="Left"
+                    Visibility="{Binding VisibleAddAnswerButton}"
+                    SnapsToDevicePixels="True">
+
+                <Button Content="Добавить ответ"
+                        Command="{Binding CreateAnswerCommand}"
+                        Style="{StaticResource AddModuleButtonStyle}"
+                        Height="38"
+                        Padding="18,0"
+                        FontSize="12"
+                        FontWeight="SemiBold"
+                        SnapsToDevicePixels="True"/>
+            </Border>
+
+            <!-- ===== ПУСТАЯ СТРАНИЦА (нет ответов) ===== -->
+            <Border Grid.Row="3"
+                    Style="{StaticResource EmptyPageStyle}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Visibility="{Binding VisibleEmptyPage}"
+                    Margin="40,0,40,35"
+                    Padding="35"
+                    Background="{StaticResource PureWhiteBrush}"
+                    CornerRadius="20"
+                    Effect="{StaticResource CardShadowEffect}"
+                    SnapsToDevicePixels="True">
+
+                <StackPanel Orientation="Vertical" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"
+                            MaxWidth="380"
+                            SnapsToDevicePixels="True">
+
+                    <Border Background="{StaticResource SoftGreenBrush}"
+                            Width="90"
+                            Height="90"
+                            CornerRadius="45"
+                            Margin="0,0,0,20"
+                            HorizontalAlignment="Center">
+                        <TextBlock Text="💬" 
+                                   FontSize="44"
+                                   Foreground="{StaticResource PrimaryGreenBrush}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Opacity="0.9"/>
+                    </Border>
+
+                    <TextBlock Text="У вопроса пока нет ответов" 
+                               Style="{StaticResource H4Style}"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimaryBrush}"
+                               FontSize="19"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,6"/>
+
+                    <TextBlock Text="Добавьте варианты ответов для этого вопроса" 
+                               Style="{StaticResource BodyTextStyle}"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextSecondaryBrush}"
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"
+                               Margin="0,0,0,20"/>
+
+                    <Button Content="Создать первый ответ" 
+                            Command="{Binding CreateAnswerCommand}"
+                            Style="{StaticResource AddModuleButtonStyle}"
+                            Width="auto"
+                            Height="40"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            HorizontalAlignment="Center"
+                            Padding="20,0"
+                            Effect="{StaticResource CardShadowEffect}"/>
+                </StackPanel>
+            </Border>
+
+            <!-- ===== КОНТЕЙНЕР ДЛЯ ОТВЕТОВ ===== -->
+            <ItemsControl Grid.Row="3"
+                          ItemsSource="{Binding GetAnswer}"
+                          Margin="25,0,25,35"
+                          Visibility="{Binding VisibleEmptyPage, Converter={StaticResource InverseBooleanToVisibilityConverter}}"
+                          SnapsToDevicePixels="True">
+
+                <!-- Счетчик ответов (над списком) -->
+                <ItemsControl.Template>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <Border Background="{StaticResource SoftGreenBrush}"
+                                    CornerRadius="12"
+                                    Padding="10,4"
+                                    Margin="0,0,0,15"
+                                    HorizontalAlignment="Right">
+                                <TextBlock Text="{Binding GetAnswer.Count, StringFormat='Всего ответов: {0}'}" 
+                                           Foreground="{StaticResource PrimaryGreenBrush}"
+                                           FontSize="11"
+                                           FontWeight="Medium"/>
+                            </Border>
+                            <ItemsPresenter/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </ItemsControl.Template>
+
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <controls:CreateAnswerElement/>
+                        <Border Margin="0,0,0,10"
+                                HorizontalAlignment="Stretch">
+                            <controls:CreateAnswerElement/>
+                        </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" 
+                                    HorizontalAlignment="Stretch"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
             </ItemsControl>
 
-            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+            <!-- ===== КНОПКИ ДЕЙСТВИЙ ===== -->
+            <Border Grid.Row="4"
+                    Style="{StaticResource ActionButtonsPanelStyle}"
+                    Margin="30,0,30,30"
+                    Padding="15"
+                    SnapsToDevicePixels="True">
 
-                <Button Content="К тесту"  Width="150" Height="30" Margin="10"  Command="{Binding LocalCreataeTestCommand}"/>
-                <Button Content="Сохранить изменения" Width="150" Height="30" Margin="10" Command="{Binding SaveUpdateCommand}" IsEnabled="{Binding IsSaveEnable}"/>
-                <Button Content="Удалить вопрос"  Width="150" Height="30" Margin="10"  Command="{Binding DeleteQuestionCommand}"/>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Right"
+                            SnapsToDevicePixels="True">
 
+                    <!-- Кнопка "К тесту" -->
+                    <Button Content="← К тесту"
+                            Command="{Binding LocalCreataeTestCommand}"
+                            Style="{StaticResource SecondaryButtonStyle}"
+                            Height="38"
+                            Padding="18,0"
+                            Margin="0,0,8,0"
+                            FontSize="12"
+                            SnapsToDevicePixels="True"/>
+
+                    <!-- Кнопка "Сохранить" -->
+                    <Button Content="💾 Сохранить"
+                            Command="{Binding SaveUpdateCommand}"
+                            Style="{StaticResource SaveModuleButtonStyle}"
+                            Height="38"
+                            Padding="18,0"
+                            Margin="0,0,8,0"
+                            FontSize="12"
+                            IsEnabled="{Binding IsSaveEnable}"
+                            SnapsToDevicePixels="True"/>
+
+                    <!-- Кнопка "Удалить вопрос" -->
+                    <Button Content="🗑️ Удалить"
+                            Command="{Binding DeleteQuestionCommand}"
+                            Style="{StaticResource DeleteModuleButtonStyle}"
+                            Height="38"
+                            Padding="18,0"
+                            FontSize="12"
+                            SnapsToDevicePixels="True"/>
+                </StackPanel>
+            </Border>
         </Grid>
     </ScrollViewer>
 </UserControl>
-

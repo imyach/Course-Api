@@ -1,5 +1,5 @@
 ﻿
-
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\App.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\MainWindow.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\AnswerUserElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CompliteMaterialElement.xaml;;
@@ -19,6 +19,11 @@ FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\RatingStarsCo
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\ReviewPanelElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\TestResultElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\UserPanelElement.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Styles\BorderStyle.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Styles\ButtonStyles.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Styles\MenuStyle.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Styles\TextBlockStyles.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Styles\TextBoxStyles.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\AllCoursePage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\AllUsersPage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\CompletingCoursePage.xaml;;

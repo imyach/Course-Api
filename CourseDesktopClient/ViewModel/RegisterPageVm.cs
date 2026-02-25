@@ -1,9 +1,12 @@
 ﻿using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Models.DtosModel.Auth;
 using CourseDesktopClient.Utilities;
+using PhoneNumbers;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 
@@ -85,7 +88,69 @@ namespace CourseDesktopClient.ViewModel
                 return false;
             }
 
-            if(registerDto.Password != repPass)
+            if (registerDto.NameUser.Length < 2)
+            {
+                MisstakeText = "Имя не может быть менее 2 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+
+            if (registerDto.Login.Length < 5)
+            {
+                MisstakeText = "Логин не может быть менее 5 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+
+            if (registerDto.Password.Length < 5)
+            {
+                MisstakeText = "Пароль не может быть менее 5 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+
+            if (registerDto.Login.Length > 30)
+            {
+                MisstakeText = "Логин не может быть больше 30 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+            if (registerDto.Email?.Length > 50)
+            {
+                MisstakeText = "Почта не может быть больше 50 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+            if (registerDto.NameUser.Length > 50)
+            {
+                MisstakeText = "Имя пользователя не может быть больше 50 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+            if (registerDto.Password.Length > 30)
+            {
+                MisstakeText = "Пароль не может быть больше 30 символов";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
+
+            if (registerDto.PhoneNumber is not null)
+                if (!IsValidPhoneWithLib(registerDto.PhoneNumber))
+                {
+                    MisstakeText = "Введите корректный номер";
+                    VisibleMisstake = Visibility.Visible;
+                    return false;
+                }
+
+            if (registerDto.Email is not null)
+                if (!IsValidEmail(registerDto.Email))
+                {
+                    MisstakeText = "Введите корректную почту";
+                    VisibleMisstake = Visibility.Visible;
+                    return false;
+                }
+
+            if (registerDto.Password != repPass)
             {
                 MisstakeText = "Пароли не совпадают";
                 VisibleMisstake = Visibility.Visible;
@@ -95,6 +160,33 @@ namespace CourseDesktopClient.ViewModel
             MisstakeText = string.Empty;
             VisibleMisstake = Visibility.Collapsed;
             return true;
+        }
+
+        public static bool IsValidPhoneWithLib(string phoneNumber, string region = "RU")
+        {
+            if (string.IsNullOrWhiteSpace(phoneNumber))
+                return true;
+
+            var phoneUtil = PhoneNumberUtil.GetInstance();
+
+            try
+            {
+                var number = phoneUtil.Parse(phoneNumber, region);
+                return phoneUtil.IsValidNumber(number);
+            }
+            catch (NumberParseException)
+            {
+                return false;
+            }
+        }
+
+        public static bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return true;
+
+            var emailAttribute = new EmailAddressAttribute();
+            return emailAttribute.IsValid(email);
         }
 
         public async Task Register(RegisterDto registerDto, string repPass)

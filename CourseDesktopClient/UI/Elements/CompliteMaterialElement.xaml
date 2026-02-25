@@ -4,75 +4,140 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
+             xmlns:converters="clr-namespace:CourseDesktopClient.UI.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Border Background="LightGray" 
-            BorderBrush="#E0E0E0" 
-            BorderThickness="0 0 0 1"
-            Padding="14"
-            CornerRadius="20"
+             d:DesignHeight="120" d:DesignWidth="500"
+             Background="Transparent"
+             UseLayoutRounding="True">
+
+    <UserControl.Resources>
+        <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <Border Style="{StaticResource MaterialCardBorderStyle}"
+            Width="Auto"
+            MinWidth="400"
+            MaxWidth="600"
+            HorizontalAlignment="Stretch"
             Height="Auto"
-            MaxHeight="130"
-            Margin="20">
+            MinHeight="90"
+            MaxHeight="120"
+            Margin="10,0,10,10"
+            Padding="15"
+            SnapsToDevicePixels="True">
 
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Vertical" Grid.Row="0">
-                <TextBlock 
-                       Text="{Binding MaterialTitle, StringFormat='Тема: {0}'}" 
-                       FontSize="18"
-                       FontWeight="Bold"
-                       Foreground="#333"
-                       Margin="0,0,0,8"/>
 
-            <TextBlock 
-            Text="{Binding Status}" 
-            Foreground="#666"
-            TextWrapping="WrapWithOverflow"
-            TextTrimming="CharacterEllipsis"
-            MaxHeight="89" 
-            Height="Auto"
-            Margin="0,0,0,8"/>
-                <TextBlock 
-Text="{Binding StartedAt, StringFormat='Начат: {0:dd.MM.yyyy}'}" 
-Foreground="#666"
-HorizontalAlignment="Right">
-                    <TextBlock.Style>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="Visibility" Value="Visible"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding StartedAt}" Value="{x:Null}">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBlock.Style>
-                </TextBlock>
+            <!-- Левая часть с информацией о материале -->
+            <StackPanel Grid.Column="0" 
+                        Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        Margin="0,0,15,0">
+
+                <!-- Заголовок материала с иконкой -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                    <TextBlock Text="📄" 
+                               FontSize="16"
+                               Foreground="{StaticResource PrimaryGreenBrush}"
+                               Margin="0,0,8,0"
+                               VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding MaterialTitle, StringFormat='Тема: {0}'}" 
+                               Style="{StaticResource H4Style}"
+                               FontSize="15"
+                               FontWeight="SemiBold"
+                               Foreground="{StaticResource TextPrimaryBrush}"
+                               TextWrapping="Wrap"
+                               TextTrimming="CharacterEllipsis"
+                               MaxWidth="350"/>
+                </StackPanel>
+
+                <!-- Статус с цветовой индикацией -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                    <Border x:Name="StatusBorder"
+            CornerRadius="10"
+            Padding="6,2"
+            HorizontalAlignment="Left">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Background" Value="{StaticResource SoftGreenBrush}"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Status}" Value="Не начата">
+                                        <Setter Property="Background" Value="{StaticResource LightGrayBrush}"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Status}" Value="В прохождении">
+                                        <Setter Property="Background" Value="{StaticResource SoftBlueBrush}"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Status}" Value="Завершена">
+                                        <Setter Property="Background" Value="{StaticResource SoftGreenBrush}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+
+                        <TextBlock Text="{Binding Status}"
+                   FontSize="11"
+                   FontWeight="Medium">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Foreground" Value="{StaticResource PrimaryGreenBrush}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Status}" Value="Не начата">
+                                            <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Status}" Value="В прохождении">
+                                            <Setter Property="Foreground" Value="{StaticResource AccentBlueBrush}"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Status}" Value="Завершена">
+                                            <Setter Property="Foreground" Value="{StaticResource PrimaryGreenBrush}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Border>
+                </StackPanel>
+
+                <!-- Дата начала -->
+                <StackPanel Orientation="Horizontal" 
+                            Visibility="{Binding StartedAt, Converter={StaticResource NullToVisibilityConverter}}">
+                    <TextBlock Text="📅" 
+                               FontSize="11"
+                               Foreground="{StaticResource TextSecondaryBrush}"
+                               Margin="0,0,4,0"
+                               VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding StartedAt, StringFormat='Начат: {0:dd.MM.yyyy}'}" 
+                               Style="{StaticResource SmallTextStyle}"
+                               Foreground="{StaticResource TextSecondaryBrush}"
+                               FontSize="10"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
             </StackPanel>
 
-            <StackPanel 
+            <!-- Правая часть с кнопкой действия -->
+            <StackPanel Grid.Column="1"
                         Orientation="Horizontal"
                         VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Grid.Column="1">
+                        HorizontalAlignment="Right">
 
-
-
+                <!-- Кнопка действия (Начать/Продолжить/Просмотреть) -->
                 <Button Content="{Binding ContentButton}"
                         Command="{Binding DataContext.PassMaterialCommand, 
                                 RelativeSource={RelativeSource 
                                 AncestorType=UserControl, 
                                 AncestorLevel=2}}"
-                        
                         CommandParameter="{Binding}"
-                        Padding="12,6"
-                        Margin="0,0,8,0"/>
-
+                        Style="{StaticResource MaterialActionButtonStyle}"
+                        Height="34"
+                        Padding="15,0"
+                        FontSize="11"
+                        FontWeight="SemiBold"
+                        SnapsToDevicePixels="True"/>
             </StackPanel>
         </Grid>
     </Border>
 </UserControl>
-

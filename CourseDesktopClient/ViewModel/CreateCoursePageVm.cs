@@ -88,6 +88,20 @@ namespace CourseDesktopClient.ViewModel
             }
         }
 
+        private Visibility? _visibleMisstake = Visibility.Collapsed;
+        public Visibility? VisibleMisstake
+        {
+
+            get { return _visibleMisstake; }
+            set { _visibleMisstake = value; OnPropertyChanged(); }
+        }
+        private string? _mistakeText = string.Empty;
+        public string? MistakeText
+        {
+            get { return _mistakeText; }
+            set { _mistakeText = value; OnPropertyChanged(); }
+        }
+
         public static Guid courseId;
 
         public ICommand SaveUpdateCommand {  get; set; }
@@ -105,6 +119,25 @@ namespace CourseDesktopClient.ViewModel
 
             SaveUpdateCommand = new RelayCommand(async sender =>
             {
+                if (string.IsNullOrEmpty(TitleOfCourse))
+                {
+                    MistakeText = "Введите название курса";
+                    VisibleMisstake = Visibility.Visible;
+                    return;
+                }
+                else if (TitleOfCourse.Length > 100)
+                {
+                    MistakeText = "Название курса не может превышать 100 символов";
+                    VisibleMisstake = Visibility.Visible;
+                    return;
+                }
+                else
+                {
+                    MistakeText = string.Empty;
+                    VisibleMisstake = Visibility.Collapsed;
+                }
+
+
                 var updateCourse = new CourseDto
                 {
                     Id = courseId,
@@ -127,6 +160,24 @@ namespace CourseDesktopClient.ViewModel
 
             PublicCourseCommand = new RelayCommand(async sender =>
             {
+                if (string.IsNullOrEmpty(TitleOfCourse))
+                {
+                    MistakeText = "Введите название курса";
+                    VisibleMisstake = Visibility.Visible;
+                    return;
+                }
+                else if (TitleOfCourse.Length > 100)
+                {
+                    MistakeText = "Название курса не может превышать 100 символов";
+                    VisibleMisstake = Visibility.Visible;
+                    return;
+                }
+                else
+                {
+                    MistakeText = string.Empty;
+                    VisibleMisstake = Visibility.Collapsed;
+                }
+
                 if (CustomMessageBox.ShowYesNo("Опубликовать курс?") == DialogResult.Yes)
                 {
                     var updateCourse = new CourseDto
@@ -173,6 +224,9 @@ namespace CourseDesktopClient.ViewModel
 
         public async Task LoadCourse(Guid id)
         {
+
+            MistakeText = string.Empty;
+            VisibleMisstake = Visibility.Collapsed;
             if (id != default)
             {
                 courseId = id ;

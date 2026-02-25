@@ -55,8 +55,7 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
             CreatedAt = courseDto.CreatedAt;
             UpdateAt = courseDto.UpdateAt;
             Rait = courseDto.Rait;
-            UpdateCourseAdminVisible = authService.CurrentUser.Role.Name == "Admin" || authService.CurrentUser.Id == User.Id ? Visibility.Visible : Visibility.Collapsed;
-
+            UpdateCourseAdminVisible = authService != null && (authService.CurrentUser.Role.Name == "Admin" || authService.CurrentUser.Id == User.Id) ? Visibility.Visible : Visibility.Collapsed;
 
             Task.Run(async () =>
             {

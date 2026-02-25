@@ -5,85 +5,207 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.View"
+             xmlns:converters="clr-namespace:CourseDesktopClient.UI.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Margin="0 0 0 10">
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled" >
-        <Grid>
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="{StaticResource OffWhiteBrush}">
+
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <converters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" 
+                  VerticalScrollBarVisibility="Auto"
+                  Style="{StaticResource BaseScrollViewerStyle}">
+
+        <Grid Margin="0,0,0,30">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top"
-                Width="Auto"
-                        MinWidth="300"
-                        MaxWidth="800">
-                <TextBlock Text="{Binding Title}" HorizontalAlignment="Center"  FontSize="18" FontWeight="Bold"/>
-                <TextBlock Text="{Binding Description}" TextWrapping="WrapWithOverflow" Margin="20">
-                    <TextBlock.Style>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="Visibility" Value="Visible"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Description}" Value="{x:Null}">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBlock.Style>
-                </TextBlock>
-                <TextBlock HorizontalAlignment="Right"  Margin="0 0 10 10" Text="{Binding CreatedAt, StringFormat='Создан: {0:dd.MM.yyyy}'}"/>
-                <Button Content="Записаться на курс" Command="{Binding EnrollCommand}">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Visibility" Value="Visible"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsEnrolled}" Value="True">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <Button Content="Назад" Command="{Binding AllCourseCommand}"/>
-            </StackPanel>
 
+            <!-- ===== КАРТОЧКА КУРСА ===== -->
+            <Border Grid.Row="0"
+                    Style="{StaticResource CourseDetailCardStyle}"
+                    Margin="30,30,30,20"
+                    Padding="30"
+                    >
+
+                <StackPanel Orientation="Vertical"
+                            HorizontalAlignment="Stretch"
+                            MinWidth="300"
+                            MaxWidth="800">
+
+                    <!-- Заголовок курса -->
+                    <TextBlock Text="{Binding Title}" 
+                               Style="{StaticResource H2Style}"
+                               FontSize="28"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource TextPrimaryBrush}"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,20"/>
+
+                    <!-- Описание курса -->
+                    <Border Background="{StaticResource OffWhiteBrush}"
+                            CornerRadius="12"
+                            Padding="20"
+                            Margin="0,0,0,20"
+                            BorderThickness="0.7"
+                            Visibility="{Binding VisibleDescriptionBorder}"
+                            BorderBrush="{StaticResource SecondaryGreenBrush}">
+                        <TextBlock Text="{Binding Description}" 
+                                   Style="{StaticResource BodyTextStyle}"
+                                   Foreground="{StaticResource TextPrimaryBrush}"
+                                   TextWrapping="Wrap"
+                                   FontSize="15"
+                                   LineHeight="22"/>
+                    </Border>
+
+                    <!-- Дата создания -->
+                    <StackPanel Orientation="Horizontal" 
+                                HorizontalAlignment="Right"
+                                Margin="0,0,0,20">
+                        <TextBlock Text="📅 " 
+                                   FontSize="14"
+                                   Foreground="{StaticResource PrimaryGreenBrush}"/>
+                        <TextBlock Text="{Binding CreatedAt, StringFormat='Создан: {0:dd.MM.yyyy}'}" 
+                                   Style="{StaticResource BodyTextStyle}"
+                                   Foreground="{StaticResource TextSecondaryBrush}"/>
+                    </StackPanel>
+
+                    <!-- Кнопки действий -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                        <!-- Кнопка "Назад" -->
+                        <Button
+                                Content="Назад"
+                                Command="{Binding AllCourseCommand}"
+                                Style="{StaticResource BackButtonStyle}"
+                                Height="44"
+                                Padding="25,0"
+                                HorizontalAlignment="Right"
+                                Margin="0,0,10,0"/>
+
+                            <!-- Кнопка "Записаться" -->
+                            <Button 
+                                    Content="Записаться на курс"
+                                    Command="{Binding EnrollCommand}"
+                                    Height="44"
+                                    Padding="25,0"
+                                    HorizontalAlignment="Left"
+                                    Margin="0,0,10,0">
+                                <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource EnrollButtonStyle}">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsEnrolled}" Value="True">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- ===== СЕКЦИЯ ОТЗЫВОВ ===== -->
             <StackPanel Grid.Row="1" 
+                        Margin="30,0,30,20">
+
+                <Separator Style="{StaticResource SectionSeparatorStyle}"/>
+
+                <Grid Margin="0,20,0,15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" 
+                                Orientation="Horizontal">
+                        <Border Background="{StaticResource SoftGreenBrush}"
+                                Width="32"
+                                Height="32"
+                                CornerRadius="16"
+                                Margin="0,0,10,0">
+                            <TextBlock Text="💬" 
+                                       FontSize="16"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Border>
+                        <TextBlock Text="Отзывы"
+                                   Style="{StaticResource H4Style}"
+                                   FontSize="18"
+                                   FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextPrimaryBrush}"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Форма отправки отзыва - видимость управляется извне -->
+                <Border Background="{StaticResource PureWhiteBrush}"
+                        CornerRadius="12"
+                        Padding="20"
+                        Margin="0,0,0,20"
+                        Effect="{StaticResource CardShadowEffect}"
+                        Visibility="{Binding VisibleSendReview}">
+                    <controls:CreateReveiwsElement />
+                </Border>
+            </StackPanel>
+
+            <!-- ===== ПАНЕЛЬ СОРТИРОВКИ ===== -->
+            <Border Grid.Row="2"
+                    Style="{StaticResource SortPanelStyle}"
+                    Margin="30,0,30,20"
+                    Padding="15">
+
+                <StackPanel Orientation="Horizontal"
+                            MinWidth="300"
+                            MaxWidth="800">
+
+                    <TextBlock Text="Сортировать по:" 
+                               Style="{StaticResource BodyTextStyle}"
+                               Foreground="{StaticResource TextSecondaryBrush}"
+                               VerticalAlignment="Center"
+                               Margin="10,0,10,0"/>
+
+                    <!-- Радиокнопка "Дате" -->
+                    <RadioButton Content="Дате" 
+                                 Margin="5,0,5,0"
+                                 GroupName="SortField"
+                                 IsChecked="{Binding SortByDate}"
+                                 Style="{StaticResource SortRadioButtonStyle}"/>
+
+                    <!-- Радиокнопка "Оценке" -->
+                    <RadioButton Content="Оценке"
+                                 Margin="5,0,5,0"
+                                 GroupName="SortField"
+                                 IsChecked="{Binding SortByRating}"
+                                 Style="{StaticResource SortRadioButtonStyle}"/>
+
+                    <!-- Переключатель направления сортировки -->
+                    <ToggleButton Margin="10,0,5,0"
+                                  Width="30"
+                                  IsChecked="{Binding SortAscending}"
+                                  Style="{StaticResource SortToggleButtonStyle}"
+                                  ToolTip="Направление сортировки">
+                        <TextBlock Text="{Binding SortDirectionSymbol}"/>
+                    </ToggleButton>
+                </StackPanel>
+            </Border>
+
+            <!-- ===== СПИСОК ОТЗЫВОВ ===== -->
+            <StackPanel Grid.Row="3" 
+                        Margin="30,0,30,20"
                         MinWidth="300"
                         MaxWidth="800">
-                <Separator Margin="20 20  20 10"/>
-                <TextBlock Text="Отзывы"/>
-                <controls:CreateReveiwsElement Visibility="{Binding VisibleSendReview}"/>
 
-            </StackPanel>
-
-            <StackPanel Grid.Row="2"
-                        MinWidth="300"
-                        MaxWidth="800" Margin=" 20 0 20 0" Orientation="Horizontal">
-                <TextBlock Text="Сортировать по: " Margin="10 0 10 0"/>
-                
-                
-                <RadioButton Content="Дате" 
-                 Margin="5 0 5 0"
-                 GroupName="SortField"
-                 IsChecked="{Binding SortByDate}"/>
-
-                <RadioButton Content="Оценке"
-                 Margin="5 0 5 0"
-                 GroupName="SortField"
-                 IsChecked="{Binding SortByRating}"/>
-
-                <ToggleButton Margin="10 0 5 0"
-                  Width="30"
-                  IsChecked="{Binding SortAscending}"
-                  Content="{Binding SortDirectionSymbol}"/>
-            </StackPanel>
-            
-            <StackPanel Grid.Row="3" Width="auto" Margin="20 0" MinWidth="300"
-MaxWidth="800">
+                <!-- Список отзывов -->
                 <ItemsControl ItemsSource="{Binding GetReviews}" 
-              HorizontalContentAlignment="Center"
-              BorderThickness="0">
+                              BorderThickness="0">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <controls:ReviewPanelElement/>
@@ -91,48 +213,55 @@ MaxWidth="800">
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
 
-                <ItemsControl Grid.Row="1"  ItemsSource="{Binding ButtonPanel}"  Visibility="{Binding VisibleButtonPanel}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal" 
-         HorizontalAlignment="Center" 
-         VerticalAlignment="Center"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <ContentControl Content="{Binding}">
-                                <ContentControl.Style>
-                                    <Style TargetType="ContentControl">
-                                        <Setter Property="ContentTemplate">
-                                            <Setter.Value>
-                                                <DataTemplate>
-                                                    <RadioButton Content="{Binding Text}"
-                                 Command="{Binding Command}"
-                                 CommandParameter="{Binding}"/>
-                                                </DataTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding IsEllipsis}" Value="True">
-                                                <Setter Property="ContentTemplate">
-                                                    <Setter.Value>
-                                                        <DataTemplate>
-                                                            <TextBlock Text="{Binding Text}" 
-                                       Margin="10,0" 
-                                       VerticalAlignment="Center"/>
-                                                        </DataTemplate>
-                                                    </Setter.Value>
-                                                </Setter>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </ContentControl.Style>
-                            </ContentControl>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                <!-- Пагинация - видимость управляется извне -->
+                <Border Style="{StaticResource PaginationContainerStyle}"
+                        Visibility="{Binding VisibleButtonPanel}"
+                        Margin="0,20,0,0">
+
+                    <ItemsControl ItemsSource="{Binding ButtonPanel}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" 
+                                            HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <ContentControl Content="{Binding}">
+                                    <ContentControl.Style>
+                                        <Style TargetType="ContentControl">
+                                            <Setter Property="ContentTemplate">
+                                                <Setter.Value>
+                                                    <DataTemplate>
+                                                        <RadioButton Content="{Binding Text}"
+                                                                     Command="{Binding Command}"
+                                                                     CommandParameter="{Binding}"
+                                                                     Style="{StaticResource PaginationRadioButtonStyle}"/>
+                                                    </DataTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsEllipsis}" Value="True">
+                                                    <Setter Property="ContentTemplate">
+                                                        <Setter.Value>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding Text}" 
+                                                                           Style="{StaticResource EllipsisItemStyle}"/>
+                                                            </DataTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ContentControl.Style>
+                                </ContentControl>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
             </StackPanel>
-            </Grid>
-        </ScrollViewer>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

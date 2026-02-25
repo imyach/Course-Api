@@ -31,7 +31,19 @@ namespace CourseDesktopClient.ViewModel
             get { return _descroptionOfModule; }
             set { _descroptionOfModule = value; OnPropertyChanged(); CheckEnableSave(); }
         }
+                private Visibility? _visibleMisstake = Visibility.Collapsed;
+        public Visibility? VisibleMisstake
+        {
 
+            get { return _visibleMisstake; }
+            set { _visibleMisstake = value; OnPropertyChanged(); }
+        }
+        private string? _mistakeText = string.Empty;
+        public string? MistakeText
+        {
+            get { return _mistakeText; }
+            set { _mistakeText = value; OnPropertyChanged(); }
+        }
         private bool _isSaveEnable;
         public bool IsSaveEnable
         {
@@ -91,6 +103,24 @@ namespace CourseDesktopClient.ViewModel
 
             SaveUpdateCommand = new RelayCommand(async sender =>
             {
+                if (string.IsNullOrEmpty(TitleOfModule))
+                {
+                    MistakeText = "Введите название модуля";
+                    VisibleMisstake = Visibility.Visible;
+                    return;
+                }
+                else if (TitleOfModule.Length > 100)
+                {
+                    MistakeText = "Название модуля не может превышать 100 символов";
+                    VisibleMisstake = Visibility.Visible;
+                    return;
+                }
+                else
+                {
+                    MistakeText = string.Empty;
+                    VisibleMisstake = Visibility.Collapsed;
+                }
+
                 var updateModule = new ModuleDto
                 {
                     Id = moduleId,
@@ -132,6 +162,8 @@ namespace CourseDesktopClient.ViewModel
         private Guid courseId;
         public async Task LoadModule(Guid idCourse,Guid idModule)
         {
+            MistakeText = string.Empty;
+            VisibleMisstake = Visibility.Collapsed;
             courseId = idCourse;
             if (idModule != default)
             {

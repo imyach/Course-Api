@@ -4,184 +4,562 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.View"
-             xmlns:controll ="clr-namespace:CourseDesktopClient.UI.Elements"
+             xmlns:controll="clr-namespace:CourseDesktopClient.UI.Elements"
+             xmlns:conveters="clr-namespace:CourseDesktopClient.UI.Converters"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
-        <Grid>
+             d:DesignHeight="1800" d:DesignWidth="1000"
+             >
+
+    <UserControl.Resources>
+        <conveters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <conveters:FirstLettersConverter x:Key="FirstLettersConverter"/>
+    </UserControl.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" 
+                  VerticalScrollBarVisibility="Auto"
+                  Style="{StaticResource BaseScrollViewerStyle}"
+                  Background="{StaticResource OffWhiteBrush}">
+
+        <Grid Margin="0,0,0,30">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <!-- Заголовок -->
+                <RowDefinition Height="Auto"/>
+                <!-- Информация профиля -->
+                <RowDefinition Height="Auto"/>
+                <!-- Кнопки действий/Редактирование -->
+                <RowDefinition Height="Auto"/>
+                <!-- Статистика -->
+                <RowDefinition Height="Auto"/>
+                <!-- Заголовок списка курсов -->
+                <RowDefinition Height="Auto"/>
+                <!-- Контент (курсы или пустая страница) -->
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <!-- Пагинация -->
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <WrapPanel  Orientation="Vertical" HorizontalAlignment="Center"  VerticalAlignment="Center">
-                    <TextBlock Text="Профиль" FontWeight="Bold" Margin="0 0 0 30"/>
-                    <TextBlock Text="Имя:" />
-                    <TextBox Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
-                    <TextBlock Text="Почта:" />
-                    <TextBox Text="{Binding UserEmail, UpdateSourceTrigger=PropertyChanged}" />
-                    <TextBlock Text="Номер телефона:" />
-                    <TextBox Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}" />
-                    <TextBlock Text="Логин:" />
-                    <TextBox Text="{Binding UserLogin, UpdateSourceTrigger=PropertyChanged}" />
-                    <TextBlock Text="Роль:" />
-                    <TextBlock Text="{Binding UserRole.Name}">
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsVisible}" Value="False">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                    <ComboBox ItemsSource="{Binding GetRoles}" DisplayMemberPath="Name" SelectedItem="{Binding UserRole}">
-                        <ComboBox.Style>
-                            <Style TargetType="ComboBox">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsVisible}" Value="True">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </ComboBox.Style>
-                    </ComboBox>
-                    <Button Content="Сохранить изменения" Command="{Binding UpdateUserProfile}" IsEnabled="{Binding IsEnable}">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Visibility" Value="Visible"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsAccessUpdate}" Value="False">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding IsCurrentUSer}" Value="True">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                    <Button Content="Изменить пароль" Command="{Binding UpdateUserPassword}">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Visibility" Value="Visible"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsCurrentUSer}" Value="False">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                    <Button Content="Удалить аккаунт" Command="{Binding DeleteUserProfile}">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Visibility" Value="Visible"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsAccessUpdate}" Value="False">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding IsCurrentUSer}" Value="True">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                    <Button Content="Выйти" Command="{Binding LogOutCommand}">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Visibility" Value="Visible"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsCurrentUSer}" Value="False">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                </WrapPanel>
-            </Grid>
 
-            <Grid Grid.Row="1">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="30"/>
-                    </Grid.RowDefinitions>
-            <TextBlock Text="Результативность" Grid.Row="0" FontSize="20" Margin="0 20 0 0" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <!-- ===== ЗАГОЛОВОК СТРАНИЦЫ ===== -->
+            <StackPanel Grid.Row="0" 
+                        Orientation="Vertical" 
+                        Margin="0,30,0,30">
 
-            <StackPanel HorizontalAlignment="Left" Grid.Row="1" Orientation="Horizontal" Margin="20 10">
-                <TextBlock Text="{Binding ComplitedCourses, StringFormat='Завершенных: {0}'}" />
-                <TextBlock Text="{Binding CourseInPassage, StringFormat='В прохождении: {0}'}" Margin="20 0 0 0"/>
+                <Grid HorizontalAlignment="Stretch" Margin="20,0,20,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Заголовок с иконкой по центру -->
+                    <StackPanel Grid.Column="0" 
+                                Orientation="Horizontal" 
+                                HorizontalAlignment="Center" 
+                                Margin="150 0 0 0">
+                        <Border Width="40" 
+                                Height="2" 
+                                Background="{StaticResource LightGreenBrush}" 
+                                Opacity="0.3"
+                                Margin="0,0,15,0"
+                                VerticalAlignment="Center"/>
+
+                        <TextBlock Text="ПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ" 
+                                   Style="{StaticResource PageTitleStyle}" 
+                                   VerticalAlignment="Center"/>
+
+                        <Image Style="{StaticResource IconStyle}"
+                               Source="/UI/Images/icons8-profile-page-100.png"
+                               VerticalAlignment="Center"
+                               Margin="10, -17,0,0"
+                               Width="45"
+                               Height="45"
+                               Opacity="0.7"/>
+
+                        <Border Width="40" 
+                                Height="2" 
+                                Background="{StaticResource LightGreenBrush}" 
+                                Opacity="0.3"
+                                Margin="15,0,0,0"
+                                VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <!-- Кнопка выхода (только для текущего пользователя) -->
+                    <Border Grid.Column="1"
+                            Visibility="{Binding VisibleOutPanel}" Cursor="">
+                        <Button Content="Выйти"
+                                Command="{Binding LogOutCommand}"
+                                Style="{StaticResource LogoutButtonStyle}"
+                                Height="38"
+                                Padding="15,0"
+                                FontSize="13"/>
+                    </Border>
+                </Grid>
+
+                <!-- Декоративная линия под заголовком -->
+                <Border Height="4" 
+                        Width="100" 
+                        Background="{StaticResource LightGreenBrush}" 
+                        HorizontalAlignment="Center"
+                        Margin="0,15,0,0"
+                        CornerRadius="2"/>
             </StackPanel>
 
-            
+            <!-- ===== КАРТОЧКА ПРОФИЛЯ ===== -->
+            <Border Grid.Row="1"
+                    Style="{StaticResource ProfileCardStyle}"
+                    Margin="50,0,50,30"
+                    Padding="30">
 
-            <ItemsControl Grid.Row="2" ItemsSource="{Binding GetProgressUsers}"
-                          HorizontalAlignment="Center"
-                          BorderThickness="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Аватар с инициалами -->
+                    <Border Grid.Column="0"
+                            Background="{StaticResource SoftGreenBrush}"
+                            Width="120"
+                            Height="120"
+                            CornerRadius="60"
+                            Margin="0,0,30,0">
+                        <TextBlock Text="{Binding UserName, Converter={StaticResource FirstLettersConverter}}"
+                                   Foreground="{StaticResource PrimaryGreenBrush}"
+                                   FontSize="48"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                    </Border>
+
+                    <!-- Информация о пользователе -->
+                    <StackPanel Grid.Column="1" 
+                                Orientation="Vertical"
+                                VerticalAlignment="Center">
+
+                        <TextBlock Text="{Binding UserName}"
+                                   Style="{StaticResource H2Style}"
+                                   FontSize="28"
+                                   FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextPrimaryBrush}"
+                                   Margin="0,0,0,15"/>
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Логин -->
+                            <TextBlock Grid.Row="0" Grid.Column="0" 
+                                       Text="Логин:" 
+                                       Style="{StaticResource BodyTextStyle}"
+                                       Foreground="{StaticResource TextSecondaryBrush}"
+                                       Margin="0,0,0,10"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" 
+                                       Text="{Binding UserLogin}"
+                                       Style="{StaticResource BodyTextStyle}"
+                                       Foreground="{StaticResource TextPrimaryBrush}"
+                                       FontWeight="Medium"
+                                       Margin="0,0,0,10"/>
+
+                            <!-- Email -->
+                            <TextBlock Grid.Row="1" Grid.Column="0" 
+                                       Text="Email:" 
+                                       Style="{StaticResource BodyTextStyle}"
+                                       Foreground="{StaticResource TextSecondaryBrush}"
+                                       Margin="0,0,0,10"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" 
+                                       Text="{Binding UserEmail}"
+                                       Style="{StaticResource BodyTextStyle}"
+                                       Foreground="{StaticResource TextPrimaryBrush}"
+                                       FontWeight="Medium"
+                                       Margin="0,0,0,10"/>
+
+                            <!-- Телефон -->
+                            <TextBlock Grid.Row="2" Grid.Column="0" 
+                                       Text="Телефон:" 
+                                       Style="{StaticResource BodyTextStyle}"
+                                       Foreground="{StaticResource TextSecondaryBrush}"
+                                       Margin="0,0,0,10"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" 
+                                       Text="{Binding PhoneNumber}"
+                                       Style="{StaticResource BodyTextStyle}"
+                                       Foreground="{StaticResource TextPrimaryBrush}"
+                                       FontWeight="Medium"
+                                       Margin="0,0,0,10"/>
+
+                            <!-- Роль -->
+                            <TextBlock Grid.Row="3" Grid.Column="0" 
+                                       Text="Роль:" 
+                                       Style="{StaticResource BodyTextStyle}"
+                                       Foreground="{StaticResource TextSecondaryBrush}"/>
+                            <Border Grid.Row="3" Grid.Column="1" 
+                                    Background="{StaticResource SoftGreenBrush}"
+                                    CornerRadius="12"
+                                    Padding="8,2"
+                                    HorizontalAlignment="Left">
+                                <TextBlock Text="{Binding UserRole.Name}"
+                                           Foreground="{StaticResource PrimaryGreenBrush}"
+                                           FontSize="12"
+                                           FontWeight="Medium"/>
+                            </Border>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- ===== РЕЖИМ РЕДАКТИРОВАНИЯ ===== -->
+            <Border Grid.Row="2"
+                    Style="{StaticResource EditProfileCardStyle}"
+                    Margin="50,0,50,30"
+                    Padding="30"
+                    Visibility="{Binding VisibleEditPanel}">
+
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Редактирование профиля"
+                               Style="{StaticResource H4Style}"
+                               FontSize="20"
+                               FontWeight="SemiBold"
+                               Foreground="{StaticResource TextPrimaryBrush}"
+                               Margin="0,0,0,20"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Имя -->
+                        <TextBlock Grid.Row="0" Grid.Column="0" 
+                                   Text="Имя:" 
+                                   Style="{StaticResource BodyTextStyle}"
+                                   Foreground="{StaticResource TextSecondaryBrush}"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,0,15"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" 
+                                 Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource TextBoxWithHintStyle}"
+                                 Tag="Введите имя"
+                                 Width="300"
+                                 HorizontalAlignment="Left"
+                                 Margin="0,0,0,15"/>
+
+                        <!-- Email -->
+                        <TextBlock Grid.Row="1" Grid.Column="0" 
+                                   Text="Email:" 
+                                   Style="{StaticResource BodyTextStyle}"
+                                   Foreground="{StaticResource TextSecondaryBrush}"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,0,15"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" 
+                                 Text="{Binding UserEmail, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource TextBoxWithHintStyle}"
+                                 Tag="Введите email"
+                                 Width="300"
+                                 HorizontalAlignment="Left"
+                                 Margin="0,0,0,15"/>
+
+                        <!-- Телефон -->
+                        <TextBlock Grid.Row="2" Grid.Column="0" 
+                                   Text="Телефон:" 
+                                   Style="{StaticResource BodyTextStyle}"
+                                   Foreground="{StaticResource TextSecondaryBrush}"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,0,15"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" 
+                                 Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource TextBoxWithHintStyle}"
+                                 Tag="Введите номер телефона"
+                                 Width="300"
+                                 HorizontalAlignment="Left"
+                                 Margin="0,0,0,15"/>
+
+                        <!-- Логин -->
+                        <TextBlock Grid.Row="3" Grid.Column="0" 
+                                   Text="Логин:" 
+                                   Style="{StaticResource BodyTextStyle}"
+                                   Foreground="{StaticResource TextSecondaryBrush}"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,0,15"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" 
+                                 Text="{Binding UserLogin, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource TextBoxWithHintStyle}"
+                                 Tag="Введите логин"
+                                 Width="300"
+                                 HorizontalAlignment="Left"
+                                 Margin="0,0,0,15"/>
+
+                        <!-- Роль (только для админов) -->
+                        <TextBlock Grid.Row="4" Grid.Column="0" 
+                                   Text="Роль:" 
+                                   Style="{StaticResource BodyTextStyle}"
+                                   Foreground="{StaticResource TextSecondaryBrush}"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,0,15"
+                                   Visibility="{Binding VisibleRoleUpdate}"/>
+                        <ComboBox Grid.Row="4" Grid.Column="1" 
+                                    ItemsSource="{Binding GetRoles}"
+                                    DisplayMemberPath="Name"
+                                    SelectedItem="{Binding UserRole}"
+                                    Style="{StaticResource ComboBoxStyle}"
+                                    Width="300"
+                                    HorizontalAlignment="Left"
+                                    Margin="0,0,0,15"
+                                    Visibility="{Binding VisibleRoleUpdate}"/>
+                    </Grid>
+                    <!-- Сообщение об ошибке -->
+                    <TextBlock Text="{Binding MisstakeText}" 
+             Visibility="{Binding VisibleMisstake}"
+             Style="{StaticResource ErrorTextStyle}" 
+             HorizontalAlignment="Center"
+             Margin="0,0,0,15"/>
+                    <StackPanel Orientation="Horizontal" 
+                                HorizontalAlignment="Center"
+                                Margin="0,20,0,0" Cursor="">
+                        <Button Content="Сохранить"
+                                Command="{Binding UpdateUserProfile}"
+                                Style="{StaticResource SaveProfileButtonStyle}"
+                                IsEnabled="{Binding IsEnable}"
+                                Height="40"
+                                Padding="25,0"
+                                Margin="0,0,10,0"/>
+                        <Button Content="Отмена"
+            Command="{Binding CancelEditCommand}"
+            Style="{StaticResource EditPasswordButtonStyle}"
+            Height="40"
+            Padding="20,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- ===== КНОПКИ ДЕЙСТВИЙ (для текущего пользователя) ===== -->
+            <StackPanel Grid.Row="3"
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            Margin="0,0,0,30"
+            Visibility="{Binding VisibleEditPanel}">
+                <Button Content="✎ Изменить пароль"
+            Command="{Binding UpdateUserPassword}"
+            Style="{StaticResource EditPasswordButtonStyle}"
+                        Visibility="{Binding VisibleUpdatePassword}"
+            Height="40"
+            Padding="20,0"
+            Margin="0,0,10,0" Cursor="Hand"/>
+                <Button Content="🗑️ Удалить аккаунт"
+            Command="{Binding DeleteUserProfile}"
+            Style="{StaticResource DeleteProfileButtonStyle}"
+            Height="40"
+            Padding="20,0"/>
+            </StackPanel>
+
+            <!-- ===== СТАТИСТИКА КУРСОВ ===== -->
+            <Border Grid.Row="4"
+                    Style="{StaticResource StatsContainerStyle}"
+                    Margin="20,0,20,20"
+                    Padding="20,15">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Завершенные курсы -->
+                    <StackPanel Grid.Column="0" 
+                                Orientation="Vertical" 
+                                HorizontalAlignment="Right"
+                                Margin="0,0,30,0">
+                        <TextBlock Text="Завершенные курсы" 
+                                   Style="{StaticResource SmallTextStyle}"
+                                   Foreground="{StaticResource TextSecondaryBrush}"/>
+                        <TextBlock Text="{Binding ComplitedCourses}" 
+                                   Style="{StaticResource H2Style}"
+                                   Foreground="{StaticResource PrimaryGreenBrush}"
+                                   FontSize="36"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                    <!-- Вертикальный разделитель -->
+                    <Rectangle Grid.Column="1" 
+                               Width="1" 
+                               Height="40" 
+                               Fill="{StaticResource BorderGrayBrush}" 
+                               Opacity="0.5"
+                               VerticalAlignment="Center"/>
+
+                    <!-- Курсы в прохождении -->
+                    <StackPanel Grid.Column="2" 
+                                Orientation="Vertical" 
+                                HorizontalAlignment="Left"
+                                Margin="30,0,0,0">
+                        <TextBlock Text="В прохождении" 
+                                   Style="{StaticResource SmallTextStyle}"
+                                   Foreground="{StaticResource TextSecondaryBrush}"/>
+                        <TextBlock Text="{Binding CourseInPassage}" 
+                                   Style="{StaticResource H2Style}"
+                                   Foreground="{StaticResource AccentBlueBrush}"
+                                   FontSize="36"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- ===== ЗАГОЛОВОК СПИСКА КУРСОВ ===== -->
+            <StackPanel Grid.Row="5"
+                        Margin="20,0,20,15">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" 
+                                Orientation="Horizontal">
+                        <Border Background="{StaticResource SoftGreenBrush}"
+                                Width="32"
+                                Height="32"
+                                CornerRadius="16"
+                                Margin="0,0,10,0">
+                            <TextBlock Text="📚" 
+                                       FontSize="16"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Border>
+                        <TextBlock Text="Курсы пользователя"
+                                   Style="{StaticResource H4Style}"
+                                   FontSize="18"
+                                   FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextPrimaryBrush}"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+
+            <!-- ===== КОНТЕЙНЕР ДЛЯ КАРТОЧЕК КУРСОВ ===== -->
+            <ItemsControl Grid.Row="6"
+              ItemsSource="{Binding GetProgressUsers}"
+              Margin="20,0,20,40"
+              Visibility="{Binding HasCourses, Converter={StaticResource BooleanToVisibilityConverter}}">
+
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <controll:MyCoursePanelForProfileElement/>
+                        <!-- Анимированное появление карточки -->
+                        <Border Opacity="0">
+                            <Border.Triggers>
+                                <EventTrigger RoutedEvent="Border.Loaded">
+                                    <BeginStoryboard Storyboard="{StaticResource FadeInAnimation}"/>
+                                </EventTrigger>
+                            </Border.Triggers>
+                            <controll:MyCoursePanelForProfileElement/>
+                        </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
-            </ItemsControl>
 
-            <ItemsControl Margin="10" Grid.Row="3" ItemsSource="{Binding ButtonPanel}" Visibility="{Binding VisibleButtonPanel}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal" 
-               HorizontalAlignment="Center" 
-               VerticalAlignment="Center"/>
+                        <WrapPanel Orientation="Horizontal" 
+                       HorizontalAlignment="Center"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <ContentControl Content="{Binding}">
-                            <ContentControl.Style>
-                                <Style TargetType="ContentControl">
-                                    <Setter Property="ContentTemplate">
-                                        <Setter.Value>
-                                            <DataTemplate>
-                                                <RadioButton Content="{Binding Text}"
-                                       Command="{Binding Command}"
-                                       CommandParameter="{Binding}"/>
-                                            </DataTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding IsEllipsis}" Value="True">
-                                            <Setter Property="ContentTemplate">
-                                                <Setter.Value>
-                                                    <DataTemplate>
-                                                        <TextBlock Text="{Binding Text}" 
-                                             Margin="10,0" 
-                                             VerticalAlignment="Center"/>
-                                                    </DataTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </ContentControl.Style>
-                        </ContentControl>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
             </ItemsControl>
-            </Grid>
-                <WrapPanel HorizontalAlignment="Center" Orientation="Vertical" Grid.Row="2" VerticalAlignment="Center" Visibility="{Binding VisibleEmptyPage}">
-                    <TextBlock Text="Вы ещё не записались не на один курс" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Самое время записаться" HorizontalAlignment="Center"/>
-                    <Button Content="К курсам" Command="{Binding AllCourseCommand}"/>
-                </WrapPanel>
-            </Grid>
+
+            <!-- ===== ПУСТАЯ СТРАНИЦА (нет курсов) ===== -->
+            <Border Grid.Row="6"
+        Style="{StaticResource EmptyPageStyle}"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Visibility="{Binding VisibleEmptyPage}"
+        Margin="0,50,0,0"
+        Padding="40"
+        Background="{StaticResource PureWhiteBrush}"
+        CornerRadius="24"
+        Effect="{StaticResource CardShadowEffect}">
+
+                <StackPanel Orientation="Vertical" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center"
+                MaxWidth="400">
+
+                    <Image Source="/UI/Images/icons8-sad-smile-100.png" 
+               Width="100" 
+               Height="100" 
+               Opacity="0.5"
+               Margin="0,0,0,20"/>
+
+                    <TextBlock Text="У Вас пока нет курсов" 
+                   Style="{StaticResource H4Style}"
+                   HorizontalAlignment="Center"
+                   Foreground="{StaticResource TextPrimaryBrush}"
+                   Margin="0,0,0,8"/>
+
+                    <TextBlock Text="Запишитесь на курсы, чтобы они появились здесь" 
+                   Style="{StaticResource BodyTextStyle}"
+                   HorizontalAlignment="Center"
+                   Foreground="{StaticResource TextSecondaryBrush}"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   Margin="0,0,0,20"/>
+
+                    <Button Content="К курсам" 
+                Command="{Binding AllCourseCommand}"
+                Style="{StaticResource PrimaryButtonStyle}"
+                Width="150"
+                Height="40"
+                FontSize="14"/>
+                </StackPanel>
+            </Border>
+
+            <!-- ===== ПАГИНАЦИЯ ===== -->
+            <Border Grid.Row="7"
+                    Style="{StaticResource PaginationContainerStyle}"
+                    Visibility="{Binding VisibleButtonPanel}"
+                    Margin="0,20,0,0">
+                <ItemsControl ItemsSource="{Binding ButtonPanel}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Button Content="{Binding Text}"
+                                        Command="{Binding Command}"
+                                        CommandParameter="{Binding}"
+                                        Style="{StaticResource PaginationButtonStyle}"
+                                        Visibility="{Binding IsEllipsis, Converter={StaticResource InverseBooleanToVisibilityConverter}}"/>
+                                <Button Content="{Binding Text}"
+                                        Command="{Binding Command}"
+                                        CommandParameter="{Binding}"
+                                        Style="{StaticResource SelectedPaginationButtonStyle}"
+                                        Visibility="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                <TextBlock Text="{Binding Text}" 
+                                           Style="{StaticResource EllipsisItemStyle}"
+                                           Visibility="{Binding IsEllipsis, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Border>
         </Grid>
     </ScrollViewer>
-
 </UserControl>
