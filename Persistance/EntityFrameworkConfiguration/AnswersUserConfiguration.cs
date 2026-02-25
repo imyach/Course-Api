@@ -27,12 +27,12 @@
                 builder.HasOne(asn => asn.Answer)
                     .WithMany(tests => tests.AnswersUsers)
                     .HasForeignKey(k => k.AnswerId)
-                    .OnDelete(DeleteBehavior.Restrict);
+                    .OnDelete(DeleteBehavior.Cascade);
 
                 builder.HasOne(asn => asn.Question)
                     .WithMany(tests => tests.AnswersUsers)
                     .HasForeignKey(k => k.QuestionId)
-                    .OnDelete(DeleteBehavior.Restrict);
+                    .OnDelete(DeleteBehavior.Cascade);
 
                 builder.HasOne(asn => asn.TestResult)
                     .WithMany(tests => tests.AnswersUsers)

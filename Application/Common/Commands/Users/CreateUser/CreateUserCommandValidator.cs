@@ -14,15 +14,15 @@ namespace Application.Common.Commands.Users.CreateUser
            RuleFor(createUserCommand => createUserCommand.CurrentUserId)
                .NotNull().NotEqual(Guid.Empty);
             RuleFor(createUserCommand => createUserCommand.NameUser)
-               .NotNull().NotEmpty().MaximumLength(30);
+               .NotNull().NotEmpty().MaximumLength(50);
             RuleFor(createUserCommand => createUserCommand.Login)
               .NotNull().NotEmpty().MaximumLength(30);
             RuleFor(createUserCommand => createUserCommand.Email)
               .MaximumLength(50);
             RuleFor(createUserCommand => createUserCommand.PhoneNumber)
-              .MaximumLength(12);
+              .MaximumLength(18);
             RuleFor(createUserCommand => createUserCommand.Password)
-              .NotNull().NotEmpty().MaximumLength(60);
+              .NotNull().NotEmpty().MaximumLength(30);
         }
     }
 }

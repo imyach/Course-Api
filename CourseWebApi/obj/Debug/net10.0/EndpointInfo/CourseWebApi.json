@@ -4373,11 +4373,9 @@
       },
       "UpdateUserDto": {
         "required": [
-          "email",
           "id",
           "login",
           "nameUser",
-          "phoneNumber",
           "role"
         ],
         "type": "object",
@@ -4406,12 +4404,12 @@
             "$ref": "#/components/schemas/Role"
           },
           "email": {
-            "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "phoneNumber": {
-            "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

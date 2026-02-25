@@ -15,8 +15,6 @@ namespace Application.Common.Commands.Tests.CreateTest
                 .NotNull().NotEqual(Guid.Empty);
             RuleFor(createTestCommand => createTestCommand.Title)
                .NotNull().NotEmpty().MaximumLength(100);
-            RuleFor(createTestCommand => createTestCommand.Description)
-                .MaximumLength(1000);
         }
     }
 }

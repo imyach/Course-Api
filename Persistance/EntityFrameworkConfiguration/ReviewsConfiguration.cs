@@ -18,7 +18,7 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.Property(review => review.CourseId).IsRequired();
             builder.Property(review => review.Rait).IsRequired();
             builder.Property(review => review.CreatedAt).IsRequired();
-            builder.Property(review => review.Text).IsRequired();
+            builder.Property(review => review.Text).IsRequired().HasMaxLength(3000);
 
             builder.HasOne(user => user.User)
                 .WithMany(reviews => reviews.Reviews)

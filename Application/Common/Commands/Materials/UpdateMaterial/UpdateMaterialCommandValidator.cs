@@ -15,8 +15,6 @@ namespace Application.Common.Commands.Materials.UpdateMaterial
               .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateMatherialCommand => updateMatherialCommand.Title)
                 .NotEmpty().NotNull().MaximumLength(100);
-            RuleFor(updateMatherialCommand => updateMatherialCommand.Description)
-                .MaximumLength(1000);
         }
     }
 }

@@ -15,8 +15,6 @@ namespace Application.Common.Commands.Tests.UpdateTest
                 .NotNull().NotEqual(Guid.Empty);
             RuleFor(updateTestCommand => updateTestCommand.Title)
                .NotNull().NotEmpty().MaximumLength(100);
-            RuleFor(updateTestCommand => updateTestCommand.Description)
-                .MaximumLength(1000);
 
         }
     }

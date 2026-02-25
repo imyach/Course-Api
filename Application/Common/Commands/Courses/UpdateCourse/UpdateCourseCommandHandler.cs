@@ -25,7 +25,6 @@ namespace Application.Common.Commands.Courses.UpdateCourse
                     entity.UpdateAt = DateTime.UtcNow;
                 if (!string.IsNullOrEmpty(request.Title))
                     entity.Title = request.Title;
-                if (!string.IsNullOrEmpty(request.Description))
                     entity.Description = request.Description;
                 if(!string.IsNullOrEmpty(request.Status))
                     entity.Status = request.Status;

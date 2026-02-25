@@ -15,8 +15,6 @@ namespace Application.Common.Commands.Modules.CreateModule
                .NotNull().NotEqual(Guid.Empty);
             RuleFor(createModuleCommand => createModuleCommand.Title)
                 .NotEmpty().NotNull().MaximumLength(100);
-            RuleFor(createModuleCommand => createModuleCommand.Description)
-                .MaximumLength(1000);
         }
     }
 }

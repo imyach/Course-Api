@@ -10,7 +10,7 @@ namespace Application.Common.Commands.Answers.CreateAnswer
         public CreateAnswerCommandValidator()
         {
             RuleFor(createAnswerCommand => createAnswerCommand.Text)
-                .NotEmpty().MaximumLength(1000).NotNull();
+                .NotEmpty().MaximumLength(250).NotNull();
             RuleFor(createAnswerCommand => createAnswerCommand.QuestionId)
                 .NotEqual(Guid.Empty).NotNull();
             RuleFor(createAnswerCommand => createAnswerCommand.CurrentUserId)

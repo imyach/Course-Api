@@ -15,7 +15,7 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.HasKey(test => test.Id);
             builder.HasIndex(test => test.Id).IsUnique();
             builder.Property(test => test.Id).HasMaxLength(250);
-            builder.Property(test => test.Title).IsRequired().HasMaxLength(250);
+            builder.Property(test => test.Title).IsRequired().HasMaxLength(100);
             builder.Property(test => test.Order).IsRequired();
 
             builder.HasOne(math => math.Material)

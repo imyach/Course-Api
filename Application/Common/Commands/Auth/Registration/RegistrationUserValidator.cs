@@ -16,9 +16,9 @@ namespace Application.Common.Commands.Auth.Registration
             RuleFor(registrationUserCommand => registrationUserCommand.Email)
               .MaximumLength(50);
             RuleFor(registrationUserCommand => registrationUserCommand.PhoneNumber)
-              .MaximumLength(12);
+              .MaximumLength(18);
             RuleFor(registrationUserCommand => registrationUserCommand.Password)
-              .NotNull().NotEmpty().MaximumLength(60);
+              .NotNull().NotEmpty().MaximumLength(30);
         }
     }
 }
