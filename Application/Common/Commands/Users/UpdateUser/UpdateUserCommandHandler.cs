@@ -44,7 +44,6 @@ namespace Application.Common.Commands.Users.UpdateUser
 
                 await context.SaveChangesAsync(cancellationToken);
 
-                await tokenServise.DeleteResreshToken(entity, cancellationToken);
 
                 return await tokenServise.GenerateTokens(entity);
             }

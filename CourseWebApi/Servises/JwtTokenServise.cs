@@ -18,7 +18,7 @@ namespace CourseWebApi.Servises
     public class JwtTokenServise(ICoursesDbContext context, IConfiguration configuration) : IJwtTokenServise
     {
         string SECRET_KEY = configuration["SECRET_KEY"];
-        public TimeSpan ExpiryDuration = new(0, 15, 0);
+        public TimeSpan ExpiryDuration = new(0, 0, 10);
         private async Task<string> GenerateJwtToken(User user, CancellationToken cancellationToken = default)
         {
 
@@ -75,7 +75,6 @@ namespace CourseWebApi.Servises
             return new TokensDto { AccessToken = accessToken, RefreshToken = refreshToken };
 
         }
-
         public async Task DeleteResreshToken(User user, CancellationToken cancellationToken = default)
         {
             var tokens = await context.RefreshTokens

@@ -39,12 +39,10 @@ namespace CourseWebApi.Controllers
             return Ok(new { accessToken = response.AccessToken, refreshToken = response.RefreshToken });
 
         }
-
         [HttpPost("refresh")]
         public async Task<IActionResult> Refresh([FromBody] RefreshDto refreshDto)
         {
             var command = mapper.Map<RefreshTokenCommand>(refreshDto);
-            command.CurrentUserId = UserId;
 
             var response = await Mediator.Send(command);
             if (response is null)
