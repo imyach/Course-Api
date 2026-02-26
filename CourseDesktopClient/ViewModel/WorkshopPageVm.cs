@@ -24,7 +24,6 @@ namespace CourseDesktopClient.ViewModel
             {
                 _getCourses = value;
                 OnPropertyChanged(nameof(GetCourses));
-                // Обновляем статистику при изменении списка курсов
                 UpdateStatistics();
             }
         }
@@ -73,7 +72,6 @@ namespace CourseDesktopClient.ViewModel
             }
         }
 
-        // ========== НОВЫЕ СВОЙСТВА ==========
 
         private int _totalCourses;
         public int TotalCourses
@@ -130,7 +128,6 @@ namespace CourseDesktopClient.ViewModel
             }
         }
 
-        // ========== НОВЫЕ КОМАНДЫ ==========
 
         public ICommand PagerCommand { get; set; }
         public ICommand LocalCreateCouseCommand { get; set; }
@@ -209,22 +206,18 @@ namespace CourseDesktopClient.ViewModel
 
                 GetCourses = courseViewModel;
 
-                // Кнопка создания всегда видна (для администраторов/авторов)
                 VisibleAddButton = authService.CurrentUser?.Role?.Name == "Admin" && pager.TotalItems > 0
                     ? Visibility.Visible
                     : Visibility.Hidden;
 
-                // Обновляем видимость пустой страницы
                 VisibleEmptyPage = pager.TotalItems <= 0
                     ? Visibility.Visible
                     : Visibility.Collapsed;
 
-                // Обновляем видимость пагинации
                 VisibleButtonPanel = pager.TotalItems > pager.PageSize
                     ? Visibility.Visible
                     : Visibility.Collapsed;
 
-                // Обновляем состояние навигации
                 HasPreviousPage = pageNumber > 1;
                 HasNextPage = pageNumber < GetTotalPages(pager);
 
@@ -232,7 +225,6 @@ namespace CourseDesktopClient.ViewModel
             }
             catch (Exception ex)
             {
-                // Обработка ошибок
                 System.Diagnostics.Debug.WriteLine($"Error loading workshop: {ex.Message}");
             }
         }
@@ -260,7 +252,6 @@ namespace CourseDesktopClient.ViewModel
         {
             var newButtonPanel = pagerService.GeneratePagerPanel(pager, PagerCommand);
 
-            // Отмечаем выбранную страницу
             var currentPage = pager.PageNumber;
             foreach (var btn in newButtonPanel)
             {

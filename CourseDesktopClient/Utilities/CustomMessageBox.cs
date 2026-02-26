@@ -19,7 +19,6 @@ namespace CourseDesktopClient.Utilities
             vm.Initialize(dialog, message, caption, buttons, icon);
             dialog.DataContext = vm;
 
-            // Безопасная установка Owner
             var mainWindow = Application.Current.MainWindow;
             if (mainWindow != null && mainWindow.IsLoaded && mainWindow.IsVisible)
             {

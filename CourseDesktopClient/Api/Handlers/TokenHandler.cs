@@ -1,15 +1,14 @@
 ﻿using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Models.DtosModel.Auth;
 using System;
-using System.CodeDom;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
-using System.Windows;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace CourseDesktopClient.Api.Handlers
 {
@@ -22,7 +21,7 @@ namespace CourseDesktopClient.Api.Handlers
         private static bool isRefreshing = false;
         public static bool isRemember = true;
 
-        public TokenHandler(ITokenService tokenService , INavigationService navigationService)
+        public TokenHandler(ITokenService tokenService, INavigationService navigationService)
         {
             this.tokenService = tokenService;
             this.navigationService = navigationService;
@@ -41,19 +40,28 @@ namespace CourseDesktopClient.Api.Handlers
             try
             {
                 await AddAccessTokenToRequestAsync(request);
-                var responce = await base.SendAsync(request, cancellationToken);
-                if (responce.StatusCode == HttpStatusCode.Unauthorized)
+                var response = await base.SendAsync(request, cancellationToken);
+
+                if (response.StatusCode == HttpStatusCode.Unauthorized)
                 {
                     var refreshSuccess = await TryRefreshTokenAsync(cancellationToken);
+
                     if (refreshSuccess)
                     {
                         await AddAccessTokenToRequestAsync(request);
-                        responce = await base.SendAsync(request, cancellationToken);
+                        response = await base.SendAsync(request, cancellationToken);
+                    }
+                    else
+                    {
+                        await tokenService.ClearTokensAsync();
+                        navigationService.NavigateToLogin();
+                        return new HttpResponseMessage(HttpStatusCode.Unauthorized);
                     }
                 }
-                return responce;
+
+                return response;
             }
-            catch(HttpRequestException ex) when (ex.InnerException is SocketException)
+            catch (HttpRequestException ex) when (ex.InnerException is SocketException)
             {
                 navigationService.NavigateMistakePage(ex);
                 return new HttpResponseMessage(HttpStatusCode.ServiceUnavailable)
@@ -61,18 +69,16 @@ namespace CourseDesktopClient.Api.Handlers
                     Content = new StringContent("Сервер недоступен")
                 };
             }
-        }
-        
+        } 
 
         private async Task AddAccessTokenToRequestAsync(HttpRequestMessage request)
         {
             var (accessToken, _) = await tokenService.GetTokensAsync();
-            if (!string.IsNullOrEmpty(accessToken)) 
+            if (!string.IsNullOrEmpty(accessToken))
             {
                 request.Headers.Remove("Authorization");
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             }
-
         }
 
         private async Task<bool> TryRefreshTokenAsync(CancellationToken cancellationToken)
@@ -92,11 +98,13 @@ namespace CourseDesktopClient.Api.Handlers
                     }, cancellationToken);
 
                     await Task.WhenAny(waitTask, Task.Delay(5000, cancellationToken));
-                    return true;
 
+                    var (newAccessToken, _) = await tokenService.GetTokensAsync();
+                    return !string.IsNullOrEmpty(newAccessToken);
                 }
 
                 isRefreshing = true;
+
                 var (_, refreshToken) = await tokenService.GetTokensAsync();
                 if (string.IsNullOrEmpty(refreshToken))
                 {
@@ -107,24 +115,24 @@ namespace CourseDesktopClient.Api.Handlers
                 var content = new StringContent(JsonSerializer.Serialize(refreshDto),
                     Encoding.UTF8, "application/json");
 
-                var responce = await refreshHttpClient.PostAsync(ApiPaths.API_REFRESH_TOKEN, content, cancellationToken);
+                var response = await refreshHttpClient.PostAsync(ApiPaths.API_REFRESH_TOKEN, content, cancellationToken);
 
-                if (!responce.IsSuccessStatusCode)
+                if (!response.IsSuccessStatusCode)
                 {
                     await tokenService.ClearTokensAsync();
                     return false;
                 }
 
-                var jsonResponse = await responce.Content.ReadAsStringAsync(cancellationToken);
+                var jsonResponse = await response.Content.ReadAsStringAsync(cancellationToken);
                 var newTokens = JsonSerializer.Deserialize<TokensDto>(jsonResponse);
 
                 if (newTokens == null ||
-                   string.IsNullOrEmpty(newTokens.AccessToken) ||
-                   string.IsNullOrEmpty(newTokens.RefreshToken))
+                    string.IsNullOrEmpty(newTokens.AccessToken) ||
+                    newTokens.RefreshToken == string.Empty)
                 {
+                    await tokenService.ClearTokensAsync();
                     return false;
                 }
-
 
                 await tokenService.SaveTokensAsync(newTokens.AccessToken, newTokens.RefreshToken, isRemember);
 

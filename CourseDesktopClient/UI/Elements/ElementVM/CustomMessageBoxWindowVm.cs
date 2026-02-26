@@ -106,7 +106,6 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
                     case MessageBoxButton.YesNoCancel:
                         OkButtonText = "Да";
                         CancelButtonText = "Нет";
-                        // Для YesNoCancel нужна третья кнопка - упрощаем до YesNo
                         CancelButtonVisibility = Visibility.Visible;
                         break;
                 }
@@ -164,7 +163,6 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
 
             var storyboard = new Storyboard();
 
-            // Анимация для ScaleX
             var animationX = new DoubleAnimation
             {
                 Duration = TimeSpan.FromMilliseconds(200),
@@ -173,7 +171,6 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseIn }
             };
 
-            // Анимация для ScaleY
             var animationY = new DoubleAnimation
             {
                 Duration = TimeSpan.FromMilliseconds(200),

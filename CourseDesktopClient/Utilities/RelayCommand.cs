@@ -15,15 +15,12 @@ namespace CourseDesktopClient.Utilities
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
-
-        // Конструктор для методов с параметром (Action<object?>)
         public RelayCommand(Action<object?> execute, Func<object?, bool>? canExecute = null)
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
         }
 
-        // Дополнительный конструктор для методов без параметра (Action)
         public RelayCommand(Action execute, Func<bool>? canExecute = null)
         {
             _execute = _ => execute();

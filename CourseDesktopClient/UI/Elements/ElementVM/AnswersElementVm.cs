@@ -14,8 +14,6 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
 
         public Guid Id => _answerDto.Id;
         public string TextAnswer => _answerDto.Text ?? string.Empty;
-
-        // Свойство для привязки к CheckBox
         public bool IsSelected
         {
             get => _isSelected;

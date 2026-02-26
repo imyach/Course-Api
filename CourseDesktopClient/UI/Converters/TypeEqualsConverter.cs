@@ -13,17 +13,13 @@ namespace CourseDesktopClient.UI.Converters
             if (value == null || parameter == null)
                 return false;
 
-            // Проверяем, является ли parameter типом
             if (parameter is Type targetTypeToCompare)
             {
-                // Сравниваем тип текущего объекта с целевым типом
                 return value.GetType() == targetTypeToCompare;
             }
 
-            // Если parameter - это строка с именем типа
             if (parameter is string typeName)
             {
-                // Пытаемся найти тип по имени
                 var type = Type.GetType(typeName);
                 if (type != null)
                 {

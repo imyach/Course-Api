@@ -28,7 +28,6 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
         {
             _question = question ?? throw new ArgumentNullException(nameof(question));
 
-            // Создаем VM для ответов
             if (question.Answers != null)
             {
                 Answers = question.Answers

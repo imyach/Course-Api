@@ -6,135 +6,222 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseDesktopClient"
         xmlns:view="clr-namespace:CourseDesktopClient.View"
-        xmlns:conveters ="clr-namespace:CourseDesktopClient.UI.Converters"
+        xmlns:conveters="clr-namespace:CourseDesktopClient.UI.Converters"
         mc:Ignorable="d"
         Title="Главная" 
         MinHeight="930" 
         MinWidth="1500" 
-        Background="{StaticResource OffWhiteBrush}"
+        Background="Transparent"
         WindowStartupLocation="CenterScreen"
-        
-            RenderOptions.EdgeMode="Unspecified"  
+        WindowStyle="None"
+        AllowsTransparency="True"
+        RenderOptions.EdgeMode="Unspecified"  
         RenderOptions.BitmapScalingMode="NearestNeighbor">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        <!-- Основной контейнер с закругленными углами -->
+        <Border CornerRadius="20"
+                Background="{StaticResource OffWhiteBrush}"
+                BorderBrush="{StaticResource BorderGrayBrush}"
+                BorderThickness="1"
+                Margin ="7 2 9 0">
 
-        <!-- Верхняя панель навигации -->
-        <Border Grid.Row="0"
-                Background="{StaticResource PureWhiteBrush}"
-                BorderBrush="{StaticResource LightGrayBrush}"
-                BorderThickness="0,0,0,1"
-                Padding="20,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition 
+                        Height="40"/>
+                    <!-- Заголовок окна (для перетаскивания) -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Верхняя панель навигации -->
+                    <RowDefinition Height="*"/>
+                    <!-- Основной контент -->
+                </Grid.RowDefinitions>
 
-            <Grid Height="70">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0" 
-            Orientation="Horizontal" 
-            VerticalAlignment="Center"
-            Margin="10,0,0,0">
+                <!-- Заголовок окна для перетаскивания -->
+                <Border Grid.Row="0"
+                        x:Name="TitleBar"
+                        Background="{StaticResource PureWhiteBrush}"
+                        BorderBrush="{StaticResource LightGrayBrush}"
+                        BorderThickness="0,0,0,1"
+                        CornerRadius="20,20,0,0"
+                        Height="40">
 
-                    <!-- Кнопка "Курсы" -->
-                    <Button Content="Курсы"
-            Style="{StaticResource CoursesButtonStyle}"
-            Command="{Binding AllCourseCommand}"/>
+                    <!-- Добавляем обработчики мыши для перетаскивания -->
+                    <Border.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" 
+                                      Command="{Binding DragWindowCommand}"/>
+                    </Border.InputBindings>
 
-                    <!-- Кнопка "Мои курсы" -->
-                    <Button Content="Мои курсы"
-            Style="{StaticResource MyCoursesButtonStyle}"
-            Command="{Binding MyCourseCommand}"
-            Visibility="{Binding VisibilityInAuthorizedProfile}"/>
+                    <Grid>
+                        <StackPanel Grid.Column="0"
+                Orientation="Horizontal"
+                VerticalAlignment="Center"
+                Margin="10,0,0,0">
 
-                    <!-- Кнопка "Пользователи / Управление пользователями" -->
-                    <Button Content="{Binding UsersText}"
-            Style="{StaticResource UsersButtonStyle}"
-            Command="{Binding UsersPageCommand}"
-            Visibility="{Binding VisibilityInAuthorizedProfile}"/>
-                </StackPanel>
+                            <Image Source="/UI/Images/Skill-Forge-icon.png"
+               Width="45"
+               Height="45"
+               Margin="0,0,6,0"
+               Stretch="UniformToFill"/>
 
-                <Grid Grid.Column="1" HorizontalAlignment="Center">
-                    <!-- Поиск -->
-                    <StackPanel Orientation="Horizontal" 
-Visibility="{Binding VisibilitySearch}"
-Margin="0,0,20,0">
-                        <TextBlock Text="Поиск" 
-   Style="{StaticResource BodyTextStyle}"
-   VerticalAlignment="Center"
-   Margin="0,0,10,0"/>
-                        <TextBox Text="{Binding Search, UpdateSourceTrigger=PropertyChanged}" 
- Style="{StaticResource SearchBoxWithIconStyle}"/>
-                    </StackPanel>
-                </Grid>
+                            <TextBlock Text="SkillForge" 
+                   Style="{StaticResource BodyTextStyle}"
+                   Foreground="{StaticResource TextPrimaryBrush}"
+                   VerticalAlignment="Center"
+                   FontSize="13"
+                   FontWeight="SemiBold"/>
+                        </StackPanel>
+                        <TextBlock Text="SkillForge" 
+                                   Style="{StaticResource SmallTextStyle}"
+                                   Foreground="{StaticResource TextSecondaryBrush}"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   FontSize="12"/>
+                        <!-- Кнопки управления окном -->
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Margin="0,0,10,0">
+                            <Button Content="─"
+                                    Style="{StaticResource WindowControlButtonStyle}"
+                                    Command="{Binding MinimizeWindowCommand}"
+                                    Width="25"
+                                    Height="25"
+                                    Margin="0,0,5,0"/>
+                            <Button Content="□"
+                                    Style="{StaticResource WindowControlButtonStyle}"
+                                    Command="{Binding MaximizeWindowCommand}"
+                                    Width="25"
+                                    Height="25"
+                                    FontSize="17"
+                                    Margin="0,0,5,5"/>
+                            <Button Content="✕"
+                                    Style="{StaticResource WindowCloseButtonStyle}"
+                                    Command="{Binding CloseWindowCommand}"
+                                    Width="25"
+                                    Height="25"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
 
-                <!-- Правая часть - профиль и авторизация -->
-                <StackPanel Grid.Column="2" 
-                           Orientation="Horizontal" 
-                           VerticalAlignment="Center"
-                           Margin="0,0,20,0">
+                <!-- Верхняя панель навигации -->
+                <Border Grid.Row="1"
+                        Background="{StaticResource PureWhiteBrush}"
+                        BorderBrush="{StaticResource LightGrayBrush}"
+                        BorderThickness="0,0,0,1"
+                        Padding="20,0">
 
-                    <!-- Кнопка создания курса (для админов) -->
-                    <Button Content="Создать курс" 
-                        Style="{StaticResource ButtonWithIconPlusStyle}"
-                        Command="{Binding CreateCourseCommand}"
-                        Visibility="{Binding CouchAdminVisible}"
-                        Margin="0,0,20,0" Cursor="Hand"/>
+                    <Grid Height="70">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
 
-                    <!-- Меню пользователя -->
-                    <Menu Visibility="{Binding VisibilityInAuthorizedProfile}"
-      Style="{StaticResource ProfileMenuStyle}">
+                        <!-- Левая часть - навигация -->
+                        <StackPanel Grid.Column="0" 
+                                    Orientation="Horizontal" 
+                                    VerticalAlignment="Center"
+                                    Margin="10,0,0,0">
 
-                        <!-- Заголовок меню -->
-                        <MenuItem Header="{Binding UserName}"
-              Style="{StaticResource MenuHeaderStyle}">
+                            <!-- Кнопка "Курсы" -->
+                            <Button Content="Курсы"
+                                    Style="{StaticResource CoursesButtonStyle}"
+                                    Command="{Binding AllCourseCommand}"/>
 
-                            <!-- Пункты меню с иконками -->
-                            <MenuItem Header="Профиль"
-                  Command="{Binding ProfileCommand}"
-                  Style="{StaticResource ProfileMenuItemStyle}"
-                  Tag="pack://application:,,,/UI/Images/icons8-profile-96.png"/>
+                            <!-- Кнопка "Мои курсы" -->
+                            <Button Content="Мои курсы"
+                                    Style="{StaticResource MyCoursesButtonStyle}"
+                                    Command="{Binding MyCourseCommand}"
+                                    Visibility="{Binding VisibilityInAuthorizedProfile}"/>
 
-                            <Separator Style="{StaticResource MenuSeparatorStyle}"/>
+                            <!-- Кнопка "Пользователи / Управление пользователями" -->
+                            <Button Content="{Binding UsersText}"
+                                    Style="{StaticResource UsersButtonStyle}"
+                                    Command="{Binding UsersPageCommand}"
+                                    Visibility="{Binding VisibilityInAuthorizedProfile}"/>
+                        </StackPanel>
 
-                            <MenuItem Header="Мастерская"
-                  Command="{Binding WorkshopCommand}"
-                  Visibility="{Binding CouchAdminVisible}"
-                  Style="{StaticResource WorkshopMenuItemStyle}"
-                  Tag="pack://application:,,,/UI/Images/icons8-workshop-96.png"/>
+                        <!-- Центральная часть - поиск -->
+                        <Grid Grid.Column="1" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" 
+                                        Visibility="{Binding VisibilitySearch}"
+                                        Margin="0,0,20,0">
+                                <TextBlock Text="Поиск" 
+                                           Style="{StaticResource BodyTextStyle}"
+                                           VerticalAlignment="Center"
+                                           Margin="0,0,10,0"/>
+                                <TextBox Text="{Binding Search, UpdateSourceTrigger=PropertyChanged}" 
+                                         Style="{StaticResource SearchBoxWithIconStyle}"/>
+                            </StackPanel>
+                        </Grid>
 
-                            <MenuItem Header="Мои курсы"
-                  Command="{Binding MyCourseCommand}"
-                  Style="{StaticResource MyCoursesMenuItemStyle}"
-                  Tag="pack://application:,,,/UI/Images/icons8-courses-48.png"/>
+                        <!-- Правая часть - профиль и авторизация -->
+                        <StackPanel Grid.Column="2" 
+                                   Orientation="Horizontal" 
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,20,0">
 
-                            <Separator Style="{StaticResource MenuSeparatorStyle}"/>
+                            <!-- Кнопка создания курса (для админов) -->
+                            <Button Content="Создать курс" 
+                                    Style="{StaticResource ButtonWithIconPlusStyle}"
+                                    Command="{Binding CreateCourseCommand}"
+                                    Visibility="{Binding CouchAdminVisible}"
+                                    Margin="0,0,20,0" Cursor="Hand"/>
 
-                            <MenuItem Header="Выйти"
-                  Command="{Binding LogOutCommand}"
-                  Style="{StaticResource LogoutMenuItemStyle}"
-                  Tag="pack://application:,,,/UI/Images/icons8-logout-64.png"/>
-                        </MenuItem>
-                    </Menu>
-                    <Button Content="Войти"
-        Style="{StaticResource LoginButtonStyle2}"
-        Command="{Binding LoginCommand}"
-        Visibility="{Binding VisibilitySignInButton}"
-        Margin="0,0,20,0"/>
-                </StackPanel>
+                            <!-- Меню пользователя -->
+                            <Menu Visibility="{Binding VisibilityInAuthorizedProfile}"
+                                  Style="{StaticResource ProfileMenuStyle}">
+
+                                <!-- Заголовок меню -->
+                                <MenuItem Header="{Binding UserName}"
+                                          Style="{StaticResource MenuHeaderStyle}">
+
+                                    <!-- Пункты меню с иконками -->
+                                    <MenuItem Header="Профиль"
+                                              Command="{Binding ProfileCommand}"
+                                              Style="{StaticResource ProfileMenuItemStyle}"
+                                              Tag="pack://application:,,,/UI/Images/icons8-profile-96.png"/>
+
+                                    <Separator Style="{StaticResource MenuSeparatorStyle}"/>
+
+                                    <MenuItem Header="Мастерская"
+                                              Command="{Binding WorkshopCommand}"
+                                              Visibility="{Binding CouchAdminVisible}"
+                                              Style="{StaticResource WorkshopMenuItemStyle}"
+                                              Tag="pack://application:,,,/UI/Images/icons8-workshop-96.png"/>
+
+                                    <MenuItem Header="Мои курсы"
+                                              Command="{Binding MyCourseCommand}"
+                                              Style="{StaticResource MyCoursesMenuItemStyle}"
+                                              Tag="pack://application:,,,/UI/Images/icons8-courses-48.png"/>
+
+                                    <Separator Style="{StaticResource MenuSeparatorStyle}"/>
+
+                                    <MenuItem Header="Выйти"
+                                              Command="{Binding LogOutCommand}"
+                                              Style="{StaticResource LogoutMenuItemStyle}"
+                                              Tag="pack://application:,,,/UI/Images/icons8-logout-64.png"/>
+                                </MenuItem>
+                            </Menu>
+
+                            <!-- Кнопка входа -->
+                            <Button Content="Войти"
+                                    Style="{StaticResource LoginButtonStyle2}"
+                                    Command="{Binding LoginCommand}"
+                                    Visibility="{Binding VisibilitySignInButton}"
+                                    Margin="0,0,20,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- Основной контент -->
+                <ContentControl Grid.Row="2" 
+                                Content="{Binding CurrentView}"
+                                Margin="20"
+                                HorizontalContentAlignment="Stretch"
+                                VerticalContentAlignment="Stretch"/>
             </Grid>
         </Border>
-
-        <!-- Основной контент -->
-        <ContentControl Grid.Row="1" 
-                        Content="{Binding CurrentView}"
-                        Margin="20"
-                        HorizontalContentAlignment="Stretch"
-                        VerticalContentAlignment="Stretch"/>
     </Grid>
 </Window>

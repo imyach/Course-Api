@@ -14,12 +14,10 @@ namespace CourseDesktopClient.UI.Converters
 
                 if (words.Length >= 2)
                 {
-                    // Берем первую букву первого и второго слова
                     return $"{words[0][0]}{words[1][0]}".ToUpper();
                 }
                 else if (name.Length >= 2)
                 {
-                    // Берем первые две буквы
                     return name.Substring(0, 2).ToUpper();
                 }
                 else if (name.Length == 1)

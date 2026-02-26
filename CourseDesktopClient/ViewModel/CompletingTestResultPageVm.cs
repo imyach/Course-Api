@@ -80,28 +80,23 @@ namespace CourseDesktopClient.ViewModel
 
         private async Task СompletionTestAsync(object? sender)
         {
-            // 1. Проверяем есть ли вопросы
             if (GetQuestion == null || !GetQuestion.Any())
             {
                 CustomMessageBox.ShowError("Нет вопросов для завершения теста");
                 return;
             }
 
-            // 2. Собираем выбранные ответы
             var selectedAnswers = CollectSelectedAnswers();
 
-            // 3. Проверяем, на все ли вопросы ответили
             if (!IsAllQuestionsAnswered())
             {
                 CustomMessageBox.ShowInfo("Вы ответили не на все вопросы");
                 return;
             }
 
-            // 4. Подтверждение завершения
             if (CustomMessageBox.ShowYesNo("Вы уверены, что хотите завершить тест?", "Подтверждение") != DialogResult.Yes)
                 return;
 
-            // 5. Отправляем данные на сервер
             await SendTestResultsToServer(selectedAnswers);
         }
 
@@ -115,7 +110,6 @@ namespace CourseDesktopClient.ViewModel
             {
                 if (question.Answers == null) continue;
 
-                // Находим выбранные ответы для этого вопроса
                 var selectedForQuestion = question.Answers
                     .Where(a => a.IsSelected)
                     .Select(a => new SelectedAnswerDto
@@ -132,14 +126,12 @@ namespace CourseDesktopClient.ViewModel
             return selectedAnswers;
         }
 
-        // Проверка на все ли вопросы отвечены
         private bool IsAllQuestionsAnswered()
         {
             if (GetQuestion == null) return false;
 
             foreach (var question in GetQuestion)
             {
-                // Если у вопроса нет выбранных ответов
                 if (question.Answers?.Any(a => a.IsSelected) != true)
                 {
                     return false;
@@ -149,12 +141,10 @@ namespace CourseDesktopClient.ViewModel
             return true;
         }
 
-        // Отправка результатов на сервер
         private async Task SendTestResultsToServer(List<SelectedAnswerDto> selectedAnswers)
         {
             try
             {
-                // Создаем DTO для отправки
                 var testResultRequest = new CompleteTestRequestDto
                 {
                     TestResultId = localIdTestResult,
@@ -162,12 +152,10 @@ namespace CourseDesktopClient.ViewModel
                     CompletedAt = DateTime.UtcNow
                 };
 
-                // Отправляем на сервер
                 var result = await courseApiClient.CompleteTestAsync(testResultRequest);
 
                 if (result != null)
                 {
-                    // Показываем результат с сервера
                     ShowTestResult(result);
                 }
                 else
@@ -180,8 +168,6 @@ namespace CourseDesktopClient.ViewModel
                 CustomMessageBox.ShowError($"Ошибка при отправке результатов: {ex.Message}");
             }
         }
-
-        // Показ результатов теста
         private void ShowTestResult(CompleteTestResponseDto result)
         {
             if (result.IsPassed)
@@ -212,7 +198,6 @@ namespace CourseDesktopClient.ViewModel
         public string AnswerText { get; set; } = string.Empty;
     }
 
-    // DTO для завершения теста
     public class CompleteTestRequestDto
     {
         public Guid TestResultId { get; set; }

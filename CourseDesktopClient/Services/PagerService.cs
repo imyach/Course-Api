@@ -23,10 +23,8 @@ namespace CourseDesktopClient.Services
             int currentPage = pager.PageNumber;
             int totalPages = pager.TotalPages;
 
-            // Первая страница
             AddButton(1, currentPage, command, isSelected: currentPage == 1);
 
-            // Многоточие после первой страницы (если нужно)
             if (currentPage - 2 > 1)
             {
                 Buttons.Add(new ButtonItem
@@ -38,7 +36,6 @@ namespace CourseDesktopClient.Services
                 });
             }
 
-            // Страницы вокруг текущей
             int startPage = Math.Max(2, currentPage - 1);
             int endPage = Math.Min(totalPages - 1, currentPage + 1);
 
@@ -47,7 +44,6 @@ namespace CourseDesktopClient.Services
                 AddButton(i, currentPage, command, isSelected: currentPage == i);
             }
 
-            // Многоточие перед последней страницей (если нужно)
             if (currentPage + 2 < totalPages)
             {
                 Buttons.Add(new ButtonItem
@@ -59,7 +55,6 @@ namespace CourseDesktopClient.Services
                 });
             }
 
-            // Последняя страница (если больше 1)
             if (totalPages > 1)
             {
                 AddButton(totalPages, currentPage, command, isSelected: currentPage == totalPages);

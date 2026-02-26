@@ -6,9 +6,11 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>UI\Icons\Skill-Forge-icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="UI\Icons\Skill-Forge-icon.ico" />
     <None Remove="UI\Images\icons8-add-user-100.png" />
     <None Remove="UI\Images\icons8-course-page-100.png" />
     <None Remove="UI\Images\icons8-courses-48.png" />
@@ -22,7 +24,12 @@
     <None Remove="UI\Images\icons8-users-page-100.png" />
     <None Remove="UI\Images\icons8-workshop-100.png" />
     <None Remove="UI\Images\icons8-workshop-96.png" />
+    <None Remove="UI\Images\Skill-Forge-icon.png" />
     <None Remove="View\RegisterPage.xaml~RF531a71d.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="UI\Icons\Skill-Forge-icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,10 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UI\Icons\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <Resource Include="UI\Icons\Skill-Forge-icon.ico" />
     <Resource Include="UI\Images\icons8-add-user-100.png" />
     <Resource Include="UI\Images\icons8-course-page-100.png" />
     <Resource Include="UI\Images\icons8-edit-48.png" />
@@ -60,6 +64,13 @@
     <Resource Include="UI\Images\icons8-workshop-96.png" />
     <Resource Include="UI\Images\icons8-logout-64.png" />
     <Resource Include="UI\Images\icons8-sad-smile-100.png" />
+    <Resource Include="UI\Images\Skill-Forge-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

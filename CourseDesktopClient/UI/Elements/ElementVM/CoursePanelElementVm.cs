@@ -57,14 +57,17 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
             Rait = courseDto.Rait;
             UpdateCourseAdminVisible = authService != null && (authService.CurrentUser.Role.Name == "Admin" || authService.CurrentUser.Id == User.Id) ? Visibility.Visible : Visibility.Collapsed;
 
-            Task.Run(async () =>
+            if (authService != null)
             {
-                var (_, pager) = await courseApiClient.GetReviewsAsync(courseDto.Id);
-                ReviewsCount = pager.TotalItems;
-            });
-            
-            if(progress != null && authService != null)
-                IsEnrolled = progress.ProgressUsers?.Any(pu=> pu.Course.Id == Id && pu.User.Id == authService.CurrentUser.Id) ?? false;
+                Task.Run(async () =>
+                {
+                        var (_, pager) = await courseApiClient.GetReviewsAsync(courseDto.Id);
+                        ReviewsCount = pager.TotalItems;
+                });
+            }
+
+            if (progress != null && authService != null)
+                IsEnrolled = progress.ProgressUsers?.Any(pu => pu.Course.Id == Id && pu.User.Id == authService.CurrentUser.Id) ?? false;
         }
     }
 }

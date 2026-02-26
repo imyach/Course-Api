@@ -248,7 +248,6 @@ namespace CourseDesktopClient.ViewModel
             UserLogin = _originalUserLogin;
             UserRole = _originalUserRole;
 
-            // Обновляем состояние кнопки
             Update();
         });
 

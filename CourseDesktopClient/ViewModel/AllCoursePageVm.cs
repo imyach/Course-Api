@@ -89,7 +89,6 @@ namespace CourseDesktopClient.ViewModel
             {
                 if (parameter is ButtonItem buttonItem && int.TryParse(buttonItem.Text, out int pageNumber))
                 {
-                    // Обновляем IsSelected для всех кнопок
                     if (ButtonPanel != null)
                     {
                         foreach (var btn in ButtonPanel)
@@ -119,7 +118,7 @@ namespace CourseDesktopClient.ViewModel
             {
                 if (!authService.IsAuthenticated)
                 {
-                    CustomMessageBox.ShowError("Необходимо аторизироваться");
+                    CustomMessageBox.ShowError("Необходимо авторизироваться");
                 }
                 else
                 {

@@ -17,7 +17,6 @@ namespace CourseDesktopClient.ViewModel
     {
         private readonly ICourseApiClient _courseApiClient;
 
-        // Коллекция для элементов ответов
         private ObservableCollection<AnswerUserElementVm> _answerUserElements = new();
         public ObservableCollection<AnswerUserElementVm> AnswerUserElements
         {
@@ -29,7 +28,6 @@ namespace CourseDesktopClient.ViewModel
             }
         }
 
-        // История теста
         private TestHistoryVm _testHistory;
         public TestHistoryVm TestHistory
         {
@@ -50,28 +48,22 @@ namespace CourseDesktopClient.ViewModel
             }
         }
 
-        // Вычисляемые свойства
         public bool HasData => TestHistory != null;
         public string TestTitle => TestHistory?.TestTitle ?? "Тест";
         public bool IsPassed => TestHistory?.IsTestPassed == true;
         public string TestStatus => IsPassed ? "ПРОЙДЕН" : "НЕ ПРОЙДЕН";
 
-        // Иконка статуса (для отображения в UI)
         public string TestStatusIcon => IsPassed ? "✓" : "✗";
 
-        // Цвет статуса (для фона карточки)
         public string TestStatusColor => IsPassed ? "#4CAF50" : "#F44336";
 
-        // Текст с баллами
         public string ScoreText => TestHistory != null ? $"{TestHistory.BestScore}%" : "0%";
         public string PassingScoreText => TestHistory != null ? $"Проходной балл: {TestHistory.PassingScore}%" : "";
 
-        // Дата завершения
         public string CompletionDateText => TestHistory?.CompletedAt != null
             ? $"Завершен: {TestHistory.CompletedAt.Value:dd.MM.yyyy HH:mm}"
             : "Не завершен";
 
-        // Команды
         public ICommand PassMaterialCommand { get; set; }
 
         public TestResultPageVm(INavigationService navigationService, ICourseApiClient courseApiClient) : base(navigationService)
@@ -96,7 +88,6 @@ namespace CourseDesktopClient.ViewModel
                 {
                     TestHistory = testHistory;
 
-                    // Очищаем и заполняем коллекцию
                     AnswerUserElements.Clear();
 
                     if (testHistory.Questions != null)
@@ -110,7 +101,6 @@ namespace CourseDesktopClient.ViewModel
                                 IsCorrect = question.IsCorrect
                             };
 
-                            // Заполняем правильные ответы (ВСЕ правильные ответы из БД)
                             element.CorrectAnswers.Clear();
                             foreach (var answer in question.Answers.Where(a => a.IsCorrect))
                             {
@@ -121,7 +111,6 @@ namespace CourseDesktopClient.ViewModel
                                 });
                             }
 
-                            // Заполняем ответы пользователя (ТОЛЬКО выбранные)
                             element.UserAnswers.Clear();
                             foreach (var answer in question.Answers.Where(a => a.IsSelectedByUser))
                             {

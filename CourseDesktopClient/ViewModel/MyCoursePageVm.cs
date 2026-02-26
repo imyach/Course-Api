@@ -96,7 +96,6 @@ namespace CourseDesktopClient.ViewModel
             {
                 if (parameter is ButtonItem buttonItem && int.TryParse(buttonItem.Text, out int pageNumber))
                 {
-                    // Обновляем IsSelected для всех кнопок
                     if (ButtonPanel != null)
                     {
                         foreach (var btn in ButtonPanel)

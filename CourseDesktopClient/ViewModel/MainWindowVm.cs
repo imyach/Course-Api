@@ -18,6 +18,13 @@ namespace CourseDesktopClient.ViewModel
         {
 
             this.authService = authService;
+            DragWindowCommand = new RelayCommand(_ =>
+            {
+                if (Application.Current.MainWindow != null)
+                {
+                    Application.Current.MainWindow.DragMove();
+                }
+            });
             LogOutCommand = new RelayCommand(async _ =>
             {
                 if(CustomMessageBox.ShowYesNo("Вы действительно хотите выйти?") == DialogResult.Yes) 
@@ -27,7 +34,23 @@ namespace CourseDesktopClient.ViewModel
             {
                await navigationService.NavigateToProfile(authService.CurrentUser.Id);
             });
+            MinimizeWindowCommand = new RelayCommand(_ =>
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Minimized;
+            });
 
+            MaximizeWindowCommand = new RelayCommand(_ =>
+            {
+                Application.Current.MainWindow.WindowState =
+                    Application.Current.MainWindow.WindowState == WindowState.Maximized
+                    ? WindowState.Normal
+                    : WindowState.Maximized;
+            });
+
+            CloseWindowCommand = new RelayCommand(_ =>
+            {
+                Application.Current.MainWindow.Close();
+            });
         }
 
         private string _search = string.Empty;
@@ -145,6 +168,10 @@ namespace CourseDesktopClient.ViewModel
 
         public ICommand LogOutCommand {  get; set; }
         public ICommand ProfileCommand {  get; set; }
+        public ICommand MinimizeWindowCommand { get; set; }
+        public ICommand MaximizeWindowCommand { get; set; }
+        public ICommand CloseWindowCommand { get; set; }
+        public ICommand DragWindowCommand { get; set; }
 
         private void UpddateVisible()
         {

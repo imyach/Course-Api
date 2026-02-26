@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\ui\\elements\\createanswerelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\ui\\elements\\createanswerelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\ui\\elements\\createquestionelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\ui\\elements\\createquestionelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\coursedesktopclient.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\coursedesktopclient.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\ui\\elements\\createtestelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\ui\\elements\\createtestelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\ui\\styles\\textblockstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\ui\\styles\\textblockstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\ui\\elements\\coursepanelelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\ui\\elements\\coursepanelelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\viewmodel\\createquestionpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\viewmodel\\createquestionpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\view\\createquestionpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\view\\createquestionpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\ui\\styles\\buttonstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\ui\\styles\\buttonstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,86 +27,37 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CreateAnswerElement.xaml",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\UI\\Elements\\CreateAnswerElement.xaml",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\UI\\Elements\\CreateAnswerElement.xaml",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\UI\\Elements\\CreateAnswerElement.xaml",
-              "RelativeToolTip": "CourseDesktopClient\\UI\\Elements\\CreateAnswerElement.xaml",
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\MainWindow.xaml",
+              "RelativeToolTip": "CourseDesktopClient\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-25T19:18:27.279Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CreateTestElement.xaml",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\UI\\Elements\\CreateTestElement.xaml",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\UI\\Elements\\CreateTestElement.xaml",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\UI\\Elements\\CreateTestElement.xaml",
-              "RelativeToolTip": "CourseDesktopClient\\UI\\Elements\\CreateTestElement.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-25T19:37:12.756Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TextBlockStyles.xaml",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\UI\\Styles\\TextBlockStyles.xaml",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\UI\\Styles\\TextBlockStyles.xaml",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\UI\\Styles\\TextBlockStyles.xaml",
-              "RelativeToolTip": "CourseDesktopClient\\UI\\Styles\\TextBlockStyles.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-25T19:34:03.963Z",
+              "WhenOpened": "2026-02-26T13:41:05.307Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CreateQuestionElement.xaml",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\UI\\Elements\\CreateQuestionElement.xaml",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\UI\\Elements\\CreateQuestionElement.xaml",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\UI\\Elements\\CreateQuestionElement.xaml",
-              "RelativeToolTip": "CourseDesktopClient\\UI\\Elements\\CreateQuestionElement.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-25T19:27:42.708Z",
+              "Title": "CourseDesktopClient",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\CourseDesktopClient.csproj",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\CourseDesktopClient.csproj",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\CourseDesktopClient.csproj",
+              "RelativeToolTip": "CourseDesktopClient\\CourseDesktopClient.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-02-26T14:16:49.591Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CreateQuestionPage.xaml",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\View\\CreateQuestionPage.xaml",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\View\\CreateQuestionPage.xaml",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\View\\CreateQuestionPage.xaml",
-              "RelativeToolTip": "CourseDesktopClient\\View\\CreateQuestionPage.xaml",
+              "DocumentIndex": 2,
+              "Title": "ButtonStyles.xaml",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\UI\\Styles\\ButtonStyles.xaml",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\UI\\Styles\\ButtonStyles.xaml",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\UI\\Styles\\ButtonStyles.xaml",
+              "RelativeToolTip": "CourseDesktopClient\\UI\\Styles\\ButtonStyles.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-25T19:14:53.18Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CreateQuestionPageVm.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\CreateQuestionPageVm.cs",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\ViewModel\\CreateQuestionPageVm.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\CreateQuestionPageVm.cs",
-              "RelativeToolTip": "CourseDesktopClient\\ViewModel\\CreateQuestionPageVm.cs",
-              "ViewState": "AgIAAGIAAAAAAAAAAAAiwG4AAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T19:14:50.472Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CoursePanelElement.xaml",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\UI\\Elements\\CoursePanelElement.xaml",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\UI\\Elements\\CoursePanelElement.xaml",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\UI\\Elements\\CoursePanelElement.xaml",
-              "RelativeToolTip": "CourseDesktopClient\\UI\\Elements\\CoursePanelElement.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-25T19:28:20.737Z",
+              "WhenOpened": "2026-02-26T13:40:44.408Z",
               "EditorCaption": ""
             }
           ]
