@@ -10,10 +10,13 @@
         "tags": [
           "Answer"
         ],
+        "summary": "Get all answers in question by question id",
+        "description": "Sample request:\r\nGET (HOST)/api/answer/all/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "questionId",
             "in": "path",
+            "description": "Question id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -23,21 +26,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AnswerListVm"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AnswerListVm"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AnswerListVm"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -50,10 +53,13 @@
         "tags": [
           "Answer"
         ],
+        "summary": "Get info answer by id",
+        "description": "Sample request:\r\nGET (HOST)/api/answer/AB670EFA-9049-46F2-AA3F-8C5044657851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Answer id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -63,21 +69,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AnswerLookupDto"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AnswerLookupDto"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AnswerLookupDto"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -90,7 +96,10 @@
         "tags": [
           "Answer"
         ],
+        "summary": "Create object answer",
+        "description": "Sample request:\r\nPOST (HOST)/api/answer\r\n{\r\n    \"text\": \"string\",\r\n    \"questionId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n    \"isCorrect\": true\r\n}",
         "requestBody": {
+          "description": "CreateAnswerDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -110,25 +119,33 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
               "application/json": {
                 "schema": {
                   "type": "string",
                   "format": "uuid"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -139,7 +156,10 @@
         "tags": [
           "Answer"
         ],
+        "summary": "Update object answer",
+        "description": "Sample request:\r\nPUT (HOST)/api/answer\r\n{\r\n    \"id\": \"5da85f64-5347-4562-b3fc-2645df66afc5\",\r\n    \"text\": \"string\",\r\n    \"isCorrect\": false\r\n}",
         "requestBody": {
+          "description": "UpdateAnswerDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -159,8 +179,28 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -170,10 +210,13 @@
         "tags": [
           "Answer"
         ],
+        "summary": "Delete object answer by id",
+        "description": "Sample request:\r\nDELETE (HOST)/api/answer/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Answer id (guid)",
             "required": true,
             "schema": {
               "type": "string",
@@ -182,8 +225,28 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -193,10 +256,13 @@
         "tags": [
           "AnswersUser"
         ],
+        "summary": "Get all answers users in test result by test result id",
+        "description": "Sample request:\r\nGET (HOST)/api/answerUser/all/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "testResultId",
             "in": "path",
+            "description": "Test result id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -206,21 +272,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/TestHistoryVm"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TestHistoryVm"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TestHistoryVm"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -233,10 +299,13 @@
         "tags": [
           "AnswersUser"
         ],
+        "summary": "Get info answer user by id",
+        "description": "Sample request:\r\nGET (HOST)/api/answerUser/AB670EFA-9049-46F2-AA3F-8C5044657851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Answer user id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -246,21 +315,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AnswersUserLookupDto"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AnswersUserLookupDto"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AnswersUserLookupDto"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -273,7 +342,10 @@
         "tags": [
           "AnswersUser"
         ],
+        "summary": "Create object answer user",
+        "description": "Sample request:\r\nPOST (HOST)/api/answerUser\r\n      {\r\n\"testResultId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n\"selectedAnswers\": [\r\n  {\r\n    \"questionId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n    \"answerId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n  }\r\n],\r\n\"completedAt\": \"2026-02-28T21:08:01.222Z\"",
         "requestBody": {
+          "description": "CompleteTestRequestDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -293,22 +365,22 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CompleteTestResponseDto"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CompleteTestResponseDto"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CompleteTestResponseDto"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -321,10 +393,13 @@
         "tags": [
           "AnswersUser"
         ],
+        "summary": "Delete object answer user by id",
+        "description": "Sample request:\r\nDELETE (HOST)/api/answerUser/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Answer user id (guid)",
             "required": true,
             "schema": {
               "type": "string",
@@ -333,8 +408,18 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -344,7 +429,10 @@
         "tags": [
           "Auth"
         ],
+        "summary": "Account authorization",
+        "description": "Sample request:\r\nPOST (HOST)/api/Auth/login\r\n{\r\n  \"login\": \"string\",\r\n  \"password\": \"string\"\r\n}",
         "requestBody": {
+          "description": "LoginDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -365,7 +453,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Siccess"
           }
         }
       }
@@ -375,7 +463,10 @@
         "tags": [
           "Auth"
         ],
+        "summary": "Account registration",
+        "description": " Sample request:\r\n POST (HOST)/api/Auth/register\r\n{\r\n  \"nameUser\": \"string\",\r\n  \"login\": \"string\",\r\n  \"password\": \"string\",\r\n  \"email\": \"string\",\r\n  \"phoneNumber\": \"string\"\r\n}",
         "requestBody": {
+          "description": "RegistrationDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -396,7 +487,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Siccess"
           }
         }
       }
@@ -406,7 +497,10 @@
         "tags": [
           "Auth"
         ],
+        "summary": "Refresh access token",
+        "description": " Sample request:\r\n POST (HOST)/api/Auth/refresh\r\n{\r\n  \"refreshToken\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n}",
         "requestBody": {
+          "description": "RefreshDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -427,7 +521,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Siccess"
           }
         }
       }
@@ -437,9 +531,21 @@
         "tags": [
           "Auth"
         ],
+        "summary": "Log out of the user account",
+        "description": "Sample request:\r\nPOST (HOST)/api/Auth/logout",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -449,10 +555,13 @@
         "tags": [
           "Course"
         ],
+        "summary": "Get published courses elements",
+        "description": "Sample request:\r\nGET (HOST)/api/course/all",
         "parameters": [
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Page Number",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -462,6 +571,7 @@
           {
             "name": "pageSize",
             "in": "query",
+            "description": "The number of items returned by the server",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -471,6 +581,7 @@
           {
             "name": "searchText",
             "in": "query",
+            "description": "Text to search for items",
             "schema": {
               "type": "string"
             }
@@ -478,19 +589,9 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CourseListVm"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CourseListVm"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CourseListVm"
                 }
@@ -505,10 +606,13 @@
         "tags": [
           "Course"
         ],
+        "summary": "Get drafted courses elements",
+        "description": "Sample request:\r\nGET (HOST)/api/course/Drafted",
         "parameters": [
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Page Number",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -518,6 +622,7 @@
           {
             "name": "pageSize",
             "in": "query",
+            "description": "The number of items returned by the server",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -527,21 +632,31 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CourseListVm"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CourseListVm"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CourseListVm"
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -554,10 +669,13 @@
         "tags": [
           "Course"
         ],
+        "summary": "Get info course by id",
+        "description": "Sample request:\r\nGET (HOST)/api/course/AB670EFA-9049-46F2-AA3F-8C5044657851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Course id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -567,21 +685,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CourseLookupDto"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CourseLookupDto"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CourseLookupDto"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -594,7 +712,10 @@
         "tags": [
           "Course"
         ],
+        "summary": "Create object course",
+        "description": "Sample request:\r\nPOST (HOST)/api/course\r\n{\r\n    \"title\": \"string\",\r\n    \"description\": \"string\"\r\n}",
         "requestBody": {
+          "description": "CreateCourseDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -614,25 +735,33 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
               "application/json": {
                 "schema": {
                   "type": "string",
                   "format": "uuid"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -643,7 +772,10 @@
         "tags": [
           "Course"
         ],
+        "summary": "Update object course",
+        "description": " Sample request:\r\n PUT (HOST)/api/course\r\n{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"title\": \"string\",\r\n  \"description\": \"string\",\r\n  \"status\": \"string\"\r\n}",
         "requestBody": {
+          "description": "UpdateCourseDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -663,8 +795,28 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -674,10 +826,13 @@
         "tags": [
           "Course"
         ],
+        "summary": "Delete object course by id",
+        "description": "Sample request:\r\nDELETE (HOST)/api/course/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Course id (guid)",
             "required": true,
             "schema": {
               "type": "string",
@@ -686,8 +841,28 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -697,10 +872,13 @@
         "tags": [
           "Material"
         ],
+        "summary": "Get all materials in module by module id",
+        "description": "Sample request:\r\nGET (HOST)/api/material/all/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "moduleId",
             "in": "path",
+            "description": "Module id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -710,21 +888,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/MaterialListVm"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/MaterialListVm"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MaterialListVm"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -737,10 +915,13 @@
         "tags": [
           "Material"
         ],
+        "summary": "Get info material by id",
+        "description": "Sample request:\r\nGET (HOST)/api/material/AB670EFA-9049-46F2-AA3F-8C5044657851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Material id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -750,21 +931,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/MaterialLookupDto"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/MaterialLookupDto"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MaterialLookupDto"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -775,10 +956,13 @@
         "tags": [
           "Material"
         ],
+        "summary": "Delete object material by id",
+        "description": "Sample request:\r\nDELETE (HOST)/api/material/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Material id (guid)",
             "required": true,
             "schema": {
               "type": "string",
@@ -787,8 +971,28 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -798,7 +1002,10 @@
         "tags": [
           "Material"
         ],
+        "summary": "Create object material",
+        "description": " Sample request:\r\n POST (HOST)/api/material\r\n{\r\n  \"moduleId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"title\": \"string\",\r\n  \"description\": \"string\"\r\n}",
         "requestBody": {
+          "description": "CreateMaterialDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -818,25 +1025,33 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
               "application/json": {
                 "schema": {
                   "type": "string",
                   "format": "uuid"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -847,7 +1062,10 @@
         "tags": [
           "Material"
         ],
+        "summary": "Update object material",
+        "description": " Sample request:\r\n PUT (HOST)/api/material\r\n{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"title\": \"string\",\r\n  \"description\": \"string\"\r\n}",
         "requestBody": {
+          "description": "UpdateMaterialDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -867,8 +1085,28 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -878,10 +1116,13 @@
         "tags": [
           "Module"
         ],
+        "summary": "Get all modules in course by course id",
+        "description": "Sample request:\r\nGET (HOST)/api/module/all/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "courseId",
             "in": "path",
+            "description": "Course id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -891,21 +1132,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModuleListVm"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ModuleListVm"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ModuleListVm"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -918,10 +1159,13 @@
         "tags": [
           "Module"
         ],
+        "summary": "Get info module by id",
+        "description": "Sample request:\r\nGET (HOST)/api/module/AB670EFA-9049-46F2-AA3F-8C5044657851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Module id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -931,21 +1175,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ModuleLookupDto"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ModuleLookupDto"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ModuleLookupDto"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -956,10 +1200,13 @@
         "tags": [
           "Module"
         ],
+        "summary": "Delete object module by id",
+        "description": "Sample request:\r\nDELETE (HOST)/api/module/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Module id (guid)",
             "required": true,
             "schema": {
               "type": "string",
@@ -968,8 +1215,28 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -979,7 +1246,10 @@
         "tags": [
           "Module"
         ],
+        "summary": "Create object module",
+        "description": " Sample request:\r\n POST (HOST)/api/module\r\n{\r\n  \"title\": \"string\",\r\n  \"description\": \"string\",\r\n  \"courseId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n}",
         "requestBody": {
+          "description": "CreateModuleDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -999,25 +1269,33 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
               "application/json": {
                 "schema": {
                   "type": "string",
                   "format": "uuid"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1028,7 +1306,10 @@
         "tags": [
           "Module"
         ],
+        "summary": "Update object module",
+        "description": " Sample request:\r\n PUT (HOST)/api/module\r\n{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"title\": \"string\",\r\n  \"description\": \"string\"\r\n}",
         "requestBody": {
+          "description": "UpdateModuleDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -1048,8 +1329,28 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -1059,18 +1360,13 @@
         "tags": [
           "ProgressMaterial"
         ],
+        "summary": "Get all progress materials by user id",
+        "description": "Sample request:\r\nGET (HOST)/api/progressMaterial/all",
         "parameters": [
-          {
-            "name": "userId",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
           {
             "name": "progressModuleId",
             "in": "path",
+            "description": "Progress module id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -1080,21 +1376,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProgressMaterialListVm"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProgressMaterialListVm"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProgressMaterialListVm"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1107,10 +1403,13 @@
         "tags": [
           "ProgressMaterial"
         ],
+        "summary": "Get info progress material by id",
+        "description": "Sample request:\r\nGET (HOST)/api/progressMaterial/AB670EFA-9049-46F2-AA3F-8C5044657851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Progress material id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -1120,21 +1419,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProgressMaterialLookupDto"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProgressMaterialLookupDto"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProgressMaterialLookupDto"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1145,10 +1444,13 @@
         "tags": [
           "ProgressMaterial"
         ],
+        "summary": "Delete object progress material by id",
+        "description": "Sample request:\r\nDELETE (HOST)/api/progressMaterial/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Progress material id (guid)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1157,8 +1459,18 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -1168,7 +1480,10 @@
         "tags": [
           "ProgressMaterial"
         ],
+        "summary": "Update object progress material",
+        "description": " Sample request:\r\n POST (HOST)/api/progressMaterial\r\n{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"status\": \"string\",\r\n  \"startedAt\": \"2026-03-02T14:23:33.965Z\"\r\n}",
         "requestBody": {
+          "description": "UpdateProgressMaterialDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -1188,8 +1503,18 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -1199,10 +1524,13 @@
         "tags": [
           "ProgressModule"
         ],
+        "summary": "Get all progress modules by user id",
+        "description": "Sample request:\r\nGET (HOST)/api/progressModule/all",
         "parameters": [
           {
             "name": "progressUserId",
             "in": "path",
+            "description": "Progress user id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -1212,21 +1540,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProgressModuleListVm"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProgressModuleListVm"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProgressModuleListVm"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1239,10 +1567,13 @@
         "tags": [
           "ProgressModule"
         ],
+        "summary": "Get info progress module by id",
+        "description": "Sample request:\r\nGET (HOST)/api/progressModule/AB670EFA-9049-46F2-AA3F-8C5044657851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Progress module id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -1252,21 +1583,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProgressModuleLookupDto"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProgressModuleLookupDto"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProgressModuleLookupDto"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1277,10 +1608,13 @@
         "tags": [
           "ProgressModule"
         ],
+        "summary": "Delete object progress module by id",
+        "description": "Sample request:\r\nDELETE (HOST)/api/progressModule/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Progress module id (guid)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1289,8 +1623,18 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -1300,7 +1644,10 @@
         "tags": [
           "ProgressModule"
         ],
+        "summary": "Update object progress module",
+        "description": " Sample request:\r\n POST (HOST)/api/progressModule\r\n{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"status\": \"string\",\r\n  \"startedAt\": \"2026-03-02T14:32:49.260Z\"\r\n}",
         "requestBody": {
+          "description": "UpdateProgressModuleDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -1320,8 +1667,18 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -1331,10 +1688,13 @@
         "tags": [
           "ProgressUser"
         ],
+        "summary": "Get progress users by user id",
+        "description": "Sample request:\r\nGET (HOST)/api/progressUser/all",
         "parameters": [
           {
             "name": "userId",
             "in": "path",
+            "description": "Viewed user id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1344,6 +1704,7 @@
           {
             "name": "searchText",
             "in": "query",
+            "description": "Text to search for items",
             "schema": {
               "type": "string"
             }
@@ -1351,6 +1712,7 @@
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Page Number",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -1360,6 +1722,7 @@
           {
             "name": "pageSize",
             "in": "query",
+            "description": "The number of items returned by the server",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -1369,21 +1732,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProgressUserListVm"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProgressUserListVm"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProgressUserListVm"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1396,10 +1759,13 @@
         "tags": [
           "ProgressUser"
         ],
+        "summary": "Get info progress user by id",
+        "description": "Sample request:\r\nGET (HOST)/api/progressUser/AB670EFA-9049-46F2-AA3F-8C5044657851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Progress user id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -1409,21 +1775,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProgressUserLookupDto"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProgressUserLookupDto"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProgressUserLookupDto"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1434,10 +1800,13 @@
         "tags": [
           "ProgressUser"
         ],
+        "summary": "Delete object progress user by id",
+        "description": "Sample request:\r\nDELETE (HOST)/api/progressUser/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Progress user id (guid)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1446,8 +1815,18 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -1457,7 +1836,10 @@
         "tags": [
           "ProgressUser"
         ],
+        "summary": "Create object progressUser",
+        "description": "Sample request:\r\nPOST (HOST)/api/progressUser\r\n {\r\n   \"courseId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n }",
         "requestBody": {
+          "description": "CreateProgressUserDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -1477,25 +1859,23 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
               "application/json": {
                 "schema": {
                   "type": "string",
                   "format": "uuid"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1506,7 +1886,10 @@
         "tags": [
           "ProgressUser"
         ],
+        "summary": "Update object progress user",
+        "description": " Sample request:\r\n POST (HOST)/api/progressUser\r\n{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"status\": \"string\",\r\n  \"finishedAt\": \"2026-03-02T14:49:47.986Z\"\r\n}",
         "requestBody": {
+          "description": "UpdateProgressUserDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -1526,8 +1909,18 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -1537,10 +1930,13 @@
         "tags": [
           "Question"
         ],
+        "summary": "Get all questions in test by test id",
+        "description": "Sample request:\r\nGET (HOST)/api/question/all/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "testId",
             "in": "path",
+            "description": "Test id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -1550,21 +1946,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/QuestionListVm"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/QuestionListVm"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/QuestionListVm"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1577,10 +1973,13 @@
         "tags": [
           "Question"
         ],
+        "summary": "Get info question by id",
+        "description": "Sample request:\r\nGET (HOST)/api/question/AB670EFA-9049-46F2-AA3F-8C5044657851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Question id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -1590,21 +1989,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/QuestionLookupDto"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/QuestionLookupDto"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/QuestionLookupDto"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1615,10 +2014,13 @@
         "tags": [
           "Question"
         ],
+        "summary": "Delete object question by id",
+        "description": "Sample request:\r\nDELETE (HOST)/api/question/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Question id (guid)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1627,8 +2029,28 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -1638,7 +2060,10 @@
         "tags": [
           "Question"
         ],
+        "summary": "Create object question",
+        "description": "Sample request:\r\nPOST (HOST)/api/question\r\n{\r\n  \"testId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"text\": \"string\"\r\n}",
         "requestBody": {
+          "description": "CreateQuestionDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -1658,25 +2083,33 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
               "application/json": {
                 "schema": {
                   "type": "string",
                   "format": "uuid"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1687,7 +2120,10 @@
         "tags": [
           "Question"
         ],
+        "summary": "Update object question",
+        "description": "Sample request:\r\nPUT (HOST)/api/question\r\n{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"text\": \"string\"\r\n}",
         "requestBody": {
+          "description": "UpdateQuestionDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -1707,8 +2143,28 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -1718,6 +2174,8 @@
         "tags": [
           "Review"
         ],
+        "summary": "Get reviews elements",
+        "description": "Sample request:\r\nGET (HOST)/api/review/all",
         "parameters": [
           {
             "name": "idCourse",
@@ -1730,6 +2188,7 @@
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Page Number",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -1739,6 +2198,7 @@
           {
             "name": "pageSize",
             "in": "query",
+            "description": "The number of items returned by the server",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -1748,6 +2208,7 @@
           {
             "name": "sortAscending",
             "in": "query",
+            "description": "Sort ascending items",
             "schema": {
               "type": "boolean",
               "default": false
@@ -1756,6 +2217,7 @@
           {
             "name": "sortBy",
             "in": "query",
+            "description": "Sort param items",
             "schema": {
               "type": "string"
             }
@@ -1763,21 +2225,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReviewListVm"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ReviewListVm"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReviewListVm"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1790,10 +2252,13 @@
         "tags": [
           "Review"
         ],
+        "summary": "Get info review by id",
+        "description": "Sample request:\r\nGET (HOST)/api/review/AB670EFA-9049-46F2-AA3F-8C5044657851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Review id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -1803,21 +2268,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReviewLookupDto"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ReviewLookupDto"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReviewLookupDto"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1828,10 +2293,13 @@
         "tags": [
           "Review"
         ],
+        "summary": "Delete object review by id",
+        "description": "Sample request:\r\nDELETE (HOST)/api/review/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Review id (guid)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1840,8 +2308,18 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -1851,7 +2329,10 @@
         "tags": [
           "Review"
         ],
+        "summary": "Create object review",
+        "description": "Sample request:\r\nPOST (HOST)/api/review\r\n{\r\n  \"courseId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"rait\": 0,\r\n  \"text\": \"string\"\r\n}",
         "requestBody": {
+          "description": "CreateReviewsDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -1871,25 +2352,23 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
               "application/json": {
                 "schema": {
                   "type": "string",
                   "format": "uuid"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1902,23 +2381,25 @@
         "tags": [
           "Role"
         ],
+        "summary": "Get all roles",
+        "description": "Sample request:\r\nGET (HOST)/api/role/all",
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleListVm"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/RoleListVm"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RoleListVm"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1931,10 +2412,13 @@
         "tags": [
           "Role"
         ],
+        "summary": "Get info role by id",
+        "description": "Sample request:\r\nGET (HOST)/api/role/AB670EFA-9049-46F2-AA3F-8C5044657851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Role id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -1944,21 +2428,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RoleLookupDto"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/RoleLookupDto"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RoleLookupDto"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1971,10 +2455,13 @@
         "tags": [
           "Test"
         ],
+        "summary": "Get all tests in matherial by matherial id",
+        "description": "Sample request:\r\nGET (HOST)/api/test/all/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "materialId",
             "in": "path",
+            "description": "Material id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -1984,21 +2471,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/TestListVm"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TestListVm"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TestListVm"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -2011,10 +2498,13 @@
         "tags": [
           "Test"
         ],
+        "summary": "Get info test by id",
+        "description": "Sample request:\r\nGET (HOST)/api/test/AB670EFA-9049-46F2-AA3F-8C5044657851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Test id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -2024,21 +2514,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/TestLookupDto"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TestLookupDto"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TestLookupDto"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -2051,7 +2541,10 @@
         "tags": [
           "Test"
         ],
+        "summary": "Create object test",
+        "description": "Sample request:\r\nPOST (HOST)/api/test\r\n{\r\n  \"materialId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"title\": \"string\",\r\n  \"description\": \"string\"\r\n}",
         "requestBody": {
+          "description": "CreateTestDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -2071,25 +2564,33 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
               "application/json": {
                 "schema": {
                   "type": "string",
                   "format": "uuid"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -2100,7 +2601,10 @@
         "tags": [
           "Test"
         ],
+        "summary": "Update object test",
+        "description": "Sample request:\r\nPUT (HOST)/api/test\r\n{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"title\": \"string\",\r\n  \"description\": \"string\"\r\n}",
         "requestBody": {
+          "description": "UpdateTestDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -2120,8 +2624,28 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -2131,10 +2655,13 @@
         "tags": [
           "Test"
         ],
+        "summary": "Delete object test by id",
+        "description": "Sample request:\r\nDELETE (HOST)/api/test/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Test id (guid)",
             "required": true,
             "schema": {
               "type": "string",
@@ -2143,8 +2670,28 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -2154,10 +2701,13 @@
         "tags": [
           "TestResult"
         ],
+        "summary": "Get all tests results by user progress material id",
+        "description": "Sample request:\r\nGET (HOST)/api/testResult/all/AB670EFA-9049-46F2-AA3F-8C5044657851",
         "parameters": [
           {
             "name": "progressMaterialId",
             "in": "path",
+            "description": "Progress material id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -2167,21 +2717,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/TestResultListVm"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TestResultListVm"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TestResultListVm"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -2194,10 +2744,13 @@
         "tags": [
           "TestResult"
         ],
+        "summary": "Get info test result by id",
+        "description": "Sample request:\r\nGET (HOST)/api/testResult/AB670EFA-9049-46F2-AA3F-8C5044657851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Test result id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -2207,21 +2760,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/TestResultLookupDto"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TestResultLookupDto"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TestResultLookupDto"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -2232,10 +2785,13 @@
         "tags": [
           "TestResult"
         ],
+        "summary": "Delete object test result by id",
+        "description": "Sample request:\r\nDELETE (HOST)/api/testResult/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Test result id (guid)",
             "required": true,
             "schema": {
               "type": "string",
@@ -2244,8 +2800,18 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -2255,7 +2821,10 @@
         "tags": [
           "TestResult"
         ],
+        "summary": "Create object testResult",
+        "description": "Sample request:\r\nPOST (HOST)/api/testResult\r\n {\r\n   \"progressMaterialId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n   \"testId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n }",
         "requestBody": {
+          "description": "CreateTestResultDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -2275,25 +2844,23 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
               "application/json": {
                 "schema": {
                   "type": "string",
                   "format": "uuid"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -2304,7 +2871,10 @@
         "tags": [
           "TestResult"
         ],
+        "summary": "Update object test result",
+        "description": " Sample request:\r\n POST (HOST)/api/testResult\r\n{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"score\": 0,\r\n  \"isPassed\": true,\r\n  \"complitedAt\": \"2026-03-02T15:55:45.491Z\"\r\n}",
         "requestBody": {
+          "description": "UpdateTestResultDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -2324,8 +2894,18 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -2335,10 +2915,13 @@
         "tags": [
           "User"
         ],
+        "summary": "Get all users",
+        "description": "Sample request:\r\nGET (HOST)/api/user/all",
         "parameters": [
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Page Number",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -2348,6 +2931,7 @@
           {
             "name": "pageSize",
             "in": "query",
+            "description": "The number of items returned by the server",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -2357,6 +2941,7 @@
           {
             "name": "searchText",
             "in": "query",
+            "description": "Text to search for items",
             "schema": {
               "type": "string"
             }
@@ -2364,21 +2949,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/UsersListVm"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UsersListVm"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersListVm"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -2391,10 +2976,13 @@
         "tags": [
           "User"
         ],
+        "summary": "Get info user by id",
+        "description": "Sample request:\r\nGET (HOST)/api/user/AB670EFA-9049-46F2-AA3F-8C5044657851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "User id guid",
             "required": true,
             "schema": {
               "type": "string",
@@ -2404,21 +2992,21 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserLookupDto"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UserLookupDto"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserLookupDto"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -2429,10 +3017,13 @@
         "tags": [
           "User"
         ],
+        "summary": "Delete object user by id",
+        "description": "Sample request:\r\nDELETE (HOST)/api/user/AB670EFA-9049-46F2-A5BF-8C5044287851",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "User id (guid)",
             "required": true,
             "schema": {
               "type": "string",
@@ -2441,8 +3032,18 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -2452,7 +3053,10 @@
         "tags": [
           "User"
         ],
+        "summary": "Create object user",
+        "description": "Sample request:\r\nPOST (HOST)/api/user\r\n{\r\n    \"nameUser\": \"string\",\r\n    \"login\": \"string\",\r\n    \"password\": \"string\",\r\n    \"email\": \"string\",\r\n    \"phoneNumber\": \"string\",\r\n    \"role\": \"object\"\r\n}",
         "requestBody": {
+          "description": "CreateUserDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -2472,25 +3076,33 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Siccess",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
               "application/json": {
                 "schema": {
                   "type": "string",
                   "format": "uuid"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -2501,7 +3113,10 @@
         "tags": [
           "User"
         ],
+        "summary": "Update object user",
+        "description": "Sample request:\r\nPUT (HOST)/api/user\r\n{\r\n    \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n    \"nameUser\": \"string\",\r\n    \"login\": \"string\",\r\n    \"password\": \"string\",\r\n    \"email\": \"string\",\r\n    \"phoneNumber\": \"string\",\r\n    \"role\": \"object\"\r\n}",
         "requestBody": {
+          "description": "UpdateUserDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -2521,8 +3136,28 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -2532,7 +3167,10 @@
         "tags": [
           "User"
         ],
+        "summary": "Update object user for admin",
+        "description": "Sample request:\r\nPUT (HOST)/api/user/admin\r\n{\r\n    \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n    \"nameUser\": \"string\",\r\n    \"login\": \"string\",\r\n    \"password\": \"string\",\r\n    \"email\": \"string\",\r\n    \"phoneNumber\": \"string\",\r\n    \"role\": \"object\"\r\n}",
         "requestBody": {
+          "description": "UpdateUserForAdminDto object",
           "content": {
             "application/json": {
               "schema": {
@@ -2552,8 +3190,28 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Siccess"
+          },
+          "401": {
+            "description": "If the user is unautorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "If the user not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -3305,6 +3963,33 @@
           }
         },
         "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
       },
       "ProgressMaterial": {
         "type": "object",

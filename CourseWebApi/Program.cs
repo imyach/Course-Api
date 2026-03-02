@@ -29,6 +29,13 @@ void RegisterServices(IServiceCollection services) {
     services.AddPersistance(builder.Configuration);
     services.AddControllers();
 
+    services.AddSwaggerGen(config =>
+    {
+        var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+        var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+        config.IncludeXmlComments(xmlPath);
+    });
+
     services.AddCors(options =>
     {
         options.AddPolicy("AllowAll", policy =>
@@ -77,7 +84,11 @@ async Task Configure(WebApplication build)
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
-        app.UseSwaggerUI();
+        app.UseSwaggerUI(config =>
+        {
+            config.RoutePrefix = string.Empty;
+            config.SwaggerEndpoint("swagger/v1/swagger.json", "v1");
+        });
     }
     app.UseCustomExceptionHandler();
     app.UseRouting();

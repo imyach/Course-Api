@@ -5,6 +5,7 @@ using System.Security.Claims;
 namespace CourseWebApi.Controllers
 {
     [ApiController]
+    [Produces("application/json")]
     [Route("api/[controller]/[action]")]
     public abstract class BaseController   : ControllerBase
     {

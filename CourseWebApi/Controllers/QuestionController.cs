@@ -21,8 +21,21 @@ namespace CourseWebApi.Controllers
     [Route("api/[controller]")]
     public class QuestionController(IMapper mapper) : BaseController
     {
+        /// <summary>
+        /// Get all questions in test by test id
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// GET (HOST)/api/question/all/AB670EFA-9049-46F2-A5BF-8C5044287851
+        /// </remarks>
+        /// <param name="testId">Test id guid</param>
+        /// <returns>Returns QuestionListVm</returns>
+        /// <response code="200">Siccess</response>
+        /// <response code="401">If the user is unautorized</response>
         [HttpGet("All/{testId}")]
         [Authorize(Roles = "Couch,Student,Admin")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<QuestionListVm>> GetAll(Guid testId)
         {
             var query = new GetAllQuestionQuery
@@ -34,8 +47,21 @@ namespace CourseWebApi.Controllers
             return Ok(vm);
         }
 
+        /// <summary>
+        /// Get info question by id
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// GET (HOST)/api/question/AB670EFA-9049-46F2-AA3F-8C5044657851
+        /// </remarks>
+        /// <param name="id">Question id guid</param>
+        /// <returns>Returns QuestionLookupDto</returns>
+        /// <response code="200">Siccess</response>
+        /// <response code="401">If the user is unautorized</response>
         [HttpGet("{id}")]
         [Authorize(Roles = "Couch,Student,Admin")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<QuestionLookupDto>> Get(Guid id)
         {
             var query = new GetDetailsQuestionQuery
@@ -47,8 +73,23 @@ namespace CourseWebApi.Controllers
             return Ok(vm);
         }
 
+        /// <summary>
+        /// Delete object question by id
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// DELETE (HOST)/api/question/AB670EFA-9049-46F2-A5BF-8C5044287851
+        /// </remarks>
+        /// <param name="id">Question id (guid)</param>
+        /// <returns>Returns NoContent</returns>
+        /// <response code="204">Siccess</response>
+        /// <response code="401">If the user is unautorized</response>
+        /// <response code="403">If the user not have permission</response>
         [HttpDelete("{id}")]
         [Authorize(Roles = "Couch,Admin")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteQuestionCommand
@@ -61,8 +102,28 @@ namespace CourseWebApi.Controllers
             return NoContent();
         }
 
+
+        /// <summary>
+        /// Create object question 
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// POST (HOST)/api/question
+        /// {
+        ///   "testId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        ///   "text": "string"
+        /// }
+        /// </remarks>
+        /// <param name="createQuestionDto">CreateQuestionDto object</param>
+        /// <returns>Returns id (guid)</returns>
+        /// <response code="201">Siccess</response>
+        /// <response code="401">If the user is unautorized</response>
+        /// <response code="403">If the user not have permission</response>
         [HttpPost]
         [Authorize(Roles = "Couch,Admin")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateQuestionDto createQuestionDto)
         {
             var command = mapper.Map<CreateQuestionCommand>(createQuestionDto);
@@ -71,8 +132,27 @@ namespace CourseWebApi.Controllers
             return Ok(questionId);
         }
 
+        /// <summary>
+        /// Update object question 
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// PUT (HOST)/api/question
+        /// {
+        ///   "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        ///   "text": "string"
+        /// }
+        /// </remarks>
+        /// <param name="updateQuestionDto">UpdateQuestionDto object</param>
+        /// <returns>Returns NoContent</returns>
+        /// <response code="204">Siccess</response>
+        /// <response code="401">If the user is unautorized</response>
+        /// <response code="403">If the user not have permission</response>
         [HttpPut]
         [Authorize(Roles = "Couch,Admin")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<IActionResult> Update([FromBody] UpdateQuestionDto updateQuestionDto)
         {
             var command = mapper.Map<UpdateQuestionCommand>(updateQuestionDto);
