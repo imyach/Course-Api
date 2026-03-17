@@ -8,8 +8,7 @@
              xmlns:conveters="clr-namespace:CourseDesktopClient.UI.Converters"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
-             d:DesignHeight="1800" d:DesignWidth="1000"
-             >
+             d:DesignHeight="1800" d:DesignWidth="1000">
 
     <UserControl.Resources>
         <conveters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"/>

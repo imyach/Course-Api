@@ -166,6 +166,17 @@ namespace CourseDesktopClient.ViewModel
             }
         }
 
+        private Visibility _misstakePageVisible;
+        public Visibility MisstakePageVisible
+        {
+            get { return _misstakePageVisible; }
+            set
+            {
+                _misstakePageVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ICommand LogOutCommand {  get; set; }
         public ICommand ProfileCommand {  get; set; }
         public ICommand MinimizeWindowCommand { get; set; }
@@ -195,7 +206,7 @@ namespace CourseDesktopClient.ViewModel
                     ? Visibility.Visible
                     : Visibility.Collapsed;
 
-                VisibilitySignInButton = !authService.IsAuthenticated && mainWindowVm.CurrentView is not LoginPage and not RegisterPage
+                VisibilitySignInButton = !authService.IsAuthenticated && mainWindowVm.CurrentView is not LoginPage and not RegisterPage and not MistakePage
                     ? Visibility.Visible
                     : Visibility.Collapsed;
 
@@ -203,6 +214,9 @@ namespace CourseDesktopClient.ViewModel
                     ? Visibility.Visible
                     : Visibility.Collapsed;
 
+                MisstakePageVisible = mainWindowVm.CurrentView is not MistakePage
+                    ? Visibility.Visible
+                    : Visibility.Collapsed;
 
                 UserName = authService.IsAuthenticated
                    ? authService.CurrentUser.NameUser

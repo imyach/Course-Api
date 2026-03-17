@@ -127,7 +127,8 @@
                             <!-- Кнопка "Курсы" -->
                             <Button Content="Курсы"
                                     Style="{StaticResource CoursesButtonStyle}"
-                                    Command="{Binding AllCourseCommand}"/>
+                                    Command="{Binding AllCourseCommand}"
+                                    Visibility="{Binding MisstakePageVisible}"/>
 
                             <!-- Кнопка "Мои курсы" -->
                             <Button Content="Мои курсы"

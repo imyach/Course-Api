@@ -50,6 +50,8 @@
                     <Border Grid.Column="1"
                             Background="{Binding IsCorrect, Converter={StaticResource BooleanToBrushConverter}}"
                             CornerRadius="3"
+                            Margin="15"
+                            VerticalAlignment="Center"
                             Padding="8,3">
                         <TextBlock Text="{Binding Score, StringFormat='{}{0}%'}" 
                                    Foreground="White"
