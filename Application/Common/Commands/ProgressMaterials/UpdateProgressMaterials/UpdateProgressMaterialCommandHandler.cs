@@ -19,7 +19,8 @@ namespace Application.Common.Commands.ProgressMaterials.UpdateProgressMaterials
             if (entity.UserId != request.CurrentUserId)
                 throw new AccessException();
 
-            entity.Status = request.Status;
+            if(entity.Status != "Завершена")
+                entity.Status = request.Status;
 
             if (entity.StartedAt is null)
                 entity.StartedAt = request.StartedAt;

@@ -18,11 +18,6 @@ namespace Application.Common.Queries.ProgressUsers.GetProgressUserList
     {
         public async Task<object[]> Handle(GetAllProgressUserQuery request, CancellationToken cancellationToken)
         {
-            var currentUser = await context.Users.FindAsync([request.CurrentUserId], cancellationToken)
-                ?? throw new NotFoundException(nameof(User), request.CurrentUserId);
-
-            var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
-                ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
             var query = context.ProgressUsers
                 .Include(m => m.Course)

@@ -31,7 +31,10 @@ namespace Application.Common.Commands.Answers.UpdateAnswer
 
             if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Question.Test.Material.Module.Course.UserId))
             {
-                entity.Text = request.Text;
+
+                if (!string.IsNullOrEmpty(request.Text))
+                    entity.Text = request.Text;
+                if (request.IsCorrect != null)
                 entity.IsCorrect = request.IsCorrect;
 
                 if (entity.Question.Test.Material.Module.Course.Status == "Published")

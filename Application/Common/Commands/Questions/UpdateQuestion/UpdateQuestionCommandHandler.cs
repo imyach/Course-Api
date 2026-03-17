@@ -29,7 +29,9 @@ namespace Application.Common.Commands.Questions.UpdateQuestion
 
             if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Test.Material.Module.Course.UserId))
             {
-                entity.Text = request.Text;
+
+                if (!string.IsNullOrEmpty(request.Text))
+                    entity.Text = request.Text;
                 if(entity.Test.Material.Module.Course.Status == "Published")
                     entity.Test.Material.Module.Course.UpdateAt = DateTime.UtcNow;
                 await context.SaveChangesAsync(cancellationToken);

@@ -8,7 +8,6 @@ namespace Application.Common.Queries.ProgressUsers.GetProgressUserList
 {
     public class GetAllProgressUserQuery : IRequest<object[]>
     {
-        public Guid CurrentUserId { get; set; }
         public Guid UserId { get; set; }
 
         public int PageNumber { get; set; }

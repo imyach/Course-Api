@@ -1,0 +1,44 @@
+2026-03-04 20:17:04.276 +03:00 [INF] Starting web application
+2026-03-04 20:17:06.956 +03:00 [INF] Application started successfully
+2026-03-04 20:18:34.987 +03:00 [INF] Client Request : RefreshTokenCommand "00000000-0000-0000-0000-000000000000" {"RefreshToken":"cb09dc9b-b03f-4a35-9bb9-28e2af94413e","CurrentUserId":"00000000-0000-0000-0000-000000000000","$type":"RefreshTokenCommand"}
+2026-03-04 20:18:35.474 +03:00 [INF] Client Request : GetDetailsUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"Id":"d153b798-9328-4c00-afed-af6f46110606","$type":"GetDetailsUserQuery"}
+2026-03-04 20:18:35.640 +03:00 [INF] Client Request : GetAllCourseQuery "d153b798-9328-4c00-afed-af6f46110606" {"PageNumber":1,"PageSize":10,"SearchText":null,"$type":"GetAllCourseQuery"}
+2026-03-04 20:18:35.640 +03:00 [INF] Client Request : GetAllCourseQuery "d153b798-9328-4c00-afed-af6f46110606" {"PageNumber":1,"PageSize":10,"SearchText":null,"$type":"GetAllCourseQuery"}
+2026-03-04 20:18:35.874 +03:00 [INF] Client Request : GetAllProgressUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"CurrentUserId":"d153b798-9328-4c00-afed-af6f46110606","UserId":"d153b798-9328-4c00-afed-af6f46110606","PageNumber":1,"PageSize":2147483647,"SearchText":null,"$type":"GetAllProgressUserQuery"}
+2026-03-04 20:18:35.874 +03:00 [INF] Client Request : GetAllProgressUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"CurrentUserId":"d153b798-9328-4c00-afed-af6f46110606","UserId":"d153b798-9328-4c00-afed-af6f46110606","PageNumber":1,"PageSize":2147483647,"SearchText":null,"$type":"GetAllProgressUserQuery"}
+2026-03-04 20:18:36.100 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"09861518-95df-44b7-8d39-9b0fb8f87764","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:18:36.100 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"6dcd570f-d214-44f9-b98f-52423f36904d","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:18:36.104 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"60f54714-b9f2-4ada-b20f-dfcdcabc2379","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:18:36.229 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"7c530229-ce0e-4a78-8580-6d7f4105fe18","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:18:36.104 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"7c530229-ce0e-4a78-8580-6d7f4105fe18","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:18:36.260 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"09861518-95df-44b7-8d39-9b0fb8f87764","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:18:36.262 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"60f54714-b9f2-4ada-b20f-dfcdcabc2379","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:18:36.260 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"6dcd570f-d214-44f9-b98f-52423f36904d","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:19:29.469 +03:00 [INF] Starting web application
+2026-03-04 20:19:31.633 +03:00 [INF] Application started successfully
+2026-03-04 20:20:45.394 +03:00 [INF] Starting web application
+2026-03-04 20:20:47.499 +03:00 [INF] Application started successfully
+2026-03-04 20:21:03.501 +03:00 [INF] Starting web application
+2026-03-04 20:21:05.736 +03:00 [INF] Application started successfully
+2026-03-04 20:21:20.359 +03:00 [INF] Starting web application
+2026-03-04 20:21:50.289 +03:00 [INF] Starting web application
+2026-03-04 20:21:52.656 +03:00 [INF] Application started successfully
+2026-03-04 20:21:59.289 +03:00 [INF] Client Request : RefreshTokenCommand "00000000-0000-0000-0000-000000000000" {"RefreshToken":"0e794ea6-4aae-4947-8732-83c532d19b5f","CurrentUserId":"00000000-0000-0000-0000-000000000000","$type":"RefreshTokenCommand"}
+2026-03-04 20:21:59.759 +03:00 [INF] Client Request : GetDetailsUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"Id":"d153b798-9328-4c00-afed-af6f46110606","$type":"GetDetailsUserQuery"}
+2026-03-04 20:21:59.934 +03:00 [INF] Client Request : GetAllCourseQuery "d153b798-9328-4c00-afed-af6f46110606" {"PageNumber":1,"PageSize":10,"SearchText":null,"$type":"GetAllCourseQuery"}
+2026-03-04 20:21:59.934 +03:00 [INF] Client Request : GetAllCourseQuery "d153b798-9328-4c00-afed-af6f46110606" {"PageNumber":1,"PageSize":10,"SearchText":null,"$type":"GetAllCourseQuery"}
+2026-03-04 20:22:00.272 +03:00 [INF] Client Request : GetAllProgressUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"CurrentUserId":"d153b798-9328-4c00-afed-af6f46110606","UserId":"d153b798-9328-4c00-afed-af6f46110606","PageNumber":1,"PageSize":2147483647,"SearchText":null,"$type":"GetAllProgressUserQuery"}
+2026-03-04 20:22:00.272 +03:00 [INF] Client Request : GetAllProgressUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"CurrentUserId":"d153b798-9328-4c00-afed-af6f46110606","UserId":"d153b798-9328-4c00-afed-af6f46110606","PageNumber":1,"PageSize":2147483647,"SearchText":null,"$type":"GetAllProgressUserQuery"}
+2026-03-04 20:22:00.798 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"6dcd570f-d214-44f9-b98f-52423f36904d","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:22:00.798 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"09861518-95df-44b7-8d39-9b0fb8f87764","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:22:00.798 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"60f54714-b9f2-4ada-b20f-dfcdcabc2379","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:22:00.798 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"7c530229-ce0e-4a78-8580-6d7f4105fe18","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:22:00.798 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"60f54714-b9f2-4ada-b20f-dfcdcabc2379","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:22:00.798 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"7c530229-ce0e-4a78-8580-6d7f4105fe18","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:22:00.798 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"09861518-95df-44b7-8d39-9b0fb8f87764","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:22:00.798 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"6dcd570f-d214-44f9-b98f-52423f36904d","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-03-04 20:22:04.486 +03:00 [INF] Client Request : GetAllUsersQuery "d153b798-9328-4c00-afed-af6f46110606" {"PageNumber":1,"PageSize":20,"SearchText":null,"$type":"GetAllUsersQuery"}
+2026-03-04 20:22:04.486 +03:00 [INF] Client Request : GetAllUsersQuery "d153b798-9328-4c00-afed-af6f46110606" {"PageNumber":1,"PageSize":20,"SearchText":null,"$type":"GetAllUsersQuery"}
+2026-03-04 20:22:08.686 +03:00 [INF] Client Request : GetDetailsUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"Id":"1bf86348-a208-48c7-9267-8ec5359b2447","$type":"GetDetailsUserQuery"}
+2026-03-04 20:22:08.717 +03:00 [INF] Client Request : GetAllRolesQuery "d153b798-9328-4c00-afed-af6f46110606" {"CurrentUserId":"d153b798-9328-4c00-afed-af6f46110606","$type":"GetAllRolesQuery"}
+2026-03-04 20:22:08.753 +03:00 [INF] Client Request : GetAllProgressUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"CurrentUserId":"d153b798-9328-4c00-afed-af6f46110606","UserId":"1bf86348-a208-48c7-9267-8ec5359b2447","PageNumber":1,"PageSize":10,"SearchText":null,"$type":"GetAllProgressUserQuery"}

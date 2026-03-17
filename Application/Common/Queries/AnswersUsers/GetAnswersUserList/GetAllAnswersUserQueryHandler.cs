@@ -26,7 +26,6 @@ namespace Application.Common.Queries.AnswersUsers.GetAnswersUserList
 
         public async Task<TestHistoryVm> Handle(GetAllAnswersUserQuery request, CancellationToken cancellationToken)
         {
-            // 1. Находим TestResult
             var testResult = await _context.TestResults
                 .Include(tr => tr.Test)
                     .ThenInclude(t => t.Questions)
@@ -47,38 +46,31 @@ namespace Application.Common.Queries.AnswersUsers.GetAnswersUserList
                 return new TestHistoryVm { TestId = request.TestResultId };
             }
 
-            // 2. Группируем ответы пользователя по вопросам
             var userAnswersByQuestion = testResult.AnswersUsers
                 .GroupBy(au => au.QuestionId)
                 .ToDictionary(g => g.Key, g => g.Select(au => au.AnswerId).ToList());
 
-            // 3. Формируем информацию по каждому вопросу
             var questionsHistory = new List<QuestionHistoryDto>();
             var correctAnswersCount = 0;
 
             foreach (var question in test.Questions)
             {
-                // Получаем все правильные ответы для этого вопроса
                 var correctAnswers = question.Answers
                     .Where(a => a.IsCorrect)
                     .ToList();
 
-                // Получаем ответы пользователя на этот вопрос
                 var userAnswerIds = userAnswersByQuestion.ContainsKey(question.Id)
                     ? userAnswersByQuestion[question.Id]
                     : new List<Guid>();
 
-                // Находим выбранные пользователем ответы
                 var selectedAnswers = question.Answers
                     .Where(a => userAnswerIds.Contains(a.Id))
                     .ToList();
 
-                // Подсчитываем правильность ответа на вопрос
                 var correctSelected = selectedAnswers.Count(a => a.IsCorrect);
                 var incorrectSelected = selectedAnswers.Count(a => !a.IsCorrect);
                 var totalCorrectInQuestion = correctAnswers.Count;
 
-                // Вычисляем процент за вопрос
                 double questionScore = 0;
                 if (totalCorrectInQuestion > 0)
                 {
@@ -93,7 +85,6 @@ namespace Application.Common.Queries.AnswersUsers.GetAnswersUserList
                     correctAnswersCount++;
                 }
 
-                // Формируем список ответов для этого вопроса
                 var answersHistory = new List<AnswerHistoryDto>();
                 foreach (var answer in question.Answers)
                 {
@@ -118,7 +109,6 @@ namespace Application.Common.Queries.AnswersUsers.GetAnswersUserList
                 });
             }
 
-            // 4. Вычисляем общий результат
             var totalQuestions = test.Questions.Count();
             var overallScore = totalQuestions > 0
                 ? (int)Math.Round((correctAnswersCount * 100.0) / totalQuestions, 0)

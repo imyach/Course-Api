@@ -28,8 +28,9 @@ namespace Application.Common.Commands.Modules.UpdateModule
 
             if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Course.UserId))
             {
-                entity.Title = request.Title;
-                entity.Description = request.Description;
+                if(!string.IsNullOrEmpty(request.Title))
+                    entity.Title = request.Title;
+                    entity.Description = request.Description;
                 if (entity.Course.Status == "Published")
                     entity.Course.UpdateAt = DateTime.UtcNow;
                 await context.SaveChangesAsync(cancellationToken);

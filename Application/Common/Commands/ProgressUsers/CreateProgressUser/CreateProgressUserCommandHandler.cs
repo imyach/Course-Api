@@ -65,7 +65,7 @@ namespace Application.Common.Commands.ProgressUsers.CreateProgressUser
                             UserId = request.CurrentUserId,
                             MaterialId = material.Id,
                             ProgressModuleId = progressModule.Id,
-                            Status = "Не начатa",
+                            Status = "Не начата",
                             StartedAt = null,
                             Order = material.Order,
                         };

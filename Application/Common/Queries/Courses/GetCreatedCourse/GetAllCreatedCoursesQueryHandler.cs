@@ -12,7 +12,7 @@ using System.Text;
 
 namespace Application.Common.Queries.Courses.GetCreatedCourse
 {
-    internal class GetAllCreatedCoursesQueryHandler(ICoursesDbContext context, IMapper mapper) : IRequestHandler<GetAllCreatedCoursesQuery, object[]>
+    public class GetAllCreatedCoursesQueryHandler(ICoursesDbContext context, IMapper mapper) : IRequestHandler<GetAllCreatedCoursesQuery, object[]>
     {
         public async Task<object[]> Handle(GetAllCreatedCoursesQuery request, CancellationToken cancellationToken)
         {

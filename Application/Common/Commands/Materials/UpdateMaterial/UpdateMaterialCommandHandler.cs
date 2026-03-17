@@ -29,7 +29,9 @@ namespace Application.Common.Commands.Materials.UpdateMaterial
             if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Module.Course.UserId))
             {
                 entity.Description = request.Description;
-                entity.Title = request.Title;
+
+                if (!string.IsNullOrEmpty(request.Title))
+                    entity.Title = request.Title;
                 if (entity.Module.Course.Status == "Published")
                     entity.Module.Course.UpdateAt = DateTime.UtcNow;
 

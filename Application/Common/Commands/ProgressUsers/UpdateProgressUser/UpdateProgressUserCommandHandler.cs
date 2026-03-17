@@ -18,8 +18,10 @@ namespace Application.Common.Commands.ProgressUsers.UpdateProgressUser
             if (entity.UserId != request.CurrentUserId)
                 throw new AccessException();
 
-            entity.Status = request.Status;
-            entity.FineshedAt = request.FinishedAt;
+            if(!string.IsNullOrEmpty(request.Status))
+                entity.Status = request.Status;
+            if(request.FinishedAt != null)
+                entity.FineshedAt = request.FinishedAt;
 
             await context.SaveChangesAsync(cancellationToken);
 

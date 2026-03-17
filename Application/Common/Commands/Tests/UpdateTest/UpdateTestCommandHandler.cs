@@ -28,7 +28,9 @@ namespace Application.Common.Commands.Tests.UpdateTest
 
             if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Material.Module.Course.UserId))
             {
-                entity.Title = request.Title;
+
+                if (!string.IsNullOrEmpty(request.Title))
+                    entity.Title = request.Title;
                 entity.Description = request.Description; 
 
                 if (entity.Material.Module.Course.Status == "Published")

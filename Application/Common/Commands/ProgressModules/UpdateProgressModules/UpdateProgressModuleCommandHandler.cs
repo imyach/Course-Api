@@ -19,7 +19,8 @@ namespace Application.Common.Commands.ProgressModules.UpdateProgressModules
             if (entity.UserId != request.CurrentUserId)
                 throw new AccessException();
 
-            entity.Status = request.Status;
+            if (entity.Status != "Завершен")
+                entity.Status = request.Status;
 
             if(entity.StartedAt is null)
                 entity.StartedAt = request.StartedAt;

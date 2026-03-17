@@ -40,7 +40,6 @@ namespace CourseWebApi.Controllers
         {
             var query = new GetAllProgressUserQuery
             {
-                CurrentUserId = UserId,
                 UserId = userId,
                 SearchText = searchText,
                 PageNumber = pageNumber,

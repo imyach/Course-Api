@@ -2,17 +2,30 @@ using CourseWebApi.Middleware;
 using CourseWebApi.Servises;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
+using Serilog.Events;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 
-var builder = WebApplication.CreateBuilder(args);
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+    .WriteTo.Console()
+    .WriteTo.File("Logs/CourseWebApi-.txt",
+        rollingInterval: RollingInterval.Day,
+        retainedFileCountLimit: 30) 
+    .CreateLogger();
+try
+{
+    Log.Information("Starting web application");
+    var builder = WebApplication.CreateBuilder(args);
 RegisterServices(builder.Services);
 
 var app = builder.Build();
 await Configure(app);
 
 
-app.Run();
+    Log.Information("Application started successfully");
+    app.Run();
 
 
 void RegisterServices(IServiceCollection services) { 
@@ -75,6 +88,9 @@ void RegisterServices(IServiceCollection services) {
     services.AddSwaggerGen();
     services.AddScoped<IJwtTokenServise, JwtTokenServise>();
     services.AddScoped<IPasswordHasherServise, PasswordHasherServise>();
+    services.AddScoped<ICurrentUserService, CurrentUserService>();
+    services.AddHttpContextAccessor();
+
 }
 
 async Task Configure(WebApplication build)
@@ -101,4 +117,13 @@ async Task Configure(WebApplication build)
         app?.MapControllers();
     });
 }
-
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Application terminated unexpectedly");
+    throw;
+}
+finally
+{
+    Log.CloseAndFlush();
+}
