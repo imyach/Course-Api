@@ -108,6 +108,7 @@
                 <Border Grid.Row="1"
                         Background="{StaticResource PureWhiteBrush}"
                         BorderBrush="{StaticResource LightGrayBrush}"
+                        Visibility="{Binding VisibleNavigationPanel}"
                         BorderThickness="0,0,0,1"
                         Padding="20,0">
 
@@ -127,8 +128,7 @@
                             <!-- Кнопка "Курсы" -->
                             <Button Content="Курсы"
                                     Style="{StaticResource CoursesButtonStyle}"
-                                    Command="{Binding AllCourseCommand}"
-                                    Visibility="{Binding MisstakePageVisible}"/>
+                                    Command="{Binding AllCourseCommand}"/>
 
                             <!-- Кнопка "Мои курсы" -->
                             <Button Content="Мои курсы"

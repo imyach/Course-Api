@@ -101,6 +101,8 @@ namespace CourseDesktopClient.Services
             NavigateTo(loginPage);
         }
 
+
+
         public async Task NavigateToCreateUser()
         {
             var createUserPage = serviceProvider.GetRequiredService<CreateUserPage>();

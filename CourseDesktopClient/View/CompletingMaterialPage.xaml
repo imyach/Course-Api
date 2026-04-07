@@ -121,7 +121,7 @@
                             Padding="15"
                             Background="{StaticResource OffWhiteBrush}"
                             Visibility="{Binding Description, Converter={StaticResource NullToVisibilityConverter}}">
-                        <TextBlock Text="{Binding Description}" 
+                        <TextBlock conveters:HyperlinkHelper.FormattedText="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
                                    Style="{StaticResource BodyTextStyle}"
                                    Foreground="{StaticResource TextSecondaryBrush}"
                                    TextWrapping="Wrap"

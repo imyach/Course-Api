@@ -56,14 +56,14 @@
                             BorderThickness="0.7"
                             Visibility="{Binding VisibleDescriptionBorder}"
                             BorderBrush="{StaticResource SecondaryGreenBrush}">
-                        <TextBlock Text="{Binding Description}" 
-                                   Style="{StaticResource BodyTextStyle}"
+
+                        <TextBlock Style="{StaticResource BodyTextStyle}"
                                    Foreground="{StaticResource TextPrimaryBrush}"
+                                   converters:HyperlinkHelper.FormattedText="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
                                    TextWrapping="Wrap"
                                    FontSize="15"
                                    LineHeight="22"/>
                     </Border>
-
                     <!-- Дата создания -->
                     <StackPanel Orientation="Horizontal" 
                                 HorizontalAlignment="Right"

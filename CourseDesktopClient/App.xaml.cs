@@ -41,15 +41,15 @@ namespace CourseDesktopClient
             var navService = serviceProvider.GetRequiredService<INavigationService>();
 
 
+
+            ((Application.Current.MainWindow as MainWindow).DataContext as MainWindowVm).CurrentView = serviceProvider.GetRequiredService<VideoLogoPage>();
+
+
             var isAuthenticated = await authService.CheckAuthOnStartupAsync();
+
             if (!((Application.Current.MainWindow as MainWindow).DataContext is MainWindowVm mainWindowVm && mainWindowVm.CurrentView is MistakePage))
             {
-                if (isAuthenticated)
-                {
-                    await navService.NavigateToCourses();
-                }
-                else
-                    navService.NavigateToLogin();
+                ((Application.Current.MainWindow as MainWindow).DataContext as MainWindowVm).CurrentView = serviceProvider.GetRequiredService<VideoLogoPage>();
             }
 
             mainWindow.Show();

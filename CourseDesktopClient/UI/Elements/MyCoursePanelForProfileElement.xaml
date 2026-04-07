@@ -15,7 +15,7 @@
     </UserControl.Resources>
 
     <Border Style="{StaticResource CourseCardBorderStyle}"
-            MinWidth="720"
+            MinWidth="820"
             MaxWidth="1200"
             Height="Auto"
             MaxHeight="180"

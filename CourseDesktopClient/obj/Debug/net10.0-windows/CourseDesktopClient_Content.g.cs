@@ -9,5 +9,6 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ui/icons/skill-forge-icon.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ui/videoresouses/startedscreen.mp4")]
 
 

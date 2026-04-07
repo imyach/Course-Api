@@ -117,19 +117,69 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <!-- Аватар с инициалами -->
+                    <!-- Аватар с триггерами на роль -->
                     <Border Grid.Column="0"
-                            Background="{StaticResource SoftGreenBrush}"
-                            Width="120"
-                            Height="120"
-                            CornerRadius="60"
-                            Margin="0,0,30,0">
+                        Width="120"
+                        Height="120"
+                        CornerRadius="60"
+                        Margin="0,0,30,0">
+
+                        <!-- Триггеры внутри Style -->
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <!-- Значение по умолчанию (студент) - зеленый -->
+                                <Setter Property="Background" Value="{StaticResource SoftGreenBrush}"/>
+
+                                <Style.Triggers>
+                                    <!-- Админ - красный фон -->
+                                    <DataTrigger Binding="{Binding  UserRole.Name}" Value="Admin">
+                                        <Setter Property="Background" Value="{StaticResource SoftRedBrush}"/>
+                                    </DataTrigger>
+
+                                    <!-- Препод - желтый фон -->
+                                    <DataTrigger Binding="{Binding  UserRole.Name}" Value="Couch">
+                                        <Setter Property="Background" Value="{StaticResource SoftYellowBrush}"/>
+                                    </DataTrigger>
+
+                                    <!-- Студент - зеленый фон -->
+                                    <DataTrigger Binding="{Binding  UserRole.Name}" Value="Student">
+                                        <Setter Property="Background" Value="{StaticResource SoftGreenBrush}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+
                         <TextBlock Text="{Binding UserName, Converter={StaticResource FirstLettersConverter}}"
-                                   Foreground="{StaticResource PrimaryGreenBrush}"
-                                   FontSize="48"
-                                   FontWeight="Bold"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
+               FontSize="48"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center">
+        
+        <!-- Триггеры для цвета текста -->
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <!-- По умолчанию - зеленый текст (для студента) -->
+                                    <Setter Property="Foreground" Value="{StaticResource PrimaryGreenBrush}"/>
+
+                                    <Style.Triggers>
+                                        <!-- Админ - красный текст -->
+                                        <DataTrigger Binding="{Binding  UserRole.Name}" Value="Admin">
+                                            <Setter Property="Foreground" Value="{StaticResource AccentRedBrush}"/>
+                                        </DataTrigger>
+
+                                        <!-- Препод - темно-оранжевый/коричневый текст для контраста -->
+                                        <DataTrigger Binding="{Binding  UserRole.Name}" Value="Couch">
+                                            <Setter Property="Foreground" Value="{StaticResource TeacherTextBrush}"/>
+                                        </DataTrigger>
+
+                                        <!-- Студент - зеленый текст -->
+                                        <DataTrigger Binding="{Binding  UserRole.Name}" Value="Student">
+                                            <Setter Property="Foreground" Value="{StaticResource PrimaryGreenBrush}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
                     </Border>
 
                     <!-- Информация о пользователе -->

@@ -166,13 +166,13 @@ namespace CourseDesktopClient.ViewModel
             }
         }
 
-        private Visibility _misstakePageVisible;
-        public Visibility MisstakePageVisible
+        private Visibility _visibleNavigationPanel;
+        public Visibility VisibleNavigationPanel
         {
-            get { return _misstakePageVisible; }
+            get { return _visibleNavigationPanel; }
             set
             {
-                _misstakePageVisible = value;
+                _visibleNavigationPanel = value;
                 OnPropertyChanged();
             }
         }
@@ -214,7 +214,7 @@ namespace CourseDesktopClient.ViewModel
                     ? Visibility.Visible
                     : Visibility.Collapsed;
 
-                MisstakePageVisible = mainWindowVm.CurrentView is not MistakePage
+                VisibleNavigationPanel = mainWindowVm.CurrentView is not MistakePage and not VideoLogoPage
                     ? Visibility.Visible
                     : Visibility.Collapsed;
 

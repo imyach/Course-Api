@@ -119,12 +119,13 @@ namespace CourseDesktopClient.ViewModel
                     UserLoginText = string.Empty;
                     UserPasswordText = string.Empty;
                     MisstakeText = string.Empty;
+                    VisibleMisstake = Visibility.Collapsed;
                     CheckedSaveUser = false;
                     break;
                 case false:
                     MisstakeText = mistakeText;
                     VisibleMisstake = Visibility.Visible;
-                    return;
+                    break;
             }
         }
 

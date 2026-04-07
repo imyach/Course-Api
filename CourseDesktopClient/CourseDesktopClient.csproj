@@ -25,6 +25,8 @@
     <None Remove="UI\Images\icons8-workshop-100.png" />
     <None Remove="UI\Images\icons8-workshop-96.png" />
     <None Remove="UI\Images\Skill-Forge-icon.png" />
+    <None Remove="UI\Shaders\DeeperColorEffect.ps" />
+    <None Remove="UI\VideoResouses\StartedScreen.mp4" />
     <None Remove="View\RegisterPage.xaml~RF531a71d.TMP" />
   </ItemGroup>
 
@@ -65,6 +67,10 @@
     <Resource Include="UI\Images\icons8-logout-64.png" />
     <Resource Include="UI\Images\icons8-sad-smile-100.png" />
     <Resource Include="UI\Images\Skill-Forge-icon.png" />
+    <Resource Include="UI\Shaders\DeeperColorEffect.ps" />
+    <Content Include="UI\VideoResouses\StartedScreen.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

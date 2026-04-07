@@ -39,17 +39,65 @@
                 <!-- Аватар и имя пользователя -->
                 <StackPanel Grid.Column="0" 
                             Orientation="Horizontal">
-                    <Border Background="{StaticResource SoftGreenBrush}"
-                            Width="32"
-                            Height="32"
-                            CornerRadius="16"
-                            Margin="0,0,10,0">
+                    <Border Width="32"
+            Height="32"
+            CornerRadius="16"
+            Margin="0,0,10,0">
+
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <!-- Значение по умолчанию (студент) - зеленый -->
+                                <Setter Property="Background" Value="{StaticResource SoftGreenBrush}"/>
+
+                                <Style.Triggers>
+                                    <!-- Админ - красный фон -->
+                                    <DataTrigger Binding="{Binding User.Role.Name}" Value="Admin">
+                                        <Setter Property="Background" Value="{StaticResource SoftRedBrush}"/>
+                                    </DataTrigger>
+
+                                    <!-- Препод (Couch) - желтый фон -->
+                                    <DataTrigger Binding="{Binding User.Role.Name}" Value="Couch">
+                                        <Setter Property="Background" Value="{StaticResource SoftYellowBrush}"/>
+                                    </DataTrigger>
+
+                                    <!-- Студент - зеленый фон -->
+                                    <DataTrigger Binding="{Binding User.Role.Name}" Value="Student">
+                                        <Setter Property="Background" Value="{StaticResource SoftGreenBrush}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+
                         <TextBlock Text="{Binding User.NameUser, Converter={StaticResource FirstLettersConverter}}"
-                                   Foreground="{StaticResource PrimaryGreenBrush}"
-                                   FontSize="14"
-                                   FontWeight="Bold"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
+                   FontSize="14"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <!-- По умолчанию - зеленый текст (для студента) -->
+                                    <Setter Property="Foreground" Value="{StaticResource PrimaryGreenBrush}"/>
+
+                                    <Style.Triggers>
+                                        <!-- Админ - красный текст -->
+                                        <DataTrigger Binding="{Binding User.Role.Name}" Value="Admin">
+                                            <Setter Property="Foreground" Value="{StaticResource AccentRedBrush}"/>
+                                        </DataTrigger>
+
+                                        <!-- Препод (Couch) - темно-оранжевый текст -->
+                                        <DataTrigger Binding="{Binding User.Role.Name}" Value="Couch">
+                                            <Setter Property="Foreground" Value="{StaticResource TeacherTextBrush}"/>
+                                        </DataTrigger>
+
+                                        <!-- Студент - зеленый текст -->
+                                        <DataTrigger Binding="{Binding User.Role.Name}" Value="Student">
+                                            <Setter Property="Foreground" Value="{StaticResource PrimaryGreenBrush}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
                     </Border>
 
                     <TextBlock Text="{Binding User.NameUser}" 
@@ -101,8 +149,9 @@
                               Style="{StaticResource TextBoxScrollViewerStyle}"
                               Height="auto"
                               MaxHeight="160">
-                    <TextBlock Text="{Binding Text}" 
+                    <TextBlock
                                Style="{StaticResource BodyTextStyle}"
+                                converters:HyperlinkHelper.FormattedText="{Binding Text, UpdateSourceTrigger=PropertyChanged}"
                                Foreground="{StaticResource TextPrimaryBrush}"
                                TextWrapping="Wrap"
                                />

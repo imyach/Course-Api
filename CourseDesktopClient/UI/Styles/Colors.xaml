@@ -39,7 +39,7 @@
     <!-- Мягкий синий для информации -->
     <Color x:Key="SoftRed">#FFEBEE</Color>
     <!-- Мягкий красный для ошибок -->
-    <Color x:Key="SoftYellow">#FFF8E1</Color>
+    <Color x:Key="SoftYellow">#fcf0ca</Color>
     <!-- Мягкий желтый для предупреждений -->
     <Color x:Key="SoftPurple">#F3E5F5</Color>
     <!-- Мягкий фиолетовый для акцентов -->
@@ -84,5 +84,40 @@
     <SolidColorBrush x:Key="AccentRedBrush" Color="{StaticResource AccentRed}"/>
     <SolidColorBrush x:Key="AccentOrangeBrush" Color="{StaticResource AccentOrange}"/>
     <SolidColorBrush x:Key="StarsYellowBrush" Color="{StaticResource AccentYellow}"/>
+
+    <!-- ========== ДОПОЛНИТЕЛЬНЫЕ ЦВЕТА ДЛЯ АВАТАРОВ ПО РОЛЯМ ========== -->
+
+    <!-- Для АДМИНА (красная тема) -->
+    <Color x:Key="AdminBg">#FFEBEE</Color>
+    <!-- Мягкий красный фон -->
+    <Color x:Key="AdminText">#C62828</Color>
+    <!-- Темно-красный текст -->
+
+    <!-- Для ПРЕПОДА (желтая/оранжевая тема) -->
+    <Color x:Key="TeacherBg">#fedf80</Color>
+    <!-- Мягкий желтый фон -->
+    <Color x:Key="TeacherText">#dba500</Color>
+    <!-- Темно-оранжевый текст -->
+
+    <!-- Для СТУДЕНТА (зеленая тема) - уже есть, но можно явно добавить -->
+    <Color x:Key="StudentBg">#E8F5E9</Color>
+    <!-- Мягкий зеленый фон (SoftGreen) -->
+    <Color x:Key="StudentText">#2E7D32</Color>
+    <!-- Темно-зеленый текст (PrimaryGreen) -->
+
+
+    <!-- ========== СООТВЕТСТВУЮЩИЕ КИСТИ ========== -->
+
+    <!-- Админ -->
+    <SolidColorBrush x:Key="AdminBgBrush" Color="{StaticResource AdminBg}"/>
+    <SolidColorBrush x:Key="AdminTextBrush" Color="{StaticResource AdminText}"/>
+
+    <!-- Препод -->
+    <SolidColorBrush x:Key="TeacherBgBrush" Color="{StaticResource TeacherBg}"/>
+    <SolidColorBrush x:Key="TeacherTextBrush" Color="{StaticResource TeacherText}"/>
+
+    <!-- Студент (опционально, можно использовать существующие) -->
+    <SolidColorBrush x:Key="StudentBgBrush" Color="{StaticResource StudentBg}"/>
+    <SolidColorBrush x:Key="StudentTextBrush" Color="{StaticResource StudentText}"/>
 
 </ResourceDictionary>
