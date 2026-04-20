@@ -10,7 +10,7 @@ namespace Domain.Model
     {
         public string NameUser { get; set; } = string.Empty;
         public string Login { get; set; } = string.Empty;
-        public string? Email { get; set; }
+        public string Email { get; set; } = string.Empty;
         public string HashPassword { get; set; } = string.Empty;
         public Guid RoleId { get; set; }
         public DateTime CreatedAt { get; set; }

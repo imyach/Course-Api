@@ -28,7 +28,7 @@ namespace Application.Common.Queries.ProgressModules.GetProgressModules
             .Include(pm => pm.User)
             .ToListAsync(cancellationToken);
 
-            if (roleUser.RoleName == "Admin" || roleUser.RoleName == "Couch")
+            if (roleUser.Name == "Admin" || roleUser.Name == "Couch")
             {
 
                 var entityA = entities.FirstOrDefault(r => r.Id == request.Id)

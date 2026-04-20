@@ -3751,6 +3751,7 @@
       },
       "CreateUserDto": {
         "required": [
+          "email",
           "login",
           "nameUser",
           "password",
@@ -3770,12 +3771,12 @@
             "minLength": 1,
             "type": "string"
           },
+          "email": {
+            "minLength": 1,
+            "type": "string"
+          },
           "role": {
             "$ref": "#/components/schemas/Role"
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
           },
           "phoneNumber": {
             "type": "string",
@@ -4447,6 +4448,7 @@
       },
       "RegistrationDto": {
         "required": [
+          "email",
           "login",
           "nameUser",
           "password"
@@ -4466,8 +4468,8 @@
             "type": "string"
           },
           "email": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "phoneNumber": {
             "type": "string",
@@ -4560,7 +4562,7 @@
             "type": "string",
             "format": "uuid"
           },
-          "roleName": {
+          "name": {
             "type": "string",
             "nullable": true
           },

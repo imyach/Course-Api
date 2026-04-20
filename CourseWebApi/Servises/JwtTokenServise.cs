@@ -18,12 +18,12 @@ namespace CourseWebApi.Servises
     public class JwtTokenServise(ICoursesDbContext context, IConfiguration configuration) : IJwtTokenServise
     {
         string SECRET_KEY = configuration["SECRET_KEY"];
-        public TimeSpan ExpiryDuration = new(0, 0, 10);
+        public TimeSpan ExpiryDuration = new(0, 15, 0);
         private async Task<string> GenerateJwtToken(User user, CancellationToken cancellationToken = default)
         {
 
             var role = await context.Roles.FindAsync([user.RoleId], cancellationToken);
-            string roleNameClaim = role?.RoleName.ToString() ?? string.Empty;
+            string roleNameClaim = role?.Name.ToString() ?? string.Empty;
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(SECRET_KEY);

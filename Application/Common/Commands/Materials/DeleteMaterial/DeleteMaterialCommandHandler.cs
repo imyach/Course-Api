@@ -26,7 +26,7 @@ namespace Application.Common.Commands.Materials.DeleteMaterial
              .FirstOrDefaultAsync(u => u.Id == request.Id, cancellationToken)
              ?? throw new NotFoundException(nameof(Material), request.Id);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Module.Course.UserId))
+            if (roleUser.Name == "Admin" || (roleUser.Name == "Couch" && currentUser.Id == entity.Module.Course.UserId))
             {
                 if (entity.Module.Course.Status == "Published")
                     entity.Module.Course.UpdateAt = DateTime.UtcNow;

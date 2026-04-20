@@ -22,7 +22,7 @@ namespace Application.Common.Commands.ProgressMaterials.DeleteProgressMaterials
 
             var entity = await context.ProgressMaterials.FindAsync([request.Id], cancellationToken)
                 ?? throw new NotFoundException(nameof(ProgressMaterial), request.Id);
-            if (roleUser.RoleName == "Admin" || (entity.UserId == currentUser.Id))
+            if (roleUser.Name == "Admin" || (entity.UserId == currentUser.Id))
             {
                 context.ProgressMaterials.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);

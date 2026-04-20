@@ -23,7 +23,7 @@ namespace Application.Common.Commands.AnswersUsers.DeleteAnswersUser
             var entity = await context.AnswersUsers.FindAsync([request.Id], cancellationToken) 
                 ?? throw new NotFoundException(nameof(AnswersUser), request.Id);
 
-            if (roleUser.RoleName == "Admin" || (entity.UserId == currentUser.Id))
+            if (roleUser.Name == "Admin" || (entity.UserId == currentUser.Id))
             {
                 context.AnswersUsers.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);

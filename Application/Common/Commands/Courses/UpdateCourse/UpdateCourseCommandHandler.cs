@@ -19,7 +19,7 @@ namespace Application.Common.Commands.Courses.UpdateCourse
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
             var entity = await context.Courses.FindAsync([request.Id], cancellationToken) ?? throw new NotFoundException(nameof(Course), request.Id);
-            if (roleUser.RoleName == "Admin" || (entity.UserId == currentUser.Id && roleUser.RoleName == "Couch"))
+            if (roleUser.Name == "Admin" || (entity.UserId == currentUser.Id && roleUser.Name == "Couch"))
             {
                 if(entity.Status == "Published" && request.Status != "Draft")
                     entity.UpdateAt = DateTime.UtcNow;

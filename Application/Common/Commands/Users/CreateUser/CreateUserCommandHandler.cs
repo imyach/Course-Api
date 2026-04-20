@@ -19,7 +19,7 @@ namespace Application.Common.Commands.Users.CreateUser
             var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            if (roleUser.RoleName == "Admin")
+            if (roleUser.Name == "Admin")
             {
                 var dublicate = await context.Users.AnyAsync(x => x.Email == request.Email && x.Login == request.Login, cancellationToken);
 

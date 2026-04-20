@@ -29,7 +29,7 @@ namespace Application.Common.Commands.Answers.UpdateAnswer
                 .FirstOrDefaultAsync(u => u.Id == request.Id, cancellationToken)
                 ?? throw new NotFoundException(nameof(Answer), request.Id);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Question.Test.Material.Module.Course.UserId))
+            if (roleUser.Name == "Admin" || (roleUser.Name == "Couch" && currentUser.Id == entity.Question.Test.Material.Module.Course.UserId))
             {
 
                 if (!string.IsNullOrEmpty(request.Text))

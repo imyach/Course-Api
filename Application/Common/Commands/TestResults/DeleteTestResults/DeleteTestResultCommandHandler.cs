@@ -22,7 +22,7 @@ namespace Application.Common.Commands.TestResults.DeleteTestResults
 
             var entity = await context.TestResults.FindAsync([request.Id], cancellationToken)
                 ?? throw new NotFoundException(nameof(TestResults), request.Id);
-            if (roleUser.RoleName == "Admin" || (entity.UserId == currentUser.Id))
+            if (roleUser.Name == "Admin" || (entity.UserId == currentUser.Id))
             {
                 context.TestResults.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);

@@ -26,7 +26,7 @@ namespace Application.Common.Commands.Questions.CreateQuestion
             .FirstOrDefaultAsync(u => u.Id == request.TestId, cancellationToken)
             ?? throw new NotFoundException(nameof(Question), request.TestId);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && entity.Material.Module.Course.UserId == currentUser.Id))
+            if (roleUser.Name == "Admin" || (roleUser.Name == "Couch" && entity.Material.Module.Course.UserId == currentUser.Id))
             {
                 var question = new Question
                 {

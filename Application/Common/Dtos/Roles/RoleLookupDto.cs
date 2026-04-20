@@ -18,7 +18,7 @@ namespace Application.Common.Dtos.Roles
                 .ForMember(roleVm => roleVm.Id,
                 opt => opt.MapFrom(role => role.Id))
                 .ForMember(roleVm => roleVm.Name,
-                opt => opt.MapFrom(role => role.RoleName))
+                opt => opt.MapFrom(role => role.Name))
                 .ForMember(roleVm => roleVm.CreatedAt,
                 opt => opt.MapFrom(role => role.CreatedAt));
     }

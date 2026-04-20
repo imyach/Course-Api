@@ -26,7 +26,7 @@ namespace Application.Common.Commands.Tests.CreateTest
             .FirstOrDefaultAsync(u => u.Id == request.MaterialId, cancellationToken)
             ?? throw new NotFoundException(nameof(Test), request.MaterialId);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && entity.Module.Course.UserId == currentUser.Id))
+            if (roleUser.Name == "Admin" || (roleUser.Name == "Couch" && entity.Module.Course.UserId == currentUser.Id))
             {
                 int order = 0;
                 if (context.Tests.Any(m => m.MaterialId == request.MaterialId))

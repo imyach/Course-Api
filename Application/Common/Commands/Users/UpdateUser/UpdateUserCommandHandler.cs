@@ -6,11 +6,12 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Net.Mail;
 using System.Text;
 
 namespace Application.Common.Commands.Users.UpdateUser
 {
-    public class UpdateUserCommandHandler(ICoursesDbContext context, IJwtTokenServise tokenServise, IPasswordHasherServise passwordHasher) : IRequestHandler<UpdateUserCommand, TokensDto?>
+    public class UpdateUserCommandHandler(ICoursesDbContext context, IJwtTokenServise tokenServise, IPasswordHasherServise passwordHasher, IEmailServise emailServise) : IRequestHandler<UpdateUserCommand, TokensDto?>
     {
         public async Task<TokensDto?> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
@@ -20,6 +21,7 @@ namespace Application.Common.Commands.Users.UpdateUser
             var entity = await context.Users.FindAsync([request.Id], cancellationToken) 
                 ?? throw new NotFoundException(nameof(User), request.Id);
 
+            string emailMessage = $"Здравствуйте, {entity.NameUser}. Сообщаем что данные от вашего аккаунта изменены.\n";
 
             if (currentUser.Id == entity.Id)
             {
@@ -32,7 +34,13 @@ namespace Application.Common.Commands.Users.UpdateUser
                 if (!string.IsNullOrEmpty(request.NewPassword) && !string.IsNullOrEmpty(request.OldPassword))
                 {
                     if (passwordHasher.VerifyBcryptPassword(request.OldPassword, entity.HashPassword))
+                    {
                         entity.HashPassword = passwordHasher.HashPasword(request.NewPassword);
+                        emailMessage = emailMessage + $"Был изменен пароль от аккаунта\n";
+                        await emailServise.SendMessage(emailMessage, "Обновлены данные аккаунта", entity.Email);
+                        await context.SaveChangesAsync(cancellationToken);
+                        return await tokenServise.GenerateTokens(entity);
+                    }
                     else return null;
                 }
                 if(request.Role != null)
@@ -43,13 +51,21 @@ namespace Application.Common.Commands.Users.UpdateUser
                     entity.Login = request.Login;
                 if (!string.IsNullOrEmpty(request.Email))
                     entity.Email = request.Email;
-                if (!string.IsNullOrEmpty(request.PhoneNumber))
                     entity.PhoneNumber = request.PhoneNumber;
 
                 await context.SaveChangesAsync(cancellationToken);
 
+                emailMessage = emailMessage + "\nОбновленные данные: " +
+                $"\nРоль: {request.Role.Name}" +
+                $"\nИмя пользователя: {entity.NameUser}" +
+                $"\nЛогин: {entity.Login}" +
+                $"\nПочта: {entity.Email}" +
+                $"\nТелефон: {entity.PhoneNumber}";
+
+                await emailServise.SendMessage(emailMessage, "Обновлены данные аккаунта", entity.Email);
 
                 return await tokenServise.GenerateTokens(entity);
+
             }
             throw new AccessException();
         }

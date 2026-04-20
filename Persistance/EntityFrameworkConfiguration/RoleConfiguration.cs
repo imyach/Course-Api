@@ -14,7 +14,7 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.HasKey(role => role.Id);
             builder.HasIndex(role => role.Id).IsUnique();
             builder.Property(role => role.Id).HasMaxLength(250);
-            builder.Property(role => role.RoleName).IsRequired().HasMaxLength(50);
+            builder.Property(role => role.Name).IsRequired().HasMaxLength(50);
             builder.Property(role => role.CreatedAt).IsRequired();
         }
     }

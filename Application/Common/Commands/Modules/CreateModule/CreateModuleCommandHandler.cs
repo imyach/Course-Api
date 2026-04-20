@@ -23,7 +23,7 @@ namespace Application.Common.Commands.Modules.CreateModule
                .FirstOrDefaultAsync(u => u.Id == request.CourseId, cancellationToken)
                ?? throw new NotFoundException(nameof(Course), request.CourseId);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && entity.UserId == currentUser.Id))
+            if (roleUser.Name == "Admin" || (roleUser.Name == "Couch" && entity.UserId == currentUser.Id))
             {
                 int order = 0;
                 if (context.Modules.Any(m=>m.CourseId == request.CourseId))

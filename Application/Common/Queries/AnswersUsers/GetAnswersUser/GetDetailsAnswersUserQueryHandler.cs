@@ -37,7 +37,7 @@ namespace Application.Common.Queries.AnswersUsers.GetAnswersUser
                 .ToListAsync(cancellationToken);
 
 
-            if (roleUser.RoleName == "Admin" || roleUser.RoleName == "Couch")
+            if (roleUser.Name == "Admin" || roleUser.Name == "Couch")
             {
                 var entityA = entities.FirstOrDefault(c => c.Id == request.Id)
                     ?? throw new NotFoundException(nameof(AnswersUser), request.Id);

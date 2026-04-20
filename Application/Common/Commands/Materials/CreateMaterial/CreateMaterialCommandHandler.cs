@@ -25,7 +25,7 @@ namespace Application.Common.Commands.Materials.CreateMaterial
                 .FirstOrDefaultAsync(u => u.Id == request.ModuleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Material), request.ModuleId);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && entity.Course.UserId == currentUser.Id))
+            if (roleUser.Name == "Admin" || (roleUser.Name == "Couch" && entity.Course.UserId == currentUser.Id))
             {
                 int order = 0;
                 if (context.Materials.Any(m => m.ModuleId == request.ModuleId))

@@ -87,6 +87,7 @@ void RegisterServices(IServiceCollection services) {
     services.AddEndpointsApiExplorer();
     services.AddSwaggerGen();
     services.AddScoped<IJwtTokenServise, JwtTokenServise>();
+    services.AddScoped<IEmailServise, EmailServise>();
     services.AddScoped<IPasswordHasherServise, PasswordHasherServise>();
     services.AddScoped<ICurrentUserService, CurrentUserService>();
     services.AddHttpContextAccessor();

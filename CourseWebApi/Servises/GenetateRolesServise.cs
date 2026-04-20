@@ -12,12 +12,12 @@
 
                 foreach (var nameRole in Enum.GetNames<EnumRoles>())
                 {
-                    if (!context.Roles.Any(name => name.RoleName == nameRole))
+                    if (!context.Roles.Any(name => name.Name == nameRole))
                     {
                         await context.Roles.AddAsync(new Role()
                         {
                             Id = Guid.NewGuid(),
-                            RoleName = nameRole,
+                            Name = nameRole,
                             CreatedAt = DateTime.UtcNow
                         });
                     }

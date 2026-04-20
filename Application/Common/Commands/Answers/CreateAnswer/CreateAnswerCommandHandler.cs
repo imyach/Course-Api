@@ -28,7 +28,7 @@ namespace Application.Common.Commands.Answers.CreateAnswer
            .FirstOrDefaultAsync(u => u.Id == request.QuestionId, cancellationToken)
            ?? throw new NotFoundException(nameof(Answer), request.QuestionId);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && entity.Test.Material.Module.Course.UserId == currentUser.Id))
+            if (roleUser.Name == "Admin" || (roleUser.Name == "Couch" && entity.Test.Material.Module.Course.UserId == currentUser.Id))
             {
                 var answer = new Answer
                 {

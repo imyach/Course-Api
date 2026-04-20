@@ -71,19 +71,19 @@ namespace Courses.Tests.Common
                 {
                     Id = RoleAdmin,
                     CreatedAt =DateTime.Today,
-                    RoleName = "Admin",
+                    Name = "Admin",
                 },
                 new Role
                 {
                     Id = RoleCouch,
                     CreatedAt =DateTime.Today,
-                    RoleName = "Couch",
+                    Name = "Couch",
                 },
                 new Role
                 {
                     Id = RoleStudent,
                     CreatedAt =DateTime.Today,
-                    RoleName = "Student",
+                    Name = "Student",
                 });
             #endregion
 

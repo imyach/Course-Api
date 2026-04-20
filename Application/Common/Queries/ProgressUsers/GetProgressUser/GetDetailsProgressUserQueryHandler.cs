@@ -30,7 +30,7 @@ namespace Application.Common.Queries.ProgressUsers.GetProgressUser
                 .ThenInclude(u => u.Role)
             .ToListAsync(cancellationToken);
 
-            if (roleUser.RoleName == "Admin" || roleUser.RoleName == "Couch")
+            if (roleUser.Name == "Admin" || roleUser.Name == "Couch")
             {
 
                 var entityA = entities.FirstOrDefault(r => r.Id == request.Id)

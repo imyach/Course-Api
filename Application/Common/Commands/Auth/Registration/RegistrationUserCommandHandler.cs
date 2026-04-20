@@ -14,7 +14,7 @@ namespace Application.Common.Commands.Auth.Registration
     {
         public async Task<TokensDto?> Handle(RegistrationUserCommand request, CancellationToken cancellationToken)
         {
-            var role = await context.Roles.FirstOrDefaultAsync(x => x.RoleName == nameof(EnumRoles.Student), cancellationToken);
+            var role = await context.Roles.FirstOrDefaultAsync(x => x.Name == nameof(EnumRoles.Student), cancellationToken);
 
             var user = new User
             {

@@ -21,7 +21,7 @@ namespace Application.Common.Queries.Roles.GetRoleList
             var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            if (roleUser.RoleName == "Admin")
+            if (roleUser.Name == "Admin")
             {
                 var rolesQuery = await context.Roles
                 .ProjectTo<RoleLookupDto>(mapper.ConfigurationProvider)

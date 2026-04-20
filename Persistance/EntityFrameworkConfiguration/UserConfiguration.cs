@@ -17,7 +17,7 @@ namespace Persistance.EntityFrameworkConfiguration
             builder.Property(user => user.NameUser).HasMaxLength(50).IsRequired();
             builder.Property(user => user.Login).HasMaxLength(30).IsRequired();
             builder.Property(user => user.HashPassword).HasMaxLength(250).IsRequired();
-            builder.Property(user => user.Email).HasMaxLength(50);
+            builder.Property(user => user.Email).HasMaxLength(50).IsRequired();
             builder.Property(user => user.CreatedAt).IsRequired();
             builder.Property(user => user.RoleId).IsRequired();
             builder.Property(user => user.IsActive).IsRequired();

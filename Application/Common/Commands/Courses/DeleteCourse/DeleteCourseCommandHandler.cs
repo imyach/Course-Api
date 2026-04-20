@@ -22,7 +22,7 @@ namespace Application.Common.Commands.Courses.DeleteCourse
             var entity = await context.Courses.FindAsync([request.Id], cancellationToken)
                 ?? throw new NotFoundException(nameof(Course), request.Id);
 
-            if (roleUser.RoleName == "Admin" || (entity.UserId == currentUser.Id && roleUser.RoleName == "Couch"))
+            if (roleUser.Name == "Admin" || (entity.UserId == currentUser.Id && roleUser.Name == "Couch"))
             {
                 entity.Status = "Archived";
                 await context.SaveChangesAsync(cancellationToken);

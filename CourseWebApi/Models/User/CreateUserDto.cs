@@ -14,8 +14,9 @@ namespace CourseWebApi.Models.User
         [Required]
         public string Password { get; set; } = string.Empty;
         [Required]
+        public string Email { get; set; } = string.Empty;
+        [Required]
         public Role? Role { get; set; }
-        public string? Email { get; set; }
         public string? PhoneNumber { get; set; }
 
         public void Mapping(Profile profile)

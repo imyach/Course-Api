@@ -24,7 +24,7 @@ namespace Application.Common.Commands.Rewies.DeleteReview
             var entity = await context.Reviews.FindAsync([request.Id], cancellationToken)
                 ?? throw new NotFoundException(nameof(Review), request.Id);
 
-            if (roleUser.RoleName == "Admin" || entity.UserId == currentUser.Id)
+            if (roleUser.Name == "Admin" || entity.UserId == currentUser.Id)
             {
                 context.Reviews.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);

@@ -26,7 +26,7 @@ namespace Application.Common.Commands.Modules.UpdateModule
                .FirstOrDefaultAsync(u => u.Id == request.Id, cancellationToken)
                ?? throw new NotFoundException(nameof(Module), request.Id);
 
-            if (roleUser.RoleName == "Admin" || (roleUser.RoleName == "Couch" && currentUser.Id == entity.Course.UserId))
+            if (roleUser.Name == "Admin" || (roleUser.Name == "Couch" && currentUser.Id == entity.Course.UserId))
             {
                 if(!string.IsNullOrEmpty(request.Title))
                     entity.Title = request.Title;

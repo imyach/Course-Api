@@ -23,7 +23,7 @@ namespace Application.Common.Commands.ProgressUsers.DeleteProgressUser
 
             var entity = await context.ProgressUsers.FindAsync([request.Id], cancellationToken)
                 ?? throw new NotFoundException(nameof(ProgressUser), request.Id);
-            if (roleUser.RoleName == "Admin" || (entity.UserId == currentUser.Id))
+            if (roleUser.Name == "Admin" || (entity.UserId == currentUser.Id))
             {
                 context.ProgressUsers.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);

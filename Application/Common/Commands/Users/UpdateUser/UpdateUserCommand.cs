@@ -13,7 +13,7 @@ namespace Application.Common.Commands.Users.UpdateUser
         public Guid CurrentUserId { get; set; }
         public string NameUser { get; set; } = string.Empty;
         public string Login { get; set; } = string.Empty;
-        public string? Email { get; set; }
+        public string Email { get; set; } = string.Empty;
         public string OldPassword { get; set; } = string.Empty;
         public string NewPassword { get; set; } = string.Empty;
         public Role Role { get; set; }

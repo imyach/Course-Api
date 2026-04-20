@@ -18,7 +18,7 @@ namespace Application.Common.Commands.Courses.CreateCourse
             var roleUser = await context.Roles.FirstOrDefaultAsync(r => r.Id == currentUser.RoleId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Role), currentUser.RoleId);
 
-            if (roleUser.RoleName != "Student")
+            if (roleUser.Name != "Student")
             {
                 var course = new Course
                 {

@@ -25,7 +25,7 @@ namespace Courses.Tests.Commands.Users
             {
                 Id = Guid.NewGuid(),
                 CreatedAt = DateTime.UtcNow,
-                RoleName = "Тест"
+                Name = "Тест"
             };
             string phoneNumber = "89304066793";
 
@@ -64,7 +64,7 @@ namespace Courses.Tests.Commands.Users
             {
                 Id = Guid.NewGuid(),
                 CreatedAt = DateTime.UtcNow,
-                RoleName = "Тест"
+                Name = "Тест"
             };
             string phoneNumber = "89304066793";
 

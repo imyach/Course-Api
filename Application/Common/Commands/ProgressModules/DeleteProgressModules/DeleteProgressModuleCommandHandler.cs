@@ -22,7 +22,7 @@ namespace Application.Common.Commands.ProgressModules.DeleteProgressModules
 
             var entity = await context.ProgressModules.FindAsync([request.Id], cancellationToken)
                 ?? throw new NotFoundException(nameof(ProgressModule), request.Id);
-            if (roleUser.RoleName == "Admin" || (entity.UserId == currentUser.Id))
+            if (roleUser.Name == "Admin" || (entity.UserId == currentUser.Id))
             {
                 context.ProgressModules.Remove(entity);
                 await context.SaveChangesAsync(cancellationToken);
