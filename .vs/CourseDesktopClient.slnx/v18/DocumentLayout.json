@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\models\\dtosmodel\\entities\\roledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\models\\dtosmodel\\entities\\roledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\viewmodel\\profilepagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\viewmodel\\profilepagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\view\\registerpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\view\\registerpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\viewmodel\\registerpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\viewmodel\\registerpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\view\\videologopage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\view\\videologopage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -51,18 +71,76 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "RoleDto.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\Models\\DtosModel\\Entities\\RoleDto.cs",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\Models\\DtosModel\\Entities\\RoleDto.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\Models\\DtosModel\\Entities\\RoleDto.cs",
+              "RelativeToolTip": "CourseDesktopClient\\Models\\DtosModel\\Entities\\RoleDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T18:55:42.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProfilePageVm.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\ProfilePageVm.cs",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\ViewModel\\ProfilePageVm.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\ProfilePageVm.cs",
+              "RelativeToolTip": "CourseDesktopClient\\ViewModel\\ProfilePageVm.cs",
+              "ViewState": "AgIAAAgBAAAAAAAAAAAQwA0BAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T16:53:36.091Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RegisterPageVm.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\RegisterPageVm.cs",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\ViewModel\\RegisterPageVm.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\RegisterPageVm.cs",
+              "RelativeToolTip": "CourseDesktopClient\\ViewModel\\RegisterPageVm.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwFEAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T16:44:04.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RegisterPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\View\\RegisterPage.xaml",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\View\\RegisterPage.xaml",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\View\\RegisterPage.xaml",
+              "RelativeToolTip": "CourseDesktopClient\\View\\RegisterPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-19T16:42:58.152Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\MainWindow.xaml",
+              "RelativeToolTip": "CourseDesktopClient\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-07T20:05:47.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "VideoLogoPage.xaml",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\View\\VideoLogoPage.xaml",
               "RelativeDocumentMoniker": "CourseDesktopClient\\View\\VideoLogoPage.xaml",
               "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\View\\VideoLogoPage.xaml",
               "RelativeToolTip": "CourseDesktopClient\\View\\VideoLogoPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-07T11:36:14.874Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-07T11:36:14.874Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "VideoLogoPageVm.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\VideoLogoPageVm.cs",
               "RelativeDocumentMoniker": "CourseDesktopClient\\ViewModel\\VideoLogoPageVm.cs",

@@ -60,8 +60,8 @@ converter:TextBoxExtensions.IconSource="/UI/Images/icons8-user-60.png"
                              Tag="Придумайте логин"
                              Margin="0,0,0,15"/>
 
-                    <!-- Поле Email (необязательно) -->
-                    <TextBlock Text="Email (необязательно)"  
+                    <!-- Поле Email -->
+                    <TextBlock Text="Email"  
                                Style="{StaticResource BodyTextStyle}"
                                Margin="0,0,0,5"/>
 

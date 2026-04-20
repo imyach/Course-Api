@@ -309,7 +309,8 @@ namespace CourseDesktopClient.ViewModel
         private bool FillingVerification(UpdateUserRequestDto userDto)
         {
             if (string.IsNullOrEmpty(userDto.Login)
-              || string.IsNullOrEmpty(userDto.NameUser))
+              || string.IsNullOrEmpty(userDto.NameUser)
+              || string.IsNullOrEmpty(userDto.Email))
             {
                 MisstakeText = "Заполните все необходимые поля";
                 VisibleMisstake = Visibility.Visible;
@@ -358,13 +359,12 @@ namespace CourseDesktopClient.ViewModel
                     return false;
                 }
 
-            if (userDto.Email is not null)
-                if (!IsValidEmail(userDto.Email))
-                {
-                    MisstakeText = "Введите корректную почту";
-                    VisibleMisstake = Visibility.Visible;
-                    return false;
-                }
+            if (!IsValidEmail(userDto.Email))
+            {
+                MisstakeText = "Введите корректную почту";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
 
             MisstakeText = string.Empty;
             VisibleMisstake = Visibility.Collapsed;

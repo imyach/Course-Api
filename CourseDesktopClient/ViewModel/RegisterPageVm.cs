@@ -80,6 +80,7 @@ namespace CourseDesktopClient.ViewModel
         {
             if (string.IsNullOrEmpty(registerDto.Login) 
                 || string.IsNullOrEmpty(registerDto.NameUser)
+                || string.IsNullOrEmpty(registerDto.Email)
                 || string.IsNullOrEmpty(repPass)
                 || string.IsNullOrEmpty(registerDto.Password))
             {
@@ -142,13 +143,12 @@ namespace CourseDesktopClient.ViewModel
                     return false;
                 }
 
-            if (registerDto.Email is not null)
-                if (!IsValidEmail(registerDto.Email))
-                {
-                    MisstakeText = "Введите корректную почту";
-                    VisibleMisstake = Visibility.Visible;
-                    return false;
-                }
+            if (!IsValidEmail(registerDto.Email))
+            {
+                MisstakeText = "Введите корректную почту";
+                VisibleMisstake = Visibility.Visible;
+                return false;
+            }
 
             if (registerDto.Password != repPass)
             {

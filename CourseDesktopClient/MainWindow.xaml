@@ -9,7 +9,7 @@
         xmlns:conveters="clr-namespace:CourseDesktopClient.UI.Converters"
         mc:Ignorable="d"
         Title="Главная" 
-        MinHeight="930" 
+        MinHeight="953" 
         MinWidth="1500" 
         Background="Transparent"
         WindowStartupLocation="CenterScreen"
@@ -62,7 +62,7 @@
                Width="45"
                Height="45"
                Margin="0,0,6,0"
-               Stretch="UniformToFill"/>
+               Stretch="Uniform"/>
 
                             <TextBlock Text="SkillForge" 
                    Style="{StaticResource BodyTextStyle}"
