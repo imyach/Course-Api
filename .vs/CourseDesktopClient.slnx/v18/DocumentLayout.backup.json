@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 219,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,6 +54,19 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PasswordRecoveryPageVm.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\PasswordRecoveryPageVm.cs",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\ViewModel\\PasswordRecoveryPageVm.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\PasswordRecoveryPageVm.cs",
+              "RelativeToolTip": "CourseDesktopClient\\ViewModel\\PasswordRecoveryPageVm.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAqwIkAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T13:42:18.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "CourseApiClient.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\Api\\Client\\CourseApiClient.cs",
@@ -62,21 +75,7 @@
               "RelativeToolTip": "CourseDesktopClient\\Api\\Client\\CourseApiClient.cs",
               "ViewState": "AgIAAJYAAAAAAAAAAAArwMIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T14:51:57.905Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PasswordRecoveryPageVm.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\PasswordRecoveryPageVm.cs",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\ViewModel\\PasswordRecoveryPageVm.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\PasswordRecoveryPageVm.cs",
-              "RelativeToolTip": "CourseDesktopClient\\ViewModel\\PasswordRecoveryPageVm.cs",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAAAIIAAABgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T13:42:18.13Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-24T14:51:57.905Z"
             },
             {
               "$type": "Document",
@@ -87,8 +86,7 @@
               "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\UI\\Elements\\RecoveryPasswordElements\\CodeEntryElement.xaml",
               "RelativeToolTip": "CourseDesktopClient\\UI\\Elements\\RecoveryPasswordElements\\CodeEntryElement.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-24T15:26:25.753Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-24T15:26:25.753Z"
             }
           ]
         }

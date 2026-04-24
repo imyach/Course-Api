@@ -9,56 +9,58 @@
              xmlns:converter="clr-namespace:CourseDesktopClient.UI.Converters"
              xmlns:elements="clr-namespace:CourseDesktopClient.UI.Elements.RecoveryPasswordElements"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors">
-
-    <Border Background="{StaticResource PureWhiteBrush}"
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" 
+               Style="{StaticResource BaseScrollViewerStyle}"
+               Background="{StaticResource OffWhiteBrush}">
+        <Border Background="{StaticResource PureWhiteBrush}"
              Width="auto"
              Padding="40"
              CornerRadius="24"
              HorizontalAlignment="Center"
              VerticalAlignment="Center">
 
-        <Border.Effect>
-            <DropShadowEffect BlurRadius="20" 
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" 
                        ShadowDepth="4" 
                        Opacity="0.12" 
                        Direction="270"
                        Color="#000000"/>
-        </Border.Effect>
+            </Border.Effect>
 
-        <StackPanel>
-            <!-- Заголовок -->
-            <TextBlock Text="Выберите аккаунт"
+            <StackPanel>
+                <!-- Заголовок -->
+                <TextBlock Text="Выберите аккаунт"
                        HorizontalAlignment="Center"
                        Style="{StaticResource H1Style}"
                        Margin="0,0,0,8"/>
 
-            <TextBlock Text="Аккаунты с этим email"
+                <TextBlock Text="Аккаунты с этим email"
                        Style="{StaticResource SecondaryTextStyle}"
                        Margin="0,0,0,28"
                        HorizontalAlignment="Center"/>
 
-            <!-- Контейнер для карточек пользователей -->
-            <ItemsControl ItemsSource="{Binding Users}"
+                <!-- Контейнер для карточек пользователей -->
+                <ItemsControl ItemsSource="{Binding Users}"
                           Margin="0,0,0,30">
 
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal" 
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" 
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
 
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <elements:SelectionProfileElement 
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <elements:SelectionProfileElement 
                             Margin="8"
                             VerticalAlignment="Top"/>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
 
-            <TextBlock Text="← Вернуться к почте" 
+                <TextBlock Text="← Вернуться к почте" 
 HorizontalAlignment="Center"
 Cursor="Hand" 
 Style="{StaticResource RegisterLinkStyle}"
@@ -68,9 +70,10 @@ VerticalAlignment="Center">
              <i:InvokeCommandAction Command="{Binding GoToEmailCommand}"/>
          </i:EventTrigger>
      </i:Interaction.Triggers>
-            </TextBlock>
+                </TextBlock>
 
-        </StackPanel>
-        
-    </Border>
+            </StackPanel>
+
+        </Border>
+    </ScrollViewer>
 </UserControl>

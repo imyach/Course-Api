@@ -59,8 +59,8 @@ namespace CourseDesktopClient.UI.Elements.RecoveryPasswordElements {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CourseDesktopClient;component/ui/elements/recoverypasswordelements/codeentryelem" +
-                    "ent.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CourseDesktopClient;V1.0.0.0;component/ui/elements/recoverypasswordelements/code" +
+                    "entryelement.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\UI\Elements\RecoveryPasswordElements\CodeEntryElement.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
