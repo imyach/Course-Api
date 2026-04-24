@@ -16,7 +16,7 @@ namespace Application.Common.Queries.Users.GetUserByEmail
         {
             var usersList = await context.Users
                 .Include(u => u.Role)
-                .Where(x => x.Email == request.Email)
+                .Where(x => x.Email.Trim().ToLower() == request.Email.Trim().ToLower())
                 .ProjectTo<UserLookupDto>(mapper.ConfigurationProvider)
                 .ToListAsync( cancellationToken);
 
