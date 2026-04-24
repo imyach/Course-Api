@@ -24,6 +24,7 @@ namespace Application.Interfaces
         DbSet<Question> Questions { get; set; }
         DbSet<Answer> Answers { get; set; }
         DbSet<AnswersUser> AnswersUsers { get; set; }
+        DbSet<RecoveryCode> RecoveryCode { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
         DatabaseFacade Database { get; }

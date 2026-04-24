@@ -550,6 +550,71 @@
         }
       }
     },
+    "/api/Auth/sendRecoveryCode": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "userEmail",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/sendNewPassword": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Course/All": {
       "get": {
         "tags": [
@@ -3049,6 +3114,35 @@
       }
     },
     "/api/User": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get info user by email",
+        "description": "Sample request:\r\nGET (HOST)/api/user/email@mail.com",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "User email",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Siccess",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsersListVm"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
           "User"
@@ -4404,6 +4498,34 @@
         },
         "additionalProperties": false
       },
+      "RecoveryCode": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "codeHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "expirationTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isUsedEarlier": {
+            "type": "boolean"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        },
+        "additionalProperties": false
+      },
       "RefreshDto": {
         "required": [
           "refreshToken"
@@ -5179,6 +5301,9 @@
           },
           "refreshToken": {
             "$ref": "#/components/schemas/RefreshToken"
+          },
+          "recoveryCode": {
+            "$ref": "#/components/schemas/RecoveryCode"
           },
           "courses": {
             "type": "array",

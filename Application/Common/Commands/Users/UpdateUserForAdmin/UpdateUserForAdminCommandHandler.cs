@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Application.Common.Commands.Users.UpdateUserForAdmin
 {
-    public class UpdateUserForAdminCommandHandler(ICoursesDbContext context, IPasswordHasherServise passwordHasher, IEmailServise emailServise) : IRequestHandler<UpdateUserForAdminCommand, bool>
+    public class UpdateUserForAdminCommandHandler(ICoursesDbContext context, IHasherServise passwordHasher, IEmailServise emailServise) : IRequestHandler<UpdateUserForAdminCommand, bool>
     {
         public async Task<bool> Handle(UpdateUserForAdminCommand request, CancellationToken cancellationToken)
         {
@@ -20,8 +20,12 @@ namespace Application.Common.Commands.Users.UpdateUserForAdmin
             if (dublicate)
                 return false;
 
-            string emailMessage = $"Здравствуйте, {entity.NameUser}. Сообщаем что данные от вашего аккаунта изменены.";
-
+            var emailMessage = new StringBuilder();
+            emailMessage.AppendLine($"Здравствуйте, {entity.NameUser}.");
+            emailMessage.AppendLine();
+            emailMessage.AppendLine("Администратор изменил данные вашего аккаунта.");
+            emailMessage.AppendLine();
+            emailMessage.AppendLine("Новые данные:");
 
             if (request.Role != null)
              entity.RoleId = request.Role.Id;
@@ -35,14 +39,16 @@ namespace Application.Common.Commands.Users.UpdateUserForAdmin
             await context.SaveChangesAsync(cancellationToken);
 
 
-            emailMessage = emailMessage + "\nОбновленные данные: " +
-                $"\nРоль: {request.Role.Name}" +
-                $"\nИмя пользователя: {entity.NameUser}" +
-                $"\nЛогин: {entity.Login}" +
-                $"\nПочта: {entity.Email}" +
-                $"\nТелефон: {entity.PhoneNumber}";
+            emailMessage.AppendLine($"• Роль: {request.Role?.Name ?? "не изменена"}");
+            emailMessage.AppendLine($"• Имя пользователя: {entity.NameUser}");
+            emailMessage.AppendLine($"• Логин: {entity.Login}");
+            emailMessage.AppendLine($"• Email: {entity.Email}");
+            emailMessage.AppendLine($"• Телефон: {entity.PhoneNumber ?? "не указан"}");
+            emailMessage.AppendLine();
+            emailMessage.AppendLine("---");
+            emailMessage.AppendLine("Если у вас возникли вопросы, свяжитесь с поддержкой: support@skillforge.com");
 
-            await emailServise.SendMessage(emailMessage, "Администратор изменил данные вашего аккаунта", entity.Email);
+            await emailServise.SendMessage(emailMessage.ToString(), "Данные аккаунта изменены администратором — SkillForge", entity.Email);
 
             return true;
         }

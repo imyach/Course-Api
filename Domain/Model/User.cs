@@ -20,6 +20,7 @@ namespace Domain.Model
 
         public Role? Role { get; set; }
         public RefreshToken? RefreshToken { get; set; }
+        public RecoveryCode? RecoveryCode { get; set; }
 
         public IEnumerable<Course>? Courses { get; set; }
         public IEnumerable<Review>? Reviews { get; set; }

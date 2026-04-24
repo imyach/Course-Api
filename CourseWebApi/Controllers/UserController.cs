@@ -4,6 +4,7 @@ using Application.Common.Commands.Users.UpdateUser;
 using Application.Common.Commands.Users.UpdateUserForAdmin;
 using Application.Common.Dtos.Users;
 using Application.Common.Queries.Users.GetUser;
+using Application.Common.Queries.Users.GetUserByEmail;
 using Application.Common.Queries.Users.GetUsersList;
 using AutoMapper;
 using CourseWebApi.Models.User;
@@ -71,6 +72,30 @@ namespace CourseWebApi.Controllers
             var vm = await Mediator.Send(query);
             return Ok(vm);
         }
+
+        /// <summary>
+        /// Get info user by email
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// GET (HOST)/api/user/email@mail.com
+        /// </remarks>
+        /// <param name="email">User email</param>
+        /// <returns>Returns UsersListVm</returns>
+        /// <response code="200">Siccess</response>
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<UsersListVm>> GetByEmail([FromQuery]string email)
+        {
+            var query = new GetUserByEmailCommand()
+            {
+                Email = email,
+            };
+
+            var vm = await Mediator.Send(query);
+            return Ok(vm);
+        }
+
 
         /// <summary>
         /// Create object user 

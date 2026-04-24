@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Application.Common.Commands.Auth.Login
 {
-    public class LoginUserCommandHandler(ICoursesDbContext context, IJwtTokenServise tokenServise, IPasswordHasherServise passwordHasher) : IRequestHandler<LoginUserCommand, TokensDto?>
+    public class LoginUserCommandHandler(ICoursesDbContext context, IJwtTokenServise tokenServise, IHasherServise passwordHasher) : IRequestHandler<LoginUserCommand, TokensDto?>
     {
         public async Task<TokensDto?> Handle(LoginUserCommand request, CancellationToken cancellationToken)
         {
@@ -19,7 +19,7 @@ namespace Application.Common.Commands.Auth.Login
             if (users == null)
                 return null;
 
-            var user = users.FirstOrDefault(user => passwordHasher.VerifyBcryptPassword(request.Password, user.HashPassword) && user.IsActive == true);
+            var user = users.FirstOrDefault(user => passwordHasher.VerifyBcrypt(request.Password, user.HashPassword) && user.IsActive == true);
             if (user == null)
                 return null;
 

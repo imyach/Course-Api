@@ -27,6 +27,7 @@ namespace Persistance
         public DbSet<ProgressMaterial> ProgressMaterials { get; set; }
         public DbSet<ProgressModule> ProgressModules { get; set; }
         public DbSet<TestResult> TestResults { get; set; }
+        public DbSet<RecoveryCode> RecoveryCode { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -45,6 +46,7 @@ namespace Persistance
             builder.ApplyConfiguration(new MaterialConfiguration());
             builder.ApplyConfiguration(new ModuleConfiguration());
             builder.ApplyConfiguration(new TestResultConfiguration());
+            builder.ApplyConfiguration(new RecoveryCodeConfiguration());
             base.OnModelCreating(builder);
         }
     }

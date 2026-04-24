@@ -1,0 +1,117 @@
+2026-04-24 10:01:25.455 +03:00 [INF] Starting web application
+2026-04-24 10:01:31.588 +03:00 [INF] Application started successfully
+2026-04-24 10:35:18.177 +03:00 [INF] Starting web application
+2026-04-24 10:36:06.795 +03:00 [INF] Starting web application
+2026-04-24 10:36:09.776 +03:00 [INF] Application started successfully
+2026-04-24 11:11:12.986 +03:00 [INF] Starting web application
+2026-04-24 11:11:16.205 +03:00 [INF] Application started successfully
+2026-04-24 11:12:30.422 +03:00 [INF] Starting web application
+2026-04-24 11:12:32.894 +03:00 [INF] Application started successfully
+2026-04-24 11:12:56.573 +03:00 [INF] Starting web application
+2026-04-24 11:12:59.335 +03:00 [INF] Application started successfully
+2026-04-24 11:16:23.571 +03:00 [INF] Starting web application
+2026-04-24 11:16:26.197 +03:00 [INF] Application started successfully
+2026-04-24 11:17:27.169 +03:00 [INF] Starting web application
+2026-04-24 11:17:29.586 +03:00 [INF] Application started successfully
+2026-04-24 11:17:31.992 +03:00 [INF] Client Request : GetUserByEmailCommand "00000000-0000-0000-0000-000000000000" {"Email":"zaxsad231@yandex.ru","$type":"GetUserByEmailCommand"}
+2026-04-24 12:34:16.765 +03:00 [INF] Starting web application
+2026-04-24 12:34:19.449 +03:00 [INF] Application started successfully
+2026-04-24 13:37:38.096 +03:00 [INF] Starting web application
+2026-04-24 13:37:39.638 +03:00 [FTL] Application terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[Application.Common.Commands.Auth.SendingPasswordEmail.SendingThePasswordByEmailCommand,System.Boolean] Lifetime: Transient ImplementationType: Application.Common.Commands.Auth.SendingPasswordEmail.SendingThePasswordByEmailCommandHandler': Unable to resolve service for type 'Application.Interfaces.IGenerateRandomValueService' while attempting to activate 'Application.Common.Commands.Auth.SendingPasswordEmail.SendingThePasswordByEmailCommandHandler'.) (Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[Application.Common.Commands.Auth.SendingCodeEmail.SendingTheCodeByEmailCommand,MediatR.Unit] Lifetime: Transient ImplementationType: Application.Common.Commands.Auth.SendingCodeEmail.SendingTheCodeByEmailCommandHandler': Unable to resolve service for type 'Application.Interfaces.IGenerateRandomValueService' while attempting to activate 'Application.Common.Commands.Auth.SendingCodeEmail.SendingTheCodeByEmailCommandHandler'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[Application.Common.Commands.Auth.SendingPasswordEmail.SendingThePasswordByEmailCommand,System.Boolean] Lifetime: Transient ImplementationType: Application.Common.Commands.Auth.SendingPasswordEmail.SendingThePasswordByEmailCommandHandler': Unable to resolve service for type 'Application.Interfaces.IGenerateRandomValueService' while attempting to activate 'Application.Common.Commands.Auth.SendingPasswordEmail.SendingThePasswordByEmailCommandHandler'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Application.Interfaces.IGenerateRandomValueService' while attempting to activate 'Application.Common.Commands.Auth.SendingPasswordEmail.SendingThePasswordByEmailCommandHandler'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Artem\Desktop\serv\CourseWebApi\Program.cs:line 23
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[Application.Common.Commands.Auth.SendingCodeEmail.SendingTheCodeByEmailCommand,MediatR.Unit] Lifetime: Transient ImplementationType: Application.Common.Commands.Auth.SendingCodeEmail.SendingTheCodeByEmailCommandHandler': Unable to resolve service for type 'Application.Interfaces.IGenerateRandomValueService' while attempting to activate 'Application.Common.Commands.Auth.SendingCodeEmail.SendingTheCodeByEmailCommandHandler'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Application.Interfaces.IGenerateRandomValueService' while attempting to activate 'Application.Common.Commands.Auth.SendingCodeEmail.SendingTheCodeByEmailCommandHandler'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)<---
+
+2026-04-24 13:37:54.240 +03:00 [INF] Starting web application
+2026-04-24 13:37:54.921 +03:00 [FTL] Application terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[Application.Common.Commands.Auth.SendingPasswordEmail.SendingThePasswordByEmailCommand,System.Boolean] Lifetime: Transient ImplementationType: Application.Common.Commands.Auth.SendingPasswordEmail.SendingThePasswordByEmailCommandHandler': Unable to resolve service for type 'Application.Interfaces.IGenerateRandomValueService' while attempting to activate 'Application.Common.Commands.Auth.SendingPasswordEmail.SendingThePasswordByEmailCommandHandler'.) (Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[Application.Common.Commands.Auth.SendingCodeEmail.SendingTheCodeByEmailCommand,MediatR.Unit] Lifetime: Transient ImplementationType: Application.Common.Commands.Auth.SendingCodeEmail.SendingTheCodeByEmailCommandHandler': Unable to resolve service for type 'Application.Interfaces.IGenerateRandomValueService' while attempting to activate 'Application.Common.Commands.Auth.SendingCodeEmail.SendingTheCodeByEmailCommandHandler'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[Application.Common.Commands.Auth.SendingPasswordEmail.SendingThePasswordByEmailCommand,System.Boolean] Lifetime: Transient ImplementationType: Application.Common.Commands.Auth.SendingPasswordEmail.SendingThePasswordByEmailCommandHandler': Unable to resolve service for type 'Application.Interfaces.IGenerateRandomValueService' while attempting to activate 'Application.Common.Commands.Auth.SendingPasswordEmail.SendingThePasswordByEmailCommandHandler'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Application.Interfaces.IGenerateRandomValueService' while attempting to activate 'Application.Common.Commands.Auth.SendingPasswordEmail.SendingThePasswordByEmailCommandHandler'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Artem\Desktop\serv\CourseWebApi\Program.cs:line 23
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[Application.Common.Commands.Auth.SendingCodeEmail.SendingTheCodeByEmailCommand,MediatR.Unit] Lifetime: Transient ImplementationType: Application.Common.Commands.Auth.SendingCodeEmail.SendingTheCodeByEmailCommandHandler': Unable to resolve service for type 'Application.Interfaces.IGenerateRandomValueService' while attempting to activate 'Application.Common.Commands.Auth.SendingCodeEmail.SendingTheCodeByEmailCommandHandler'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Application.Interfaces.IGenerateRandomValueService' while attempting to activate 'Application.Common.Commands.Auth.SendingCodeEmail.SendingTheCodeByEmailCommandHandler'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)<---
+
+2026-04-24 13:38:20.664 +03:00 [INF] Starting web application
+2026-04-24 13:38:23.108 +03:00 [INF] Application started successfully
+2026-04-24 13:43:55.916 +03:00 [INF] Starting web application
+2026-04-24 13:43:58.371 +03:00 [INF] Application started successfully
+2026-04-24 13:44:02.904 +03:00 [INF] Client Request : SendingTheCodeByEmailCommand "00000000-0000-0000-0000-000000000000" {"UserEmail":"zaxsad231@yandex.ru","UserId":"d153b798-9328-4c00-afed-af6f46110606","$type":"SendingTheCodeByEmailCommand"}
+2026-04-24 13:44:56.304 +03:00 [INF] Client Request : SendingThePasswordByEmailCommand "00000000-0000-0000-0000-000000000000" {"UserId":"d153b798-9328-4c00-afed-af6f46110606","Code":"511257","$type":"SendingThePasswordByEmailCommand"}
+2026-04-24 13:45:32.699 +03:00 [INF] Client Request : LoginUserCommand "00000000-0000-0000-0000-000000000000" {"Login":"admin","Password":"admin","$type":"LoginUserCommand"}
+2026-04-24 13:45:36.379 +03:00 [INF] Client Request : LoginUserCommand "00000000-0000-0000-0000-000000000000" {"Login":"admin","Password":"HU+3uuZ?","$type":"LoginUserCommand"}
+2026-04-24 13:45:36.674 +03:00 [INF] Client Request : GetDetailsUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"Id":"d153b798-9328-4c00-afed-af6f46110606","$type":"GetDetailsUserQuery"}
+2026-04-24 13:45:36.805 +03:00 [INF] Client Request : GetAllCourseQuery "d153b798-9328-4c00-afed-af6f46110606" {"PageNumber":1,"PageSize":10,"SearchText":null,"$type":"GetAllCourseQuery"}
+2026-04-24 13:45:36.805 +03:00 [INF] Client Request : GetAllCourseQuery "d153b798-9328-4c00-afed-af6f46110606" {"PageNumber":1,"PageSize":10,"SearchText":null,"$type":"GetAllCourseQuery"}
+2026-04-24 13:45:37.127 +03:00 [INF] Client Request : GetAllProgressUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"UserId":"d153b798-9328-4c00-afed-af6f46110606","PageNumber":1,"PageSize":2147483647,"SearchText":null,"$type":"GetAllProgressUserQuery"}
+2026-04-24 13:45:37.127 +03:00 [INF] Client Request : GetAllProgressUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"UserId":"d153b798-9328-4c00-afed-af6f46110606","PageNumber":1,"PageSize":2147483647,"SearchText":null,"$type":"GetAllProgressUserQuery"}
+2026-04-24 13:45:37.631 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"d497f026-fb85-4e91-9f8e-c063edfba957","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-04-24 13:45:37.631 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"7c530229-ce0e-4a78-8580-6d7f4105fe18","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-04-24 13:45:37.631 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"7c530229-ce0e-4a78-8580-6d7f4105fe18","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-04-24 13:45:37.631 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"7f2b94e4-1e52-44f9-b46e-e8ab1513ccfa","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-04-24 13:45:37.631 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"6dcd570f-d214-44f9-b98f-52423f36904d","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-04-24 13:45:37.631 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"d497f026-fb85-4e91-9f8e-c063edfba957","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-04-24 13:45:37.631 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"6dcd570f-d214-44f9-b98f-52423f36904d","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-04-24 13:45:37.631 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"7f2b94e4-1e52-44f9-b46e-e8ab1513ccfa","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-04-24 13:45:41.407 +03:00 [INF] Client Request : GetAllProgressUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"UserId":"d153b798-9328-4c00-afed-af6f46110606","PageNumber":1,"PageSize":10,"SearchText":null,"$type":"GetAllProgressUserQuery"}
+2026-04-24 13:45:51.183 +03:00 [INF] Client Request : UpdateUserCommand "d153b798-9328-4c00-afed-af6f46110606" {"Id":"d153b798-9328-4c00-afed-af6f46110606","CurrentUserId":"d153b798-9328-4c00-afed-af6f46110606","NameUser":"admin","Login":"admin","Email":"zaxsad231@yandex.ru","OldPassword":"HU+3uuZ?","NewPassword":"admin","Role":{"Name":"Admin","CreatedAt":"2026-02-07T13:08:14.3137620Z","Users":null,"Id":"5d7edd53-6705-47a4-9709-7742655a09a3","$type":"Role"},"PhoneNumber":"","$type":"UpdateUserCommand"}
+2026-04-24 13:45:53.779 +03:00 [INF] Client Request : GetDetailsUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"Id":"d153b798-9328-4c00-afed-af6f46110606","$type":"GetDetailsUserQuery"}
+2026-04-24 13:45:53.808 +03:00 [INF] Client Request : GetAllProgressUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"UserId":"d153b798-9328-4c00-afed-af6f46110606","PageNumber":1,"PageSize":10,"SearchText":null,"$type":"GetAllProgressUserQuery"}
+2026-04-24 13:45:55.359 +03:00 [INF] Client Request : GetAllProgressUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"UserId":"d153b798-9328-4c00-afed-af6f46110606","PageNumber":1,"PageSize":10,"SearchText":null,"$type":"GetAllProgressUserQuery"}
+2026-04-24 13:45:55.359 +03:00 [INF] Client Request : GetAllProgressUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"UserId":"d153b798-9328-4c00-afed-af6f46110606","PageNumber":1,"PageSize":10,"SearchText":null,"$type":"GetAllProgressUserQuery"}
+2026-04-24 13:45:55.978 +03:00 [INF] Client Request : GetAllCourseQuery "d153b798-9328-4c00-afed-af6f46110606" {"PageNumber":1,"PageSize":10,"SearchText":null,"$type":"GetAllCourseQuery"}
+2026-04-24 13:45:55.978 +03:00 [INF] Client Request : GetAllCourseQuery "d153b798-9328-4c00-afed-af6f46110606" {"PageNumber":1,"PageSize":10,"SearchText":null,"$type":"GetAllCourseQuery"}
+2026-04-24 13:45:56.027 +03:00 [INF] Client Request : GetAllProgressUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"UserId":"d153b798-9328-4c00-afed-af6f46110606","PageNumber":1,"PageSize":2147483647,"SearchText":null,"$type":"GetAllProgressUserQuery"}
+2026-04-24 13:45:56.040 +03:00 [INF] Client Request : GetAllProgressUserQuery "d153b798-9328-4c00-afed-af6f46110606" {"UserId":"d153b798-9328-4c00-afed-af6f46110606","PageNumber":1,"PageSize":2147483647,"SearchText":null,"$type":"GetAllProgressUserQuery"}
+2026-04-24 13:45:56.264 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"7f2b94e4-1e52-44f9-b46e-e8ab1513ccfa","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-04-24 13:45:56.264 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"d497f026-fb85-4e91-9f8e-c063edfba957","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-04-24 13:45:56.659 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"7f2b94e4-1e52-44f9-b46e-e8ab1513ccfa","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-04-24 13:45:56.658 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"7c530229-ce0e-4a78-8580-6d7f4105fe18","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-04-24 13:45:56.264 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"7c530229-ce0e-4a78-8580-6d7f4105fe18","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-04-24 13:45:56.292 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"6dcd570f-d214-44f9-b98f-52423f36904d","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-04-24 13:45:56.659 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"d497f026-fb85-4e91-9f8e-c063edfba957","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}
+2026-04-24 13:45:56.659 +03:00 [INF] Client Request : GetAllReviewQuery "d153b798-9328-4c00-afed-af6f46110606" {"IdCourse":"6dcd570f-d214-44f9-b98f-52423f36904d","PageSize":20,"PageNumber":1,"SortAscending":false,"SortBy":"ByDate","$type":"GetAllReviewQuery"}

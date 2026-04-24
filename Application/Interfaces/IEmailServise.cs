@@ -6,6 +6,6 @@ namespace Application.Interfaces
 {
     public interface IEmailServise
     {
-        public  Task SendMessage(string message, string miniDescription, string? userEmail);
+        public  Task SendMessage(string message, string miniDescription, string userEmail);
     }
 }

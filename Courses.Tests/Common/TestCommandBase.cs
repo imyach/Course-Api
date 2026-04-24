@@ -15,14 +15,14 @@ namespace Courses.Tests.Common
     public abstract class TestCommandBase : IDisposable
     {
         protected readonly CoursesDbContext Context;
-        protected readonly IPasswordHasherServise Hasher;
+        protected readonly IHasherServise Hasher;
         protected readonly IJwtTokenServise TokenServise;
         protected readonly ILogger? Logger;
         
         public TestCommandBase()
         {
             Context = CoursesContextFactory.Create();
-            Hasher = new PasswordHasherServise();
+            Hasher = new HasherServise();
 
             var configuration = new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string, string?>
             {

@@ -32,9 +32,18 @@ namespace Application.Common.Commands.Users.DeteleUser
                     entity.IsActive = false;
                    
                 if(roleUser.Name == "Admin" && currentUser.Id != entity.Id)
-                    await emailServise.SendMessage($"Здравствуйте, {entity.NameUser}. Сообщаем, что ваш аккаунт был удален в связи с несоответствием правил сообщества", "Ваш аккаунт удален", entity.Email);
+                    await emailServise.SendMessage($"Здравствуйте, {entity.NameUser}.\n\n" +
+                    $"Сообщаем, что ваш аккаунт был удален в связи с нарушением правил сообщества.\n\n" +
+                    $"Если вы считаете это ошибкой, свяжитесь с поддержкой: support@skillforge.com",
+                    "Ваш аккаунт удален — SkillForge",
+                    entity.Email);
                 else
-                   await emailServise.SendMessage($"Здравствуйте, {entity.NameUser}. Сожалеем, что вы нас покинули(", "Ваш аккаунт удален", entity.Email);
+                   await emailServise.SendMessage($"Здравствуйте, {entity.NameUser}.\n\n" +
+                    $"Мы сожалеем, что вы решили покинуть SkillForge.\n\n" +
+                    $"Если вы передумаете, мы всегда будем рады видеть вас снова!\n\n" +
+                    $"Ваши данные будут удалены из системы в течение 30 дней.",
+                    "Ваш аккаунт удален — SkillForge",
+                    entity.Email);
 
                 await context.SaveChangesAsync(cancellationToken); 
                 return Unit.Value;

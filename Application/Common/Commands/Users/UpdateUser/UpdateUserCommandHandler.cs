@@ -11,7 +11,7 @@ using System.Text;
 
 namespace Application.Common.Commands.Users.UpdateUser
 {
-    public class UpdateUserCommandHandler(ICoursesDbContext context, IJwtTokenServise tokenServise, IPasswordHasherServise passwordHasher, IEmailServise emailServise) : IRequestHandler<UpdateUserCommand, TokensDto?>
+    public class UpdateUserCommandHandler(ICoursesDbContext context, IJwtTokenServise tokenServise, IHasherServise passwordHasher, IEmailServise emailServise) : IRequestHandler<UpdateUserCommand, TokensDto?>
     {
         public async Task<TokensDto?> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
@@ -21,7 +21,10 @@ namespace Application.Common.Commands.Users.UpdateUser
             var entity = await context.Users.FindAsync([request.Id], cancellationToken) 
                 ?? throw new NotFoundException(nameof(User), request.Id);
 
-            string emailMessage = $"Здравствуйте, {entity.NameUser}. Сообщаем что данные от вашего аккаунта изменены.\n";
+            var emailMessage = new StringBuilder();
+            emailMessage.AppendLine($"Здравствуйте, {entity.NameUser}.");
+            emailMessage.AppendLine();
+            emailMessage.AppendLine("Были внесены изменения в вашем аккаунте:");
 
             if (currentUser.Id == entity.Id)
             {
@@ -33,11 +36,11 @@ namespace Application.Common.Commands.Users.UpdateUser
 
                 if (!string.IsNullOrEmpty(request.NewPassword) && !string.IsNullOrEmpty(request.OldPassword))
                 {
-                    if (passwordHasher.VerifyBcryptPassword(request.OldPassword, entity.HashPassword))
+                    if (passwordHasher.VerifyBcrypt(request.OldPassword, entity.HashPassword))
                     {
-                        entity.HashPassword = passwordHasher.HashPasword(request.NewPassword);
-                        emailMessage = emailMessage + $"Был изменен пароль от аккаунта\n";
-                        await emailServise.SendMessage(emailMessage, "Обновлены данные аккаунта", entity.Email);
+                        entity.HashPassword = passwordHasher.Hash(request.NewPassword);
+                        emailMessage.AppendLine("✓ Пароль от аккаунта был изменен");
+                        await emailServise.SendMessage(emailMessage.ToString(), "Изменение пароля — SkillForge", entity.Email);
                         await context.SaveChangesAsync(cancellationToken);
                         return await tokenServise.GenerateTokens(entity);
                     }
@@ -55,14 +58,14 @@ namespace Application.Common.Commands.Users.UpdateUser
 
                 await context.SaveChangesAsync(cancellationToken);
 
-                emailMessage = emailMessage + "\nОбновленные данные: " +
+                emailMessage.AppendLine("\nОбновленные данные: " +
                 $"\nРоль: {request.Role.Name}" +
                 $"\nИмя пользователя: {entity.NameUser}" +
                 $"\nЛогин: {entity.Login}" +
                 $"\nПочта: {entity.Email}" +
-                $"\nТелефон: {entity.PhoneNumber}";
+                $"\nТелефон: {entity.PhoneNumber}");
 
-                await emailServise.SendMessage(emailMessage, "Обновлены данные аккаунта", entity.Email);
+                await emailServise.SendMessage(emailMessage.ToString(), "Данные аккаунта обновлены — SkillForge", entity.Email);
 
                 return await tokenServise.GenerateTokens(entity);
 

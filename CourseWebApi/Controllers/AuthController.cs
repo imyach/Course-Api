@@ -3,6 +3,8 @@ using Application.Common.Commands.Auth.Login;
 using Application.Common.Commands.Auth.Logout;
 using Application.Common.Commands.Auth.Refresh;
 using Application.Common.Commands.Auth.Registration;
+using Application.Common.Commands.Auth.SendingCodeEmail;
+using Application.Common.Commands.Auth.SendingPasswordEmail;
 using AutoMapper;
 using CourseWebApi.Models.Auth;
 using Microsoft.AspNetCore.Authorization;
@@ -125,6 +127,52 @@ namespace CourseWebApi.Controllers
                 return BadRequest();
 
             return NoContent();
+        }
+
+        /// <summary>
+        /// Send recovery code by email
+        /// </summary>
+        /// <remarks>
+        /// Sample request: 
+        /// POST (HOST)/api/Auth/sendRecoveryCode?userEmail=email@mail.com&userId=D8F05718-1FD2-43A2-B309-CD71DDD02005
+        /// </remarks>
+        /// <param name="userEmail">user email for send message with recovery code</param>
+        /// <param name="userId">user id</param>
+        /// <response code="200">Siccess</response>
+        [HttpPost("sendRecoveryCode")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> SendRecoveryCodeByEmail([FromQuery] string userEmail, [FromQuery] Guid userId)
+        {
+            var command = new SendingTheCodeByEmailCommand
+            {
+                UserEmail = userEmail,
+                UserId = userId 
+            };
+            await Mediator.Send(command);
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Send new password for user
+        /// </summary>
+        /// <remarks>
+        /// Sample request: 
+        /// POST (HOST)/api/Auth/sendNewPassword?code=543634&userId=D8F05718-1FD2-43A2-B309-CD71DDD02005
+        /// </remarks>
+        /// <param name="code">user recovery code</param>
+        /// <param name="userId">user id</param>
+        /// <response code="200">Siccess</response>
+        [HttpPost("sendNewPassword")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<bool>> SendNewPasswordByEmail([FromQuery] string code, [FromQuery] Guid userId)
+        {
+            var command = new SendingThePasswordByEmailCommand
+            {
+                Code = code,
+                UserId = userId
+            };
+            var responce = await Mediator.Send(command);
+            return Ok(responce);
         }
     }
 }

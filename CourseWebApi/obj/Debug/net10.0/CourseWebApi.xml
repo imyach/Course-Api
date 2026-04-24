@@ -207,6 +207,8 @@
             <response code="200">Siccess</response>
             <response code="401">If the user is unautorized</response>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:CourseWebApi.Controllers.AuthController.SendRecoveryCodeByEmail(System.String,System.Guid)" -->
+        <!-- Badly formed XML comment ignored for member "M:CourseWebApi.Controllers.AuthController.SendNewPasswordByEmail(System.String,System.Guid)" -->
         <member name="M:CourseWebApi.Controllers.CourseController.GetAll(System.Int32,System.Int32,System.String)">
             <summary>
             Get published courses elements
@@ -988,6 +990,18 @@
             <returns>Returns UserLookupDto</returns>
             <response code="200">Siccess</response>
             <response code="401">If the user is unautorized</response>
+        </member>
+        <member name="M:CourseWebApi.Controllers.UserController.GetByEmail(System.String)">
+            <summary>
+            Get info user by email
+            </summary>
+            <remarks>
+            Sample request:
+            GET (HOST)/api/user/email@mail.com
+            </remarks>
+            <param name="email">User email</param>
+            <returns>Returns UsersListVm</returns>
+            <response code="200">Siccess</response>
         </member>
         <member name="M:CourseWebApi.Controllers.UserController.Create(CourseWebApi.Models.User.CreateUserDto)">
             <summary>

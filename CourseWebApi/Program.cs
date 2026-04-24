@@ -88,8 +88,10 @@ void RegisterServices(IServiceCollection services) {
     services.AddSwaggerGen();
     services.AddScoped<IJwtTokenServise, JwtTokenServise>();
     services.AddScoped<IEmailServise, EmailServise>();
-    services.AddScoped<IPasswordHasherServise, PasswordHasherServise>();
+    services.AddScoped<IHasherServise, HasherServise>();
+    services.AddScoped<IHasherServise, HasherServise>();
     services.AddScoped<ICurrentUserService, CurrentUserService>();
+    services.AddScoped<IGenerateRandomValueService, GenerateRandomValueService>();
     services.AddHttpContextAccessor();
 
 }

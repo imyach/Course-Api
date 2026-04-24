@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Application.Common.Commands.Auth.Registration
 {
-    public class RegistrationUserCommandHandler(ICoursesDbContext context, IJwtTokenServise tokenServise, IPasswordHasherServise passwordHasher) : IRequestHandler<RegistrationUserCommand, TokensDto?>
+    public class RegistrationUserCommandHandler(ICoursesDbContext context, IJwtTokenServise tokenServise, IHasherServise passwordHasher) : IRequestHandler<RegistrationUserCommand, TokensDto?>
     {
         public async Task<TokensDto?> Handle(RegistrationUserCommand request, CancellationToken cancellationToken)
         {
@@ -23,7 +23,7 @@ namespace Application.Common.Commands.Auth.Registration
                 NameUser = request.NameUser,
                 Login = request.Login,
                 Email = request.Email,
-                HashPassword = passwordHasher.HashPasword(request.Password),
+                HashPassword = passwordHasher.Hash(request.Password),
                 CreatedAt = DateTime.UtcNow,
                 PhoneNumber = request.PhoneNumber,
                 IsActive = true
