@@ -9,7 +9,7 @@
             const string upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             const string lowerCase = "abcdefghijklmnopqrstuvwxyz";
             const string digits = "0123456789";
-            const string special = "!@#$%^&*()_-+=<>?";
+            const string special = "!#()?";
 
             const string allChars = upperCase + lowerCase + digits + special;
 
