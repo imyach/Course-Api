@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CourseDesktopClient.UI.Elements"
              xmlns:converters="clr-namespace:CourseDesktopClient.UI.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="450"
+             d:DesignHeight="500" d:DesignWidth="950"
              Background="Transparent"
              UseLayoutRounding="True">
 

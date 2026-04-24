@@ -72,6 +72,7 @@ namespace CourseDesktopClient
             services.AddTransient<UpdateUserPasswordPageVm>();
             services.AddTransient<RegisterPageVm>();
             services.AddTransient<VideoLogoPageVm>();
+            services.AddTransient<PasswordRecoveryPageVm>();
 
 
             //VIEWS
@@ -80,6 +81,12 @@ namespace CourseDesktopClient
             {
                 var loginVm = provider.GetRequiredService<LoginPageVm>();
                 return new LoginPage { DataContext = loginVm };
+            });
+
+            services.AddTransient(provider =>
+            {
+                var passwordRecoveryPageVm = provider.GetRequiredService<PasswordRecoveryPageVm>();
+                return new PasswordRecoveryPage { DataContext = passwordRecoveryPageVm };
             });
 
             services.AddTransient(provider =>

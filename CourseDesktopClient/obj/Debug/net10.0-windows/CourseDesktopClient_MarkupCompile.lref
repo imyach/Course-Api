@@ -16,6 +16,10 @@ FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\CustomMessage
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\MyCoursePanelElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\MyCoursePanelForProfileElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\RatingStarsControl.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\RecoveryPasswordElements\AccountSelectionElement.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\RecoveryPasswordElements\CodeEntryElement.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\RecoveryPasswordElements\SelectionProfileElement.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\RecoveryPasswordElements\SendEmailElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\ReviewPanelElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\TestResultElement.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\UI\Elements\UserPanelElement.xaml;;
@@ -40,6 +44,7 @@ FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\CreateUserPage.xaml;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\LoginPage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\MistakePage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\MyCoursePage.xaml;;
+FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\PasswordRecoveryPage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\ProfilePage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\RegisterPage.xaml;;
 FC:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\View\TestResultPage.xaml;;

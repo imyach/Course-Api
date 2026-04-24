@@ -20,6 +20,8 @@ namespace CourseDesktopClient.Api.Client
         Task<TokensDto> LoginAsync(LoginDto loginDto, CancellationToken ct = default);
         Task<TokensDto> RegisterAsync(RegisterDto registerDto, CancellationToken ct = default);
         Task<HttpStatusCode?> LogoutAsync(CancellationToken ct = default);
+        Task<HttpStatusCode?> SendCodeEmailAsync(string userEmail, Guid userId, CancellationToken ct = default);
+        Task<bool> SendNewPasswordOnEmailAsync(string code, Guid userId, CancellationToken ct = default);
 
         //USER
         Task<UserDto> GetUserProfileAsync(Guid id, CancellationToken ct = default);
@@ -28,6 +30,7 @@ namespace CourseDesktopClient.Api.Client
         Task<TokensDto?> UpdateUserAsync(UpdateUserRequestDto userDto, CancellationToken ct = default);
         Task<HttpStatusCode?> UpdateUserForAdminAsync(UpdateUserRequestDto userDto, CancellationToken ct = default);
         Task<(UsersDto, PagerInfoDto)> GetUsersAsync(int pageNumber = 1, int pageSize = 20, string searchText = null, CancellationToken ct = default);
+        Task<UsersDto?> GetUsersByEmailAsync(string email, CancellationToken ct = default);
 
         //COURSE
         Task<(CoursesDto?, PagerInfoDto?)> GetCoursesAsync(int pageNumber = 1, int pageSize = 10, string searchText= null, CancellationToken ct = default);

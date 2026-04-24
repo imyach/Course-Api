@@ -183,7 +183,16 @@ namespace CourseDesktopClient.ViewModel
         public static bool IsValidEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
-                return true;
+                return false;
+
+            if (!email.Contains("@") || !email.Contains("."))
+                return false;
+
+            if (email.IndexOf("@") + 1 >= email.LastIndexOf("."))
+                return false;
+
+            if (email.Contains(" "))
+                return false;
 
             var emailAttribute = new EmailAddressAttribute();
             return emailAttribute.IsValid(email);

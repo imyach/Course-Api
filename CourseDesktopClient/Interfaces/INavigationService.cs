@@ -27,6 +27,7 @@ namespace CourseDesktopClient.Interfaces
         Task NavigateToProfile(Guid idUser);
         Task NavigateToMyCourses();
         Task NavigateToUsers();
+        void NavigateToRecoveryPassword();
         Task NavigateToCreateUser();
         void NavigateToUpdateUserPassword();
         void NavigateMistakePage(Exception exception);

@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\models\\dtosmodel\\entities\\roledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\models\\dtosmodel\\entities\\roledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\viewmodel\\passwordrecoverypagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\viewmodel\\passwordrecoverypagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\viewmodel\\profilepagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\viewmodel\\profilepagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\api\\client\\courseapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\api\\client\\courseapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\view\\registerpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\view\\registerpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\viewmodel\\registerpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\viewmodel\\registerpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\view\\videologopage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\view\\videologopage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\viewmodel\\videologopagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\viewmodel\\videologopagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\ui\\elements\\recoverypasswordelements\\codeentryelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\ui\\elements\\recoverypasswordelements\\codeentryelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 219,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,85 +54,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RoleDto.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\Models\\DtosModel\\Entities\\RoleDto.cs",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\Models\\DtosModel\\Entities\\RoleDto.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\Models\\DtosModel\\Entities\\RoleDto.cs",
-              "RelativeToolTip": "CourseDesktopClient\\Models\\DtosModel\\Entities\\RoleDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAvAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CourseApiClient.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\Api\\Client\\CourseApiClient.cs",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\Api\\Client\\CourseApiClient.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\Api\\Client\\CourseApiClient.cs",
+              "RelativeToolTip": "CourseDesktopClient\\Api\\Client\\CourseApiClient.cs",
+              "ViewState": "AgIAAJYAAAAAAAAAAAArwMIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T18:55:42.478Z",
+              "WhenOpened": "2026-04-24T14:51:57.905Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProfilePageVm.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\ProfilePageVm.cs",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\ViewModel\\ProfilePageVm.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\ProfilePageVm.cs",
-              "RelativeToolTip": "CourseDesktopClient\\ViewModel\\ProfilePageVm.cs",
-              "ViewState": "AgIAAAgBAAAAAAAAAAAQwA0BAAA2AAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "PasswordRecoveryPageVm.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\PasswordRecoveryPageVm.cs",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\ViewModel\\PasswordRecoveryPageVm.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\PasswordRecoveryPageVm.cs",
+              "RelativeToolTip": "CourseDesktopClient\\ViewModel\\PasswordRecoveryPageVm.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAAAIIAAABgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T16:53:36.091Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RegisterPageVm.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\RegisterPageVm.cs",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\ViewModel\\RegisterPageVm.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\RegisterPageVm.cs",
-              "RelativeToolTip": "CourseDesktopClient\\ViewModel\\RegisterPageVm.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAQwFEAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T16:44:04.16Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RegisterPage.xaml",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\View\\RegisterPage.xaml",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\View\\RegisterPage.xaml",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\View\\RegisterPage.xaml",
-              "RelativeToolTip": "CourseDesktopClient\\View\\RegisterPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-19T16:42:58.152Z"
+              "WhenOpened": "2026-04-24T13:42:18.13Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\MainWindow.xaml",
-              "RelativeToolTip": "CourseDesktopClient\\MainWindow.xaml",
+              "Title": "CodeEntryElement.xaml",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\UI\\Elements\\RecoveryPasswordElements\\CodeEntryElement.xaml",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\UI\\Elements\\RecoveryPasswordElements\\CodeEntryElement.xaml",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\UI\\Elements\\RecoveryPasswordElements\\CodeEntryElement.xaml",
+              "RelativeToolTip": "CourseDesktopClient\\UI\\Elements\\RecoveryPasswordElements\\CodeEntryElement.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-07T20:05:47.203Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "VideoLogoPage.xaml",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\View\\VideoLogoPage.xaml",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\View\\VideoLogoPage.xaml",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\View\\VideoLogoPage.xaml",
-              "RelativeToolTip": "CourseDesktopClient\\View\\VideoLogoPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-07T11:36:14.874Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "VideoLogoPageVm.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\VideoLogoPageVm.cs",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\ViewModel\\VideoLogoPageVm.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\VideoLogoPageVm.cs",
-              "RelativeToolTip": "CourseDesktopClient\\ViewModel\\VideoLogoPageVm.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABsAAABeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T10:12:24.92Z"
+              "WhenOpened": "2026-04-24T15:26:25.753Z",
+              "EditorCaption": ""
             }
           ]
         }

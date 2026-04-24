@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.DirectoryServices.ActiveDirectory;
 using System.Drawing.Printing;
+using System.Globalization;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -179,6 +180,24 @@ namespace CourseDesktopClient.Api.Client
             return response.StatusCode;
         }
 
+        public async Task<HttpStatusCode?> SendCodeEmailAsync(string userEmail, Guid userId, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsync(ApiPaths.API_SEND_RECOVERY_CODE + $"?userEmail={userEmail}&userId={userId}", null);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+
+            return response.StatusCode;
+
+        }
+        public async Task<bool> SendNewPasswordOnEmailAsync(string code, Guid userId, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsync(ApiPaths.API_SEND_NEW_PASSWORD + $"?code={code}&userId={userId}", null);
+
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<bool>(jsonOptions, ct);
+        }
 
         //REVIEWS
         public async Task<ReviewDto> GetReviewByIdAsync(Guid id, CancellationToken ct = default)
@@ -253,6 +272,16 @@ namespace CourseDesktopClient.Api.Client
             var pagerInfo = JsonSerializer.Deserialize<PagerInfoDto>(dataArray[1]);
 
             return (users, pagerInfo);
+        }
+
+        public async Task<UsersDto?> GetUsersByEmailAsync(string email, CancellationToken ct = default)
+        {
+            var response = await httpClient.GetAsync(ApiPaths.API_GET_USER_BY_EMAIL + $"?email={email}", ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<UsersDto?>(jsonOptions, ct);
         }
 
 

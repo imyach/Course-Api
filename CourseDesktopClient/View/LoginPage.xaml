@@ -76,6 +76,19 @@
                         Style="{StaticResource LoginButtonStyle}"
                         Margin="0,0,0,15"/>
 
+                <TextBlock Text="Забыли пароль?" 
+                           HorizontalAlignment="Center" 
+                           Cursor="Hand" 
+                           Style="{StaticResource RegisterLinkStyle}"
+                           VerticalAlignment="Center"
+                           Margin="0,0,0,15">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding RecoveryPasswordCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                </TextBlock>
+
                 <!-- Сообщение об ошибке -->
                 <TextBlock Text="{Binding MisstakeText}" 
                            Visibility="{Binding VisibleMisstake}"
@@ -95,6 +108,8 @@
                               Style="{StaticResource LoginCheckBoxStyle}"
                               Grid.Column="0"
                               VerticalAlignment="Center"/>
+
+                    
 
                     <TextBlock Text="Регистрация" 
                                Grid.Column="1"

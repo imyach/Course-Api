@@ -77,6 +77,12 @@ namespace CourseDesktopClient.Services
             NavigateTo(updUserPage);
         }
 
+        public void NavigateToRecoveryPassword()
+        {
+            var passwordRecoveryPage = serviceProvider.GetRequiredService<PasswordRecoveryPage>();
+            NavigateTo(passwordRecoveryPage);
+        }
+
         public void NavigateMistakePage(Exception exception)
         {
             Application.Current.Dispatcher.Invoke(() =>

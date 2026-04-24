@@ -22,5 +22,6 @@ namespace CourseDesktopClient.ViewModel
         public ICommand UpdateUserPassword { get; set; } = new RelayCommand(_ => navigationService.NavigateToUpdateUserPassword());
         public ICommand WorkshopCommand { get; set; } = new RelayCommand(async _ => await navigationService.NavigateToWorkshop());
         public ICommand CreateCourseCommand { get; set; } = new RelayCommand(async _ => await navigationService.NavigateToCreateCourse());
+        public ICommand RecoveryPasswordCommand { get; set; } = new RelayCommand(async _ => navigationService.NavigateToRecoveryPassword());
     }
 }
