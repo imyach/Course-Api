@@ -73,6 +73,7 @@ namespace CourseDesktopClient
             services.AddTransient<RegisterPageVm>();
             services.AddTransient<VideoLogoPageVm>();
             services.AddTransient<PasswordRecoveryPageVm>();
+            services.AddTransient<GerenateReportUserPageVm>();
 
 
             //VIEWS
@@ -87,6 +88,12 @@ namespace CourseDesktopClient
             {
                 var passwordRecoveryPageVm = provider.GetRequiredService<PasswordRecoveryPageVm>();
                 return new PasswordRecoveryPage { DataContext = passwordRecoveryPageVm };
+            });
+
+            services.AddTransient(provider =>
+            {
+                var gerenateReportUserPageVm = provider.GetRequiredService<GerenateReportUserPageVm>();
+                return new GerenateReportUserPage { DataContext = gerenateReportUserPageVm };
             });
 
             services.AddTransient(provider =>
@@ -195,7 +202,8 @@ namespace CourseDesktopClient
             {
                 var completingTestResultPageVm = provider.GetRequiredService<CompletingTestResultPageVm>();
                 return new CompletingTestResultPage { DataContext = completingTestResultPageVm };
-            }); services.AddTransient(provider =>
+            }); 
+            services.AddTransient(provider =>
             {
                 var videoLogoPageVm = provider.GetRequiredService<VideoLogoPageVm>();
                 return new VideoLogoPage { DataContext = videoLogoPageVm };

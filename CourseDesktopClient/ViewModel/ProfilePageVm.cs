@@ -308,6 +308,9 @@ namespace CourseDesktopClient.ViewModel
 
         private bool FillingVerification(UpdateUserRequestDto userDto)
         {
+            MisstakeText = string.Empty;
+            VisibleMisstake = Visibility.Collapsed;
+
             if (string.IsNullOrEmpty(userDto.Login)
               || string.IsNullOrEmpty(userDto.NameUser)
               || string.IsNullOrEmpty(userDto.Email))
@@ -366,8 +369,7 @@ namespace CourseDesktopClient.ViewModel
                 return false;
             }
 
-            MisstakeText = string.Empty;
-            VisibleMisstake = Visibility.Collapsed;
+           
             return true;
         }
 

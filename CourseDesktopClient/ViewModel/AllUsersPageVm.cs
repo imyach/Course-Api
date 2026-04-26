@@ -43,11 +43,9 @@ namespace CourseDesktopClient.ViewModel
                 OnPropertyChanged();
             }
         }
-        public Visibility AddUserButtonVisible =>
+        public Visibility AdminButtonVisible =>
     authService.CurrentUser.Role.Name == "Admin" ? Visibility.Visible : Visibility.Hidden;
          
-
-
         public AllUsersPageVm(INavigationService navigationService, ICourseApiClient courseApiClient, IAuthService authService, IPagerService pagerService) :base(navigationService)
         {
             this.courseApiClient = courseApiClient;

@@ -15,6 +15,7 @@
     <None Remove="UI\Images\icons8-course-page-100.png" />
     <None Remove="UI\Images\icons8-courses-48.png" />
     <None Remove="UI\Images\icons8-edit-48.png" />
+    <None Remove="UI\Images\icons8-folder-96.png" />
     <None Remove="UI\Images\icons8-green-information-64.png" />
     <None Remove="UI\Images\icons8-my-course-page-100.png" />
     <None Remove="UI\Images\icons8-open-door-96.png" />
@@ -40,6 +41,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.15.0" />
+    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,6 +49,7 @@
     <Resource Include="UI\Images\icons8-add-user-100.png" />
     <Resource Include="UI\Images\icons8-course-page-100.png" />
     <Resource Include="UI\Images\icons8-edit-48.png" />
+    <Resource Include="UI\Images\icons8-folder-96.png" />
     <Resource Include="UI\Images\icons8-green-information-64.png" />
     <Resource Include="UI\Images\icons8-my-course-page-100.png" />
     <Resource Include="UI\Images\icons8-profile-page-100.png" />

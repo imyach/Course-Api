@@ -4,6 +4,7 @@ using CourseDesktopClient.Models.DtosModel.Auth.RequestDto;
 using CourseDesktopClient.Models.DtosModel.Entities;
 using CourseDesktopClient.Models.DtosModel.Entities.RequestDto;
 using CourseDesktopClient.Models.DtosModel.EntitiesLists;
+using CourseDesktopClient.Models.DtosModel.Reports;
 using CourseDesktopClient.Services;
 using CourseDesktopClient.ViewModel;
 using System;
@@ -730,6 +731,16 @@ namespace CourseDesktopClient.Api.Client
                 return null;
             response.EnsureSuccessStatusCode();
             return response.StatusCode;
+        }
+
+        //REPORTS
+        public async Task<UserReportReusltDto?> GenerateUsersReport(UserReportDto userReportDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_GENERATE_USER_REPORT, userReportDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<UserReportReusltDto?>(ct);
         }
     }
 }

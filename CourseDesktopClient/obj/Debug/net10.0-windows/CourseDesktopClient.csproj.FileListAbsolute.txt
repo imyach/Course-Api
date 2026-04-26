@@ -233,3 +233,7 @@ C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\RecoveryPasswordElements\SendEmailElement.baml
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\RecoveryPasswordElements\SelectionProfileElement.g.cs
 C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Elements\RecoveryPasswordElements\SelectionProfileElement.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\GerenateReportUserPage.g.cs
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\View\GerenateReportUserPage.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\obj\Debug\net10.0-windows\UI\Styles\DatePickerStyles.baml
+C:\Users\Artem\Desktop\Course-Api\CourseDesktopClient\bin\Debug\net10.0-windows\Ookii.Dialogs.Wpf.dll

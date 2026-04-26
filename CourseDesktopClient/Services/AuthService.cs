@@ -73,7 +73,7 @@ namespace CourseDesktopClient.Services
             TokenHandler.isRemember = IsRememberProfile;
             var tokens = await apiClient.LoginAsync(loginDto);
             if (tokens is null)
-                return "Данные введены неверно";
+                return  "Данные введены неверно";
             await tokenService.SaveTokensAsync(tokens.AccessToken, tokens.RefreshToken, IsRememberProfile);
             var (accessToken, refreshToken) = await tokenService.GetTokensAsync();
 

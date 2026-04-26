@@ -30,7 +30,7 @@ namespace CourseDesktopClient.ViewModel
             set { _userPasswordText = value; SetProperty(ref _userPasswordText, value); }
         }
         private string _misstakeText = string.Empty;
-        public string MisstakeText
+        public string MistakeText
         {
             get { return _misstakeText; }
             set { _misstakeText = value; OnPropertyChanged();}
@@ -62,39 +62,39 @@ namespace CourseDesktopClient.ViewModel
         {
             if (string.IsNullOrEmpty(loginOrEmail) || string.IsNullOrEmpty(password))
             {
-                MisstakeText = "Заполните все поля";
+                MistakeText = "Заполните все поля";
                 VisibleMisstake = Visibility.Visible;
                 return false;
             }
 
             if (loginOrEmail.Length < 5)
             {
-                MisstakeText = "Логин не может быть менее 5 символов";
+                MistakeText = "Логин не может быть менее 5 символов";
                 VisibleMisstake = Visibility.Visible;
                 return false;
             }
 
             if (password.Length < 5)
             {
-                MisstakeText = "Пароль не может быть менее 5 символов";
+                MistakeText = "Пароль не может быть менее 5 символов";
                 VisibleMisstake = Visibility.Visible;
                 return false;
             }
 
             if (loginOrEmail.Length>30)
             {
-                MisstakeText = "Логин не может быть больше 30 символов";
+                MistakeText = "Логин не может быть больше 30 символов";
                 VisibleMisstake = Visibility.Visible;
                 return false;
             }
             if (password.Length > 30)
             {
-                MisstakeText = "Пароль не может быть больше 30 символов";
+                MistakeText = "Пароль не может быть больше 30 символов";
                 VisibleMisstake = Visibility.Visible;
                 return false;
             }
 
-            MisstakeText = string.Empty;
+            MistakeText = string.Empty;
             VisibleMisstake = Visibility.Collapsed;
             return true;
         }
@@ -118,13 +118,15 @@ namespace CourseDesktopClient.ViewModel
                 case true:
                     UserLoginText = string.Empty;
                     UserPasswordText = string.Empty;
-                    MisstakeText = string.Empty;
+                    MistakeText = string.Empty;
                     VisibleMisstake = Visibility.Collapsed;
                     CheckedSaveUser = false;
                     break;
                 case false:
-                    MisstakeText = mistakeText;
+                    MistakeText = mistakeText;
                     VisibleMisstake = Visibility.Visible;
+
+
                     break;
             }
         }

@@ -76,7 +76,11 @@ namespace CourseDesktopClient.Services
             var updUserPage = serviceProvider.GetRequiredService<UpdateUserPasswordPage>();
             NavigateTo(updUserPage);
         }
-
+        public void NavigateToGenerateReport()
+        {
+            var repUserPage = serviceProvider.GetRequiredService<GerenateReportUserPage>();
+            NavigateTo(repUserPage);
+        }
         public void NavigateToRecoveryPassword()
         {
             var passwordRecoveryPage = serviceProvider.GetRequiredService<PasswordRecoveryPage>();

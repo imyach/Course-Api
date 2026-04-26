@@ -28,7 +28,7 @@
                 <ResourceDictionary Source="/UI/Styles/PasswordBoxStyles.xaml"/>
                 <ResourceDictionary Source="/UI/Styles/ComboBoxStyle.xaml"/>
                 <ResourceDictionary Source="/UI/Styles/ToggleButtonStyles.xaml"/>
-
+                <ResourceDictionary Source="/UI/Styles/DatePickerStyles.xaml"/>
 
             </ResourceDictionary.MergedDictionaries>
 

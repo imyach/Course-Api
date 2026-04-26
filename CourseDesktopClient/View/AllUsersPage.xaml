@@ -37,15 +37,26 @@
                 <!-- Верхняя строка с заголовком и кнопкой -->
                 <Grid HorizontalAlignment="Stretch" Margin="20,0,20,0">
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
+                    <Border Grid.Column="0"
+                        Visibility="{Binding AdminButtonVisible}">
+                        <Button Content="Сформировать отчет"
+                            Command="{Binding GoToGenerateReportCommand}"
+                            Style="{StaticResource EnrollButtonStyle}"
+                            Height="41"
+                                Padding="12"
+                            ToolTip="Сформировать отчет по пользователям"/>
+                    </Border>
+
                     <!-- Заголовок с иконкой (по центру) -->
-                    <StackPanel Grid.Column="0" 
+                    <StackPanel Grid.Column="1" 
   Orientation="Horizontal" 
   HorizontalAlignment="Center" 
-  Margin="150 0 0 0">
+  Margin="0 0 0 0">
 
                         <!-- Левая декоративная линия с точкой -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -87,8 +98,8 @@ Source="/UI/Images/icons8-users-page-100.png"
                         </StackPanel>
                     </StackPanel>
                     <!-- Кнопка добавления пользователя (справа) -->
-                    <Border Grid.Column="1"
-                            Visibility="{Binding AddUserButtonVisible}">
+                    <Border Grid.Column="2"
+                            Visibility="{Binding AdminButtonVisible}">
                         <Button Content="Добавить"
                             Command="{Binding AddUserCommand}"
                             Style="{StaticResource AddUserButtonStyle}"
@@ -101,7 +112,7 @@ Source="/UI/Images/icons8-users-page-100.png"
                            Width="80" 
                            Fill="{StaticResource LightGreenBrush}" 
                            HorizontalAlignment="Center"
-                           Margin="0,15,0,0"
+                           Margin="35,15,0,0"
                            RadiusX="2" RadiusY="2"/>
             </StackPanel>
 

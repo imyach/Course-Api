@@ -90,7 +90,7 @@
                 </TextBlock>
 
                 <!-- Сообщение об ошибке -->
-                <TextBlock Text="{Binding MisstakeText}" 
+                <TextBlock Text="{Binding MistakeText}" 
                            Visibility="{Binding VisibleMisstake}"
                            Style="{StaticResource ErrorTextStyle}" 
                            HorizontalAlignment="Center"

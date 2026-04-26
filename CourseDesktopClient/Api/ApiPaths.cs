@@ -72,5 +72,7 @@ namespace CourseDesktopClient.Api
 
         public const string API_GET_ALL_ROLES = "role/all";
         public const string API_GET_ROLE = "role/";
+
+        public const string API_GENERATE_USER_REPORT = "reports/users";
     }
 }

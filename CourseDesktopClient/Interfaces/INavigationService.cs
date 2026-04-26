@@ -30,6 +30,7 @@ namespace CourseDesktopClient.Interfaces
         void NavigateToRecoveryPassword();
         Task NavigateToCreateUser();
         void NavigateToUpdateUserPassword();
+        void NavigateToGenerateReport();
         void NavigateMistakePage(Exception exception);
 
 

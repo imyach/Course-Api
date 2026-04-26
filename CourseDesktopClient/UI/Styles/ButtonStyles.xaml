@@ -1977,6 +1977,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    
+
     <!-- Стиль для кнопки удаления в виде иконки -->
     <Style x:Key="DeleteIconButtonStyle" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
         <Setter Property="Background" Value="Transparent"/>
@@ -4355,4 +4358,184 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <!-- Стиль для кнопки "Обзор" -->
+    <Style x:Key="BrowseButtonStyle" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+        <Setter Property="Background" Value="{StaticResource LightGrayBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Width" Value="80"/>
+        <Setter Property="Height" Value="45"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="8">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource MediumGrayBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource DarkGrayBrush}"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Стиль для кнопки скачивания отчета -->
+    <Style x:Key="DownloadButtonStyle" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+        <Setter Property="Background" Value="{StaticResource PureWhiteBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource PrimaryGreenBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource PrimaryGreenBrush}"/>
+        <Setter Property="BorderThickness" Value="1.5"/>
+        <Setter Property="Height" Value="48"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Padding" Value="20,0"/>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="25"
+                        Padding="{TemplateBinding Padding}"
+                        RenderTransformOrigin="0.5,0.5">
+
+                        <Border.RenderTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                        </Border.RenderTransform>
+
+                        <Border.Effect>
+                            <DropShadowEffect x:Name="shadowEffect"
+                                          BlurRadius="0"
+                                          ShadowDepth="0"
+                                          Opacity="0"
+                                          Color="{StaticResource PrimaryGreen}"/>
+                        </Border.Effect>
+
+                        <StackPanel Orientation="Horizontal" 
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center">
+
+                            <!-- Иконка скачивания -->
+                            <TextBlock Text="⭳" 
+                                   FontSize="20"
+                                   Margin="0,0,10,0"
+                                   VerticalAlignment="Center"
+                                   x:Name="iconText"
+                                   Foreground="{TemplateBinding Foreground}"/>
+
+                            <!-- Текст кнопки -->
+                            <ContentPresenter x:Name="content"
+                                          Content="{TemplateBinding Content}"
+                                          VerticalAlignment="Center"
+                                          RecognizesAccessKey="True"/>
+                        </StackPanel>
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <!-- Фон становится зеленым -->
+                                        <ColorAnimation Duration="0:0:0.2"
+                                                    To="{StaticResource PrimaryGreen}"
+                                                    Storyboard.TargetName="border"
+                                                    Storyboard.TargetProperty="Background.Color"/>
+
+                                        <!-- Текст и иконка становятся белыми -->
+                                        <ColorAnimation Storyboard.TargetName="iconText" 
+                                                    Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
+                                                    To="White" 
+                                                    Duration="0:0:0.2"/>
+                                        <ColorAnimation Storyboard.TargetName="content" 
+                                                    Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
+                                                    To="White" 
+                                                    Duration="0:0:0.2"/>
+
+                                        <!-- Появление тени -->
+                                        <DoubleAnimation Duration="0:0:0.2"
+                                                     To="8"
+                                                     Storyboard.TargetName="shadowEffect"
+                                                     Storyboard.TargetProperty="BlurRadius"/>
+                                        <DoubleAnimation Duration="0:0:0.2"
+                                                     To="2"
+                                                     Storyboard.TargetName="shadowEffect"
+                                                     Storyboard.TargetProperty="ShadowDepth"/>
+                                        <DoubleAnimation Duration="0:0:0.2"
+                                                     To="0.25"
+                                                     Storyboard.TargetName="shadowEffect"
+                                                     Storyboard.TargetProperty="Opacity"/>
+
+                                        <!-- Небольшое увеличение -->
+                                        <DoubleAnimation Duration="0:0:0.2"
+                                                     To="1.02"
+                                                     Storyboard.TargetName="border"
+                                                     Storyboard.TargetProperty="RenderTransform.ScaleX"/>
+                                        <DoubleAnimation Duration="0:0:0.2"
+                                                     To="1.02"
+                                                     Storyboard.TargetName="border"
+                                                     Storyboard.TargetProperty="RenderTransform.ScaleY"/>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <!-- Цвет при нажатии -->
+                                        <ColorAnimation Duration="0:0:0.1"
+                                                    To="{StaticResource SecondaryGreen}"
+                                                    Storyboard.TargetName="border"
+                                                    Storyboard.TargetProperty="Background.Color"/>
+
+                                        <!-- Текст и иконка остаются белыми -->
+                                        <ColorAnimation Storyboard.TargetName="iconText" 
+                                                    Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
+                                                    To="White" 
+                                                    Duration="0:0:0.1"/>
+                                        <ColorAnimation Storyboard.TargetName="content" 
+                                                    Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
+                                                    To="White" 
+                                                    Duration="0:0:0.1"/>
+
+                                        <!-- Уменьшение при нажатии -->
+                                        <DoubleAnimation Duration="0:0:0.1"
+                                                     To="0.98"
+                                                     Storyboard.TargetName="border"
+                                                     Storyboard.TargetProperty="RenderTransform.ScaleX"/>
+                                        <DoubleAnimation Duration="0:0:0.1"
+                                                     To="0.98"
+                                                     Storyboard.TargetName="border"
+                                                     Storyboard.TargetProperty="RenderTransform.ScaleY"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

@@ -6,8 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseDesktopClient.View"
                     xmlns:converter ="clr-namespace:CourseDesktopClient.UI.Converters"
-             mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="900">
+             mc:Ignorable="d" d:DesignWidth="900" Height="814">
 
     <Grid Background="{StaticResource OffWhiteBrush}">
         <!-- Основной контейнер с максимальной шириной -->
@@ -25,8 +24,9 @@
                           Color="#000000"/>
             </Border.Effect>
 
-            <ScrollViewer VerticalScrollBarVisibility="Auto" 
-                          PanningMode="VerticalOnly">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" 
+              Style="{StaticResource BaseScrollViewerStyle}"
+              Background="{StaticResource OffWhiteBrush}">
                 <StackPanel Orientation="Vertical">
 
                     <!-- Заголовок с иконкой -->

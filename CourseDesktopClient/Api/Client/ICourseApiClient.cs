@@ -3,6 +3,7 @@ using CourseDesktopClient.Models.DtosModel.Auth.RequestDto;
 using CourseDesktopClient.Models.DtosModel.Entities;
 using CourseDesktopClient.Models.DtosModel.Entities.RequestDto;
 using CourseDesktopClient.Models.DtosModel.EntitiesLists;
+using CourseDesktopClient.Models.DtosModel.Reports;
 using CourseDesktopClient.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -114,5 +115,8 @@ namespace CourseDesktopClient.Api.Client
         Task<CompleteTestResponseDto?> CompleteTestAsync(CompleteTestRequestDto request, CancellationToken ct = default);
         Task<HttpStatusCode?> DeleteAnswersUserAsync(Guid id, CancellationToken ct = default);
         Task<HttpStatusCode?> UpdateAnswersUserAsync(AnswersUserDto answersUserDto, CancellationToken ct = default);
+
+        //REPORTS
+        Task<UserReportReusltDto?> GenerateUsersReport(UserReportDto userReportDto,CancellationToken ct = default);
     }
 }
