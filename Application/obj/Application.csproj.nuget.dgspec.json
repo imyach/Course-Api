@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj": {}
+    "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj": {
+    "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\serv\\Application\\obj\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\VS\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Domain.csproj"
+              "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj"
               }
             }
           }
@@ -399,14 +399,14 @@
         }
       }
     },
-    "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Domain.csproj": {
+    "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\serv\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\VS\\Shared\\NuGetPackages"

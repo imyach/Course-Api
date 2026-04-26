@@ -875,3 +875,16 @@ C:\Users\Artem\Desktop\serv\CourseWebApi\bin\Debug\net10.0\Microsoft.Office.Inte
 C:\Users\Artem\Desktop\serv\CourseWebApi\bin\Debug\net10.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Artem\Desktop\serv\CourseWebApi\bin\Debug\net10.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\Artem\Desktop\serv\CourseWebApi\obj\Debug\net10.0\CourseWebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Artem\Desktop\Course-Api\CourseWebApi\obj\Debug\net10.0\CourseWebApi.xml
+C:\Users\Artem\Desktop\Course-Api\CourseWebApi\bin\Debug\net10.0\CourseWebApi.xml
+C:\Users\Artem\Desktop\Course-Api\CourseWebApi\bin\Debug\net10.0\BouncyCastle.Cryptography.dll
+C:\Users\Artem\Desktop\Course-Api\CourseWebApi\bin\Debug\net10.0\EPPlus.dll
+C:\Users\Artem\Desktop\Course-Api\CourseWebApi\bin\Debug\net10.0\EPPlus.Interfaces.dll
+C:\Users\Artem\Desktop\Course-Api\CourseWebApi\bin\Debug\net10.0\EPPlus.System.Drawing.dll
+C:\Users\Artem\Desktop\Course-Api\CourseWebApi\bin\Debug\net10.0\itextsharp.dll
+C:\Users\Artem\Desktop\Course-Api\CourseWebApi\bin\Debug\net10.0\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\Artem\Desktop\Course-Api\CourseWebApi\bin\Debug\net10.0\Microsoft.Office.Interop.Excel.dll
+C:\Users\Artem\Desktop\Course-Api\CourseWebApi\bin\Debug\net10.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Artem\Desktop\Course-Api\CourseWebApi\bin\Debug\net10.0\System.Drawing.Common.dll
+C:\Users\Artem\Desktop\Course-Api\CourseWebApi\bin\Debug\net10.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Artem\Desktop\Course-Api\CourseWebApi\bin\Debug\net10.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll

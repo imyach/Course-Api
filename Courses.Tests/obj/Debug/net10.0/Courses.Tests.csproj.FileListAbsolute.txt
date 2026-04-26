@@ -222,3 +222,11 @@ C:\Users\Artem\Desktop\serv\Courses.Tests\bin\Debug\net10.0\Swashbuckle.AspNetCo
 C:\Users\Artem\Desktop\serv\Courses.Tests\bin\Debug\net10.0\CourseWebApi.dll
 C:\Users\Artem\Desktop\serv\Courses.Tests\bin\Debug\net10.0\CourseWebApi.pdb
 C:\Users\Artem\Desktop\serv\Courses.Tests\bin\Debug\net10.0\CourseWebApi.xml
+C:\Users\Artem\Desktop\Course-Api\Courses.Tests\bin\Debug\net10.0\.msCoverageSourceRootsMapping_Courses.Tests
+C:\Users\Artem\Desktop\Course-Api\Courses.Tests\bin\Debug\net10.0\CoverletSourceRootsMapping_Courses.Tests
+C:\Users\Artem\Desktop\Course-Api\Courses.Tests\obj\Debug\net10.0\Courses.Tests.csproj.AssemblyReference.cache
+C:\Users\Artem\Desktop\Course-Api\Courses.Tests\obj\Debug\net10.0\Courses.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Artem\Desktop\Course-Api\Courses.Tests\obj\Debug\net10.0\Courses.Tests.AssemblyInfoInputs.cache
+C:\Users\Artem\Desktop\Course-Api\Courses.Tests\obj\Debug\net10.0\Courses.Tests.AssemblyInfo.cs
+C:\Users\Artem\Desktop\Course-Api\Courses.Tests\obj\Debug\net10.0\Courses.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Artem\Desktop\Course-Api\Courses.Tests\obj\Debug\net10.0\Courses.Tests.sourcelink.json

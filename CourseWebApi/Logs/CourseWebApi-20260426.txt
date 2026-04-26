@@ -960,3 +960,5 @@
 2026-04-26 19:17:19.039 +03:00 [INF] Client Request : GetAllUsersQuery "d153b798-9328-4c00-afed-af6f46110606" {"PageNumber":1,"PageSize":20,"SearchText":null,"$type":"GetAllUsersQuery"}
 2026-04-26 19:17:19.042 +03:00 [INF] Client Request : GetAllUsersQuery "d153b798-9328-4c00-afed-af6f46110606" {"PageNumber":1,"PageSize":20,"SearchText":null,"$type":"GetAllUsersQuery"}
 2026-04-26 19:17:37.429 +03:00 [INF] Client Request : GetAllRolesQuery "d153b798-9328-4c00-afed-af6f46110606" {"CurrentUserId":"d153b798-9328-4c00-afed-af6f46110606","$type":"GetAllRolesQuery"}
+2026-04-26 19:46:54.715 +03:00 [INF] Starting web application
+2026-04-26 19:46:58.385 +03:00 [INF] Application started successfully
