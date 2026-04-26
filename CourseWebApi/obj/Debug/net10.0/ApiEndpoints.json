@@ -1579,6 +1579,44 @@
     ]
   },
   {
+    "ContainingType": "CourseWebApi.Controllers.ReportsController",
+    "Method": "GenerateUserReport",
+    "RelativePath": "api/Reports/users",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userReportDto",
+        "Type": "CourseWebApi.Models.Reports.UserReportRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Common.Dtos.Reports.Users.UserReportReusltDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 403
+      }
+    ]
+  },
+  {
     "ContainingType": "CourseWebApi.Controllers.ReviewController",
     "Method": "Create",
     "RelativePath": "api/Review",

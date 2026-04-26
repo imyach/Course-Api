@@ -3,120 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Artem\\Desktop\\serv\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\users\\getuserbyemail\\getuserbyemailcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\users\\getuserbyemail\\getuserbyemailcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\reports\\userreport\\userreportcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\reports\\userreport\\userreportcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\auth\\sendingcodeemail\\sendingthecodebyemailcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\auth\\sendingcodeemail\\sendingthecodebyemailcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\behaviors\\loggingbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\behaviors\\loggingbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\controllers\\answersusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\answersusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\servises\\currentuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\servises\\currentuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\controllers\\progressmaterialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\controllers\\progressmaterialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\auth\\sendingpasswordemail\\sendingthepasswordbyemailcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\auth\\sendingpasswordemail\\sendingthepasswordbyemailcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\auth\\sendingpasswordemail\\sendingthepasswordbyemailcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\auth\\sendingpasswordemail\\sendingthepasswordbyemailcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\users\\getuserslist\\getallusersqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\users\\getuserslist\\getallusersqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\auth\\sendingcodeemail\\sendingthecodebyemailcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\auth\\sendingcodeemail\\sendingthecodebyemailcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\users\\updateuserforadmin\\updateuserforadmincommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\users\\updateuserforadmin\\updateuserforadmincommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\users\\updateuser\\updateusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\users\\updateuser\\updateusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\users\\deteleuser\\deleteusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\users\\deteleuser\\deleteusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\servises\\emailservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\servises\\emailservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\interfaces\\igeneraterandomvalueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\interfaces\\igeneraterandomvalueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|c:\\users\\artem\\desktop\\serv\\domain\\model\\recoverycode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|solutionrelative:domain\\model\\recoverycode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB4AED25-FAA5-7186-AA9A-19D001621A8E}|Persistance\\Persistance.csproj|c:\\users\\artem\\desktop\\serv\\persistance\\entityframeworkconfiguration\\recoverycodeconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB4AED25-FAA5-7186-AA9A-19D001621A8E}|Persistance\\Persistance.csproj|solutionrelative:persistance\\entityframeworkconfiguration\\recoverycodeconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\interfaces\\ihasherservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\interfaces\\ihasherservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\servises\\hasherservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\servises\\hasherservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\auth\\sendingpasswordemail\\sendingthepasswordbyemailcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\auth\\sendingpasswordemail\\sendingthepasswordbyemailcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\auth\\sendingcodeemail\\sendingthecodebyemailcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\auth\\sendingcodeemail\\sendingthecodebyemailcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\servises\\genetaterolesservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\servises\\genetaterolesservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\users\\getuserbyemail\\getuserbyemailcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\users\\getuserbyemail\\getuserbyemailcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\queries\\users\\getuserbyemail\\getuserbyemailcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\queries\\users\\getuserbyemail\\getuserbyemailcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\auth\\refresh\\refreshtokencommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\auth\\refresh\\refreshtokencommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB4AED25-FAA5-7186-AA9A-19D001621A8E}|Persistance\\Persistance.csproj|c:\\users\\artem\\desktop\\serv\\persistance\\coursesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB4AED25-FAA5-7186-AA9A-19D001621A8E}|Persistance\\Persistance.csproj|solutionrelative:persistance\\coursesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -126,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -158,356 +50,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\UserController.cs",
-              "RelativeToolTip": "CourseWebApi\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAowFUAAAAQAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "UserReportCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Reports\\UserReport\\UserReportCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Reports\\UserReport\\UserReportCommandHandler.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Reports\\UserReport\\UserReportCommandHandler.cs",
+              "RelativeToolTip": "Application\\Common\\Commands\\Reports\\UserReport\\UserReportCommandHandler.cs",
+              "ViewState": "AgIAAAIBAAAAAAAAAAAQwB8BAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T08:07:48.598Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "CourseWebApi\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAIYAAAAAAAAAAAAiwJ4AAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T13:22:55.987Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Program.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Program.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Program.cs",
-              "RelativeToolTip": "CourseWebApi\\Program.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAIwHIAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T10:41:56.498Z",
+              "WhenOpened": "2026-04-26T15:49:51.643Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SendingTheCodeByEmailCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\SendingCodeEmail\\SendingTheCodeByEmailCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Auth\\SendingCodeEmail\\SendingTheCodeByEmailCommandHandler.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\SendingCodeEmail\\SendingTheCodeByEmailCommandHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Auth\\SendingCodeEmail\\SendingTheCodeByEmailCommandHandler.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T07:56:41.617Z",
+              "Title": "Application",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
+              "RelativeDocumentMoniker": "Application\\Application.csproj",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
+              "RelativeToolTip": "Application\\Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-26T16:05:16.418Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GetUserByEmailCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Users\\GetUserByEmail\\GetUserByEmailCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Users\\GetUserByEmail\\GetUserByEmailCommandHandler.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Users\\GetUserByEmail\\GetUserByEmailCommandHandler.cs*",
-              "RelativeToolTip": "Application\\Common\\Queries\\Users\\GetUserByEmail\\GetUserByEmailCommandHandler.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T07:59:39.868Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CurrentUserService.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\CurrentUserService.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Servises\\CurrentUserService.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\CurrentUserService.cs",
-              "RelativeToolTip": "CourseWebApi\\Servises\\CurrentUserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T10:42:11.394Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AnswersUserController.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\AnswersUserController.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\AnswersUserController.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\AnswersUserController.cs",
-              "RelativeToolTip": "CourseWebApi\\Controllers\\AnswersUserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T10:42:26.119Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "LoggingBehavior.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Behaviors\\LoggingBehavior.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Behaviors\\LoggingBehavior.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Behaviors\\LoggingBehavior.cs",
-              "RelativeToolTip": "Application\\Common\\Behaviors\\LoggingBehavior.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T10:42:40.583Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ProgressMaterialController.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\ProgressMaterialController.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Controllers\\ProgressMaterialController.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Controllers\\ProgressMaterialController.cs",
-              "RelativeToolTip": "CourseWebApi\\Controllers\\ProgressMaterialController.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAQwHgAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T10:35:54.165Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "GetAllUsersQueryHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Users\\GetUsersList\\GetAllUsersQueryHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Users\\GetUsersList\\GetAllUsersQueryHandler.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Users\\GetUsersList\\GetAllUsersQueryHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Queries\\Users\\GetUsersList\\GetAllUsersQueryHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T10:27:03.154Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SendingThePasswordByEmailCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\SendingPasswordEmail\\SendingThePasswordByEmailCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Auth\\SendingPasswordEmail\\SendingThePasswordByEmailCommandHandler.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\SendingPasswordEmail\\SendingThePasswordByEmailCommandHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Auth\\SendingPasswordEmail\\SendingThePasswordByEmailCommandHandler.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA1wB8AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T09:24:57.655Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "SendingThePasswordByEmailCommand.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\SendingPasswordEmail\\SendingThePasswordByEmailCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Auth\\SendingPasswordEmail\\SendingThePasswordByEmailCommand.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\SendingPasswordEmail\\SendingThePasswordByEmailCommand.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Auth\\SendingPasswordEmail\\SendingThePasswordByEmailCommand.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAAAkAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T09:24:51.156Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "UpdateUserForAdminCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\UpdateUserForAdmin\\UpdateUserForAdminCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Users\\UpdateUserForAdmin\\UpdateUserForAdminCommandHandler.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\UpdateUserForAdmin\\UpdateUserForAdminCommandHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Users\\UpdateUserForAdmin\\UpdateUserForAdminCommandHandler.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAcwCsAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T10:18:51.432Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "UpdateUserCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandHandler.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Users\\UpdateUser\\UpdateUserCommandHandler.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAcwEMAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T09:51:59.33Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "DeleteUserCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\DeteleUser\\DeleteUserCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Users\\DeteleUser\\DeleteUserCommandHandler.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Users\\DeteleUser\\DeleteUserCommandHandler.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Users\\DeteleUser\\DeleteUserCommandHandler.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAowCIAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T10:12:20.98Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "SendingTheCodeByEmailCommand.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\SendingCodeEmail\\SendingTheCodeByEmailCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Auth\\SendingCodeEmail\\SendingTheCodeByEmailCommand.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\SendingCodeEmail\\SendingTheCodeByEmailCommand.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Auth\\SendingCodeEmail\\SendingTheCodeByEmailCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T09:10:39.928Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "RecoveryCode.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Model\\RecoveryCode.cs",
-              "RelativeDocumentMoniker": "Domain\\Model\\RecoveryCode.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Model\\RecoveryCode.cs",
-              "RelativeToolTip": "Domain\\Model\\RecoveryCode.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T09:51:10.18Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "RecoveryCodeConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\EntityFrameworkConfiguration\\RecoveryCodeConfiguration.cs",
-              "RelativeDocumentMoniker": "Persistance\\EntityFrameworkConfiguration\\RecoveryCodeConfiguration.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\EntityFrameworkConfiguration\\RecoveryCodeConfiguration.cs",
-              "RelativeToolTip": "Persistance\\EntityFrameworkConfiguration\\RecoveryCodeConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T09:53:23.548Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "IGenerateRandomValueService.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Interfaces\\IGenerateRandomValueService.cs",
-              "RelativeDocumentMoniker": "Application\\Interfaces\\IGenerateRandomValueService.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Interfaces\\IGenerateRandomValueService.cs",
-              "RelativeToolTip": "Application\\Interfaces\\IGenerateRandomValueService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T09:32:37.463Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "EmailServise.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\EmailServise.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Servises\\EmailServise.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\EmailServise.cs",
-              "RelativeToolTip": "CourseWebApi\\Servises\\EmailServise.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAwwCAAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T08:59:20.305Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "IHasherServise.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Interfaces\\IHasherServise.cs",
-              "RelativeDocumentMoniker": "Application\\Interfaces\\IHasherServise.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Interfaces\\IHasherServise.cs",
-              "RelativeToolTip": "Application\\Interfaces\\IHasherServise.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T09:48:07.941Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "HasherServise.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\HasherServise.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Servises\\HasherServise.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\HasherServise.cs",
-              "RelativeToolTip": "CourseWebApi\\Servises\\HasherServise.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T09:48:35.87Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "SendingThePasswordByEmailCommandValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\SendingPasswordEmail\\SendingThePasswordByEmailCommandValidator.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Auth\\SendingPasswordEmail\\SendingThePasswordByEmailCommandValidator.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\SendingPasswordEmail\\SendingThePasswordByEmailCommandValidator.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Auth\\SendingPasswordEmail\\SendingThePasswordByEmailCommandValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T09:38:54.273Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "SendingTheCodeByEmailCommandValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\SendingCodeEmail\\SendingTheCodeByEmailCommandValidator.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Auth\\SendingCodeEmail\\SendingTheCodeByEmailCommandValidator.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\SendingCodeEmail\\SendingTheCodeByEmailCommandValidator.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Auth\\SendingCodeEmail\\SendingTheCodeByEmailCommandValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T08:19:36.022Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "GenetateRolesServise.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\GenetateRolesServise.cs",
-              "RelativeDocumentMoniker": "CourseWebApi\\Servises\\GenetateRolesServise.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\GenetateRolesServise.cs",
-              "RelativeToolTip": "CourseWebApi\\Servises\\GenetateRolesServise.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T08:59:16.731Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "GetUserByEmailCommandValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Users\\GetUserByEmail\\GetUserByEmailCommandValidator.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Users\\GetUserByEmail\\GetUserByEmailCommandValidator.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Users\\GetUserByEmail\\GetUserByEmailCommandValidator.cs",
-              "RelativeToolTip": "Application\\Common\\Queries\\Users\\GetUserByEmail\\GetUserByEmailCommandValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T07:59:50.939Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "GetUserByEmailCommand.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Users\\GetUserByEmail\\GetUserByEmailCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Queries\\Users\\GetUserByEmail\\GetUserByEmailCommand.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Queries\\Users\\GetUserByEmail\\GetUserByEmailCommand.cs",
-              "RelativeToolTip": "Application\\Common\\Queries\\Users\\GetUserByEmail\\GetUserByEmailCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T07:59:28.766Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "CoursesDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\CoursesDbContext.cs",
-              "RelativeDocumentMoniker": "Persistance\\CoursesDbContext.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Persistance\\CoursesDbContext.cs",
-              "RelativeToolTip": "Persistance\\CoursesDbContext.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAAADAAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T07:35:27.759Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "RefreshTokenCommandValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\Refresh\\RefreshTokenCommandValidator.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Commands\\Auth\\Refresh\\RefreshTokenCommandValidator.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Auth\\Refresh\\RefreshTokenCommandValidator.cs",
-              "RelativeToolTip": "Application\\Common\\Commands\\Auth\\Refresh\\RefreshTokenCommandValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T07:12:50.758Z"
             }
           ]
         }
