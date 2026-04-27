@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\",
+  "WorkspaceRootPath": "C:\\Users\\Artem\\Desktop\\serv\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\course-api\\coursewebapi\\servises\\generaterandomvalueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|c:\\users\\artem\\desktop\\serv\\coursewebapi\\servises\\generaterandomvalueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA34D6ED-2ECB-3936-5C7B-23D33F9E8763}|CourseWebApi\\CourseWebApi.csproj|solutionrelative:coursewebapi\\servises\\generaterandomvalueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\common\\commands\\reports\\userreport\\userreportcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\common\\commands\\reports\\userreport\\userreportcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\common\\commands\\reports\\userreport\\userreportcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\course-api\\application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|c:\\users\\artem\\desktop\\serv\\application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{F80C4E72-27A0-12B5-0634-DD5C11CFB0C1}|Application\\Application.csproj|solutionrelative:application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
@@ -56,9 +56,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "GenerateRandomValueService.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Servises\\GenerateRandomValueService.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\GenerateRandomValueService.cs",
               "RelativeDocumentMoniker": "CourseWebApi\\Servises\\GenerateRandomValueService.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseWebApi\\Servises\\GenerateRandomValueService.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\CourseWebApi\\Servises\\GenerateRandomValueService.cs",
               "RelativeToolTip": "CourseWebApi\\Servises\\GenerateRandomValueService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -69,9 +69,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "UserReportCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Commands\\Reports\\UserReport\\UserReportCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Reports\\UserReport\\UserReportCommandHandler.cs",
               "RelativeDocumentMoniker": "Application\\Common\\Commands\\Reports\\UserReport\\UserReportCommandHandler.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Common\\Commands\\Reports\\UserReport\\UserReportCommandHandler.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Common\\Commands\\Reports\\UserReport\\UserReportCommandHandler.cs",
               "RelativeToolTip": "Application\\Common\\Commands\\Reports\\UserReport\\UserReportCommandHandler.cs",
               "ViewState": "AgIAAAIBAAAAAAAAAAAQwB8BAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -82,13 +82,24 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Application.csproj",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
               "RelativeDocumentMoniker": "Application\\Application.csproj",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
               "RelativeToolTip": "Application\\Application.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-04-26T16:05:16.418Z"
+              "WhenOpened": "2026-04-26T16:05:16.418Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             }
           ]
         }

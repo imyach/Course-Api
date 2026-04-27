@@ -15,7 +15,7 @@ namespace Courses.Tests.Commands.Users
         [Fact]
         public async Task DeleteUserCommandHandler_Success()
         {
-            var handler = new DeleteUserCommandHandler(Context);
+            var handler = new DeleteUserCommandHandler(Context, EmailServise);
 
             await handler.Handle(new DeleteUserCommand
             {
@@ -30,7 +30,7 @@ namespace Courses.Tests.Commands.Users
         [Fact]
         public async Task DeleteUserCommandHandler_AccessException()
         {
-            var handler = new DeleteUserCommandHandler(Context);
+            var handler = new DeleteUserCommandHandler(Context, EmailServise);
 
             await Assert.ThrowsAsync<AccessException>(async () =>
                 await handler.Handle(

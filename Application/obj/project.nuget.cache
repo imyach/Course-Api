@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wgYC05/xVz4=",
+  "dgSpecHash": "yi0Yw2uXff8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Artem\\.nuget\\packages\\automapper\\15.1.0\\automapper.15.1.0.nupkg.sha512",
     "C:\\Users\\Artem\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
@@ -62,9 +62,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "У пакета \"AutoMapper\" 15.1.0 есть известная уязвимость https://github.com/advisories/GHSA-rvv3-g6hj-g44x (уровень серьезности: высокий уровень)",
-      "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
+      "projectPath": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
+      "filePath": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
       "libraryId": "AutoMapper",
       "targetGraphs": [
         "net10.0"
@@ -74,9 +74,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"iTextSharp 5.5.13.5\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net10.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
+      "projectPath": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Artem\\Desktop\\Course-Api\\Application\\Application.csproj",
+      "filePath": "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj",
       "libraryId": "iTextSharp",
       "targetGraphs": [
         "net10.0"

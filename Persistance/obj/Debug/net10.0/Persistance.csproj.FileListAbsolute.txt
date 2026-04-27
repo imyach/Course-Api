@@ -174,3 +174,5 @@ C:\Users\Artem\Desktop\serv\Persistance\obj\Debug\net10.0\Persistance.dll
 C:\Users\Artem\Desktop\serv\Persistance\obj\Debug\net10.0\refint\Persistance.dll
 C:\Users\Artem\Desktop\serv\Persistance\obj\Debug\net10.0\Persistance.pdb
 C:\Users\Artem\Desktop\serv\Persistance\obj\Debug\net10.0\ref\Persistance.dll
+C:\Users\Artem\Desktop\serv\Persistance\bin\Debug\net10.0\Persistance.runtimeconfig.json
+C:\Users\Artem\Desktop\serv\Persistance\obj\Debug\net10.0\Persistance.genruntimeconfig.cache

@@ -15,7 +15,7 @@ namespace Courses.Tests.Commands.Users
         [Fact]
         public async Task UpdateUserCommndHandler_Success()
         {
-            var handler = new UpdateUserCommandHandler(Context, TokenServise, Hasher);
+            var handler = new UpdateUserCommandHandler(Context, TokenServise, Hasher, EmailServise);
             var updatedEmail = "Updated email";
             var updatedLogin = "Updated user login";
 
@@ -38,7 +38,7 @@ namespace Courses.Tests.Commands.Users
         [Fact]
         public async Task UpdateUserCommandHandler_FailOrWrongId()
         {
-            var handler = new UpdateUserCommandHandler(Context, TokenServise, Hasher);
+            var handler = new UpdateUserCommandHandler(Context, TokenServise, Hasher, EmailServise);
 
             await Assert.ThrowsAsync<NotFoundException>(async () =>
             {
@@ -55,7 +55,7 @@ namespace Courses.Tests.Commands.Users
         [Fact]
         public async Task UpdateUserForAdminCommndHandler_Success()
         {
-            var handler = new UpdateUserForAdminCommandHandler(Context, Hasher);
+            var handler = new UpdateUserForAdminCommandHandler(Context, Hasher, EmailServise);
             var updatedEmail = "Updated email";
             var updatedLogin = "Updated user login";
 
@@ -77,7 +77,7 @@ namespace Courses.Tests.Commands.Users
         [Fact]
         public async Task UpdateUserForAdminCommandHandler_FailOrWrongId()
         {
-            var handler = new UpdateUserForAdminCommandHandler(Context, Hasher);
+            var handler = new   UpdateUserForAdminCommandHandler(Context, Hasher, EmailServise);
 
             await Assert.ThrowsAsync<NotFoundException>(async () =>
             {

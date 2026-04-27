@@ -16,12 +16,14 @@ namespace Courses.Tests.Common
     {
         protected readonly CoursesDbContext Context;
         protected readonly IHasherServise Hasher;
+        protected readonly IEmailServise EmailServise;
         protected readonly IJwtTokenServise TokenServise;
         protected readonly ILogger? Logger;
         
         public TestCommandBase()
         {
             Context = CoursesContextFactory.Create();
+            EmailServise = new EmailServise();
             Hasher = new HasherServise();
 
             var configuration = new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string, string?>
