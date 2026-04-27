@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,7 +9,7 @@ namespace Persistance
     {
         public static async Task Initialize(CoursesDbContext context, CancellationToken cancellation)
         {
-            await context.Database.EnsureCreatedAsync( cancellation);
+            await context.Database.MigrateAsync( cancellation);
         }
     }
 }

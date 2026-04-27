@@ -15,7 +15,10 @@ namespace Persistance
             var connectionString = configuration["DbConnection"];
             services.AddDbContext<CoursesDbContext>(options =>
             {
-                options.UseNpgsql (connectionString);
+                options.UseNpgsql (connectionString, b=>
+                {
+                    b.MigrationsAssembly("Persistance");
+                });
             });
             services.AddScoped<ICoursesDbContext, CoursesDbContext>(provider =>
                 provider.GetRequiredService<CoursesDbContext>());

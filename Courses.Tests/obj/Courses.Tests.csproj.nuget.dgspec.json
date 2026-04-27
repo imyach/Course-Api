@@ -30,7 +30,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
               "C:\\Users\\Artem\\Desktop\\serv\\Domain\\Domain.csproj": {
@@ -40,6 +39,10 @@
           }
         },
         "warningProperties": {
+          "noWarn": [
+            "NU1701",
+            "NU1903"
+          ],
           "warnAsError": [
             "NU1605"
           ]
@@ -53,12 +56,11 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
-              "version": "[15.1.0, )"
+              "version": "[16.1.1, )"
             },
             "EPPlus": {
               "target": "Package",
@@ -100,9 +102,9 @@
               "target": "Package",
               "version": "[8.15.0, )"
             },
-            "iTextSharp": {
+            "iTextSharp.LGPLv2.Core": {
               "target": "Package",
-              "version": "[5.5.13.5, )"
+              "version": "[3.7.12, )"
             }
           },
           "imports": [
@@ -425,7 +427,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
               "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj": {
@@ -454,7 +455,6 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.InMemory": {
@@ -802,7 +802,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
               "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj": {
@@ -815,6 +814,10 @@
           }
         },
         "warningProperties": {
+          "noWarn": [
+            "NU1701",
+            "NU1903"
+          ],
           "warnAsError": [
             "NU1605"
           ]
@@ -828,7 +831,6 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "BCrypt.Net-Next": {
@@ -838,6 +840,12 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[10.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.7, )"
             },
             "Serilog.Sinks.File": {
               "target": "Package",
@@ -1311,12 +1319,15 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
         },
         "warningProperties": {
+          "noWarn": [
+            "NU1701",
+            "NU1903"
+          ],
           "warnAsError": [
             "NU1605"
           ]
@@ -1330,12 +1341,11 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.20, )"
+              "version": "[10.0.7, )"
             }
           },
           "imports": [
@@ -1658,7 +1668,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
               "C:\\Users\\Artem\\Desktop\\serv\\Application\\Application.csproj": {
@@ -1668,6 +1677,10 @@
           }
         },
         "warningProperties": {
+          "noWarn": [
+            "NU1701",
+            "NU1903"
+          ],
           "warnAsError": [
             "NU1605"
           ]
@@ -1681,26 +1694,21 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore.Sqlite": {
-              "target": "Package",
-              "version": "[7.0.20, )"
-            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[10.0.7, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
-              "version": "[10.0.6, )"
+              "version": "[10.0.7, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[7.0.18, )"
+              "version": "[10.0.1, )"
             }
           },
           "imports": [

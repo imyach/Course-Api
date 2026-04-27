@@ -85,18 +85,15 @@ void RegisterServices(IServiceCollection services) {
 
 
     services.AddEndpointsApiExplorer();
-    services.AddSwaggerGen();
     services.AddScoped<IJwtTokenServise, JwtTokenServise>();
     services.AddScoped<IEmailServise, EmailServise>();
     services.AddScoped<IHasherServise, HasherServise>();
-    services.AddScoped<IHasherServise, HasherServise>();
     services.AddScoped<ICurrentUserService, CurrentUserService>();
     services.AddScoped<IGenerateRandomValueService, GenerateRandomValueService>();
-    services.AddHttpContextAccessor();
 
 }
 
-async Task Configure(WebApplication build)
+async Task Configure(WebApplication app)
 {
     await app.AddRoleInDataBase();
 
@@ -117,7 +114,7 @@ async Task Configure(WebApplication build)
     app.UseAuthorization();
     app.UseEndpoints(endpoints =>
     {
-        app?.MapControllers();
+        endpoints?.MapControllers();
     });
 }
 }
