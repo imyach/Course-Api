@@ -49,6 +49,7 @@
                 <!-- Заголовок -->
                 <TextBlock Grid.Column="0"
                            Text="{Binding Title}"
+                            MaxHeight="50"
                            Style="{StaticResource H4Style}"
                            FontSize="18"
                            FontWeight="Bold"

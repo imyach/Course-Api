@@ -125,7 +125,7 @@
                                    Style="{StaticResource BodyTextStyle}"
                                    Foreground="{StaticResource TextSecondaryBrush}"
                                    TextWrapping="Wrap"
-                                   TextAlignment="Center"
+                                   TextAlignment="Justify"
                                    FontSize="14"/>
                     </Border>
                 </StackPanel>

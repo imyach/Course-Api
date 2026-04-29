@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\CourseDesktopClient.csproj": {}
+    "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\CourseDesktopClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\CourseDesktopClient.csproj": {
+    "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\CourseDesktopClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\CourseDesktopClient.csproj",
+        "projectUniqueName": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\CourseDesktopClient.csproj",
         "projectName": "CourseDesktopClient",
-        "projectPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\CourseDesktopClient.csproj",
+        "projectPath": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\CourseDesktopClient.csproj",
         "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\obj\\",
+        "outputPath": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\VS\\Shared\\NuGetPackages"

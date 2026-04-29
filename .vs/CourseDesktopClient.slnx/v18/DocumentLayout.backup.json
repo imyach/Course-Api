@@ -1,9 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Artem\\Desktop\\Course-Api\\",
+  "WorkspaceRootPath": "C:\\Users\\Artem\\Desktop\\client\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\course-api\\coursedesktopclient\\viewmodel\\gerenatereportuserpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\client\\coursedesktopclient\\ui\\elements\\createmodulepanelelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\ui\\elements\\createmodulepanelelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\client\\coursedesktopclient\\ui\\elements\\createcoursepanelelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\ui\\elements\\createcoursepanelelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\client\\coursedesktopclient\\viewmodel\\gerenatereportuserpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\viewmodel\\gerenatereportuserpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -47,15 +55,47 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CreateModulePanelElement.xaml",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\UI\\Elements\\CreateModulePanelElement.xaml",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\UI\\Elements\\CreateModulePanelElement.xaml",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\UI\\Elements\\CreateModulePanelElement.xaml",
+              "RelativeToolTip": "CourseDesktopClient\\UI\\Elements\\CreateModulePanelElement.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T19:49:45.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateCoursePanelElement.xaml",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\UI\\Elements\\CreateCoursePanelElement.xaml",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\UI\\Elements\\CreateCoursePanelElement.xaml",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\UI\\Elements\\CreateCoursePanelElement.xaml",
+              "RelativeToolTip": "CourseDesktopClient\\UI\\Elements\\CreateCoursePanelElement.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T19:27:33.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "GerenateReportUserPageVm.cs",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\GerenateReportUserPageVm.cs",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\ViewModel\\GerenateReportUserPageVm.cs",
               "RelativeDocumentMoniker": "CourseDesktopClient\\ViewModel\\GerenateReportUserPageVm.cs",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\Course-Api\\CourseDesktopClient\\ViewModel\\GerenateReportUserPageVm.cs",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\ViewModel\\GerenateReportUserPageVm.cs",
               "RelativeToolTip": "CourseDesktopClient\\ViewModel\\GerenateReportUserPageVm.cs",
               "ViewState": "AgIAAJIAAAAAAAAAAAAiwKIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-26T16:15:32.698Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-26T16:15:32.698Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             }
           ]
         }

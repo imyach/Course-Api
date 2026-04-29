@@ -15,10 +15,10 @@
     </UserControl.Resources>
 
     <Border Style="{StaticResource CourseCardBorderStyle}"
-            Width="300"
+            Width="340"
             Height="Auto"
             MinHeight="180"
-            MaxHeight="220"
+            MaxHeight="240"
             Margin="15"
             Padding="20"
             SnapsToDevicePixels="True">
@@ -43,6 +43,7 @@
                        Style="{StaticResource H4Style}"
                        FontSize="16"
                        FontWeight="Bold"
+            MaxHeight="20"
                        Foreground="{StaticResource TextPrimaryBrush}"
                        TextWrapping="Wrap"
                        Margin="0,0,0,8"/>
@@ -54,7 +55,7 @@
                        Foreground="{StaticResource TextSecondaryBrush}"
                        TextWrapping="Wrap"
                        TextTrimming="CharacterEllipsis"
-                       MaxHeight="80"
+                       MaxHeight="60"
                        Margin="0,0,0,8"/>
 
             <!-- Порядковый номер -->
