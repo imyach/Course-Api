@@ -8,7 +8,6 @@
             try
             {
                 var context = scope.ServiceProvider.GetRequiredService<CoursesDbContext>();
-                await DbInitializer.Initialize(context, CancellationToken.None);
 
                 foreach (var nameRole in Enum.GetNames<EnumRoles>())
                 {
