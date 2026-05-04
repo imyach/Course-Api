@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Artem\\Desktop\\client\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\client\\coursedesktopclient\\view\\createuserpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\view\\createuserpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\client\\coursedesktopclient\\view\\completingtestresultpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\view\\completingtestresultpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\client\\coursedesktopclient\\view\\testresultpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -75,13 +75,13 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CreateUserPage.xaml",
-              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\CreateUserPage.xaml",
-              "RelativeDocumentMoniker": "CourseDesktopClient\\View\\CreateUserPage.xaml",
-              "ToolTip": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\CreateUserPage.xaml",
-              "RelativeToolTip": "CourseDesktopClient\\View\\CreateUserPage.xaml",
+              "Title": "CompletingTestResultPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\CompletingTestResultPage.xaml",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\View\\CompletingTestResultPage.xaml",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\CompletingTestResultPage.xaml",
+              "RelativeToolTip": "CourseDesktopClient\\View\\CompletingTestResultPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-29T13:49:19.966Z",
+              "WhenOpened": "2026-05-04T07:47:33.758Z",
               "EditorCaption": ""
             },
             {
@@ -105,8 +105,7 @@
               "ToolTip": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\CompletingMaterialPage.xaml",
               "RelativeToolTip": "CourseDesktopClient\\View\\CompletingMaterialPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-29T13:43:54.233Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-29T13:43:54.233Z"
             },
             {
               "$type": "Document",
@@ -117,8 +116,7 @@
               "ToolTip": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\CompletingModulePage.xaml",
               "RelativeToolTip": "CourseDesktopClient\\View\\CompletingModulePage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-29T13:43:37.191Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-29T13:43:37.191Z"
             },
             {
               "$type": "Document",
@@ -129,8 +127,7 @@
               "ToolTip": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\CompletingCoursePage.xaml",
               "RelativeToolTip": "CourseDesktopClient\\View\\CompletingCoursePage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-29T13:43:05.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-29T13:43:05.138Z"
             },
             {
               "$type": "Document",
@@ -141,8 +138,7 @@
               "ToolTip": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\UI\\Elements\\CreateModulePanelElement.xaml",
               "RelativeToolTip": "CourseDesktopClient\\UI\\Elements\\CreateModulePanelElement.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-28T19:49:45.158Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T19:49:45.158Z"
             },
             {
               "$type": "Document",

@@ -35,6 +35,7 @@
                 <RowDefinition Height="Auto"/>
                 <!-- Вопросы -->
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <!-- Кнопки действий -->
             </Grid.RowDefinitions>
 
@@ -169,7 +170,7 @@
             </StackPanel>
 
             <!-- ===== СПИСОК ВОПРОСОВ ===== -->
-            <ItemsControl Grid.Row="2"
+            <ItemsControl Grid.Row="3"
                           ItemsSource="{Binding GetQuestion}"
                           Margin="30,0,30,30"
                           SnapsToDevicePixels="True">
@@ -250,7 +251,7 @@
             </ItemsControl>
 
             <!-- ===== КНОПКИ ДЕЙСТВИЙ ===== -->
-            <StackPanel Grid.Row="3"
+            <StackPanel Grid.Row="4"
                         Orientation="Horizontal"
                         HorizontalAlignment="Center"
                         Margin="0,0,0,30"

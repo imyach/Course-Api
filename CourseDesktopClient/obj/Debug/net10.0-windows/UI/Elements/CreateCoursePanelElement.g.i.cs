@@ -63,8 +63,7 @@ namespace CourseDesktopClient.UI.Elements {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CourseDesktopClient;V1.0.0.0;component/ui/elements/createcoursepanelelement.xaml" +
-                    "", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CourseDesktopClient;component/ui/elements/createcoursepanelelement.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\UI\Elements\CreateCoursePanelElement.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

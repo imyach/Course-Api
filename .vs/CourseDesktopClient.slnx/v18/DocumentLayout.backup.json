@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\Artem\\Desktop\\client\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\client\\coursedesktopclient\\view\\createuserpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\view\\createuserpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\client\\coursedesktopclient\\view\\testresultpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\view\\testresultpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\client\\coursedesktopclient\\view\\completingmaterialpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\view\\completingmaterialpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\client\\coursedesktopclient\\view\\completingmodulepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\view\\completingmodulepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\client\\coursedesktopclient\\view\\completingcoursepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\view\\completingcoursepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|c:\\users\\artem\\desktop\\client\\coursedesktopclient\\ui\\elements\\createmodulepanelelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{692E3957-8B77-7FB2-99AB-2B56B7AB2B60}|CourseDesktopClient\\CourseDesktopClient.csproj|solutionrelative:coursedesktopclient\\ui\\elements\\createmodulepanelelement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -55,18 +75,73 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CreateUserPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\CreateUserPage.xaml",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\View\\CreateUserPage.xaml",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\CreateUserPage.xaml",
+              "RelativeToolTip": "CourseDesktopClient\\View\\CreateUserPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-29T13:49:19.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TestResultPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\TestResultPage.xaml",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\View\\TestResultPage.xaml",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\TestResultPage.xaml",
+              "RelativeToolTip": "CourseDesktopClient\\View\\TestResultPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-29T13:44:14.586Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CompletingMaterialPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\CompletingMaterialPage.xaml",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\View\\CompletingMaterialPage.xaml",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\CompletingMaterialPage.xaml",
+              "RelativeToolTip": "CourseDesktopClient\\View\\CompletingMaterialPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-29T13:43:54.233Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CompletingModulePage.xaml",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\CompletingModulePage.xaml",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\View\\CompletingModulePage.xaml",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\CompletingModulePage.xaml",
+              "RelativeToolTip": "CourseDesktopClient\\View\\CompletingModulePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-29T13:43:37.191Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CompletingCoursePage.xaml",
+              "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\CompletingCoursePage.xaml",
+              "RelativeDocumentMoniker": "CourseDesktopClient\\View\\CompletingCoursePage.xaml",
+              "ToolTip": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\View\\CompletingCoursePage.xaml",
+              "RelativeToolTip": "CourseDesktopClient\\View\\CompletingCoursePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-29T13:43:05.138Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "CreateModulePanelElement.xaml",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\UI\\Elements\\CreateModulePanelElement.xaml",
               "RelativeDocumentMoniker": "CourseDesktopClient\\UI\\Elements\\CreateModulePanelElement.xaml",
               "ToolTip": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\UI\\Elements\\CreateModulePanelElement.xaml",
               "RelativeToolTip": "CourseDesktopClient\\UI\\Elements\\CreateModulePanelElement.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-28T19:49:45.158Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T19:49:45.158Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "CreateCoursePanelElement.xaml",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\UI\\Elements\\CreateCoursePanelElement.xaml",
               "RelativeDocumentMoniker": "CourseDesktopClient\\UI\\Elements\\CreateCoursePanelElement.xaml",
@@ -77,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "GerenateReportUserPageVm.cs",
               "DocumentMoniker": "C:\\Users\\Artem\\Desktop\\client\\CourseDesktopClient\\ViewModel\\GerenateReportUserPageVm.cs",
               "RelativeDocumentMoniker": "CourseDesktopClient\\ViewModel\\GerenateReportUserPageVm.cs",
