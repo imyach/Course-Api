@@ -2292,6 +2292,54 @@
         }
       }
     },
+    "/api/Reports/course/certificate": {
+      "post": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CourseCertificateReportDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CourseCertificateReportDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CourseCertificateReportDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseCertificateResponceDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Review/All": {
       "get": {
         "tags": [
@@ -3667,6 +3715,44 @@
             "items": {
               "$ref": "#/components/schemas/Module"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CourseCertificateReportDto": {
+        "required": [
+          "courseTitle",
+          "name",
+          "passedDate"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "passedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "courseTitle": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CourseCertificateResponceDto": {
+        "type": "object",
+        "properties": {
+          "fileContent": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "fileName": {
+            "type": "string",
             "nullable": true
           }
         },

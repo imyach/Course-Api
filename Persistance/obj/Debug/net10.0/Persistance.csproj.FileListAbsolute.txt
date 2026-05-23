@@ -184,3 +184,13 @@ C:\Users\Artem\Desktop\serv\Persistance\bin\net10.0\Application.dll
 C:\Users\Artem\Desktop\serv\Persistance\bin\net10.0\Domain.dll
 C:\Users\Artem\Desktop\serv\Persistance\bin\net10.0\Application.pdb
 C:\Users\Artem\Desktop\serv\Persistance\bin\net10.0\Domain.pdb
+C:\Users\Artem\Desktop\Course-Api\Persistance\bin\net10.0\Icons\Skill-Forge-icon.png
+C:\Users\Artem\Desktop\Course-Api\Persistance\bin\net10.0\Persistance.deps.json
+C:\Users\Artem\Desktop\Course-Api\Persistance\bin\net10.0\Persistance.runtimeconfig.json
+C:\Users\Artem\Desktop\Course-Api\Persistance\bin\net10.0\Persistance.dll
+C:\Users\Artem\Desktop\Course-Api\Persistance\bin\net10.0\Persistance.pdb
+C:\Users\Artem\Desktop\Course-Api\Persistance\bin\net10.0\Application.dll
+C:\Users\Artem\Desktop\Course-Api\Persistance\bin\net10.0\Domain.dll
+C:\Users\Artem\Desktop\Course-Api\Persistance\bin\net10.0\Application.pdb
+C:\Users\Artem\Desktop\Course-Api\Persistance\bin\net10.0\Domain.pdb
+C:\Users\Artem\Desktop\Course-Api\Persistance\obj\Debug\net10.0\Persistance.genruntimeconfig.cache

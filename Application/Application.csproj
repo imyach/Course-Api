@@ -8,7 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Common\Queries\Roles\GetRoleList\GetAllRolesQueryHandler.cs~RF89a2dd.TMP" />
+    <None Remove="Common\Queries\Roles\GetRoleList\GetAllRolesQueryHandler.cs~RF89a2dd.TMP" />	  <None Update="Icons\Skill-Forge-icon.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +23,7 @@
     <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
+	  <PackageReference Include="PuppeteerSharp" Version="25.0.4" />
     <PackageReference Include="Serilog" Version="4.3.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />

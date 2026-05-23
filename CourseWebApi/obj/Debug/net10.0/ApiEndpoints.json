@@ -1580,6 +1580,37 @@
   },
   {
     "ContainingType": "CourseWebApi.Controllers.ReportsController",
+    "Method": "GenerateCourseCertificate",
+    "RelativePath": "api/Reports/course/certificate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "\u0441ourseCertificateReportDto",
+        "Type": "CourseWebApi.Models.Reports.CourseCertificateReportDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Common.Dtos.Reports.Course.CourseCertificateResponceDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 401
+      }
+    ]
+  },
+  {
+    "ContainingType": "CourseWebApi.Controllers.ReportsController",
     "Method": "GenerateUserReport",
     "RelativePath": "api/Reports/users",
     "HttpMethod": "POST",

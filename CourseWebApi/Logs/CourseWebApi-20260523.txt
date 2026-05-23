@@ -1,0 +1,2 @@
+2026-05-23 16:24:48.366 +03:00 [INF] Starting web application
+2026-05-23 16:24:52.466 +03:00 [INF] Application started successfully
