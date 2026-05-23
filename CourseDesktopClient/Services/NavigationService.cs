@@ -1,4 +1,5 @@
 ﻿using CourseDesktopClient.Interfaces;
+using CourseDesktopClient.Models.DtosModel.Entities;
 using CourseDesktopClient.View;
 using CourseDesktopClient.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
@@ -150,6 +151,18 @@ namespace CourseDesktopClient.Services
                 await vm.LoadingWorkshopPage();
             }
             NavigateTo(workshopPage);
+        }
+
+        public async Task NavigateToGenerateCourseCertificate(string titleCourse, DateTime? passedDate)
+        {
+            var generateCourseCertificatPage = serviceProvider.GetRequiredService<GenerateCourseCertificatPage>();
+
+            if (generateCourseCertificatPage.DataContext is GenerateCourseCertificatPageVm vm)
+            {
+                await vm.LoadPage(titleCourse, passedDate);
+            }
+
+            NavigateTo(generateCourseCertificatPage);
         }
 
         public async Task NavigateToCreateCourse(Guid Id = default)
@@ -309,6 +322,6 @@ namespace CourseDesktopClient.Services
             _navigationStack.Clear();
         }
 
-      
+
     }
 }

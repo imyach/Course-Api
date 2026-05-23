@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseDesktopClient.Models.DtosModel.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -31,6 +32,7 @@ namespace CourseDesktopClient.Interfaces
         Task NavigateToCreateUser();
         void NavigateToUpdateUserPassword();
         void NavigateToGenerateReport();
+        Task NavigateToGenerateCourseCertificate(string titleCourse, DateTime? passedDate);
         void NavigateMistakePage(Exception exception);
 
 

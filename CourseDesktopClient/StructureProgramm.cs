@@ -69,6 +69,7 @@ namespace CourseDesktopClient
             services.AddTransient<AllCoursePageVm>();
             services.AddTransient<AllUsersPageVm>();
             services.AddTransient<MyCoursePageVm>();
+            services.AddTransient<GenerateCourseCertificatPageVm>();
             services.AddTransient<UpdateUserPasswordPageVm>();
             services.AddTransient<RegisterPageVm>();
             services.AddTransient<VideoLogoPageVm>();
@@ -207,6 +208,11 @@ namespace CourseDesktopClient
             {
                 var videoLogoPageVm = provider.GetRequiredService<VideoLogoPageVm>();
                 return new VideoLogoPage { DataContext = videoLogoPageVm };
+            });
+            services.AddTransient(provider =>
+            {
+                var generateCourseCertificatPageVm = provider.GetRequiredService<GenerateCourseCertificatPageVm>();
+                return new GenerateCourseCertificatPage { DataContext = generateCourseCertificatPageVm };
             });
 
 

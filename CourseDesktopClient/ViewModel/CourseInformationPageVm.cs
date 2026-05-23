@@ -3,18 +3,11 @@ using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Models;
 using CourseDesktopClient.Models.DtosModel.Entities;
 using CourseDesktopClient.Models.DtosModel.Entities.RequestDto;
-using CourseDesktopClient.Services;
 using CourseDesktopClient.UI.Elements.ElementVM;
 using CourseDesktopClient.Utilities;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Text;
 using System.Windows;
-using System.Windows.Data;
 using System.Windows.Input;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace CourseDesktopClient.ViewModel
 {

@@ -4,6 +4,7 @@ using CourseDesktopClient.Models.DtosModel.Entities;
 using CourseDesktopClient.Models.DtosModel.Entities.RequestDto;
 using CourseDesktopClient.Models.DtosModel.EntitiesLists;
 using CourseDesktopClient.Models.DtosModel.Reports;
+using CourseDesktopClient.Models.DtosModel.Reports.Course;
 using CourseDesktopClient.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -118,5 +119,6 @@ namespace CourseDesktopClient.Api.Client
 
         //REPORTS
         Task<UserReportReusltDto?> GenerateUsersReport(UserReportDto userReportDto,CancellationToken ct = default);
+        Task<CourseCertificateResultDto?> GenerateCourseCertificate(CourseCertificateDto userReportDto,CancellationToken ct = default);
     }
 }

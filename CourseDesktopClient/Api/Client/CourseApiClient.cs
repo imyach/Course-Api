@@ -5,6 +5,7 @@ using CourseDesktopClient.Models.DtosModel.Entities;
 using CourseDesktopClient.Models.DtosModel.Entities.RequestDto;
 using CourseDesktopClient.Models.DtosModel.EntitiesLists;
 using CourseDesktopClient.Models.DtosModel.Reports;
+using CourseDesktopClient.Models.DtosModel.Reports.Course;
 using CourseDesktopClient.Services;
 using CourseDesktopClient.ViewModel;
 using System;
@@ -741,6 +742,14 @@ namespace CourseDesktopClient.Api.Client
                 return null;
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadFromJsonAsync<UserReportReusltDto?>(ct);
+        }
+        public async Task<CourseCertificateResultDto?> GenerateCourseCertificate(CourseCertificateDto courseCertificateDto, CancellationToken ct = default)
+        {
+            var response = await httpClient.PostAsJsonAsync(ApiPaths.API_GENERATE_COURSE_CERTIFICATE_REPORT, courseCertificateDto, ct);
+            if (!CheckOnAvalibleSever(response))
+                return null;
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<CourseCertificateResultDto?>(ct);
         }
     }
 }

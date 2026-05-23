@@ -2,17 +2,10 @@
 using CourseDesktopClient.Interfaces;
 using CourseDesktopClient.Models;
 using CourseDesktopClient.Models.DtosModel.Entities;
-using CourseDesktopClient.Services;
 using CourseDesktopClient.UI.Elements.ElementVM;
 using CourseDesktopClient.Utilities;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Drawing.Printing;
-using System.Reflection.Metadata;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace CourseDesktopClient.ViewModel
@@ -36,6 +29,7 @@ namespace CourseDesktopClient.ViewModel
         public ICommand ContinueCousre { get; set; }
         public ICommand ViewDetailsCommand { get; set; }
         public ICommand DeleteProgressCourseCommand { get; set; }
+        public ICommand GetCertificate { get; set; }
         public ICommand PagerCommand { get; set; }
 
         private Visibility _visibleButtonPanel;
@@ -107,7 +101,10 @@ namespace CourseDesktopClient.ViewModel
                     await Update(pageNumber);
                 }
             });
-
+            GetCertificate = new RelayCommand(async sender =>
+            {
+                await navigationService.NavigateToGenerateCourseCertificate((sender as MyCoursePanelElementVm).Title, (sender as MyCoursePanelElementVm).FinishedAt);
+            });
         }
 
         public async Task LoadProgressUserForCoursesData(string searchText, int pageNumber)

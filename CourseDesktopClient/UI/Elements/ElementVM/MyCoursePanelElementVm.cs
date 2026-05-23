@@ -19,5 +19,6 @@ namespace CourseDesktopClient.UI.Elements.ElementVM
         public DateTime StartedAt => progressUserDto.StartedAt;
         public DateTime? FinishedAt => progressUserDto.FineshedAt;
         public string ButtonContent => Status == "Пройден" ? "Посмотреть результаты" : "Продолжить обучение →";
+        public Visibility VisibleGetCertifacateButton => Status == "Пройден" ? Visibility.Visible : Visibility.Collapsed;
     }
 }

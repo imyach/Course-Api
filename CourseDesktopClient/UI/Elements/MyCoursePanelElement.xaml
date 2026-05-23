@@ -15,7 +15,7 @@
             CornerRadius="20"
             Width="450"
             Height="Auto"
-            MaxHeight="450"
+            MaxHeight="550"
             Margin="20"
             Effect="{StaticResource CardShadowEffect}">
 
@@ -23,6 +23,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <!-- Кнопка Продолжить (сверху) -->
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <!-- Разделитель 1 -->
                 <RowDefinition Height="Auto"/>
@@ -59,15 +60,53 @@
                         FontSize="14"
                         FontWeight="Bold"
                         Cursor="Hand"/>
+                
             </Border>
 
+            <Border Grid.Row="0"
+        CornerRadius="12"
+        Margin="0,0,0,15"
+        Padding="0">
+    <Button Content="{Binding ButtonContent}"
+            Command="{Binding DataContext.ContinueCousre, 
+                    RelativeSource={RelativeSource 
+                    AncestorType=UserControl, 
+                    AncestorLevel=2}}"
+            CommandParameter="{Binding}"
+            Style="{StaticResource ContinueButtonLargeStyle}"
+            Height="45"
+            FontSize="14"
+            FontWeight="Bold"
+            Cursor="Hand"/>
+    
+</Border>
+            <Border Grid.Row="1"
+        CornerRadius="12"
+        Margin="0,0,0,15"
+        Padding="0">
+                <Button Content="Получить сертификат"
+            Command="{Binding DataContext.GetCertificate, 
+                    RelativeSource={RelativeSource 
+                    AncestorType=UserControl, 
+                    AncestorLevel=2}}"
+            CommandParameter="{Binding}"
+            Style="{StaticResource ContinueButtonLargeStyle}"
+                        Visibility="{Binding VisibleGetCertifacateButton}"
+            Height="45"
+            FontSize="14"
+            FontWeight="Bold"
+            Cursor="Hand"/>
+
+            </Border>
+
+
             <!-- Разделитель 1 -->
-            <Rectangle Grid.Row="1" 
+            <Rectangle Grid.Row="2" 
                        Style="{StaticResource CardSeparatorStyle}"
                        Margin="0,0,0,15"/>
 
             <!-- Заголовок и кнопка подробнее в одной строке -->
-            <Grid Grid.Row="2" Margin="0,0,0,10">
+            <Grid Grid.Row="3" Margin="0,0,0,10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
@@ -103,12 +142,12 @@
             </Grid>
 
             <!-- Разделитель 2 -->
-            <Rectangle Grid.Row="3" 
+            <Rectangle Grid.Row="4" 
                        Style="{StaticResource CardSeparatorStyle}"
                        Margin="0,0,0,12"/>
 
             <!-- Описание курса -->
-            <TextBlock Grid.Row="4"
+            <TextBlock Grid.Row="5"
                        Text="{Binding Description}" 
                        Foreground="{StaticResource TextSecondaryBrush}"
                        TextWrapping="Wrap"
@@ -120,7 +159,7 @@
                        LineStackingStrategy="BlockLineHeight"/>
 
             <!-- Автор курса -->
-            <TextBlock Grid.Row="5"
+            <TextBlock Grid.Row="6"
                        Text="{Binding CreatedBy, StringFormat='Автор: {0}'}" 
                        Foreground="{StaticResource TextSecondaryBrush}"
                        TextWrapping="Wrap"
@@ -128,7 +167,7 @@
                        FontSize="13"/>
 
             <!-- Даты -->
-            <Grid Grid.Row="6" Margin="0,0,0,12">
+            <Grid Grid.Row="7" Margin="0,0,0,12">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -159,7 +198,7 @@
             </Grid>
 
             <!-- Статус курса -->
-            <Border Grid.Row="7"
+            <Border Grid.Row="8"
                     x:Name="StatusBorder"
                     CornerRadius="15"
                     Padding="8,4"
@@ -200,12 +239,12 @@
             </Border>
 
             <!-- Разделитель 3 -->
-            <Rectangle Grid.Row="8" 
+            <Rectangle Grid.Row="9" 
                        Style="{StaticResource CardSeparatorStyle}"
                        Margin="0,0,0,12"/>
 
             <!-- Кнопка удаления (внизу) -->
-            <Button Grid.Row="9"
+            <Button Grid.Row="10"
                     Content="Прекратить обучение"
                     Command="{Binding DataContext.DeleteProgressCourseCommand, 
                             RelativeSource={RelativeSource 

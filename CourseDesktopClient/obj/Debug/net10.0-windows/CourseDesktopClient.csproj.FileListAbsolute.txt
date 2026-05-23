@@ -357,3 +357,5 @@ C:\Users\Artem\Desktop\client\CourseDesktopClient\obj\Debug\net10.0-windows\View
 C:\Users\Artem\Desktop\client\CourseDesktopClient\obj\Debug\net10.0-windows\View\WorkshopPage.baml
 C:\Users\Artem\Desktop\client\CourseDesktopClient\obj\Debug\net10.0-windows\CourseDesktopClient.Properties.Resources.resources
 C:\Users\Artem\Desktop\client\CourseDesktopClient\obj\Debug\net10.0-windows\CourseDesktopClient.csproj.GenerateResource.cache
+C:\Users\Artem\Desktop\client\CourseDesktopClient\obj\Debug\net10.0-windows\View\GenerateCourseCertificatPage.g.cs
+C:\Users\Artem\Desktop\client\CourseDesktopClient\obj\Debug\net10.0-windows\View\GenerateCourseCertificatPage.baml
