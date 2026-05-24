@@ -1,0 +1,90 @@
+# ========== Результаты сборки ==========
+**/bin/
+**/obj/
+**/Debug/
+**/Release/
+**/net*/
+
+# ========== Chrome / Puppeteer (браузер для генерации PDF) ==========
+**/Chrome/
+**/ChromeHeadlessShell/
+**/chrome-win64/
+**/chrome-headless-shell-win64/
+
+# ========== Логи ==========
+**/Logs/
+*.log
+**/logs/
+
+# ========== Пользовательские загрузки ==========
+**/wwwroot/uploads/
+**/uploads/
+**/Icons/  # если это не исходники, а пользовательские файлы
+
+# ========== Базы данных ==========
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+
+# ========== Visual Studio ==========
+.vs/
+*.user
+*.suo
+*.sln.docstates
+**/.vs/
+
+# ========== JetBrains Rider / VS Code ==========
+.idea/
+.vscode/
+*.sln.iml
+
+# ========== Временные файлы ==========
+*.tmp
+*.temp
+*.cache
+*~
+*.swp
+
+# ========== Файлы отладки ==========
+*.pdb
+*.ilk
+*.exp
+
+# ========== Результаты тестов ==========
+TestResults/
+*.trx
+*.coverage
+
+# ========== Документация (если генерируется) ==========
+*.xml
+*.chm
+
+# ========== Резервные копии ==========
+*.bak
+*.backup
+*.old
+
+# ========== Файлы профилирования ==========
+*.vsp
+*.vspx
+*.psess
+
+# ========== Публикация ==========
+*.pubxml.user
+*.pubxml
+**/publish/
+
+# ========== Файлы окружения ==========
+.env
+.env.local
+.env.production
+
+# ========== OS generated ==========
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
